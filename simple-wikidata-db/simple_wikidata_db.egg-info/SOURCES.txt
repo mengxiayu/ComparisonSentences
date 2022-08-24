@@ -1,0 +1,9 @@
+README.md
+setup.py
+simple_wikidata_db/__init__.py
+simple_wikidata_db/preprocess_dump.py
+simple_wikidata_db/utils.py
+simple_wikidata_db.egg-info/PKG-INFO
+simple_wikidata_db.egg-info/SOURCES.txt
+simple_wikidata_db.egg-info/dependency_links.txt
+simple_wikidata_db.egg-info/top_level.txt
