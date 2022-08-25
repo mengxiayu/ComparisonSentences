@@ -24,6 +24,8 @@ def fetch_by_qid(work_queue: Queue, target):
         if len(record) > 0:
             print(record)
 
+
+
 if __name__ == "__main__":
 
     target = "Q22686"

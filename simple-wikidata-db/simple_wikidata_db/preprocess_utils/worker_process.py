@@ -42,9 +42,17 @@ def process_mainsnak(data, language_id):
 
 def process_json(obj, language_id="en"):
     out_data = defaultdict(list)
-    # skip properties
+    # extract property labels
     if obj['type'] == 'property':
-        return {}
+        # return {}
+        id = obj["id"]
+        if language_id in obj["labels"]:
+            label = obj["labels"][language_id]["value"]
+            out_data["property_labels"].append({
+                "pid": id,
+                "label": label
+            })
+        return dict(out_data)
     id = obj['id']  # The canonical ID of the entity.
     # extract labels
     if language_id in obj['labels']:
@@ -57,7 +65,7 @@ def process_json(obj, language_id="en"):
             'qid': id,
             'alias': label
         })
-
+        
     # extract description
     if language_id in obj['descriptions']:
         description = obj['descriptions'][language_id]['value']
