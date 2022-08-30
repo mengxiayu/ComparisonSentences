@@ -16,7 +16,7 @@ def get_arg_parser():
     parser.add_argument('--value', type=str, default=None, help='target value')
     parser.add_argument('--num_procs', type=int, default=10, help='Number of processes')
     parser.add_argument('--output', type=str, default="/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata", help='path to output directory')
-    parser.add_argument('--index', type=str, default=None, help='entity2file index')
+    parser.add_argument('--index', type=str, default=None, help='path to index directory')
     parser.add_argument('--entities_file', type=str, default=None, help="entity list file")
     parser.add_argument('--output_name', type=str, default="extracted", help="output file name")
     return parser
@@ -29,21 +29,35 @@ def _read_dir(
     path = Path(args.data) / args.table_name
     dir_list = os.listdir(path)
     print(f"searching in {len(dir_list)} files...")
-    for batch_file in dir_list[:5]: # FIXME
+    for batch_file in dir_list:
         # work_queue.put(path+batch_file)
         work_queue.put(path / batch_file)
 
 def _read_filtered_dir(work_queue: Queue, args):
-    assert args.index_file is not None
     assert args.entities_file is not None
-    
-    path = Path(args.data) / table_name
+    path = Path(args.data) / args.table_name
     with open (args.entities_file, 'r') as f:
+        print("loading entity list from:", args.entities_file)
         entity_list = [line.strip() for line in f]
-    entity2file = json.load(open(args.index_file, 'r'))
-    file_list = []
-    for e in entity_list:
-        file_list.extend(entity2file[e])
+
+    if len(entity_list) < 200 and args.index is not None: # TODO remove index.
+        print("loading index from:", args.index)
+        # load index parts and look for target files
+        prefix2eneities = {} # {"Q1": ["Q124235", "Q1637721", ...], "Q2": ...}
+        for e in entity_list:
+            if e[:2] not in prefix2eneities:
+                prefix2eneities[e[:2]] = []
+            prefix2eneities[e[:2]].append(e)
+        print(f"loading index from {len(prefix2eneities)} files")
+        file_list = set()
+        for prefix, entities in prefix2eneities.items():
+            entity2file = json.load(open(Path(args.index) / f"{prefix}.json", 'r'))
+            for e in entities:
+                file_list.update(entity2file[e])
+        file_list = list(file_list)
+    else:
+        file_list = os.listdir(path)
+    print(f"searching in {len(file_list)} files...")
     for batch_file in file_list:
         work_queue.put(path / batch_file)
 
@@ -60,7 +74,7 @@ def _write_data(output_queue: Queue, args):
     table_dir.mkdir(parents=True, exist_ok=True)
     result.to_csv(table_dir / f"{args.output_name}.tsv", sep='\t')
 
-def _fetch_by_qid(work_queue: Queue, args):
+def _fetch_by_qid(work_queue: Queue, output_queue: Queue, args):
     '''
     work_quque: queue of input file paths
 
@@ -71,11 +85,12 @@ def _fetch_by_qid(work_queue: Queue, args):
         file_path = work_queue.get()
         if file_path is None:
             break
-        print(file_path[-10:])
+        print("searching in:", file_path)
         df = pd.read_csv(file_path, sep='\t', header=0, on_bad_lines='warn')
         record = df.loc[df["qid"].isin(entity_list)] # query in the table
-        if len(record) > 0:
-            print(record)
+        if len(record) == 0:
+            continue
+        output_queue.put(record)
 
 def _fetch_by_property(work_queue: Queue, output_queue: Queue, args):
     assert args.rel is not None
@@ -84,6 +99,7 @@ def _fetch_by_property(work_queue: Queue, output_queue: Queue, args):
         file_path = work_queue.get()
         if file_path is None:
             break
+        print("searching in:", file_path)
         df = pd.read_csv(file_path, sep='\t', header=0, on_bad_lines='warn')
         record = df.loc[(df["property_id"] == args.rel) & (df["value"] == args.value)]
         if len(record) == 0:
@@ -91,6 +107,7 @@ def _fetch_by_property(work_queue: Queue, output_queue: Queue, args):
         output_queue.put(record)
 
 
+# 2. define work flow
 def work_flow(args, read_func, work_func, write_func):
     '''
     read from data
@@ -115,7 +132,7 @@ def work_flow(args, read_func, work_func, write_func):
 
     write_process = Process(
         target=write_func,
-        args=(output_queue, args) # TODO condition
+        args=(output_queue, args)
     )
     write_process.start()
     
@@ -139,7 +156,7 @@ def work_flow(args, read_func, work_func, write_func):
     print(f"Finished processing in {time.time() - start_time}s")
 
 
-
+# define main functions
 def fetch_by_entity(args):
     work_flow(args, _read_filtered_dir, _fetch_by_qid, _write_data)
 

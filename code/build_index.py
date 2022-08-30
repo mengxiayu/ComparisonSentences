@@ -19,21 +19,27 @@ def build_index(table_name):
                 entity_set.add(line.strip().split('\t')[2])
         print(batch_file, len(entity_set))
         file2entity[batch_file] = list(entity_set)
-    with open(os.path.join(index_path, table_name)+".json", 'w') as f:
+    with open(os.path.join(index_path, "file2entity", table_name)+".json", 'w') as f:
         f.write(json.dumps(file2entity))
 
 def reconstruct_index(table_name):
     index_path = "/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata/indices"
-    with open(os.path.join(index_path, table_name)+".json", 'r') as f:
+    with open(os.path.join(index_path, "file2entity", table_name)+".json", 'r') as f:
         file2entity = json.load(f)
     entity2file = {}
     for batch_file, entity_list in file2entity.items():
         for e in entity_list:
-            if e not in entity2file:
-                entity2file[e] = []
-            entity2file[e].append(batch_file)
-    with open(os.path.join(index_path, table_name) + ".e2f.json", 'w') as f:
-        f.write(json.dumps(entity2file))    
+            if e[:2] not in entity2file:
+                entity2file[e[:2]] = {}
+            if e not in entity2file[e[:2]]:
+                entity2file[e[:2]][e] = []
+            entity2file[e[:2]][e].append(batch_file)
+    output_dir = os.path.join(index_path, "entity2file", table_name)
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+    for prefix, index_dict in entity2file.items():
+        with open(os.path.join(output_dir, f"{prefix}.json"), 'w') as f:
+            f.write(json.dumps(entity2file[prefix]))    
 
 
 def get_arg_parser():
