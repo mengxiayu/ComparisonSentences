@@ -72,7 +72,7 @@ def _write_data(output_queue: Queue, args):
     print("result length:", len(result))
     table_dir = Path(args.output) / args.table_name
     table_dir.mkdir(parents=True, exist_ok=True)
-    result.to_csv(table_dir / f"{args.output_name}.tsv", sep='\t')
+    result.to_csv(table_dir / f"{args.output_name}.tsv", sep='\t', index=False)
 
 def _fetch_by_qid(work_queue: Queue, output_queue: Queue, args):
     '''
@@ -90,6 +90,8 @@ def _fetch_by_qid(work_queue: Queue, output_queue: Queue, args):
         record = df.loc[df["qid"].isin(entity_list)] # query in the table
         if len(record) == 0:
             continue
+        if "claim_id" in record:
+            record = record.drop(columns=["claim_id"])
         output_queue.put(record)
 
 def _fetch_by_property(work_queue: Queue, output_queue: Queue, args):
@@ -104,6 +106,8 @@ def _fetch_by_property(work_queue: Queue, output_queue: Queue, args):
         record = df.loc[(df["property_id"] == args.rel) & (df["value"] == args.value)]
         if len(record) == 0:
             continue
+        if "claim_id" in record:
+            record = record.drop(columns=["claim_id"])
         output_queue.put(record)
 
 

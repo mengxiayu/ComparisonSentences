@@ -51,84 +51,84 @@ def process_json(obj, language_id="en"):
             out_data["property_labels"].append({
                 "pid": id,
                 "label": label,
-                "datatype": obj["datatype"]            
-                })
-        return dict(out_data)
-    id = obj['id']  # The canonical ID of the entity.
-    # extract labels
-    if language_id in obj['labels']:
-        label = obj['labels'][language_id]['value']
-        out_data['labels'].append({
-            'qid': id,
-            'label': label
-        })
-        out_data['aliases'].append({
-            'qid': id,
-            'alias': label
-        })
-        
-    # extract description
-    if language_id in obj['descriptions']:
-        description = obj['descriptions'][language_id]['value']
-        out_data['descriptions'].append({
-            'qid': id,
-            'description': description,
-        })
-
-    # extract aliases
-    if language_id in obj['aliases']:
-        for alias in obj['aliases'][language_id]:
-            out_data['aliases'].append({
-                'qid': id,
-                'alias': alias['value'],
+                "datatype": obj["datatype"]
             })
+        return dict(out_data)
+    # id = obj['id']  # The canonical ID of the entity.
+    # # extract labels
+    # if language_id in obj['labels']:
+    #     label = obj['labels'][language_id]['value']
+    #     out_data['labels'].append({
+    #         'qid': id,
+    #         'label': label
+    #     })
+    #     out_data['aliases'].append({
+    #         'qid': id,
+    #         'alias': label
+    #     })
+        
+    # # extract description
+    # if language_id in obj['descriptions']:
+    #     description = obj['descriptions'][language_id]['value']
+    #     out_data['descriptions'].append({
+    #         'qid': id,
+    #         'description': description,
+    #     })
 
-    # extract english wikipedia sitelink -- we just add this to the external links table
-    if f'{language_id}wiki' in obj['sitelinks']:
-        sitelink = obj['sitelinks'][f'{language_id}wiki']['title']
-        out_data['wikipedia_links'].append({
-            'qid': id,
-            'wiki_title': sitelink
-        })
+    # # extract aliases
+    # if language_id in obj['aliases']:
+    #     for alias in obj['aliases'][language_id]:
+    #         out_data['aliases'].append({
+    #             'qid': id,
+    #             'alias': alias['value'],
+    #         })
 
-    # extract claims and qualifiers
-    for property_id in obj['claims']:
-        for claim in obj['claims'][property_id]:
-            if not claim['mainsnak']['snaktype'] == 'value':
-                continue
-            claim_id = claim['id']
-            datatype = claim['mainsnak']['datatype']
-            value = process_mainsnak(claim['mainsnak'], language_id)
+    # # extract english wikipedia sitelink -- we just add this to the external links table
+    # if f'{language_id}wiki' in obj['sitelinks']:
+    #     sitelink = obj['sitelinks'][f'{language_id}wiki']['title']
+    #     out_data['wikipedia_links'].append({
+    #         'qid': id,
+    #         'wiki_title': sitelink
+    #     })
 
-            if value is None:
-                continue
+    # # extract claims and qualifiers
+    # for property_id in obj['claims']:
+    #     for claim in obj['claims'][property_id]:
+    #         if not claim['mainsnak']['snaktype'] == 'value':
+    #             continue
+    #         claim_id = claim['id']
+    #         datatype = claim['mainsnak']['datatype']
+    #         value = process_mainsnak(claim['mainsnak'], language_id)
 
-            if datatype == 'wikibase-item':
-                out_data['entity_rels'].append({
-                    'claim_id': claim_id,
-                    'qid': id,
-                    'property_id': property_id,
-                    'value': value
-                })
-            elif datatype == 'external-id':
-                out_data['external_ids'].append({
-                    'claim_id': claim_id,
-                    'qid': id,
-                    'property_id': property_id,
-                    'value': value
-                })
-            else:
-                out_data['entity_values'].append({
-                    'claim_id': claim_id,
-                    'qid': id,
-                    'property_id': property_id,
-                    'value': value
-                })
-                if property_id in ALIAS_PROPERTIES:
-                    out_data['aliases'].append({
-                        'qid': id,
-                        'alias': value,
-                    })
+    #         if value is None:
+    #             continue
+
+    #         if datatype == 'wikibase-item':
+    #             out_data['entity_rels'].append({
+    #                 'claim_id': claim_id,
+    #                 'qid': id,
+    #                 'property_id': property_id,
+    #                 'value': value
+    #             })
+    #         elif datatype == 'external-id':
+    #             out_data['external_ids'].append({
+    #                 'claim_id': claim_id,
+    #                 'qid': id,
+    #                 'property_id': property_id,
+    #                 'value': value
+    #             })
+    #         else:
+    #             out_data['entity_values'].append({
+    #                 'claim_id': claim_id,
+    #                 'qid': id,
+    #                 'property_id': property_id,
+    #                 'value': value
+    #             })
+    #             if property_id in ALIAS_PROPERTIES:
+    #                 out_data['aliases'].append({
+    #                     'qid': id,
+    #                     'alias': value,
+    #                 })
 
             # # get qualifiers
             # if 'qualifiers' in claim:

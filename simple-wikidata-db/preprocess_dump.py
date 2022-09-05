@@ -16,7 +16,7 @@ from pathlib import Path
 import time
 
 from simple_wikidata_db.preprocess_utils.reader_process import count_lines, read_data
-from simple_wikidata_db.preprocess_utils.worker_process import process_data
+from simple_wikidata_db.preprocess_utils.worker_process_property import process_data
 from simple_wikidata_db.preprocess_utils.writer_process_tsv import write_data
 
 

@@ -9,8 +9,12 @@ import ujson
 #     'labels', 'descriptions', 'aliases', 'external_ids', 'entity_values', 'qualifiers', 'wikipedia_links', 'entity_rels'
 # ]
 
+# TABLE_NAMES = [
+#     'labels', 'descriptions', 'aliases', 'external_ids', 'entity_values', 'wikipedia_links', 'entity_rels', 'property_labels',
+# ]
+
 TABLE_NAMES = [
-    'labels', 'descriptions', 'aliases', 'external_ids', 'entity_values', 'wikipedia_links', 'entity_rels', 'property_labels',
+    'property_labels',
 ]
 
 

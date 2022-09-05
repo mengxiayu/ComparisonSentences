@@ -13,6 +13,7 @@ import multiprocessing
 from multiprocessing import Queue, Process
 import json
 import time
+import argparse
 
 def search_index(index_filename, title_queue, index_queue):
     while True:
@@ -86,13 +87,27 @@ def read_data(input_file, title_queue):
     for title in target_titles:
         title_queue.put(title)
 
+
+def get_arg_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--wiki_filename', type=str, default='/afs/crc.nd.edu/group/dmsquare/vol1/data/WIKIPEDIA/wikipedia_dump/enwiki-20220101-pages-articles-multistream.xml.bz2', help="folder name")
+    parser.add_argument('--index_filename', type=str, default='/afs/crc.nd.edu/group/dmsquare/vol1/data/WIKIPEDIA/wikipedia_dump/enwiki-20220101-pages-articles-multistream-index.txt', help="folder name")
+    parser.add_argument('--output_dir', type=str, default=None, help="folder name")
+    parser.add_argument('--title_filename', type=str, default=None, help="path")
+
+    return parser
+
+
 def main():
-    index_filename = '/afs/crc.nd.edu/group/dmsquare/vol1/data/WIKIPEDIA/wikipedia_dump/enwiki-20220101-pages-articles-multistream-index.txt'
-    wiki_filename = '/afs/crc.nd.edu/group/dmsquare/vol1/data/WIKIPEDIA/wikipedia_dump/enwiki-20220101-pages-articles-multistream.xml.bz2'
-    output_dir = Path('/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text/university')
+    args = get_arg_parser().parse_args()
+
+
+    index_filename = args.index_filename
+    wiki_filename = args.wiki_filename
+    output_dir = Path(args.output_dir)
     output_dir.mkdir(exist_ok=True)
     # read target titles
-    data_path = '/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata/tables/wikipedia_links/university.tsv'
+    data_path = args.title_filename
     start = time.time()
 
     n_procs = 30
