@@ -14,7 +14,7 @@ import ujson
 # ]
 
 TABLE_NAMES = [
-    'property_labels',
+    'property_labels', 'property_aliases'
 ]
 
 

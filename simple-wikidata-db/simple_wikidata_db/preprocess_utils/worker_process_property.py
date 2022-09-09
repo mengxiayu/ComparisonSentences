@@ -53,6 +53,16 @@ def process_json(obj, language_id="en"):
                 "label": label,
                 "datatype": obj["datatype"]
             })
+            out_data["property_aliases"].append({
+                "pid": id,
+                "alias": label
+            })
+        if language_id in obj["aliases"]:
+            for alias in obj["aliases"][language_id]:
+                out_data["property_aliases"].append({
+                    "pid": id,
+                    "alias": alias["value"]
+                })
         return dict(out_data)
     # id = obj['id']  # The canonical ID of the entity.
     # # extract labels

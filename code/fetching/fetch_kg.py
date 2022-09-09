@@ -40,23 +40,8 @@ def _read_filtered_dir(work_queue: Queue, args):
         print("loading entity list from:", args.entities_file)
         entity_list = [line.strip() for line in f]
 
-    if len(entity_list) < 200 and args.index is not None: # TODO remove index.
-        print("loading index from:", args.index)
-        # load index parts and look for target files
-        prefix2eneities = {} # {"Q1": ["Q124235", "Q1637721", ...], "Q2": ...}
-        for e in entity_list:
-            if e[:2] not in prefix2eneities:
-                prefix2eneities[e[:2]] = []
-            prefix2eneities[e[:2]].append(e)
-        print(f"loading index from {len(prefix2eneities)} files")
-        file_list = set()
-        for prefix, entities in prefix2eneities.items():
-            entity2file = json.load(open(Path(args.index) / f"{prefix}.json", 'r'))
-            for e in entities:
-                file_list.update(entity2file[e])
-        file_list = list(file_list)
-    else:
-        file_list = os.listdir(path)
+
+    file_list = os.listdir(path)
     print(f"searching in {len(file_list)} files...")
     for batch_file in file_list:
         work_queue.put(path / batch_file)
