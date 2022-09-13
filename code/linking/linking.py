@@ -155,33 +155,22 @@ def get_alias_statement(statement, v_type):
         return None
 
 
-# match (?, a, v)
-def match_sentence_av(sentence, alias):
-    # condition: eav
+def match_sentence_av(sentence: str, alias: list) -> tuple:
+    # condition: av
     q_alias_list, p_alias_list, v_alias_list = alias
     q_candidates = []
     p_candidates = []
     v_candidates = []
 
-    for p_alias in p_alias_list:
-        # if is_sublist(p_alias, sentence):
-        #     p_text = ' '.join(p_alias)
-        if p_alias in sentence:
-            p_candidates.append(p_alias)
-            break
+    p_candidates = [x for x in p_alias_list if x in sentence]
     if len(p_candidates) == 0:
         return None
 
-    for v_alias in v_alias_list:
-        # if is_sublist(v_alias, sentence):
-        #     # v_text = ' '.join(v_alias)
-        if v_alias in sentence:
-            v_candidates.append(v_alias)
-            break
+    v_candidates = [x for x in v_alias_list if x in sentence]
     if len(v_candidates) == 0:
         return None
 
-    # check sublist
+    # check sublist to make sure the word boundries are correct
     tokenized_sentence = word_tokenize(sentence)
     q_text = q_alias_list[0]
     p_text = None
@@ -211,29 +200,13 @@ def match_sentence_eav(sentence, alias):
     p_candidates = []
     v_candidates = []
 
-    for p_alias in p_alias_list:
-        # if is_sublist(p_alias, sentence):
-        #     p_text = ' '.join(p_alias)
-        if p_alias in sentence:
-            p_candidates.append(p_alias)
-            break
+    p_candidates = [x for x in p_alias_list if x in sentence]
     if len(p_candidates) == 0:
         return None
-
-    for q_alias in q_alias_list:
-        # if is_sublist(q_alias, sentence):
-        if q_alias in sentence:
-            q_candidates.append(q_alias)
-            # q_text = ' '.join(q_alias)
-            break
+    q_candidates = [x for x in q_alias_list if x in sentence]
     if len(q_candidates) == 0:
         return None
-    for v_alias in v_alias_list:
-        # if is_sublist(v_alias, sentence):
-        #     # v_text = ' '.join(v_alias)
-        if v_alias in sentence:
-            v_candidates.append(v_alias)
-            break
+    v_candidates = [x for x in v_alias_list if x in sentence]
     if len(v_candidates) == 0:
         return None
 
@@ -242,13 +215,7 @@ def match_sentence_eav(sentence, alias):
     q_text = None
     p_text = None
     v_text = None
-    for _q in q_candidates:
-        q = word_tokenize(_q)
-        if is_sublist(q, tokenized_sentence):
-            q_text = _q
-            break
-    if q_text is None:
-        return None 
+
     for _p in p_candidates:
         p = word_tokenize(_p)
         if is_sublist(p, tokenized_sentence):
@@ -256,6 +223,15 @@ def match_sentence_eav(sentence, alias):
             break
     if p_text is None:
         return None
+
+    for _q in q_candidates:
+        q = word_tokenize(_q)
+        if is_sublist(q, tokenized_sentence):
+            q_text = _q
+            break
+    if q_text is None:
+        return None 
+
     for _v in v_candidates:
         v = word_tokenize(_v)
         if is_sublist(v, tokenized_sentence):
@@ -272,13 +248,6 @@ def match_page(sentence_list: list, statement_list, v_type):
     results = {} # sentence to statements
     cnt = 0
     for i,statement in enumerate(statement_list):
-        # _alias = get_alias_statement(statement, v_type)
-        # if _alias is None:
-        #     continue
-        # _q = [word_tokenize(x) for x in _alias[0]]
-        # _p = [word_tokenize(x) for x in _alias[1]]
-        # _v = [word_tokenize(x) for x in _alias[2]]
-        # alias = (_q, _p, _v)
         alias = get_alias_statement(statement, v_type)
         if alias is None:
             continue
@@ -305,7 +274,7 @@ def match_page(sentence_list: list, statement_list, v_type):
 
 def _reorganize_statement(statement_list):
     statements = []
-    for s in statement_list:
+    for s in set(statement_list): # Sep 13 update: remove duplicates
         info = s.split('\t')
         if len(info) < 3:
             continue
@@ -327,60 +296,52 @@ def main():
     start = time.time()
     dir_data = Path(args.dir_data)
     dir_output = Path(args.dir_output)
-    input_filename = args.input_filename
     dir_output.mkdir(parents=True, exist_ok=True)
-    cnt_all = 0 # all pages
-    cnt_linked = 0 # linked pages
-    with open(dir_data / input_filename) as f, open(dir_output / input_filename, 'w') as fw:
-        for line in f:
-            cnt_all += 1
-            if cnt_all % 2000 == 0:
-                print(f"{cnt_all} read, {cnt_linked} linked, {(time.time() - start)/60:.2f} min")
-            obj = json.loads(line)
-            # print(obj["title"])
-            text = obj["text"]
-            sentences = sent_tokenize(text)
-            # tokenized_sentences = [word_tokenize(x) for x in sentences] # tokenize
-            # entity_rels
-            entity_rels = _reorganize_statement(obj["entity_rels"]) 
-            _t = time.time()
-            matched_entity_rels = match_page(sentences, entity_rels, "entity")
-            # print("rels:", time.time() - _t)
-            # entity_values
-            entity_values = _reorganize_statement(obj["entity_values"])
-            _t = time.time()
-            matched_entity_values = match_page(sentences, entity_values, "value")
-            # print("values:", time.time() - _t)
-            if len(matched_entity_rels)==0 and len(matched_entity_values) == 0:
-                continue
-            cnt_linked += 1
-            new_obj = {
-                "id": obj["id"],
-                "title": obj["title"],
-                "qid": obj["qid"],
-                "linked_entity_rels": [],
-                "linked_entity_values": []
-            }
-            
-            if len(matched_entity_rels) > 0:
-                for j, info in sorted(matched_entity_rels.items()):
-                    new_obj["linked_entity_rels"].append([j, sentences[j], info])
-            if len(matched_entity_values) > 0:
-                for j, info in sorted(matched_entity_values.items()):
-                    new_obj["linked_entity_values"].append([j, sentences[j], info])   
-            fw.write(json.dumps(new_obj)+'\n')
 
-            # for j, sent in enumerate(sentences):
-            #     if j not in matched_entity_rels and j not in matched_entity_values:
-            #         f.write(f"s{j}\t{sent}\t \t \t \n")
-            #     if j in matched_entity_rels:
-            #         for stm in matched_entity_rels[j]:
-            #             f.write(f"s{j}\t{sent}\t{str(entity_rels[stm[0]])}\t{stm[1]}\t'E'\n")
-            #     if j in matched_entity_values:
-            #         for stm in matched_entity_values[j]:
-            #             f.write(f"s{j}\t{sent}\t{str(entity_rels[stm[0]])}\t{stm[1]}\t'V'\n")        
-                                       
-    print(f"Finished!, time:{time.time() - start}, cnt_total: {cnt_all}, cnt_linked: {cnt_linked}")
+    for num in args.input_filename.split(','):
+        input_filename = f"wiki_{num}"
+        with open(dir_data / input_filename) as f, open(dir_output / input_filename, 'w') as fw:
+            cnt_all = 0 # all pages
+            cnt_linked = 0 # linked pages
+            for line in f:
+                cnt_all += 1
+                if cnt_all % 2000 == 0:
+                    print(f"{cnt_all} read, {cnt_linked} linked, {(time.time() - start)/60:.2f} min")
+                obj = json.loads(line)
+                # print(obj["title"])
+                text = obj["text"]
+                sentences = sent_tokenize(text)
+                
+                # entity_rels
+                entity_rels = _reorganize_statement(obj["entity_rels"]) 
+                _t = time.time()
+                matched_entity_rels = match_page(sentences, entity_rels, "entity")
+                # print("rels:", time.time() - _t)
+                # entity_values
+                entity_values = _reorganize_statement(obj["entity_values"])
+                _t = time.time()
+                matched_entity_values = match_page(sentences, entity_values, "value")
+                # print("values:", time.time() - _t)
+                if len(matched_entity_rels)==0 and len(matched_entity_values) == 0:
+                    continue
+                cnt_linked += 1
+                new_obj = {
+                    "id": obj["id"],
+                    "title": obj["title"],
+                    "qid": obj["qid"],
+                    "linked_entity_rels": [],
+                    "linked_entity_values": []
+                }
+                
+                if len(matched_entity_rels) > 0:
+                    for j, info in sorted(matched_entity_rels.items()):
+                        new_obj["linked_entity_rels"].append([j, sentences[j], info])
+                if len(matched_entity_values) > 0:
+                    for j, info in sorted(matched_entity_values.items()):
+                        new_obj["linked_entity_values"].append([j, sentences[j], info])   
+                fw.write(json.dumps(new_obj)+'\n')
+                  
+        print(f"Finished!, time:{time.time() - start}, cnt_total: {cnt_all}, cnt_linked: {cnt_linked}")
 
 
 if __name__ == "__main__":
