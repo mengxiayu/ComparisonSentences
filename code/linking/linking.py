@@ -90,10 +90,12 @@ def _lookup_pid2alias(pid):
 #         table_name = f"Q{qid[1:3]}.tsv"
 #     record = None
 #     with open (dir_entity_aliases / table_name, 'r') as f:
-#         for line in f:
-#             if line.startswith(qid):
-#                 record = line.strip().split('\t')
-#                 return record[1].split('|sep|')
+        # for line in f:
+        #     if not line.startswith(qid):
+        #         continue
+        #     record = line.strip().split('\t')
+        #     if record[0] == qid:
+        #         return record[1].split('|sep|')
 #     return None
 
 
