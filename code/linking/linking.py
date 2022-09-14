@@ -155,8 +155,12 @@ def get_alias_statement(statement, v_type):
         return None
 
 
-def match_sentence_av(sentence: str, alias: list) -> tuple:
-    # condition: av
+def match_sentence_av(sentence: str, alias: list):
+    """
+    Match a single sentence with a single statement. Condition: (?, a, v)
+    sentence: str
+    alias: a tuple of aliases of e,a,v
+    """
     q_alias_list, p_alias_list, v_alias_list = alias
     q_candidates = []
     p_candidates = []
@@ -193,8 +197,12 @@ def match_sentence_av(sentence: str, alias: list) -> tuple:
     return q_text, p_text, v_text
 
 # match (e, a, v)
-def match_sentence_eav(sentence, alias):
-    # condition: eav
+def match_sentence_eav(sentence: str, alias: tuple):
+    """
+    Match a single sentence with a single statement. Condition: (e, a, v)
+    sentence: str
+    alias: a tuple of aliases of q,p,v
+    """
     q_alias_list, p_alias_list, v_alias_list = alias
     q_candidates = []
     p_candidates = []
@@ -243,9 +251,8 @@ def match_sentence_eav(sentence, alias):
 
 
 def match_page(sentence_list: list, statement_list, v_type):
-    # print("sentences", len(sentence_list))
-    # print("statements", len(statement_list))
-    results = {} # sentence to statements
+
+    results = {}
     cnt = 0
     for i,statement in enumerate(statement_list):
         alias = get_alias_statement(statement, v_type)
