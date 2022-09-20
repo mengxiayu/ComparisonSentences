@@ -11,6 +11,10 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 import time
 import os
 import argparse
+from nltk.corpus import stopwords
+stop = set(stopwords.words('english'))
+stop -= set(['he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself']) # we want to keep these forms to link statements about gender
+
 
 path_prop_datatype = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_processed/property_labels/0.tsv")
 path_prop_alias = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_processed/property_aliases/0.tsv")
@@ -90,12 +94,12 @@ def _lookup_pid2alias(pid):
 #         table_name = f"Q{qid[1:3]}.tsv"
 #     record = None
 #     with open (dir_entity_aliases / table_name, 'r') as f:
-        # for line in f:
-        #     if not line.startswith(qid):
-        #         continue
-        #     record = line.strip().split('\t')
-        #     if record[0] == qid:
-        #         return record[1].split('|sep|')
+#         for line in f:
+#             if not line.startswith(qid):
+#                 continue
+#             record = line.strip().split('\t')
+#             if record[0] == qid:
+#                 return record[1].split('|sep|')
 #     return None
 
 
@@ -178,25 +182,31 @@ def match_sentence_av(sentence: str, alias: list):
 
     # check sublist to make sure the word boundries are correct
     tokenized_sentence = word_tokenize(sentence)
-    q_text = q_alias_list[0]
-    p_text = None
-    v_text = None
-
+    p_text = []
+    v_text = []
+    
     for _p in p_candidates:
         p = word_tokenize(_p)
         if is_sublist(p, tokenized_sentence):
-            p_text = _p
-            break
-    if p_text is None:
+            p_text.append(_p)
+    if len(p_text) == 0:
         return None
     for _v in v_candidates:
         v = word_tokenize(_v)
-        if is_sublist(v, tokenized_sentence):
-            v_text = _v
-            break
-    if v_text is None:
+        if is_sublist(v, tokenized_sentence): # avoid duplicate p and v
+            v_text.append(_v)
+    if len(v_text) == 0:
         return None
-    return q_text, p_text, v_text
+    # check duplicate
+
+    for p in p_text:
+        for v in v_text:
+            if (p != v) and (v not in stop):
+                return q_alias_list[0], p, v
+    
+    return None
+
+
 
 # match (e, a, v)
 def match_sentence_eav(sentence: str, alias: tuple):
@@ -222,34 +232,79 @@ def match_sentence_eav(sentence: str, alias: tuple):
 
     # check sublist
     tokenized_sentence = word_tokenize(sentence)
-    q_text = None
-    p_text = None
-    v_text = None
+    q_text = []
+    p_text = []
+    v_text = []
 
     for _p in p_candidates:
         p = word_tokenize(_p)
         if is_sublist(p, tokenized_sentence):
-            p_text = _p
-            break
-    if p_text is None:
+            p_text.append(_p)
+    if len(p_text) is None:
         return None
 
     for _q in q_candidates:
         q = word_tokenize(_q)
         if is_sublist(q, tokenized_sentence):
-            q_text = _q
-            break
-    if q_text is None:
+            q_text.append(_q)
+    if len(q_text) is None:
         return None 
 
     for _v in v_candidates:
         v = word_tokenize(_v)
         if is_sublist(v, tokenized_sentence):
-            v_text = _v
-            break
-    if v_text is None:
+            v_text.append(_v)
+    if len(v_text) is None:
         return None
-    return q_text, p_text, v_text
+    # avoid duplicate:
+    for q in q_text:
+        for p in p_text:
+            for v in v_text:
+                if (q != p) and (q != v) and (p != v) and (q not in stop) and (v not in stop):
+                    return q, p, v     
+    return None
+
+
+# match (e, v)
+def match_sentence_ev(sentence, alias):
+    # condition: ev
+    q_alias_list, p_alias_list, v_alias_list = alias
+    q_candidates = []
+    v_candidates = []
+
+    q_candidates = [x for x in q_alias_list if x in sentence]
+    if len(q_candidates) == 0:
+        return None
+    v_candidates = [x for x in v_alias_list if x in sentence]
+    if len(v_candidates) == 0:
+        return None
+
+    # check sublist
+    tokenized_sentence = word_tokenize(sentence)
+    q_text = []
+    v_text = []
+
+    for _q in q_candidates:
+        q = word_tokenize(_q)
+        if is_sublist(q, tokenized_sentence):
+            q_text.append(_q)
+    if len(q_text) == 0:
+        return None 
+
+    for _v in v_candidates:
+        v = word_tokenize(_v)
+        if is_sublist(v, tokenized_sentence):
+            v_text.append(_v)
+    if len(v_text) == 0:
+        return None
+    
+    for q in q_text:
+        for v in v_text:
+            if q != v and (q not in stop) and (v not in stop):
+                return q, p_alias_list[0], v
+    return None
+
+
 
 
 def match_page(sentence_list: list, statement_list, v_type):
@@ -262,11 +317,13 @@ def match_page(sentence_list: list, statement_list, v_type):
             continue
         for j,sentence in enumerate(sentence_list):
             if len(sentence) < 15:
-                continue
+                continue 
             if args.mode == 'eav':
                 matched = match_sentence_eav(sentence, alias)
             elif args.mode == 'av':
                 matched = match_sentence_av(sentence, alias)
+            elif args.mode == 'ev':
+                matched = match_sentence_ev(sentence, alias)
             else:
                 print(f"error: mode {args.mode}")
             if matched is None:
@@ -307,8 +364,9 @@ def main():
     dir_output = Path(args.dir_output)
     dir_output.mkdir(parents=True, exist_ok=True)
 
-    for num in args.input_filename.split(','):
-        input_filename = f"wiki_{num}"
+    fstart, fend = args.input_filename.split(',')
+    for num in range(int(fstart), int(fend)):
+        input_filename = f"wiki_{num:02d}"
         with open(dir_data / input_filename) as f, open(dir_output / input_filename, 'w') as fw:
             cnt_all = 0 # all pages
             cnt_linked = 0 # linked pages
@@ -351,7 +409,6 @@ def main():
                 fw.write(json.dumps(new_obj)+'\n')
                   
         print(f"Finished!, time:{time.time() - start}, cnt_total: {cnt_all}, cnt_linked: {cnt_linked}")
-
 
 if __name__ == "__main__":
     main()
