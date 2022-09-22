@@ -23,29 +23,29 @@ Each `wiki_xx` file contains lines of json objects. See an example at the bottom
 *Detailed analysis can be found in `./statistics`*
 
 - original data (before linking):
-Number of entity: 6,123,051
-Number of sentence: 112,811,173
-Number of statement: 58,470,459
+    - Number of entity: 6,123,051
+    - Number of sentence: 112,811,173
+    - Number of statement: 58,470,459
 
 - eav:
-Number of linked entity: 2,020,247
-Number of linked sentence: 2,562,439
-Number of linked statement: 3,497,204
+    - Number of linked entity: 2,020,247
+    - Number of linked sentence: 2,562,439
+    - Number of linked statement: 3,497,204
 
 - av:
-Number of linked entity: 3,468,418
-Number of linked sentence: 7,095,175
-Number of linked statement: 8,707,800
+    - Number of linked entity: 3,468,418
+    - Number of linked sentence: 7,095,175
+    - Number of linked statement: 8,707,800
 
 - ev:
-Number of linked entity: 4,495,131
-Number of linked sentence: 8,824,827
-Number of linked statement: 22,119,924
+    - Number of linked entity: 4,495,131
+    - Number of linked sentence: 8,824,827
+    - Number of linked statement: 22,119,924
 
 - **combined**:
-Number of linked entity: 5,096,290 (coverage: 83%)
-Number of linked sentence: 13,302,148 (coverage: 12%)
-Number of linked statement: 27,330,519 (coverage: 47%)
+    - Number of linked entity: 5,096,290 (coverage: 83%)
+    - Number of linked sentence: 13,302,148 (coverage: 12%)
+    - Number of linked statement: 27,330,519 (coverage: 47%)
 
 I pick some properties to compare their value distribution with the original data, here's a Google sheet to visualize it. [Google Sheet](https://docs.google.com/spreadsheets/d/1K9uvUsQVKv42WfmUGgQVf1HaK_-nv9O310CGdW7fgPA/edit?usp=sharing)
 
