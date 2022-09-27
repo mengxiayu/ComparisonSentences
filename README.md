@@ -16,8 +16,6 @@ There are 7 types of data tables in the parsed Wikidata. Each of them is a folde
 - wikipedia_links ()
 
 
-
-
 **Wikipedia Extractor**
 /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/code/run_wikiextractor.sh
 
@@ -51,3 +49,22 @@ Fetching statements for a specific property and value, and save to a table
 python code/fetching/fetch_kg.py --table_name entity_rels --num_procs 10 --output /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata/tables --rel P31  --value Q902104 --output_name P31_Q902104
 ```
 
+## Linking
+
+```
+#!/bin/bash
+#$ -pe smp 1
+#$ -M myu2@nd.edu
+#$ -m av
+#$ -N avAA50
+
+mode=av
+split=AA
+
+/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/bin/python3.7 /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/code/linking/linking.py \
+--dir_data /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data/${split} \
+--dir_output /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/linked_${mode}/${split} \
+--input_filename 80 \
+--mode ${mode} \
+
+```
