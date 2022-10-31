@@ -4,7 +4,7 @@ import os
 from collections import Counter
 import pickle
 import numpy as np
-
+import scipy.stats as stats
 dir_entity_aliases = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_processed/aliases_sorted")
 
 def _load_property2aliases(path):
@@ -301,6 +301,11 @@ def _page_stats(f_name, fw):
     topk_rels = np.argpartition(-np.array(num_rels_list), range(15))[:15]
     topk_vals = np.argpartition(-np.array(num_vals_list), range(15))[:15]
 
+    # distriution
+    fw.write(f"\n Distribution of number of sentences\n, {stats.describe(num_sent_list)}")
+    fw.write(f"\n Distribution of number of relational statements\n, {stats.describe(num_rels_list)}")
+    fw.write(f"\n Distribution of number of value statements\n, {stats.describe(num_vals_list)}")
+
     # extreme cases
     fw.write("----------\nRanked by num_sentences:\n")
     fw.write("qid\ttitle\tnum_sentences\tnum_entity_rels\tnum_entity_values\n")
@@ -420,20 +425,20 @@ def main():
     #     output_dir = dir_linked / "statistics" / criterion
     #     process_info(output_dir)
 
-    # criterion = "combined"
-    # output_dir = dir_linked / "statistics" / criterion
-    # output_dir.mkdir(parents=True, exist_ok=True)
-    # write_linked_info(dir_linked / criterion, output_dir)
-    # process_linked_info(output_dir)
+    criterion = "combined"
+    output_dir = dir_linked / "statistics" / criterion
+    output_dir.mkdir(parents=True, exist_ok=True)
+    write_linked_info(dir_linked / criterion, output_dir)
+    process_linked_info(output_dir)
     
     # output_dir = dir_data / "statistics" 
     # process_data_info(output_dir)
 
-    criterion = "av"
-    output_f = dir_linked / "statistics" / criterion / "freq_entity_rels_nonoverlap.txt"
-    print_most_popular_entity_rels(dir_linked / criterion, output_f)
+    # criterion = "av"
+#     output_f = dir_linked / "statistics" / criterion / "freq_entity_rels_nonoverlap.txt"
+#     print_most_popular_entity_rels(dir_linked / criterion, output_f)
 
-    output_f = dir_linked / "statistics" / criterion / "freq_entity_values_nonoeverlap.txt"
-    print_most_popular_entity_values(dir_linked / criterion, output_f)
+#     output_f = dir_linked / "statistics" / criterion / "freq_entity_values_nonoeverlap.txt"
+#     print_most_popular_entity_values(dir_linked / criterion, output_f)
 if __name__ == "__main__":
     main()

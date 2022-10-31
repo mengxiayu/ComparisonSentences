@@ -42,7 +42,7 @@ def transform_alias(pid2type, row):
     pid = row["property_id"]
     if pid not in pid2type:
         # print(f"Property {pid} not in index")
-        continue
+        return value
     if pid2type[pid] == "quantity":
         value = transform_quantity(row["value"])
     elif pid2type[pid] == "time":
