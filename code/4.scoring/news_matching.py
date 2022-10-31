@@ -118,9 +118,54 @@ def match_sentence_eav(sentence: str, tokenized_sentence: list, alias: tuple):
                     return q, p, v     
     return None
 
+def _load_property2datatype(path):
+    # from the property_labels table
+    pid2type = {}
+    with open(path, 'r') as f:
+        header = f.readline()
+        assert header.strip().split('\t') == ["datatype", "label", "pid"]
+        while True:
+            line = f.readline()
+            if len(line) == 0:
+                break
+            datatype, label, pid = line.strip().split('\t')
+            pid2type[pid] = datatype
+    return pid2type
+
+path_prop_datatype = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_processed/property_labels/0.tsv")
+pid2datatype = _load_property2datatype(path_prop_datatype)
+print("pid2datatype loaded. size:", len(pid2datatype))
+
+def _transform_quantity(value):
+    aliases = [value.lstrip('+')]
+    return aliases
+
+def _transform_time(value):
+    # only extract year now
+    # format : +%Y-%m-%dT%H:%M:%SZ
+    aliases = []
+    try:
+        date, time = value.rstrip('Z').lstrip('+').split('T')
+        year, month, day = date.split('-')
+        aliases.append(year)
+    except:
+        # print(value)
+        aliases.append(value)
+    return aliases
+
+def _reformat_value(pid, value) -> list:
+    datatype = pid2datatype[pid]
+    if datatype == "quantity":
+        vtext = _transform_quantity(value)
+    elif datatype == "time":
+        vtext = _transform_time(value)
+    else:
+        vtext = [value]
+    return vtext
+
 
 def get_occurrence(target_etype):
-    dir_output = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news")
+    dir_output = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news_v2")
     dir_output.mkdir(parents=True, exist_ok=True)
     path_news = Path("/afs/crc.nd.edu/group/dmsquare/vol1/data/EngGigV5/corpus/data_enggigv5.txt")
     num_lines_news = 9870506
@@ -160,6 +205,7 @@ def get_occurrence(target_etype):
                 label2entity[obj["title"]] = qid
                 entity2triples[qid] = set()
                 for s_type in ["linked_entity_rels", "linked_entity_values"]:
+                # for s_type in ["linked_entity_values"]:
                     for _sent in obj[s_type]:
                         for _triple in _sent[2]:
                             _, pid, vid = _triple[0]
@@ -198,10 +244,11 @@ def get_occurrence(target_etype):
                 for label in _entities:
                     e = label2entity[label]
                     linked_triples = entity2triples[e]
+                    # print(len(linked_triples))
                     for pid, vid in linked_triples:
                         q_aliases = qid2alias[e] if vid in qid2alias else []
                         p_aliases = pid2alias[pid] if pid in pid2alias else []
-                        v_aliases = qid2alias[vid] if vid in qid2alias else []
+                        v_aliases = qid2alias[vid] if vid in qid2alias else _reformat_value(pid, vid)
                         matched_triple = match_sentence_eav(sent, tokenized_sent, (q_aliases, p_aliases, v_aliases))
                         if matched_triple is None:
                             continue
