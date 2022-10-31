@@ -9,6 +9,13 @@ from itertools import product, combinations
 import json
 from tqdm import tqdm
 
+
+"""
+This code is used for extracting statement pairs with common properties for paired entities. 
+Note that "with common property" is not a sufficient condition for "comparable", so this code is deprecated. 
+2022.10.31
+"""
+
 def load_linked_data():
     dir_linked = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/linked_v1/combined")
     data_linked = {}

@@ -13,6 +13,7 @@ from tqdm import tqdm
 
 
 '''
+In this script we group entities by important (frequent) property value.
 instance of : top 20 values
 filter by (instance of, value) -> qid lists
 for each, calculate top 20 properties
@@ -113,23 +114,7 @@ def analysis_property_distribution():
 
 '''0. preprocessing: dump a subset of data for later use'''
 
-def dump_textdata_etype():
-    target_etype = "Q5"
-    dir_data = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data")
-    dir_output = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data_Q5")
-    cnt_property = {}
-    for split in ["AA", "AB"]:
-        (dir_output / split).mkdir(exist_ok=True, parents=True)
-        for batch_file in (dir_data / split).glob("wiki*"):
-            with open(batch_file ) as f, open( dir_output / split / batch_file.name, 'w') as fw:
-                for line in f:
-                    obj = json.loads(line)
-                    qid = obj["qid"]
-                    if qid not in entity2type_data:
-                        continue
-                    if entity2type_data[qid] != target_etype:
-                        continue
-                    fw.write(line)
+
 
 def scoring(dist: Counter):
     # score property by value distribution
@@ -179,9 +164,6 @@ def rank_properties(target_etype, scoring_func, topk) -> set:
 
 
 '''3. entity filtering'''
-
-
-
 def dump_linked_entity_ids(linking_version="linked_v1", linking_criteria="combined"):
     entity_list = []
     dir_linked = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/{linking_version}/{linking_criteria}")
@@ -197,7 +179,6 @@ def dump_linked_entity_ids(linking_version="linked_v1", linking_criteria="combin
     pickle.dump(entity_list, open(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_analysis/entity_rels/entity_set_{linking_version}_{linking_criteria}.pkl", 'wb'))
 
 '''2. construct entity_feature'''
-
 def dump_entity_features(entity_set: set, topk_properties: set):
     entity_feature = {}
 

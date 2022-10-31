@@ -11,6 +11,13 @@ from nltk.tokenize import sent_tokenize
 from tqdm import tqdm
 from ahocorapy.keywordtree import KeywordTree
 
+"""
+This code is used for finding comparable entities by human-defined heuristitcs, e.g., two entities are comparable when they are of the same occupation.
+However, we think it's not realistic to define rules for every entity type. And it's even more complicated for defining comparable statements. 
+The code is deprecated now.
+2022.10.31
+"""
+
 def get_entity_by_etype(target_etype):
     entity_list = []
     entity2type_data = pickle.load(open("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_analysis/entity_rels/entity2type_textdata.pkl", 'rb'))
