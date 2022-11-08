@@ -13,16 +13,24 @@ from collections import Counter
 # path_positive = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pair_scoring/Q5/all_positive_pairs.json")
 dir_data = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data_by_type/text_data_Q5")
 dir_linked = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/linked_v1/combined")
-path_matched = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news_v1/Q5_matched.json")
+path_matched = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news/Q5_matched.json")
 dir_output = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/sentence_scoring/v2/Q5/")
 dir_output.mkdir(parents=True, exist_ok=True)
-properties_to_remove = ["P735"] # human-defined unwanted properties
+properties_to_remove = ["P735", "P31"] # human-defined unwanted properties
 
 def reorder_pair(pair):
     e1, e2, p, v1, v2 = pair
     if e1 > e2:
         return e2, e1, p, v2, v1
     return pair
+
+def validate_pair(pair):
+    e1, e2, p, v1, v2 = pair
+    if p in properties_to_remove:
+        return False
+    if e1 == v2 and e2 == v1: # remove symmetric pair
+        return False
+    return True
 
 """0. load matched data first (positive pairs)"""
 # with open (path_positive) as f:
@@ -34,12 +42,10 @@ def load_positive_pairs(path):
         for line in f:
             obj = json.loads(line)
             p = obj["property"]
-            if p in properties_to_remove: # NOTE remove unwanted properties here
-                continue
             e1, e2 = obj["entity_pair"]
             values_e1 = set([x[0][1] for x in obj["evidence_e1"]])
             values_e2 = set([x[0][1] for x in obj["evidence_e2"]])
-            positive_pair_freq.update([reorder_pair((e1, e2, p, v1, v2)) for v1 in values_e1 for v2 in values_e2]) # e1, e2 will in order (e1 < e2), to avoid duplicate pairs
+            positive_pair_freq.update([reorder_pair((e1, e2, p, v1, v2)) for v1 in values_e1 for v2 in values_e2 if validate_pair((e1, e2, p, v1, v2))]) # e1, e2 will in order (e1 < e2), to avoid duplicate pairs
     return positive_pair_freq
 
 positive_pair_freq = load_positive_pairs(path_matched)
@@ -69,18 +75,6 @@ with open (dir_output / "statement_pairs.tsv", 'w') as f:
         s2_id = statement2idx[(e2, p, v2)]
         f.write(f"{s1_id}\t{s2_id}\t{v}\n")
 print("# positive statement pairs", len(positive_pair_freq))
-
-# pair2idx = {}
-# statement2idx = {}
-# with open (dir_output / "statements.tsv") as f:
-#     for line in f:
-#         idx, s, freq = line.strip().split('\t')
-#         s = eval(s)
-#         e1, e2, p, v1, v2 = s
-#         freq = int(freq)
-#         idx = int(idx)
-#         pair2idx[s] = idx
-
 
 entity_set = set()
 entitypair2statement = {} # in order

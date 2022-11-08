@@ -1,0 +1,668 @@
+10/19/2022 15:51:09 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+10/19/2022 15:51:09 - INFO - __main__ - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+bf16=False,
+bf16_full_eval=False,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+generation_max_length=64,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/runs/Oct19_15-51-09_qa-2080ti-006.crc.nd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=2.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=4,
+predict_with_generate=True,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=2,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+sortish_sampler=False,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+10/19/2022 15:51:09 - WARNING - datasets.builder - Using custom data configuration default-6cb3097592fe410a
+10/19/2022 15:51:09 - INFO - datasets.builder - Generating dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-6cb3097592fe410a/0.0.0/ac0ca5f5289a6cf108e706efcf040422dbbfa8e658dee6a819f20d76bb84d26b)
+Downloading and preparing dataset json/default to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-6cb3097592fe410a/0.0.0/ac0ca5f5289a6cf108e706efcf040422dbbfa8e658dee6a819f20d76bb84d26b...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 6213.78it/s]10/19/2022 15:51:09 - INFO - datasets.utils.download_manager - Downloading took 0.0 min
+10/19/2022 15:51:26 - INFO - datasets.utils.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 543.30it/s]10/19/2022 15:51:26 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+10/19/2022 15:51:26 - INFO - datasets.builder - Generating train split
+10/19/2022 15:51:55 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset json downloaded and prepared to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-6cb3097592fe410a/0.0.0/ac0ca5f5289a6cf108e706efcf040422dbbfa8e658dee6a819f20d76bb84d26b. Subsequent calls will reuse this data.
+10/19/2022 15:51:56 - WARNING - datasets.builder - Using custom data configuration default-3216209026870aea
+10/19/2022 15:51:56 - INFO - datasets.builder - Generating dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-3216209026870aea/0.0.0/ac0ca5f5289a6cf108e706efcf040422dbbfa8e658dee6a819f20d76bb84d26b)
+
+Downloading and preparing dataset json/default to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-3216209026870aea/0.0.0/ac0ca5f5289a6cf108e706efcf040422dbbfa8e658dee6a819f20d76bb84d26b...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 5607.36it/s]10/19/2022 15:51:56 - INFO - datasets.utils.download_manager - Downloading took 0.0 min
+10/19/2022 15:52:01 - INFO - datasets.utils.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 669.38it/s]10/19/2022 15:52:01 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+10/19/2022 15:52:01 - INFO - datasets.builder - Generating validation split
+10/19/2022 15:52:05 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+
+[INFO|configuration_utils.py:648] 2022-10-19 15:52:05,678 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-10-19 15:52:05,748 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_auto.py:344] 2022-10-19 15:52:05,882 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:648] 2022-10-19 15:52:06,011 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-10-19 15:52:06,012 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:1786] 2022-10-19 15:52:07,240 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/vocab.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/43978bdeaa326572886b44fcfed82f932f76571095ce31973e51c3da8ccade7f.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+[INFO|tokenization_utils_base.py:1786] 2022-10-19 15:52:07,240 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/merges.txt from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/3c167ed8af56e6605eeb794b63a79d65d85e6708c9b04408d41946337030f5cd.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+[INFO|tokenization_utils_base.py:1786] 2022-10-19 15:52:07,240 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/tokenizer.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a878fcd69bba037c9b1b227f4213579ae43d0aaa9374e167bc6c5f41b1cfeb30.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730
+[INFO|tokenization_utils_base.py:1786] 2022-10-19 15:52:07,240 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-10-19 15:52:07,240 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-10-19 15:52:07,241 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:648] 2022-10-19 15:52:07,376 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-10-19 15:52:07,376 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|modeling_utils.py:1431] 2022-10-19 15:52:08,644 >> loading weights file https://huggingface.co/facebook/bart-base/resolve/main/pytorch_model.bin from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/486355ec722ef05fd480e999d4c763be56549ae930f6a3742ee721a5d2a05647.f2f355ad2775769afc60592b43a46d72ca548375e3a1d65f381a751e711cbadd
+[INFO|modeling_utils.py:1702] 2022-10-19 15:52:10,784 >> All model checkpoint weights were used when initializing BartForConditionalGeneration.
+
+[INFO|modeling_utils.py:1711] 2022-10-19 15:52:10,785 >> All the weights of BartForConditionalGeneration were initialized from the model checkpoint at facebook/bart-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BartForConditionalGeneration for predictions without further training.
+Dataset json downloaded and prepared to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-3216209026870aea/0.0.0/ac0ca5f5289a6cf108e706efcf040422dbbfa8e658dee6a819f20d76bb84d26b. Subsequent calls will reuse this data.
+10/19/2022 15:52:11 - WARNING - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x14af98623b00> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Running tokenizer on train dataset #0:   0%|          | 0/1 [00:00<?, ?ba/s]
+Running tokenizer on train dataset #1:   0%|          | 0/1 [00:00<?, ?ba/s][A
+
+Running tokenizer on train dataset #2:   0%|          | 0/1 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on train dataset #3:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8: 100%|██████████| 1/1 [00:04<00:00,  4.99s/ba][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #8: 100%|██████████| 1/1 [00:04<00:00,  4.99s/ba]
+Running tokenizer on train dataset #1: 100%|██████████| 1/1 [00:10<00:00, 10.07s/ba][ARunning tokenizer on train dataset #1: 100%|██████████| 1/1 [00:10<00:00, 10.07s/ba]
+
+
+
+
+
+
+Running tokenizer on train dataset #7: 100%|██████████| 1/1 [00:11<00:00, 11.30s/ba][A[A[A[A[A[A[ARunning tokenizer on train dataset #7: 100%|██████████| 1/1 [00:11<00:00, 11.30s/ba]
+
+Running tokenizer on train dataset #2: 100%|██████████| 1/1 [00:12<00:00, 12.01s/ba][A[ARunning tokenizer on train dataset #2: 100%|██████████| 1/1 [00:12<00:00, 12.01s/ba]
+
+
+Running tokenizer on train dataset #3: 100%|██████████| 1/1 [00:14<00:00, 14.22s/ba][A[A[ARunning tokenizer on train dataset #3: 100%|██████████| 1/1 [00:14<00:00, 14.22s/ba]
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9: 100%|██████████| 1/1 [00:17<00:00, 17.38s/ba][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #9: 100%|██████████| 1/1 [00:17<00:00, 17.38s/ba]
+
+
+
+
+
+Running tokenizer on train dataset #6: 100%|██████████| 1/1 [00:21<00:00, 21.21s/ba][A[A[A[A[A[ARunning tokenizer on train dataset #6: 100%|██████████| 1/1 [00:21<00:00, 21.21s/ba]
+
+
+
+Running tokenizer on train dataset #4: 100%|██████████| 1/1 [00:38<00:00, 38.58s/ba][A[A[A[ARunning tokenizer on train dataset #4: 100%|██████████| 1/1 [00:38<00:00, 38.58s/ba]Running tokenizer on train dataset #0: 100%|██████████| 1/1 [00:39<00:00, 39.78s/ba]Running tokenizer on train dataset #0: 100%|██████████| 1/1 [00:39<00:00, 39.78s/ba]
+
+
+
+
+Running tokenizer on train dataset #5: 100%|██████████| 1/1 [01:00<00:00, 60.59s/ba][A[A[A[A[ARunning tokenizer on train dataset #5: 100%|██████████| 1/1 [01:00<00:00, 60.59s/ba]
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #1:   0%|          | 0/1 [00:00<?, ?ba/s][ARunning tokenizer on validation dataset #0:   0%|          | 0/1 [00:00<?, ?ba/s]
+
+Running tokenizer on validation dataset #2:   0%|          | 0/1 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on validation dataset #3:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on validation dataset #4:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on validation dataset #5:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on validation dataset #6:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on validation dataset #7:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on validation dataset #5: 100%|██████████| 1/1 [00:09<00:00,  9.38s/ba][A[A[A[A[ARunning tokenizer on validation dataset #5: 100%|██████████| 1/1 [00:09<00:00,  9.38s/ba]
+
+
+
+
+
+
+Running tokenizer on validation dataset #7: 100%|██████████| 1/1 [00:10<00:00, 10.57s/ba][A[A[A[A[A[A[ARunning tokenizer on validation dataset #7: 100%|██████████| 1/1 [00:10<00:00, 10.57s/ba]
+
+
+
+
+
+Running tokenizer on validation dataset #6: 100%|██████████| 1/1 [00:11<00:00, 11.92s/ba][A[A[A[A[A[ARunning tokenizer on validation dataset #6: 100%|██████████| 1/1 [00:11<00:00, 11.92s/ba]
+Running tokenizer on validation dataset #1: 100%|██████████| 1/1 [00:13<00:00, 13.01s/ba][ARunning tokenizer on validation dataset #1: 100%|██████████| 1/1 [00:13<00:00, 13.01s/ba]
+
+
+Running tokenizer on validation dataset #3: 100%|██████████| 1/1 [00:22<00:00, 22.45s/ba][A[A[ARunning tokenizer on validation dataset #3: 100%|██████████| 1/1 [00:22<00:00, 22.45s/ba]
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8: 100%|██████████| 1/1 [00:22<00:00, 22.24s/ba][A[A[A[A[A[A[A[ARunning tokenizer on validation dataset #8: 100%|██████████| 1/1 [00:22<00:00, 22.24s/ba]
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9: 100%|██████████| 1/1 [00:24<00:00, 24.50s/ba][A[A[A[A[A[A[A[A[ARunning tokenizer on validation dataset #9: 100%|██████████| 1/1 [00:24<00:00, 24.51s/ba]
+
+Running tokenizer on validation dataset #2: 100%|██████████| 1/1 [00:26<00:00, 26.10s/ba][A[ARunning tokenizer on validation dataset #2: 100%|██████████| 1/1 [00:26<00:00, 26.11s/ba]
+
+
+
+Running tokenizer on validation dataset #4: 100%|██████████| 1/1 [00:29<00:00, 29.18s/ba][A[A[A[ARunning tokenizer on validation dataset #4: 100%|██████████| 1/1 [00:29<00:00, 29.18s/ba]Running tokenizer on validation dataset #0: 100%|██████████| 1/1 [00:45<00:00, 45.01s/ba]Running tokenizer on validation dataset #0: 100%|██████████| 1/1 [00:45<00:00, 45.01s/ba]
+
+
+
+
+Downloading builder script:   0%|          | 0.00/2.16k [00:00<?, ?B/s]Downloading builder script: 5.60kB [00:00, 2.91MB/s]                   
+/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/primeqa/lib/python3.7/site-packages/transformers/optimization.py:309: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  FutureWarning,
+[INFO|trainer.py:1279] 2022-10-19 15:54:16,287 >> ***** Running training *****
+[INFO|trainer.py:1280] 2022-10-19 15:54:16,287 >>   Num examples = 200
+[INFO|trainer.py:1281] 2022-10-19 15:54:16,287 >>   Num Epochs = 2
+[INFO|trainer.py:1282] 2022-10-19 15:54:16,287 >>   Instantaneous batch size per device = 4
+[INFO|trainer.py:1283] 2022-10-19 15:54:16,287 >>   Total train batch size (w. parallel, distributed & accumulation) = 16
+[INFO|trainer.py:1284] 2022-10-19 15:54:16,287 >>   Gradient Accumulation steps = 4
+[INFO|trainer.py:1285] 2022-10-19 15:54:16,287 >>   Total optimization steps = 24
+  0%|          | 0/24 [00:00<?, ?it/s]  4%|▍         | 1/24 [00:00<00:12,  1.84it/s]  8%|▊         | 2/24 [00:00<00:09,  2.22it/s] 12%|█▎        | 3/24 [00:01<00:08,  2.37it/s] 17%|█▋        | 4/24 [00:01<00:08,  2.46it/s] 21%|██        | 5/24 [00:02<00:07,  2.51it/s] 25%|██▌       | 6/24 [00:02<00:07,  2.54it/s] 29%|██▉       | 7/24 [00:02<00:06,  2.56it/s] 33%|███▎      | 8/24 [00:03<00:06,  2.57it/s] 38%|███▊      | 9/24 [00:03<00:05,  2.58it/s] 42%|████▏     | 10/24 [00:04<00:05,  2.58it/s] 46%|████▌     | 11/24 [00:04<00:05,  2.59it/s] 50%|█████     | 12/24 [00:04<00:04,  2.59it/s][INFO|trainer.py:571] 2022-10-19 15:54:21,248 >> The following columns in the evaluation set  don't have a corresponding argument in `BartForConditionalGeneration.forward` and have been ignored: example_id, offset_mapping. If example_id, offset_mapping are not expected by `BartForConditionalGeneration.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2389] 2022-10-19 15:54:21,253 >> ***** Running Evaluation *****
+[INFO|trainer.py:2391] 2022-10-19 15:54:21,253 >>   Num examples = 200
+[INFO|trainer.py:2394] 2022-10-19 15:54:21,253 >>   Batch size = 8
+
+  0%|          | 0/25 [00:00<?, ?it/s][A
+  8%|▊         | 2/25 [00:00<00:10,  2.11it/s][A
+ 12%|█▏        | 3/25 [00:02<00:15,  1.39it/s][A
+ 16%|█▌        | 4/25 [00:02<00:16,  1.25it/s][A
+ 20%|██        | 5/25 [00:03<00:16,  1.18it/s][A
+ 24%|██▍       | 6/25 [00:04<00:16,  1.14it/s][A
+ 28%|██▊       | 7/25 [00:05<00:15,  1.13it/s][A
+ 32%|███▏      | 8/25 [00:06<00:15,  1.11it/s][A
+ 36%|███▌      | 9/25 [00:07<00:14,  1.10it/s][A
+ 40%|████      | 10/25 [00:08<00:13,  1.09it/s][A
+ 44%|████▍     | 11/25 [00:09<00:12,  1.08it/s][A
+ 48%|████▊     | 12/25 [00:10<00:12,  1.07it/s][A
+ 52%|█████▏    | 13/25 [00:11<00:11,  1.06it/s][A
+ 56%|█████▌    | 14/25 [00:12<00:10,  1.04it/s][A
+ 60%|██████    | 15/25 [00:13<00:09,  1.04it/s][A
+ 64%|██████▍   | 16/25 [00:14<00:08,  1.05it/s][A
+ 68%|██████▊   | 17/25 [00:15<00:07,  1.05it/s][A
+ 72%|███████▏  | 18/25 [00:16<00:06,  1.09it/s][A
+ 76%|███████▌  | 19/25 [00:16<00:05,  1.09it/s][A
+ 80%|████████  | 20/25 [00:17<00:04,  1.13it/s][A
+ 84%|████████▍ | 21/25 [00:18<00:03,  1.11it/s][A
+ 88%|████████▊ | 22/25 [00:19<00:02,  1.09it/s][A
+ 92%|█████████▏| 23/25 [00:20<00:01,  1.08it/s][A
+ 96%|█████████▌| 24/25 [00:21<00:00,  1.07it/s][A
+100%|██████████| 25/25 [00:22<00:00,  1.07it/s][A                                               
+                                               [A 50%|█████     | 12/24 [01:13<00:04,  2.59it/s]
+100%|██████████| 25/25 [01:07<00:00,  1.07it/s][A
+                                               [A[INFO|trainer.py:2139] 2022-10-19 15:55:30,006 >> Saving model checkpoint to /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-12
+[INFO|configuration_utils.py:439] 2022-10-19 15:55:30,008 >> Configuration saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-12/config.json
+[INFO|modeling_utils.py:1084] 2022-10-19 15:55:35,075 >> Model weights saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-12/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2094] 2022-10-19 15:55:35,077 >> tokenizer config file saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-12/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2100] 2022-10-19 15:55:35,078 >> Special tokens file saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-12/special_tokens_map.json
+ 54%|█████▍    | 13/24 [01:33<04:58, 27.13s/it] 58%|█████▊    | 14/24 [01:33<03:10, 19.05s/it] 62%|██████▎   | 15/24 [01:34<02:00, 13.42s/it] 67%|██████▋   | 16/24 [01:34<01:16,  9.50s/it] 71%|███████   | 17/24 [01:34<00:47,  6.76s/it] 75%|███████▌  | 18/24 [01:35<00:29,  4.85s/it] 79%|███████▉  | 19/24 [01:35<00:17,  3.51s/it] 83%|████████▎ | 20/24 [01:36<00:10,  2.57s/it] 88%|████████▊ | 21/24 [01:36<00:05,  1.92s/it] 92%|█████████▏| 22/24 [01:36<00:02,  1.46s/it] 96%|█████████▌| 23/24 [01:37<00:01,  1.14s/it]100%|██████████| 24/24 [01:37<00:00,  1.10it/s][INFO|trainer.py:571] 2022-10-19 15:55:53,993 >> The following columns in the evaluation set  don't have a corresponding argument in `BartForConditionalGeneration.forward` and have been ignored: example_id, offset_mapping. If example_id, offset_mapping are not expected by `BartForConditionalGeneration.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2389] 2022-10-19 15:55:53,998 >> ***** Running Evaluation *****
+[INFO|trainer.py:2391] 2022-10-19 15:55:53,998 >>   Num examples = 200
+[INFO|trainer.py:2394] 2022-10-19 15:55:53,998 >>   Batch size = 8
+{'eval_rouge2': 1.05, 'eval_rougeL': 2.236, 'eval_gen_len': 28.42, 'epoch': 0.96}
+
+  0%|          | 0/25 [00:00<?, ?it/s][A
+  8%|▊         | 2/25 [00:00<00:10,  2.12it/s][A
+ 12%|█▏        | 3/25 [00:01<00:14,  1.50it/s][A
+ 16%|█▌        | 4/25 [00:02<00:16,  1.31it/s][A
+ 20%|██        | 5/25 [00:03<00:16,  1.22it/s][A
+ 24%|██▍       | 6/25 [00:04<00:15,  1.22it/s][A
+ 28%|██▊       | 7/25 [00:05<00:15,  1.20it/s][A
+ 32%|███▏      | 8/25 [00:06<00:12,  1.31it/s][A
+ 36%|███▌      | 9/25 [00:06<00:13,  1.22it/s][A
+ 40%|████      | 10/25 [00:07<00:12,  1.23it/s][A
+ 44%|████▍     | 11/25 [00:08<00:11,  1.18it/s][A
+ 48%|████▊     | 12/25 [00:09<00:11,  1.12it/s][A
+ 52%|█████▏    | 13/25 [00:10<00:10,  1.10it/s][A
+ 56%|█████▌    | 14/25 [00:11<00:10,  1.09it/s][A
+ 60%|██████    | 15/25 [00:12<00:09,  1.09it/s][A
+ 64%|██████▍   | 16/25 [00:13<00:08,  1.09it/s][A
+ 68%|██████▊   | 17/25 [00:16<00:11,  1.47s/it][A
+ 72%|███████▏  | 18/25 [00:17<00:09,  1.29s/it][A
+ 76%|███████▌  | 19/25 [00:17<00:07,  1.19s/it][A
+ 80%|████████  | 20/25 [00:18<00:05,  1.03s/it][A
+ 84%|████████▍ | 21/25 [00:19<00:03,  1.02it/s][A
+ 88%|████████▊ | 22/25 [00:20<00:02,  1.03it/s][A
+ 92%|█████████▏| 23/25 [00:21<00:01,  1.04it/s][A
+ 96%|█████████▌| 24/25 [00:22<00:00,  1.05it/s][A
+100%|██████████| 25/25 [00:23<00:00,  1.13it/s][A
+                                               [A                                               
+100%|██████████| 25/25 [01:02<00:00,  1.13it/s][A100%|██████████| 24/24 [02:40<00:00,  1.10it/s]
+                                               [A[INFO|trainer.py:2139] 2022-10-19 15:56:57,083 >> Saving model checkpoint to /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-24
+[INFO|configuration_utils.py:439] 2022-10-19 15:56:57,086 >> Configuration saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-24/config.json
+[INFO|modeling_utils.py:1084] 2022-10-19 15:57:06,531 >> Model weights saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-24/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2094] 2022-10-19 15:57:06,532 >> tokenizer config file saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-24/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2100] 2022-10-19 15:57:06,533 >> Special tokens file saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/checkpoint-24/special_tokens_map.json
+[INFO|trainer.py:1508] 2022-10-19 15:57:16,557 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               100%|██████████| 24/24 [03:00<00:00,  1.10it/s]100%|██████████| 24/24 [03:00<00:00,  7.51s/it]
+[INFO|trainer.py:2139] 2022-10-19 15:57:16,558 >> Saving model checkpoint to /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019
+[INFO|configuration_utils.py:439] 2022-10-19 15:57:16,564 >> Configuration saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/config.json
+[INFO|modeling_utils.py:1084] 2022-10-19 15:57:21,695 >> Model weights saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2094] 2022-10-19 15:57:21,696 >> tokenizer config file saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2100] 2022-10-19 15:57:21,697 >> Special tokens file saved in /afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/seq2seq/bart_debug_1019/special_tokens_map.json
+{'eval_rouge2': 0.83, 'eval_rougeL': 1.798, 'eval_gen_len': 23.28, 'epoch': 1.96}
+{'train_runtime': 180.2702, 'train_samples_per_second': 2.219, 'train_steps_per_second': 0.133, 'train_loss': 1.7939448356628418, 'epoch': 1.96}
+***** train metrics *****
+  epoch                    =       1.96
+  train_loss               =     1.7939
+  train_runtime            = 0:03:00.27
+  train_samples            =        200
+  train_samples_per_second =      2.219
+  train_steps_per_second   =      0.133
+10/19/2022 15:57:21 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:571] 2022-10-19 15:57:21,842 >> The following columns in the evaluation set  don't have a corresponding argument in `BartForConditionalGeneration.forward` and have been ignored: example_id, offset_mapping. If example_id, offset_mapping are not expected by `BartForConditionalGeneration.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2389] 2022-10-19 15:57:21,847 >> ***** Running Evaluation *****
+[INFO|trainer.py:2391] 2022-10-19 15:57:21,847 >>   Num examples = 200
+[INFO|trainer.py:2394] 2022-10-19 15:57:21,847 >>   Batch size = 8
+  0%|          | 0/25 [00:00<?, ?it/s]  8%|▊         | 2/25 [00:01<00:11,  1.95it/s] 12%|█▏        | 3/25 [00:01<00:15,  1.45it/s] 16%|█▌        | 4/25 [00:02<00:16,  1.29it/s] 20%|██        | 5/25 [00:03<00:16,  1.21it/s] 24%|██▍       | 6/25 [00:04<00:15,  1.22it/s] 28%|██▊       | 7/25 [00:05<00:15,  1.20it/s] 32%|███▏      | 8/25 [00:06<00:12,  1.31it/s] 36%|███▌      | 9/25 [00:07<00:13,  1.22it/s] 40%|████      | 10/25 [00:07<00:12,  1.23it/s] 44%|████▍     | 11/25 [00:08<00:11,  1.18it/s] 48%|████▊     | 12/25 [00:09<00:11,  1.16it/s] 52%|█████▏    | 13/25 [00:10<00:10,  1.13it/s] 56%|█████▌    | 14/25 [00:11<00:09,  1.11it/s] 60%|██████    | 15/25 [00:12<00:09,  1.10it/s] 64%|██████▍   | 16/25 [00:13<00:08,  1.10it/s] 68%|██████▊   | 17/25 [00:14<00:07,  1.10it/s] 72%|███████▏  | 18/25 [00:15<00:06,  1.07it/s] 76%|███████▌  | 19/25 [00:16<00:05,  1.07it/s] 80%|████████  | 20/25 [00:16<00:04,  1.16it/s] 84%|████████▍ | 21/25 [00:17<00:03,  1.16it/s] 88%|████████▊ | 22/25 [00:18<00:02,  1.13it/s] 92%|█████████▏| 23/25 [00:19<00:01,  1.11it/s] 96%|█████████▌| 24/25 [00:20<00:00,  1.11it/s]100%|██████████| 25/25 [00:21<00:00,  1.17it/s]100%|██████████| 25/25 [00:59<00:00,  2.40s/it]
+***** eval metrics *****
+  epoch        =  1.96
+  eval_gen_len = 23.28
+  eval_rouge2  =  0.83
+  eval_rougeL  = 1.798
+  eval_samples =   200
