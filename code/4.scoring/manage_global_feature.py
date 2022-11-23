@@ -12,26 +12,6 @@ What should be the feature to identify comparable statements?
 """
 
 
-def dump_textdata_etype(target_etype):
-    entity2type_data = pickle.load(open("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_analysis/entity_rels/entity2type_textdata.pkl", 'rb'))
-    dir_data = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data")
-    dir_output = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data_by_type/text_data_{target_etype}")
-    cnt_property = {}
-    for split in ["AA", "AB"]:
-        (dir_output / split).mkdir(exist_ok=True, parents=True)
-        for batch_file in (dir_data / split).glob("wiki*"):
-            with open(batch_file ) as f, open( dir_output / split / batch_file.name, 'w') as fw:
-                for line in f:
-                    obj = json.loads(line)
-                    qid = obj["qid"]
-                    if qid not in entity2type_data:
-                        continue
-                    if entity2type_data[qid] != target_etype:
-                        continue
-                    fw.write(line)
-
-dump_textdata_etype("Q134556")
-
 
 def build_property_feature(target_etype):
 
@@ -111,6 +91,8 @@ def extract_entity_feature(target_etype):
 
 
 if __name__ == "__main__":
-    dump_textdata_etype("Q105543609")
-    build_property_feature(target_etype="Q105543609")
-    extract_entity_feature("Q105543609")
+    # dump_textdata_etype("Q105543609")
+    # build_property_feature(target_etype="Q105543609")
+    # extract_entity_feature("Q105543609")
+
+    

@@ -1,0 +1,554 @@
+entity2type_data 5879050
+entity2type_linked 4962668
+0 Q11424 film 205656
+1 Q482994 album 174372
+2 Q532 village 98795
+3 Q215380 musical group 70443
+4 Q13406463 Wikimedia list article 64612
+5 Q101352 family name 56754
+6 Q7889 video game 52706
+7 Q5 human 45902
+8 Q484170 commune of France 39567
+9 Q55488 railway station 36750
+10 Q134556 single 34050
+11 Q4022 river 32107
+12 Q515 city 28866
+13 Q3957 town 27813
+14 Q23397 lake 27076
+15 Q34770 language 25228
+16 Q27020041 sports season 23966
+17 Q486972 human settlement 23406
+18 Q16970 church building 22521
+19 Q8502 mountain 21743
+20 Q7278 political party 21742
+21 Q14350 radio station 21618
+22 Q23442 island 21143
+23 Q7187 gene 21100
+24 Q476028 association football club 20935
+25 Q34442 road 19899
+26 Q43229 organization 17916
+27 Q3914 school 17678
+28 Q5398426 television series 16400
+29 Q123705 neighborhood 15759
+30 Q4830453 business 14661
+31 Q9826 high school 13859
+32 Q498162 census-designated place 13374
+33 Q3918 university 13101
+34 Q1248784 airport 12964
+35 Q41298 magazine 12894
+36 Q7366 song 12216
+37 Q523 star 10991
+38 Q11032 newspaper 10609
+39 Q1115575 civil parish 10589
+40 Q3257686 locality 10344
+41 Q41176 building 10159
+42 Q3947 house 9694
+43 Q483110 stadium 9191
+44 Q3305213 painting 9045
+45 Q1539532 sports season of a sports club 8714
+46 Q188509 suburb 8207
+47 Q46970 airline 7731
+48 Q11173 chemical compound 7425
+49 Q16917 hospital 7385
+50 Q5633421 scientific journal 7291
+51 Q18127 record label 7171
+52 Q169930 extended play 7076
+53 Q3863 asteroid 6585
+54 Q33506 museum 6446
+55 Q398141 school district 6404
+56 Q35127 website 6222
+57 Q747074 comune of Italy 6076
+58 Q11446 ship 5582
+59 Q15243209 historic district 5529
+60 Q783794 company 5380
+61 Q736917 formation 5356
+62 Q6256 country 5076
+63 Q22698 park 5046
+64 Q65943 theorem 4854
+65 Q40231 election 4769
+66 Q726 horse 4664
+67 Q51049922 village 4598
+68 Q1529096 village in Turkey 4567
+69 Q27686 hotel 4537
+70 Q618779 award 4533
+71 Q23413 castle 4464
+72 Q24354 theatre 4357
+73 Q12140 medication 4256
+74 Q2334719 legal case 4234
+75 Q12136 disease 4085
+76 Q46831 mountain range 4046
+77 Q24862 short film 4020
+78 Q159334 secondary school 3944
+79 Q1149652 district of India 3928
+80 Q1616075 television station 3659
+81 Q7397 software 3640
+82 Q55818 impact crater 3576
+83 Q79007 street 3518
+84 Q32815 mosque 3428
+85 Q39614 cemetery 3364
+86 Q327333 government agency 3354
+87 Q8054 protein 3324
+88 Q82794 geographic region 3318
+89 Q8436 family 3296
+90 Q5185279 poem 3262
+91 Q4164871 position 3242
+92 Q623109 sports league 3235
+93 Q12323 dam 3172
+94 Q12280 bridge 3152
+95 Q11315 shopping center 3073
+96 Q839954 archaeological site 2976
+97 Q737498 academic journal 2927
+98 Q928830 metro station 2859
+99 Q178790 labor union 2858
+100 Q13393265 basketball team 2845
+101 Q11707 restaurant 2775
+102 Q35666 glacier 2753
+103 Q163740 nonprofit organization 2725
+104 Q5084 hamlet 2707
+105 Q253019 Ortsteil 2632
+106 Q33384 dialect 2624
+107 Q4498974 ice hockey team 2623
+108 Q21198342 manga series 2548
+109 Q188451 music genre 2494
+110 Q15261477 gubernatorial election 2475
+111 Q4421 forest 2460
+112 Q728937 railway line 2457
+113 Q39816 valley 2433
+114 Q577 year 2431
+115 Q12308941 male given name 2416
+116 Q39594 bay 2397
+117 Q15125752 rural district of Iran 2384
+118 Q95074 fictional character 2374
+119 Q189004 college 2366
+120 Q87167 manuscript 2365
+121 Q178561 battle 2334
+122 Q860861 sculpture 2316
+123 Q431289 brand 2312
+124 Q39715 lighthouse 2301
+125 Q40357 prison 2246
+126 Q56019 military rank 2238
+127 Q34038 waterfall 2205
+128 Q131681 reservoir 2174
+129 Q3001412 horse race 2155
+130 Q22687 bank 2148
+131 Q67015883 group or class of enzymes 2135
+132 Q4508 navy 2117
+133 Q192611 electoral district 2079
+134 Q3146899 diocese of the Catholic Church 2061
+135 Q858439 presidential election 2060
+136 Q11303 skyscraper 2017
+137 Q820477 mine 2009
+138 Q1573906 concert tour 1971
+139 Q465299 archaeological culture 1966
+140 Q17524420 aspect of history 1952
+141 Q2085381 publisher 1951
+142 Q174782 square 1935
+143 Q506240 television film 1924
+144 Q9135 operating system 1906
+145 Q47521 stream 1865
+146 Q11436 aircraft 1865
+147 Q13027888 baseball team 1858
+148 Q11879590 female given name 1852
+149 Q198 war 1781
+150 Q74047 ghost town 1744
+151 Q5119 capital 1735
+152 Q41710 ethnic group 1733
+153 Q355304 watercourse 1720
+154 Q641226 arena 1646
+155 Q44613 monastery 1636
+156 Q62049 county seat 1608
+157 Q35509 cave 1608
+158 Q2001305 television channel 1578
+159 Q4671329 academy school 1572
+160 Q3464665 television series season 1556
+161 Q571 book 1539
+162 Q3504085 rural municipality of Poland 1533
+163 Q2630741 community 1499
+164 Q132241 festival 1497
+165 Q15416 television program 1488
+166 Q1075 color 1484
+167 Q8366 algorithm 1478
+168 Q54050 hill 1472
+169 Q7075 library 1457
+170 Q2151232 townland 1455
+171 Q46169 national park 1451
+172 Q55237813 village of New York 1439
+173 Q2154459 New England town 1429
+174 Q13406554 sports competition 1425
+175 Q2198484 municipal district 1413
+176 Q708676 charitable organization 1377
+177 Q202444 given name 1364
+178 Q82799 name 1355
+179 Q5773747 historic house 1351
+180 Q2023000 khutor 1347
+181 Q16521 taxon 1331
+182 Q1785071 fort 1329
+183 Q42998 orchestra 1329
+184 Q40080 beach 1307
+185 Q142714 card game 1266
+186 Q16560 palace 1246
+187 Q751876 château 1245
+188 Q24333627 United States Senate election 1234
+189 Q1402592 island group 1225
+190 Q1131296 freguesia of Portugal 1223
+191 Q15836568 computer network protocol 1215
+192 Q43501 zoo 1200
+193 Q1134686 frazione 1177
+194 Q210167 video game developer 1172
+195 Q164950 dynasty 1165
+196 Q41253 movie theater 1165
+197 Q1244442 school building 1164
+198 Q475061 amphoe 1152
+199 Q2175765 tram stop 1152
+200 Q34763 peninsula 1151
+201 Q318 galaxy 1136
+202 Q9143 programming language 1133
+203 Q5741069 rock group 1130
+204 Q12284 canal 1117
+205 Q133056 mountain pass 1112
+206 Q63952888 anime television series 1107
+207 Q178885 deity 1093
+208 Q32099 meridian 1090
+209 Q49773 social movement 1084
+210 Q19692072 United States Supreme Court decision 1082
+211 Q1077097 tambon 1075
+212 Q9212979 musical duo 1072
+213 Q2882257 First Nation band 1066
+214 Q868557 music festival 1065
+215 Q317623 technical standard 1059
+216 Q220505 film festival 1059
+217 Q7944 earthquake 1050
+218 Q11410 game 1024
+219 Q17737 theory 1018
+220 Q4504495 award ceremony 1012
+221 Q33837 archipelago 1007
+222 Q679165 squadron 1000
+223 Q2775236 community development block in India 983
+224 Q34627 synagogue 982
+225 Q212198 pub 978
+226 Q16024164 medical journal 977
+227 Q44539 temple 975
+228 Q131734 brewery 962
+229 Q22667 railway 961
+230 Q1057954 by-election 953
+231 Q11353 district of Iran 950
+232 Q1445650 holiday 949
+233 Q131569 treaty 948
+234 Q1259759 miniseries 946
+235 Q2990946 golf tournament 942
+236 Q47481352 Lok Sabha constituency 929
+237 Q2922711 bowl game 929
+238 Q1195098 ward 928
+239 Q18811582 fraternity 922
+240 Q2389789 steel roller coaster 919
+241 Q186117 timeline 915
+242 Q46622 controlled-access highway 910
+243 Q1094617 mutant 905
+244 Q1555508 radio program 903
+245 Q1760610 comic book 901
+246 Q44782 port 892
+247 Q1410668 National Wildlife Refuge 892
+248 Q196600 media franchise 885
+249 Q842402 Hindu temple 879
+250 Q838795 comic strip 875
+251 Q12819564 station 869
+252 Q2088357 musical ensemble 867
+253 Q9655 artery 853
+254 Q17156793 American football team 842
+255 Q131436 board game 834
+256 Q179700 statue 834
+257 Q620615 mobile app 833
+258 Q11344 chemical element 830
+259 Q167346 botanical garden 828
+260 Q27676428 municipality 827
+261 Q205985 goddess 824
+262 Q15911314 association 818
+263 Q15284 municipality 817
+264 Q2977 cathedral 814
+265 Q612741 United States National Forest 805
+266 Q8142 currency 804
+267 Q207694 art museum 799
+268 Q24634210 podcast 795
+269 Q6243 variable star 794
+270 Q4989906 monument 787
+271 Q1500350 township of the People's Republic of China 775
+272 Q18123741 infectious disease 774
+273 Q31855 research institute 767
+274 Q133311 tribe 766
+275 Q11514315 historical period 766
+276 Q179049 nature reserve 759
+277 Q986065 subdistrict of China 757
+278 Q189533 academic degree 756
+279 Q655686 commercial building 748
+280 Q15079786 ballet 744
+281 Q44559 extrasolar planet 744
+282 Q7365 muscle organ 744
+283 Q2738074 political movement 741
+284 Q33146843 municipality of Catalonia 741
+285 Q319141 conjecture 730
+286 Q958314 grape variety 730
+287 Q45776 fjord 730
+288 Q170584 project 729
+289 Q188913 plantation 728
+290 Q1792372 character 727
+291 Q1336920 community college 720
+292 Q17318027 rural commune of Morocco 714
+293 Q581714 animated series 705
+294 Q473972 protected area 697
+295 Q2389082 rural commune of Vietnam 695
+296 Q5393308 Buddhist temple 694
+297 Q25379 play 691
+298 Q1154710 association football venue 687
+299 Q740445 ridge 685
+300 Q207326 summit 680
+301 Q690840 district of Ethiopia 677
+302 Q17517379 animated short film 675
+303 Q500834 tournament 670
+304 Q52371 regiment 669
+305 Q2992826 athletic conference 660
+306 Q151885 concept 658
+307 Q1825472 covered bridge 656
+308 Q891723 public company 654
+309 Q4886 cultivar 638
+310 Q1110794 daily newspaper 637
+311 Q317557 parish church 635
+312 Q149621 district 631
+313 Q211748 oil field 631
+314 Q3685463 corregimiento 629
+315 Q32096 Super Bowl 627
+316 Q422211 Site of Special Scientific Interest 626
+317 Q786820 automobile manufacturer 621
+318 Q1144661 amusement ride 616
+319 Q131186 choir 615
+320 Q131596 farm 611
+321 Q3491915 urban-rural municipality of Poland 609
+322 Q16334295 group of humans 608
+323 Q4686479 adventure 606
+324 Q1079023 championship 606
+325 Q108325 chapel 605
+326 Q5503 rapid transit 602
+327 Q28564 public library 596
+328 Q56061 administrative territorial entity 592
+329 Q11348 function 588
+330 Q1349255 natural gas field 588
+331 Q179661 treatment 587
+332 Q3199915 massacre 587
+333 Q191992 headland 586
+334 Q1656682 event 585
+335 Q144 dog 584
+336 Q17376093 cricket team 584
+337 Q41719 hypothesis 582
+338 Q17299750 snooker tournament 571
+339 Q25295 language family 570
+340 Q188860 software library 569
+341 Q695850 airbase 569
+342 Q622425 nightclub 567
+343 Q11862829 academic discipline 566
+344 Q8928 constellation 562
+345 Q8072 volcano 562
+346 Q3297186 limited series 561
+347 Q1066670 tag team 551
+348 Q62447 aerodrome 550
+349 Q2592651 union council of Pakistan 548
+350 Q628179 trail 547
+351 Q159719 power station 547
+352 Q14073567 sibling duo 543
+353 Q879050 manor house 542
+354 Q1497364 building complex 542
+355 Q613142 law firm 542
+356 Q194195 amusement park 541
+357 Q211503 clan 541
+358 Q273120 protest 541
+359 Q478847 Amt 535
+360 Q216353 title 534
+361 Q341 free software 524
+362 Q917146 moshav 524
+363 Q17350442 venue 524
+364 Q9174 religion 523
+365 Q193622 order 521
+366 Q22746 urban park 519
+367 Q174736 destroyer 516
+368 Q644371 international airport 515
+369 Q150784 canyon 511
+370 Q166142 application 510
+371 Q2811 submarine 510
+372 Q9609 vein 510
+373 Q2472587 people 509
+374 Q543654 city hall 509
+375 Q3812392 union council of Bangladesh 505
+376 Q847017 sports club 504
+377 Q7058673 video game series 503
+378 Q2695280 technique 500
+379 Q161387 kibbutz 500
+380 Q156362 winery 500
+381 Q202866 animated film 499
+382 Q15620943 constituency of the French Fifth Republic 498
+383 Q49371 legislation 497
+384 Q105390172 Roman Catholic metropolitan archdiocese 495
+385 Q853565 barony 488
+386 Q132364 communications protocol 485
+387 Q6368 web browser 485
+388 Q6465 department of France 484
+389 Q686822 bill 483
+390 Q378427 literary award 479
+391 Q149918 communications satellite 479
+392 Q494230 medical school 477
+393 Q194408 nunatak 475
+394 Q269770 boarding school 472
+395 Q36534 chemical reaction 472
+396 Q6979593 national association football team 470
+397 Q15238777 legislative term 470
+398 Q160742 abbey 468
+399 Q1969448 term 467
+400 Q15991303 association football league 467
+401 Q157031 foundation 465
+402 Q13417114 noble family 464
+403 Q166247 American Viticultural Area 464
+404 Q1007870 art gallery 460
+405 Q245016 military base 460
+406 Q155271 think tank 457
+407 Q130003 ski resort 453
+408 Q1802963 mansion 452
+409 Q17366755 hamlet 451
+410 Q12292478 estate 449
+411 Q1321960 law school 447
+412 Q169950 wildfire 446
+413 Q23006 Verbandsgemeinde 446
+414 Q22222786 government program 444
+415 Q56242215 Catholic cathedral 444
+416 Q20074337 auto racing team 444
+417 Q6113985 Upanishad 444
+418 Q133346 border 443
+419 Q47089 fault 443
+420 Q268592 industry 438
+421 Q949616 telephone prefix 434
+422 Q625994 convention 432
+423 Q15280243 mayoral election 429
+424 Q507619 retail chain 428
+425 Q2143825 hiking trail 427
+426 Q165194 application programming interface 425
+427 Q71631512 tabletop role-playing game supplement 425
+428 Q748149 prefecture-level city 425
+429 Q37901 strait 422
+430 Q483372 paradox 422
+431 Q12518 tower 422
+432 Q1067164 service 422
+433 Q490329 dong 420
+434 Q1366722 final 419
+435 Q494829 bus station 418
+436 Q79602 cyclone 416
+437 Q295469 ecoregion 416
+438 Q15265344 broadcaster 415
+439 Q23691 national anthem 415
+440 Q15911738 hydroelectric power station 414
+441 Q3331189 version, edition, or translation 413
+442 Q137535 county of Iran 412
+443 Q10438042 bus company 408
+444 Q17451 typeface 408
+445 Q817477 tehsil 407
+446 Q11812394 theatre company 406
+447 Q1070990 county-level city 406
+448 Q641066 girl group 405
+449 Q235557 file format 404
+450 Q1143635 business school 404
+451 Q132821 murder 404
+452 Q169534 division 401
+453 Q14645593 rugby union team 397
+454 Q128234 case 396
+455 Q35535 police 395
+456 Q14406742 comic book series 394
+457 Q204577 schooner 394
+458 Q21199 natural number 393
+459 Q207505 lemma 393
+460 Q57831 fortress 393
+461 Q1518096 district of Mongolia 390
+462 Q1762059 film production company 389
+463 Q79913 non-governmental organization 389
+464 Q105731 lock 388
+465 Q180684 conflict 386
+466 Q13411064 pastoral lease 386
+467 Q233324 seminary 385
+468 Q1122846 district of Japan 385
+469 Q180958 faculty 383
+470 Q2485448 sports governing body 381
+471 Q1021645 office building 379
+472 Q216107 department store 377
+473 Q15944511 association football team 374
+474 Q856076 municipality of Finland 372
+475 Q422248 monoclonal antibody 369
+476 Q44529188 town 368
+477 Q273057 discography 367
+478 Q6881511 enterprise 366
+479 Q1254933 astronomical observatory 365
+480 Q10929058 product model 363
+481 Q14660 flag 363
+482 Q1663017 engineering school 363
+483 Q893775 National Monument of the United States 362
+484 Q4387609 architectural firm 361
+485 Q56242250 anglican or episcopal cathedral 360
+486 Q133215 casino 360
+487 Q61878 barangay 360
+488 Q1799072 method 359
+489 Q746549 dish 359
+490 Q417175 kingdom 357
+491 Q1378975 convention center 357
+492 Q14083 dollar 354
+493 Q732717 law enforcement agency 354
+494 Q33881 Tour de France 354
+495 Q2566190 department of Burkina Faso 353
+496 Q27971968 constituency of the House of Commons 352
+497 Q35054 post office 351
+498 Q47018901 calendar month 350
+499 Q3100808 photography genre 349
+500 Q483453 fountain 349
+501 Q133004 diaspora 349
+502 Q47574 unit of measurement 348
+503 Q589282 ward or electoral division of the United Kingdom 345
+504 Q2635894 radio drama 345
+505 Q40244 marathon 344
+506 Q2488 spiral galaxy 342
+507 Q1441305 clinical sign 342
+508 Q1394476 civil township 342
+509 Q28113351 inequality 341
+510 Q1137809 courthouse 341
+511 Q50053 binary star 340
+512 Q37726 army 338
+513 Q6058157 god 337
+514 Q18811583 sorority 337
+515 Q33829 human population 336
+516 Q42523 atoll 335
+517 Q742421 theatrical troupe 334
+518 Q39911 decade 334
+519 Q17317604 professional wrestling event 332
+520 Q194203 arrondissement of France 332
+521 Q178193 steamboat 331
+522 Q2750108 priory 329
+523 Q8192 writing system 328
+524 Q699 fairy tale 328
+525 Q192283 news agency 327
+526 Q27995042 wilderness area 327
+527 Q1210334 railway bridge 324
+528 Q185113 cape 324
+529 Q7372078 rowing club 322
+530 Q11042 culture 321
+531 Q226730 silent film 320
+532 Q23905105 women's national association football team 319
+533 Q192350 ministry 318
+534 Q9779 alphabet 317
+535 Q40050 drink 316
+536 Q9134 mythology 315
+537 Q275186 gang 314
+538 Q35516 WrestleMania 313
+539 Q39804 cruise ship 312
+540 Q10648343 duo 312
+541 Q42032 country code top-level domain 312
+542 Q902104 private university 311
+543 Q3512806 Unicode block 310
+544 Q5003624 memorial 308
+545 Q166118 archive 308
+546 Q179630 syndrome 307
+547 Q155239 Indian reservation of Canada 307
+548 Q51792175 roller derby league 307
+549 Q875538 public university 303
+550 Q18536800 mixed martial arts event 303
+551 Q845945 Shinto shrine 303

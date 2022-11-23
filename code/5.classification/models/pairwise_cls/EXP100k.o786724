@@ -1,0 +1,1444 @@
+11/09/2022 22:14:39 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+11/09/2022 22:14:39 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+bf16=False,
+bf16_full_eval=False,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_train100k_1109/runs/Nov09_22-14-39_qa-2080ti-007.crc.nd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.EPOCH,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=accuracy,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=4.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_train100k_1109,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=64,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_train100k_1109,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=2,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+11/09/2022 22:14:39 - WARNING - datasets.builder - Using custom data configuration default-c3a4545b739ee524
+11/09/2022 22:14:39 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+11/09/2022 22:14:39 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-c3a4545b739ee524/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+11/09/2022 22:14:39 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-c3a4545b739ee524/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+11/09/2022 22:14:39 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-c3a4545b739ee524/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+11/09/2022 22:14:41 - WARNING - datasets.builder - Using custom data configuration default-9f947fe9138a35d9
+11/09/2022 22:14:41 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+11/09/2022 22:14:41 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-9f947fe9138a35d9/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+11/09/2022 22:14:41 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-9f947fe9138a35d9/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+11/09/2022 22:14:41 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-9f947fe9138a35d9/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+11/09/2022 22:14:41 - WARNING - datasets.builder - Using custom data configuration default-22d4a8936d82f9e1
+11/09/2022 22:14:41 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+11/09/2022 22:14:41 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-22d4a8936d82f9e1/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+11/09/2022 22:14:41 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-22d4a8936d82f9e1/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+11/09/2022 22:14:41 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-22d4a8936d82f9e1/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+[INFO|configuration_utils.py:648] 2022-11-09 22:14:41,714 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
+[INFO|configuration_utils.py:684] 2022-11-09 22:14:41,715 >> Model config BertConfig {
+  "_name_or_path": "bert-base-cased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "finetuning_task": "xnli",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.17.0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+[INFO|configuration_utils.py:648] 2022-11-09 22:14:41,991 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
+[INFO|configuration_utils.py:684] 2022-11-09 22:14:41,992 >> Model config BertConfig {
+  "_name_or_path": "bert-base-cased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.17.0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+[INFO|tokenization_utils_base.py:1786] 2022-11-09 22:14:42,777 >> loading file https://huggingface.co/bert-base-cased/resolve/main/vocab.txt from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/6508e60ab3c1200bffa26c95f4b58ac6b6d95fba4db1f195f632fa3cd7bc64cc.437aa611e89f6fc6675a049d2b5545390adbc617e7d655286421c191d2be2791
+[INFO|tokenization_utils_base.py:1786] 2022-11-09 22:14:42,778 >> loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/226a307193a9f4344264cdc76a12988448a25345ba172f2c7421f3b6810fddad.3dab63143af66769bbb35e3811f75f7e16b2320e12b7935e216bd6159ce6d9a6
+[INFO|tokenization_utils_base.py:1786] 2022-11-09 22:14:42,778 >> loading file https://huggingface.co/bert-base-cased/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-11-09 22:14:42,778 >> loading file https://huggingface.co/bert-base-cased/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-11-09 22:14:42,778 >> loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer_config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/ec84e86ee39bfe112543192cf981deebf7e6cbe8c91b8f7f8f63c9be44366158.ec5c189f89475aac7d8cbd243960a0655cfadc3d0474da8ff2ed0bf1699c2a5f
+[INFO|configuration_utils.py:648] 2022-11-09 22:14:42,904 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
+[INFO|configuration_utils.py:684] 2022-11-09 22:14:42,905 >> Model config BertConfig {
+  "_name_or_path": "bert-base-cased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.17.0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+[INFO|modeling_utils.py:1431] 2022-11-09 22:14:43,264 >> loading weights file https://huggingface.co/bert-base-cased/resolve/main/pytorch_model.bin from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/092cc582560fc3833e556b3f833695c26343cb54b7e88cd02d40821462a74999.1f48cab6c959fc6c360d22bea39d06959e90f5b002e77e836d2da45464875cda
+[WARNING|modeling_utils.py:1694] 2022-11-09 22:14:51,130 >> Some weights of the model checkpoint at bert-base-cased were not used when initializing BertForSequenceClassification: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:1705] 2022-11-09 22:14:51,130 >> Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-cased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+11/09/2022 22:14:51 - WARNING - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-c3a4545b739ee524/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253/cache-3a599e665499a613.arrow
+Running tokenizer on train dataset #0:   0%|          | 0/10 [00:00<?, ?ba/s]
+Running tokenizer on train dataset #1:   0%|          | 0/10 [00:00<?, ?ba/s][A
+
+Running tokenizer on train dataset #2:   0%|          | 0/10 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on train dataset #3:   0%|          | 0/10 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:   0%|          | 0/10 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:   0%|          | 0/10 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:   0%|          | 0/10 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:   0%|          | 0/10 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:   0%|          | 0/10 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:   0%|          | 0/10 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+Running tokenizer on train dataset #1:  10%|█         | 1/10 [00:00<00:04,  2.08ba/s][A
+
+
+
+
+Running tokenizer on train dataset #5:  10%|█         | 1/10 [00:00<00:03,  2.33ba/s][A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  10%|█         | 1/10 [00:00<00:03,  2.58ba/s][A[A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  10%|█         | 1/10 [00:00<00:04,  2.20ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  10%|█         | 1/10 [00:00<00:03,  2.26ba/s][A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  10%|█         | 1/10 [00:00<00:03,  2.41ba/s][A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  10%|█         | 1/10 [00:00<00:04,  2.13ba/s][A[ARunning tokenizer on train dataset #0:  10%|█         | 1/10 [00:00<00:04,  2.06ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  10%|█         | 1/10 [00:00<00:03,  2.65ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  10%|█         | 1/10 [00:00<00:03,  2.48ba/s][A[A[A[A[A[A[A
+Running tokenizer on train dataset #1:  20%|██        | 2/10 [00:00<00:02,  2.67ba/s][ARunning tokenizer on train dataset #0:  20%|██        | 2/10 [00:00<00:03,  2.65ba/s]
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  20%|██        | 2/10 [00:00<00:02,  2.95ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  20%|██        | 2/10 [00:00<00:02,  2.99ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  20%|██        | 2/10 [00:00<00:02,  2.75ba/s][A[A[A[A
+
+Running tokenizer on train dataset #2:  20%|██        | 2/10 [00:00<00:02,  2.67ba/s][A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  20%|██        | 2/10 [00:00<00:02,  2.81ba/s][A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  20%|██        | 2/10 [00:00<00:02,  2.68ba/s][A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  20%|██        | 2/10 [00:00<00:02,  2.85ba/s][A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  20%|██        | 2/10 [00:00<00:03,  2.66ba/s][A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  30%|███       | 3/10 [00:01<00:03,  2.12ba/s][A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  30%|███       | 3/10 [00:01<00:03,  2.08ba/s][A[A[A[A
+Running tokenizer on train dataset #1:  30%|███       | 3/10 [00:01<00:03,  2.04ba/s][A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  30%|███       | 3/10 [00:01<00:03,  2.13ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  30%|███       | 3/10 [00:01<00:03,  2.11ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  30%|███       | 3/10 [00:01<00:03,  2.03ba/s]
+
+Running tokenizer on train dataset #2:  30%|███       | 3/10 [00:01<00:03,  2.05ba/s][A[A
+
+
+Running tokenizer on train dataset #3:  30%|███       | 3/10 [00:01<00:03,  2.07ba/s][A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  30%|███       | 3/10 [00:01<00:03,  2.12ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  30%|███       | 3/10 [00:01<00:03,  2.14ba/s][A[A[A[A[A[A[A[A[A
+Running tokenizer on train dataset #1:  40%|████      | 4/10 [00:01<00:02,  2.43ba/s][A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  40%|████      | 4/10 [00:01<00:02,  2.50ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  40%|████      | 4/10 [00:01<00:02,  2.41ba/s]
+
+
+
+
+Running tokenizer on train dataset #5:  40%|████      | 4/10 [00:01<00:02,  2.46ba/s][A[A[A[A[A
+
+Running tokenizer on train dataset #2:  40%|████      | 4/10 [00:01<00:02,  2.41ba/s][A[A
+
+
+Running tokenizer on train dataset #3:  40%|████      | 4/10 [00:01<00:02,  2.42ba/s][A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  40%|████      | 4/10 [00:01<00:02,  2.45ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  40%|████      | 4/10 [00:01<00:02,  2.44ba/s][A[A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  40%|████      | 4/10 [00:01<00:02,  2.41ba/s][A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  40%|████      | 4/10 [00:01<00:02,  2.45ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  50%|█████     | 5/10 [00:01<00:01,  2.75ba/s][A[A[A[A[A[A[A[A
+Running tokenizer on train dataset #1:  50%|█████     | 5/10 [00:02<00:01,  2.68ba/s][A
+
+
+
+
+Running tokenizer on train dataset #5:  50%|█████     | 5/10 [00:01<00:01,  2.70ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  50%|█████     | 5/10 [00:02<00:01,  2.65ba/s]
+
+Running tokenizer on train dataset #2:  50%|█████     | 5/10 [00:02<00:01,  2.66ba/s][A[A
+
+
+Running tokenizer on train dataset #3:  50%|█████     | 5/10 [00:02<00:01,  2.66ba/s][A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  50%|█████     | 5/10 [00:01<00:01,  2.68ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  50%|█████     | 5/10 [00:01<00:01,  2.68ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  50%|█████     | 5/10 [00:01<00:01,  2.64ba/s][A[A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  50%|█████     | 5/10 [00:02<00:01,  2.61ba/s][A[A[A[A
+Running tokenizer on train dataset #1:  60%|██████    | 6/10 [00:02<00:01,  2.88ba/s][A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  60%|██████    | 6/10 [00:02<00:01,  2.92ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  60%|██████    | 6/10 [00:02<00:01,  2.86ba/s]
+
+
+
+
+Running tokenizer on train dataset #5:  60%|██████    | 6/10 [00:02<00:01,  2.88ba/s][A[A[A[A[A
+
+Running tokenizer on train dataset #2:  60%|██████    | 6/10 [00:02<00:01,  2.84ba/s][A[A
+
+
+Running tokenizer on train dataset #3:  60%|██████    | 6/10 [00:02<00:01,  2.85ba/s][A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  60%|██████    | 6/10 [00:02<00:01,  2.87ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  60%|██████    | 6/10 [00:02<00:01,  2.89ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  60%|██████    | 6/10 [00:02<00:01,  2.85ba/s][A[A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  60%|██████    | 6/10 [00:02<00:01,  2.83ba/s][A[A[A[A
+Running tokenizer on train dataset #1:  70%|███████   | 7/10 [00:02<00:00,  3.01ba/s][A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  70%|███████   | 7/10 [00:02<00:00,  3.05ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  70%|███████   | 7/10 [00:02<00:00,  3.04ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  70%|███████   | 7/10 [00:02<00:00,  3.00ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  70%|███████   | 7/10 [00:02<00:00,  3.03ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  70%|███████   | 7/10 [00:02<00:01,  2.97ba/s][A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  70%|███████   | 7/10 [00:02<00:01,  3.00ba/s][A[A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  70%|███████   | 7/10 [00:02<00:01,  2.95ba/s][A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  70%|███████   | 7/10 [00:02<00:01,  2.99ba/s][A[A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  70%|███████   | 7/10 [00:02<00:01,  2.97ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  80%|████████  | 8/10 [00:02<00:00,  2.75ba/s][A[A[A[A[A
+Running tokenizer on train dataset #1:  80%|████████  | 8/10 [00:03<00:00,  2.71ba/s][A
+
+
+Running tokenizer on train dataset #3:  80%|████████  | 8/10 [00:03<00:00,  2.71ba/s][A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  80%|████████  | 8/10 [00:02<00:00,  2.73ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  80%|████████  | 8/10 [00:03<00:00,  2.65ba/s]
+
+
+
+Running tokenizer on train dataset #4:  80%|████████  | 8/10 [00:03<00:00,  2.71ba/s][A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  80%|████████  | 8/10 [00:03<00:00,  2.65ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  80%|████████  | 8/10 [00:03<00:00,  2.60ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  80%|████████  | 8/10 [00:03<00:00,  2.64ba/s][A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  80%|████████  | 8/10 [00:03<00:00,  2.61ba/s][A[A
+
+
+
+
+Running tokenizer on train dataset #5:  90%|█████████ | 9/10 [00:03<00:00,  2.93ba/s][A[A[A[A[A
+Running tokenizer on train dataset #1:  90%|█████████ | 9/10 [00:03<00:00,  2.88ba/s][A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  90%|█████████ | 9/10 [00:03<00:00,  2.90ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  90%|█████████ | 9/10 [00:03<00:00,  2.88ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  90%|█████████ | 9/10 [00:03<00:00,  2.90ba/s][A[A[A[ARunning tokenizer on train dataset #0:  90%|█████████ | 9/10 [00:03<00:00,  2.85ba/s]
+
+Running tokenizer on train dataset #2:  90%|█████████ | 9/10 [00:03<00:00,  2.81ba/s][A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  90%|█████████ | 9/10 [00:03<00:00,  2.82ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  90%|█████████ | 9/10 [00:03<00:00,  2.78ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  90%|█████████ | 9/10 [00:03<00:00,  2.82ba/s][A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5: 100%|██████████| 10/10 [00:03<00:00,  3.06ba/s][A[A[A[A[ARunning tokenizer on train dataset #5: 100%|██████████| 10/10 [00:03<00:00,  2.79ba/s]
+Running tokenizer on train dataset #1: 100%|██████████| 10/10 [00:03<00:00,  3.03ba/s][ARunning tokenizer on train dataset #1: 100%|██████████| 10/10 [00:03<00:00,  2.74ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9: 100%|██████████| 10/10 [00:03<00:00,  3.04ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #9: 100%|██████████| 10/10 [00:03<00:00,  2.81ba/s]
+
+
+
+Running tokenizer on train dataset #4: 100%|██████████| 10/10 [00:03<00:00,  3.05ba/s][A[A[A[ARunning tokenizer on train dataset #4: 100%|██████████| 10/10 [00:03<00:00,  2.75ba/s]
+
+
+Running tokenizer on train dataset #3: 100%|██████████| 10/10 [00:03<00:00,  3.00ba/s][A[A[ARunning tokenizer on train dataset #3: 100%|██████████| 10/10 [00:03<00:00,  2.74ba/s]Running tokenizer on train dataset #0: 100%|██████████| 10/10 [00:03<00:00,  2.99ba/s]Running tokenizer on train dataset #0: 100%|██████████| 10/10 [00:03<00:00,  2.71ba/s]
+
+
+
+
+
+
+Running tokenizer on train dataset #7: 100%|██████████| 10/10 [00:03<00:00,  2.97ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #7: 100%|██████████| 10/10 [00:03<00:00,  2.75ba/s]
+
+Running tokenizer on train dataset #2: 100%|██████████| 10/10 [00:03<00:00,  2.95ba/s][A[ARunning tokenizer on train dataset #2: 100%|██████████| 10/10 [00:03<00:00,  2.70ba/s]
+
+
+
+
+
+Running tokenizer on train dataset #6: 100%|██████████| 10/10 [00:03<00:00,  2.96ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8: 100%|██████████| 10/10 [00:03<00:00,  2.92ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #6: 100%|██████████| 10/10 [00:03<00:00,  2.74ba/s]Running tokenizer on train dataset #8: 100%|██████████| 10/10 [00:03<00:00,  2.76ba/s]
+
+
+
+
+
+
+
+11/09/2022 22:14:57 - INFO - __main__ - Sample 83810 of the training set: {'id': 'pos_76007_23_49', 'text_e1': 'Christian Poulsen took with FC Copenhagen in the 2001-02 season as champions of the Champions League qualification and withdrew in there against Lazio.', 'text_e2': 'While at Everton, new Danish national team coach Morten Olsen fully supported Gravesen and made him one of his pivotal players in the 2002 World Cup and Euro 2004 campaigns.', 'label': 1, 'input_ids': [101, 2131, 18959, 20996, 1179, 1261, 1114, 3604, 9409, 1107, 1103, 1630, 118, 5507, 1265, 1112, 5461, 1104, 1103, 4748, 1453, 8969, 1105, 6367, 1107, 1175, 1222, 2001, 13409, 119, 102, 1799, 1120, 19433, 117, 1207, 4979, 1569, 1264, 2154, 12556, 23619, 20637, 3106, 2726, 16494, 1424, 1105, 1189, 1140, 1141, 1104, 1117, 22927, 2139, 1107, 1103, 1617, 1291, 1635, 1105, 11854, 1516, 7827, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/09/2022 22:14:57 - INFO - __main__ - Sample 14592 of the training set: {'id': 'neg_14814_61_19', 'text_e1': 'Managerial career.', 'text_e2': "Souness' tenacious style began to garner acclaim during his time at Middlesbrough.", 'label': 0, 'input_ids': [101, 7165, 2916, 1578, 119, 102, 1573, 10038, 3954, 112, 1995, 7409, 4179, 1947, 1310, 1106, 176, 1813, 2511, 10989, 1219, 1117, 1159, 1120, 23917, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'token_type_ids': [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/09/2022 22:14:57 - INFO - __main__ - Sample 3278 of the training set: {'id': 'neg_77174_10_64', 'text_e1': 'She lost both games.', 'text_e2': 'Yao finished the season averaging 17.5 points and 9.0 rebounds a game.', 'label': 0, 'input_ids': [101, 1153, 1575, 1241, 1638, 119, 102, 27762, 1845, 1103, 1265, 15883, 1542, 119, 126, 1827, 1105, 130, 119, 121, 11174, 170, 1342, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+Running tokenizer on validation dataset #0:   0%|          | 0/3 [00:00<?, ?ba/s]
+Running tokenizer on validation dataset #1:   0%|          | 0/3 [00:00<?, ?ba/s][A
+
+Running tokenizer on validation dataset #2:   0%|          | 0/3 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on validation dataset #3:   0%|          | 0/3 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on validation dataset #4:   0%|          | 0/3 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on validation dataset #5:   0%|          | 0/3 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on validation dataset #6:   0%|          | 0/3 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on validation dataset #7:   0%|          | 0/3 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8:   0%|          | 0/3 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9:   0%|          | 0/3 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on validation dataset #5:  33%|███▎      | 1/3 [00:00<00:00,  3.19ba/s][A[A[A[A[ARunning tokenizer on validation dataset #0:  33%|███▎      | 1/3 [00:00<00:00,  2.66ba/s]
+
+Running tokenizer on validation dataset #2:  33%|███▎      | 1/3 [00:00<00:00,  2.74ba/s][A[A
+
+
+Running tokenizer on validation dataset #3:  33%|███▎      | 1/3 [00:00<00:00,  2.81ba/s][A[A[A
+
+
+
+Running tokenizer on validation dataset #4:  33%|███▎      | 1/3 [00:00<00:00,  2.85ba/s][A[A[A[A
+Running tokenizer on validation dataset #1:  33%|███▎      | 1/3 [00:00<00:00,  2.57ba/s][A
+
+
+
+
+
+Running tokenizer on validation dataset #6:  33%|███▎      | 1/3 [00:00<00:00,  2.92ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on validation dataset #7:  33%|███▎      | 1/3 [00:00<00:00,  2.96ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8:  33%|███▎      | 1/3 [00:00<00:00,  2.97ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9:  33%|███▎      | 1/3 [00:00<00:00,  2.76ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on validation dataset #3:  67%|██████▋   | 2/3 [00:00<00:00,  3.06ba/s][A[A[A
+
+Running tokenizer on validation dataset #2:  67%|██████▋   | 2/3 [00:00<00:00,  2.98ba/s][A[ARunning tokenizer on validation dataset #0:  67%|██████▋   | 2/3 [00:00<00:00,  2.85ba/s]
+
+
+
+
+
+
+Running tokenizer on validation dataset #7:  67%|██████▋   | 2/3 [00:00<00:00,  3.15ba/s][A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on validation dataset #5:  67%|██████▋   | 2/3 [00:00<00:00,  2.91ba/s][A[A[A[A[A
+
+
+
+Running tokenizer on validation dataset #4:  67%|██████▋   | 2/3 [00:00<00:00,  2.89ba/s][A[A[A[A
+Running tokenizer on validation dataset #1:  67%|██████▋   | 2/3 [00:00<00:00,  2.77ba/s][A
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8:  67%|██████▋   | 2/3 [00:00<00:00,  3.10ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on validation dataset #6:  67%|██████▋   | 2/3 [00:00<00:00,  2.95ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9:  67%|██████▋   | 2/3 [00:00<00:00,  3.05ba/s][A[A[A[A[A[A[A[A[A
+
+Running tokenizer on validation dataset #2: 100%|██████████| 3/3 [00:00<00:00,  3.43ba/s][A[A
+
+
+Running tokenizer on validation dataset #3: 100%|██████████| 3/3 [00:00<00:00,  3.46ba/s][A[A[ARunning tokenizer on validation dataset #2: 100%|██████████| 3/3 [00:00<00:00,  3.26ba/s]Running tokenizer on validation dataset #3: 100%|██████████| 3/3 [00:00<00:00,  3.31ba/s]Running tokenizer on validation dataset #0: 100%|██████████| 3/3 [00:00<00:00,  3.35ba/s]Running tokenizer on validation dataset #0: 100%|██████████| 3/3 [00:00<00:00,  3.17ba/s]
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8: 100%|██████████| 3/3 [00:00<00:00,  3.73ba/s][A[A[A[A[A[A[A[ARunning tokenizer on validation dataset #8: 100%|██████████| 3/3 [00:00<00:00,  3.51ba/s]
+
+
+
+
+Running tokenizer on validation dataset #5: 100%|██████████| 3/3 [00:00<00:00,  3.46ba/s][A[A[A[A[ARunning tokenizer on validation dataset #5: 100%|██████████| 3/3 [00:00<00:00,  3.33ba/s]
+Running tokenizer on validation dataset #1: 100%|██████████| 3/3 [00:00<00:00,  3.34ba/s][ARunning tokenizer on validation dataset #1: 100%|██████████| 3/3 [00:00<00:00,  3.13ba/s]
+
+
+
+
+
+
+Running tokenizer on validation dataset #7: 100%|██████████| 3/3 [00:00<00:00,  3.42ba/s][A[A[A[A[A[A[ARunning tokenizer on validation dataset #7: 100%|██████████| 3/3 [00:00<00:00,  3.32ba/s]
+
+
+
+
+
+Running tokenizer on validation dataset #6: 100%|██████████| 3/3 [00:00<00:00,  3.37ba/s][A[A[A[A[A[ARunning tokenizer on validation dataset #6: 100%|██████████| 3/3 [00:00<00:00,  3.24ba/s]
+
+
+
+Running tokenizer on validation dataset #4: 100%|██████████| 3/3 [00:00<00:00,  3.08ba/s][A[A[A[ARunning tokenizer on validation dataset #4: 100%|██████████| 3/3 [00:00<00:00,  3.02ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9: 100%|██████████| 3/3 [00:00<00:00,  3.30ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on validation dataset #9: 100%|██████████| 3/3 [00:00<00:00,  3.19ba/s]
+
+
+
+
+
+Running tokenizer on prediction dataset #0:   0%|          | 0/11 [00:00<?, ?ba/s]
+Running tokenizer on prediction dataset #1:   0%|          | 0/11 [00:00<?, ?ba/s][A
+
+Running tokenizer on prediction dataset #2:   0%|          | 0/11 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on prediction dataset #3:   0%|          | 0/11 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on prediction dataset #4:   0%|          | 0/11 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5:   0%|          | 0/11 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:   0%|          | 0/11 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:   0%|          | 0/11 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:   0%|          | 0/11 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:   0%|          | 0/11 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5:   9%|▉         | 1/11 [00:00<00:02,  3.41ba/s][A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:   9%|▉         | 1/11 [00:00<00:03,  3.00ba/s][A[A[ARunning tokenizer on prediction dataset #0:   9%|▉         | 1/11 [00:00<00:03,  2.68ba/s]
+
+
+
+Running tokenizer on prediction dataset #4:   9%|▉         | 1/11 [00:00<00:03,  3.07ba/s][A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:   9%|▉         | 1/11 [00:00<00:03,  3.28ba/s][A[A[A[A[A[A
+
+Running tokenizer on prediction dataset #2:   9%|▉         | 1/11 [00:00<00:03,  2.63ba/s][A[A
+Running tokenizer on prediction dataset #1:   9%|▉         | 1/11 [00:00<00:03,  2.52ba/s][A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:   9%|▉         | 1/11 [00:00<00:03,  2.80ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:   9%|▉         | 1/11 [00:00<00:03,  2.55ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:   9%|▉         | 1/11 [00:00<00:04,  2.22ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:  18%|█▊        | 2/11 [00:00<00:02,  3.27ba/s][A[A[A
+
+
+
+Running tokenizer on prediction dataset #4:  18%|█▊        | 2/11 [00:00<00:02,  3.19ba/s][A[A[A[ARunning tokenizer on prediction dataset #0:  18%|█▊        | 2/11 [00:00<00:03,  2.99ba/s]
+
+
+
+
+Running tokenizer on prediction dataset #5:  18%|█▊        | 2/11 [00:00<00:02,  3.14ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  18%|█▊        | 2/11 [00:00<00:02,  3.17ba/s][A[A[A[A[A[A
+Running tokenizer on prediction dataset #1:  18%|█▊        | 2/11 [00:00<00:03,  2.90ba/s][A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  18%|█▊        | 2/11 [00:00<00:02,  3.13ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  18%|█▊        | 2/11 [00:00<00:02,  3.06ba/s][A[A[A[A[A[A[A
+
+Running tokenizer on prediction dataset #2:  18%|█▊        | 2/11 [00:00<00:03,  2.72ba/s][A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  18%|█▊        | 2/11 [00:00<00:03,  2.54ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:  27%|██▋       | 3/11 [00:00<00:02,  3.34ba/s][A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  27%|██▋       | 3/11 [00:00<00:02,  3.50ba/s][A[A[A[A[A[A
+Running tokenizer on prediction dataset #1:  27%|██▋       | 3/11 [00:00<00:02,  3.28ba/s][A
+
+
+
+
+Running tokenizer on prediction dataset #5:  27%|██▋       | 3/11 [00:00<00:02,  3.29ba/s][A[A[A[A[ARunning tokenizer on prediction dataset #0:  27%|██▋       | 3/11 [00:00<00:02,  3.13ba/s]
+
+Running tokenizer on prediction dataset #2:  27%|██▋       | 3/11 [00:00<00:02,  3.14ba/s][A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  27%|██▋       | 3/11 [00:00<00:02,  3.17ba/s][A[A[A[A[A[A[A[A
+
+
+
+Running tokenizer on prediction dataset #4:  27%|██▋       | 3/11 [00:01<00:02,  2.90ba/s][A[A[A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  27%|██▋       | 3/11 [00:00<00:02,  3.11ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  27%|██▋       | 3/11 [00:01<00:02,  2.93ba/s][A[A[A[A[A[A[A[A[A
+Running tokenizer on prediction dataset #1:  36%|███▋      | 4/11 [00:01<00:02,  3.40ba/s][A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  36%|███▋      | 4/11 [00:01<00:02,  3.38ba/s][A[A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:  36%|███▋      | 4/11 [00:01<00:02,  3.26ba/s][A[A[ARunning tokenizer on prediction dataset #0:  36%|███▋      | 4/11 [00:01<00:02,  3.26ba/s]
+
+
+
+
+Running tokenizer on prediction dataset #5:  36%|███▋      | 4/11 [00:01<00:02,  3.26ba/s][A[A[A[A[A
+
+Running tokenizer on prediction dataset #2:  36%|███▋      | 4/11 [00:01<00:02,  3.22ba/s][A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  36%|███▋      | 4/11 [00:01<00:02,  3.22ba/s][A[A[A[A[A[A[A[A
+
+
+
+Running tokenizer on prediction dataset #4:  36%|███▋      | 4/11 [00:01<00:02,  2.99ba/s][A[A[A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  36%|███▋      | 4/11 [00:01<00:02,  3.12ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  36%|███▋      | 4/11 [00:01<00:02,  3.21ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  45%|████▌     | 5/11 [00:01<00:01,  3.52ba/s][A[A[A[A[A[ARunning tokenizer on prediction dataset #0:  45%|████▌     | 5/11 [00:01<00:01,  3.29ba/s]
+Running tokenizer on prediction dataset #1:  45%|████▌     | 5/11 [00:01<00:01,  3.30ba/s][A
+
+
+
+
+Running tokenizer on prediction dataset #5:  45%|████▌     | 5/11 [00:01<00:01,  3.26ba/s][A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:  45%|████▌     | 5/11 [00:01<00:01,  3.17ba/s][A[A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  45%|████▌     | 5/11 [00:01<00:01,  3.20ba/s][A[A[A[A[A[A[A[A
+
+Running tokenizer on prediction dataset #2:  45%|████▌     | 5/11 [00:01<00:01,  3.05ba/s][A[A
+
+
+
+Running tokenizer on prediction dataset #4:  45%|████▌     | 5/11 [00:01<00:01,  3.06ba/s][A[A[A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  45%|████▌     | 5/11 [00:01<00:01,  3.08ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  45%|████▌     | 5/11 [00:01<00:01,  3.30ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  55%|█████▍    | 6/11 [00:01<00:01,  3.37ba/s][A[A[A[A[A[ARunning tokenizer on prediction dataset #0:  55%|█████▍    | 6/11 [00:01<00:01,  3.32ba/s]
+
+
+Running tokenizer on prediction dataset #3:  55%|█████▍    | 6/11 [00:01<00:01,  3.31ba/s][A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5:  55%|█████▍    | 6/11 [00:01<00:01,  3.28ba/s][A[A[A[A[A
+Running tokenizer on prediction dataset #1:  55%|█████▍    | 6/11 [00:01<00:01,  3.13ba/s][A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  55%|█████▍    | 6/11 [00:01<00:01,  3.23ba/s][A[A[A[A[A[A[A[A
+
+
+
+Running tokenizer on prediction dataset #4:  55%|█████▍    | 6/11 [00:01<00:01,  3.13ba/s][A[A[A[A
+
+Running tokenizer on prediction dataset #2:  55%|█████▍    | 6/11 [00:02<00:01,  2.98ba/s][A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  55%|█████▍    | 6/11 [00:01<00:01,  3.11ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  55%|█████▍    | 6/11 [00:01<00:01,  3.12ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on prediction dataset #0:  64%|██████▎   | 7/11 [00:02<00:01,  3.32ba/s]
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  64%|██████▎   | 7/11 [00:02<00:01,  3.30ba/s][A[A[A[A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5:  64%|██████▎   | 7/11 [00:02<00:01,  3.37ba/s][A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:  64%|██████▎   | 7/11 [00:02<00:01,  3.28ba/s][A[A[A
+Running tokenizer on prediction dataset #1:  64%|██████▎   | 7/11 [00:02<00:01,  3.08ba/s][A
+
+
+
+Running tokenizer on prediction dataset #4:  64%|██████▎   | 7/11 [00:02<00:01,  3.22ba/s][A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  64%|██████▎   | 7/11 [00:02<00:01,  3.19ba/s][A[A[A[A[A[A[A[A
+
+Running tokenizer on prediction dataset #2:  64%|██████▎   | 7/11 [00:02<00:01,  3.04ba/s][A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  64%|██████▎   | 7/11 [00:02<00:01,  3.09ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  64%|██████▎   | 7/11 [00:02<00:01,  3.08ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  73%|███████▎  | 8/11 [00:02<00:01,  2.95ba/s][A[A[A[A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5:  73%|███████▎  | 8/11 [00:02<00:00,  3.01ba/s][A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:  73%|███████▎  | 8/11 [00:02<00:01,  2.92ba/s][A[A[ARunning tokenizer on prediction dataset #0:  73%|███████▎  | 8/11 [00:02<00:01,  2.72ba/s]
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  73%|███████▎  | 8/11 [00:02<00:01,  2.92ba/s][A[A[A[A[A[A[A[A
+
+
+
+Running tokenizer on prediction dataset #4:  73%|███████▎  | 8/11 [00:02<00:01,  2.87ba/s][A[A[A[A
+Running tokenizer on prediction dataset #1:  73%|███████▎  | 8/11 [00:02<00:01,  2.67ba/s][A
+
+Running tokenizer on prediction dataset #2:  73%|███████▎  | 8/11 [00:02<00:01,  2.82ba/s][A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  73%|███████▎  | 8/11 [00:02<00:01,  2.82ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  73%|███████▎  | 8/11 [00:02<00:01,  2.91ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  82%|████████▏ | 9/11 [00:02<00:00,  3.16ba/s][A[A[A[A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5:  82%|████████▏ | 9/11 [00:02<00:00,  3.12ba/s][A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:  82%|████████▏ | 9/11 [00:02<00:00,  3.03ba/s][A[A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  82%|████████▏ | 9/11 [00:02<00:00,  3.10ba/s][A[A[A[A[A[A[A[ARunning tokenizer on prediction dataset #0:  82%|████████▏ | 9/11 [00:02<00:00,  2.85ba/s]
+
+
+
+Running tokenizer on prediction dataset #4:  82%|████████▏ | 9/11 [00:02<00:00,  3.00ba/s][A[A[A[A
+Running tokenizer on prediction dataset #1:  82%|████████▏ | 9/11 [00:03<00:00,  2.84ba/s][A
+
+Running tokenizer on prediction dataset #2:  82%|████████▏ | 9/11 [00:03<00:00,  2.96ba/s][A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  82%|████████▏ | 9/11 [00:02<00:00,  3.03ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  82%|████████▏ | 9/11 [00:02<00:00,  3.11ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:  91%|█████████ | 10/11 [00:03<00:00,  3.22ba/s][A[A[A[A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5:  91%|█████████ | 10/11 [00:03<00:00,  3.07ba/s][A[A[A[A[A
+
+
+Running tokenizer on prediction dataset #3:  91%|█████████ | 10/11 [00:03<00:00,  3.08ba/s][A[A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:  91%|█████████ | 10/11 [00:03<00:00,  3.23ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6: 100%|██████████| 11/11 [00:03<00:00,  3.85ba/s][A[A[A[A[A[ARunning tokenizer on prediction dataset #6: 100%|██████████| 11/11 [00:03<00:00,  3.42ba/s]Running tokenizer on prediction dataset #0:  91%|█████████ | 10/11 [00:03<00:00,  2.97ba/s]
+
+
+
+Running tokenizer on prediction dataset #4:  91%|█████████ | 10/11 [00:03<00:00,  3.17ba/s][A[A[A[A
+Running tokenizer on prediction dataset #1:  91%|█████████ | 10/11 [00:03<00:00,  3.03ba/s][A
+
+Running tokenizer on prediction dataset #2:  91%|█████████ | 10/11 [00:03<00:00,  3.12ba/s][A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:  91%|█████████ | 10/11 [00:03<00:00,  3.18ba/s][A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5: 100%|██████████| 11/11 [00:03<00:00,  3.75ba/s][A[A[A[A[ARunning tokenizer on prediction dataset #5: 100%|██████████| 11/11 [00:03<00:00,  3.34ba/s]
+
+
+Running tokenizer on prediction dataset #3: 100%|██████████| 11/11 [00:03<00:00,  3.72ba/s][A[A[ARunning tokenizer on prediction dataset #3: 100%|██████████| 11/11 [00:03<00:00,  3.31ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:  91%|█████████ | 10/11 [00:03<00:00,  3.26ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8: 100%|██████████| 11/11 [00:03<00:00,  3.95ba/s][A[A[A[A[A[A[A[ARunning tokenizer on prediction dataset #8: 100%|██████████| 11/11 [00:03<00:00,  3.34ba/s]
+
+
+
+Running tokenizer on prediction dataset #4: 100%|██████████| 11/11 [00:03<00:00,  3.83ba/s][A[A[A[ARunning tokenizer on prediction dataset #4: 100%|██████████| 11/11 [00:03<00:00,  3.25ba/s]
+Running tokenizer on prediction dataset #1: 100%|██████████| 11/11 [00:03<00:00,  3.75ba/s][ARunning tokenizer on prediction dataset #1: 100%|██████████| 11/11 [00:03<00:00,  3.20ba/s]Running tokenizer on prediction dataset #0: 100%|██████████| 11/11 [00:03<00:00,  3.54ba/s]Running tokenizer on prediction dataset #0: 100%|██████████| 11/11 [00:03<00:00,  3.19ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9: 100%|██████████| 11/11 [00:03<00:00,  4.02ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7: 100%|██████████| 11/11 [00:03<00:00,  3.84ba/s][A[A[A[A[A[A[ARunning tokenizer on prediction dataset #9: 100%|██████████| 11/11 [00:03<00:00,  3.26ba/s]Running tokenizer on prediction dataset #7: 100%|██████████| 11/11 [00:03<00:00,  3.24ba/s]
+
+Running tokenizer on prediction dataset #2: 100%|██████████| 11/11 [00:03<00:00,  3.72ba/s][A[ARunning tokenizer on prediction dataset #2: 100%|██████████| 11/11 [00:03<00:00,  3.17ba/s]
+
+
+
+[INFO|trainer.py:571] 2022-11-09 22:15:15,822 >> The following columns in the training set  don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: id, text_e1, text_e2. If id, text_e1, text_e2 are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/optimization.py:309: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  FutureWarning,
+[INFO|trainer.py:1279] 2022-11-09 22:15:16,254 >> ***** Running training *****
+[INFO|trainer.py:1280] 2022-11-09 22:15:16,254 >>   Num examples = 100000
+[INFO|trainer.py:1281] 2022-11-09 22:15:16,254 >>   Num Epochs = 4
+[INFO|trainer.py:1282] 2022-11-09 22:15:16,254 >>   Instantaneous batch size per device = 64
+[INFO|trainer.py:1283] 2022-11-09 22:15:16,254 >>   Total train batch size (w. parallel, distributed & accumulation) = 64
+[INFO|trainer.py:1284] 2022-11-09 22:15:16,255 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1285] 2022-11-09 22:15:16,255 >>   Total optimization steps = 6252
+  0%|          | 0/6252 [00:00<?, ?it/s]  0%|          | 1/6252 [00:05<10:06:15,  5.82s/it]  0%|          | 2/6252 [00:06<4:41:20,  2.70s/it]   0%|          | 3/6252 [00:06<2:57:08,  1.70s/it]  0%|          | 4/6252 [00:07<2:08:07,  1.23s/it]  0%|          | 5/6252 [00:07<1:41:01,  1.03it/s]  0%|          | 6/6252 [00:08<1:24:38,  1.23it/s]  0%|          | 7/6252 [00:08<1:14:22,  1.40it/s]  0%|          | 8/6252 [00:09<1:07:42,  1.54it/s]  0%|          | 9/6252 [00:09<1:03:09,  1.65it/s]  0%|          | 10/6252 [00:10<1:00:04,  1.73it/s]  0%|          | 11/6252 [00:10<57:55,  1.80it/s]    0%|          | 12/6252 [00:11<56:28,  1.84it/s]  0%|          | 13/6252 [00:11<55:27,  1.87it/s]  0%|          | 14/6252 [00:12<54:51,  1.90it/s]  0%|          | 15/6252 [00:12<54:21,  1.91it/s]  0%|          | 16/6252 [00:13<54:00,  1.92it/s]  0%|          | 17/6252 [00:14<53:48,  1.93it/s]  0%|          | 18/6252 [00:14<53:41,  1.94it/s]  0%|          | 19/6252 [00:15<53:41,  1.94it/s]  0%|          | 20/6252 [00:15<53:37,  1.94it/s]  0%|          | 21/6252 [00:16<53:33,  1.94it/s]  0%|          | 22/6252 [00:16<53:32,  1.94it/s]  0%|          | 23/6252 [00:17<53:25,  1.94it/s]  0%|          | 24/6252 [00:17<53:26,  1.94it/s]  0%|          | 25/6252 [00:18<53:22,  1.94it/s]  0%|          | 26/6252 [00:18<53:17,  1.95it/s]  0%|          | 27/6252 [00:19<53:15,  1.95it/s]  0%|          | 28/6252 [00:19<53:12,  1.95it/s]  0%|          | 29/6252 [00:20<53:17,  1.95it/s]  0%|          | 30/6252 [00:20<53:12,  1.95it/s]  0%|          | 31/6252 [00:21<53:16,  1.95it/s]  1%|          | 32/6252 [00:21<53:16,  1.95it/s]  1%|          | 33/6252 [00:22<53:18,  1.94it/s]  1%|          | 34/6252 [00:22<53:17,  1.94it/s]  1%|          | 35/6252 [00:23<53:21,  1.94it/s]  1%|          | 36/6252 [00:23<53:19,  1.94it/s]  1%|          | 37/6252 [00:24<53:20,  1.94it/s]  1%|          | 38/6252 [00:24<53:18,  1.94it/s]  1%|          | 39/6252 [00:25<53:22,  1.94it/s]  1%|          | 40/6252 [00:25<53:20,  1.94it/s]  1%|          | 41/6252 [00:26<53:20,  1.94it/s]  1%|          | 42/6252 [00:26<53:18,  1.94it/s]  1%|          | 43/6252 [00:27<53:16,  1.94it/s]  1%|          | 44/6252 [00:27<53:25,  1.94it/s]  1%|          | 45/6252 [00:28<53:28,  1.93it/s]  1%|          | 46/6252 [00:28<53:28,  1.93it/s]  1%|          | 47/6252 [00:29<53:29,  1.93it/s]  1%|          | 48/6252 [00:29<53:27,  1.93it/s]  1%|          | 49/6252 [00:30<53:27,  1.93it/s]  1%|          | 50/6252 [00:31<53:27,  1.93it/s]  1%|          | 51/6252 [00:31<53:29,  1.93it/s]  1%|          | 52/6252 [00:32<53:22,  1.94it/s]  1%|          | 53/6252 [00:32<53:22,  1.94it/s]  1%|          | 54/6252 [00:33<53:25,  1.93it/s]  1%|          | 55/6252 [00:33<53:26,  1.93it/s]  1%|          | 56/6252 [00:34<53:27,  1.93it/s]  1%|          | 57/6252 [00:35<1:31:40,  1.13it/s]  1%|          | 58/6252 [00:36<1:20:17,  1.29it/s]  1%|          | 59/6252 [00:36<1:12:13,  1.43it/s]  1%|          | 60/6252 [00:37<1:06:33,  1.55it/s]  1%|          | 61/6252 [00:37<1:02:34,  1.65it/s]  1%|          | 62/6252 [00:38<59:44,  1.73it/s]    1%|          | 63/6252 [00:38<57:51,  1.78it/s]  1%|          | 64/6252 [00:39<56:35,  1.82it/s]  1%|          | 65/6252 [00:40<55:38,  1.85it/s]  1%|          | 66/6252 [00:40<54:58,  1.88it/s]  1%|          | 67/6252 [00:41<54:36,  1.89it/s]  1%|          | 68/6252 [00:41<54:16,  1.90it/s]  1%|          | 69/6252 [00:42<54:09,  1.90it/s]  1%|          | 70/6252 [00:42<54:01,  1.91it/s]  1%|          | 71/6252 [00:43<53:55,  1.91it/s]  1%|          | 72/6252 [00:43<53:48,  1.91it/s]  1%|          | 73/6252 [00:44<53:47,  1.91it/s]  1%|          | 74/6252 [00:44<53:49,  1.91it/s]  1%|          | 75/6252 [00:45<53:49,  1.91it/s]  1%|          | 76/6252 [00:45<53:47,  1.91it/s]  1%|          | 77/6252 [00:46<53:44,  1.91it/s]  1%|          | 78/6252 [00:46<53:45,  1.91it/s]  1%|▏         | 79/6252 [00:47<53:43,  1.91it/s]  1%|▏         | 80/6252 [00:47<53:39,  1.92it/s]  1%|▏         | 81/6252 [00:48<53:41,  1.92it/s]  1%|▏         | 82/6252 [00:48<53:41,  1.92it/s]  1%|▏         | 83/6252 [00:49<53:37,  1.92it/s]  1%|▏         | 84/6252 [00:49<53:33,  1.92it/s]  1%|▏         | 85/6252 [00:50<53:37,  1.92it/s]  1%|▏         | 86/6252 [00:50<53:35,  1.92it/s]  1%|▏         | 87/6252 [00:51<55:26,  1.85it/s]  1%|▏         | 88/6252 [00:52<54:57,  1.87it/s]  1%|▏         | 89/6252 [00:52<54:34,  1.88it/s]  1%|▏         | 90/6252 [00:53<54:13,  1.89it/s]  1%|▏         | 91/6252 [00:53<53:59,  1.90it/s]  1%|▏         | 92/6252 [00:54<53:52,  1.91it/s]  1%|▏         | 93/6252 [00:54<53:43,  1.91it/s]  2%|▏         | 94/6252 [00:55<53:41,  1.91it/s]  2%|▏         | 95/6252 [00:55<53:35,  1.91it/s]  2%|▏         | 96/6252 [00:56<53:38,  1.91it/s]  2%|▏         | 97/6252 [00:56<53:38,  1.91it/s]  2%|▏         | 98/6252 [00:57<53:39,  1.91it/s]  2%|▏         | 99/6252 [00:57<53:37,  1.91it/s]  2%|▏         | 100/6252 [00:58<53:35,  1.91it/s]  2%|▏         | 101/6252 [00:58<53:36,  1.91it/s]  2%|▏         | 102/6252 [00:59<53:35,  1.91it/s]  2%|▏         | 103/6252 [00:59<53:35,  1.91it/s]  2%|▏         | 104/6252 [01:00<53:35,  1.91it/s]  2%|▏         | 105/6252 [01:00<53:29,  1.92it/s]  2%|▏         | 106/6252 [01:01<53:30,  1.91it/s]  2%|▏         | 107/6252 [01:01<53:32,  1.91it/s]  2%|▏         | 108/6252 [01:02<53:33,  1.91it/s]  2%|▏         | 109/6252 [01:03<53:37,  1.91it/s]  2%|▏         | 110/6252 [01:03<53:36,  1.91it/s]  2%|▏         | 111/6252 [01:04<53:40,  1.91it/s]  2%|▏         | 112/6252 [01:04<53:36,  1.91it/s]  2%|▏         | 113/6252 [01:05<53:33,  1.91it/s]  2%|▏         | 114/6252 [01:05<53:34,  1.91it/s]  2%|▏         | 115/6252 [01:06<53:32,  1.91it/s]  2%|▏         | 116/6252 [01:06<53:33,  1.91it/s]  2%|▏         | 117/6252 [01:07<53:34,  1.91it/s]  2%|▏         | 118/6252 [01:07<53:34,  1.91it/s]  2%|▏         | 119/6252 [01:08<53:33,  1.91it/s]  2%|▏         | 120/6252 [01:08<53:35,  1.91it/s]  2%|▏         | 121/6252 [01:09<53:33,  1.91it/s]  2%|▏         | 122/6252 [01:09<53:37,  1.91it/s]  2%|▏         | 123/6252 [01:10<53:41,  1.90it/s]  2%|▏         | 124/6252 [01:10<53:39,  1.90it/s]  2%|▏         | 125/6252 [01:11<53:34,  1.91it/s]  2%|▏         | 126/6252 [01:11<53:33,  1.91it/s]  2%|▏         | 127/6252 [01:12<53:35,  1.90it/s]  2%|▏         | 128/6252 [01:13<53:32,  1.91it/s]  2%|▏         | 129/6252 [01:13<53:33,  1.91it/s]  2%|▏         | 130/6252 [01:14<53:34,  1.90it/s]  2%|▏         | 131/6252 [01:14<53:35,  1.90it/s]  2%|▏         | 132/6252 [01:15<53:42,  1.90it/s]  2%|▏         | 133/6252 [01:15<53:40,  1.90it/s]  2%|▏         | 134/6252 [01:16<53:34,  1.90it/s]  2%|▏         | 135/6252 [01:16<53:30,  1.91it/s]  2%|▏         | 136/6252 [01:17<53:28,  1.91it/s]  2%|▏         | 137/6252 [01:17<53:28,  1.91it/s]  2%|▏         | 138/6252 [01:18<53:26,  1.91it/s]  2%|▏         | 139/6252 [01:18<53:24,  1.91it/s]  2%|▏         | 140/6252 [01:19<53:29,  1.90it/s]  2%|▏         | 141/6252 [01:19<53:26,  1.91it/s]  2%|▏         | 142/6252 [01:20<53:24,  1.91it/s]  2%|▏         | 143/6252 [01:20<53:21,  1.91it/s]  2%|▏         | 144/6252 [01:21<53:21,  1.91it/s]  2%|▏         | 145/6252 [01:21<53:21,  1.91it/s]  2%|▏         | 146/6252 [01:22<53:26,  1.90it/s]  2%|▏         | 147/6252 [01:22<53:23,  1.91it/s]  2%|▏         | 148/6252 [01:23<53:21,  1.91it/s]  2%|▏         | 149/6252 [01:24<53:23,  1.91it/s]  2%|▏         | 150/6252 [01:24<53:19,  1.91it/s]  2%|▏         | 151/6252 [01:25<53:18,  1.91it/s]  2%|▏         | 152/6252 [01:25<53:24,  1.90it/s]  2%|▏         | 153/6252 [01:26<53:28,  1.90it/s]  2%|▏         | 154/6252 [01:26<53:27,  1.90it/s]  2%|▏         | 155/6252 [01:27<53:28,  1.90it/s]  2%|▏         | 156/6252 [01:27<53:30,  1.90it/s]  3%|▎         | 157/6252 [01:28<53:30,  1.90it/s]  3%|▎         | 158/6252 [01:28<53:30,  1.90it/s]  3%|▎         | 159/6252 [01:29<53:29,  1.90it/s]  3%|▎         | 160/6252 [01:29<53:28,  1.90it/s]  3%|▎         | 161/6252 [01:30<53:28,  1.90it/s]  3%|▎         | 162/6252 [01:30<53:27,  1.90it/s]  3%|▎         | 163/6252 [01:31<53:26,  1.90it/s]  3%|▎         | 164/6252 [01:31<53:26,  1.90it/s]  3%|▎         | 165/6252 [01:32<53:19,  1.90it/s]  3%|▎         | 166/6252 [01:32<53:20,  1.90it/s]  3%|▎         | 167/6252 [01:33<53:14,  1.90it/s]  3%|▎         | 168/6252 [01:34<53:16,  1.90it/s]  3%|▎         | 169/6252 [01:34<53:17,  1.90it/s]  3%|▎         | 170/6252 [01:35<53:17,  1.90it/s]  3%|▎         | 171/6252 [01:35<53:23,  1.90it/s]  3%|▎         | 172/6252 [01:36<53:23,  1.90it/s]  3%|▎         | 173/6252 [01:36<53:20,  1.90it/s]  3%|▎         | 174/6252 [01:37<53:18,  1.90it/s]  3%|▎         | 175/6252 [01:37<53:18,  1.90it/s]  3%|▎         | 176/6252 [01:38<53:18,  1.90it/s]  3%|▎         | 177/6252 [01:38<53:17,  1.90it/s]  3%|▎         | 178/6252 [01:39<53:17,  1.90it/s]  3%|▎         | 179/6252 [01:39<53:17,  1.90it/s]  3%|▎         | 180/6252 [01:40<53:23,  1.90it/s]  3%|▎         | 181/6252 [01:40<53:22,  1.90it/s]  3%|▎         | 182/6252 [01:41<53:21,  1.90it/s]  3%|▎         | 183/6252 [01:41<53:19,  1.90it/s]  3%|▎         | 184/6252 [01:42<53:22,  1.89it/s]  3%|▎         | 185/6252 [01:42<53:20,  1.90it/s]  3%|▎         | 186/6252 [01:43<53:21,  1.89it/s]  3%|▎         | 187/6252 [01:44<53:21,  1.89it/s]  3%|▎         | 188/6252 [01:44<53:18,  1.90it/s]  3%|▎         | 189/6252 [01:45<53:16,  1.90it/s]  3%|▎         | 190/6252 [01:45<53:15,  1.90it/s]  3%|▎         | 191/6252 [01:46<53:18,  1.89it/s]  3%|▎         | 192/6252 [01:46<53:15,  1.90it/s]  3%|▎         | 193/6252 [01:47<53:12,  1.90it/s]  3%|▎         | 194/6252 [01:47<53:14,  1.90it/s]  3%|▎         | 195/6252 [01:48<53:07,  1.90it/s]  3%|▎         | 196/6252 [01:48<53:08,  1.90it/s]  3%|▎         | 197/6252 [01:49<53:09,  1.90it/s]  3%|▎         | 198/6252 [01:49<53:08,  1.90it/s]  3%|▎         | 199/6252 [01:50<53:13,  1.90it/s]  3%|▎         | 200/6252 [01:50<53:16,  1.89it/s]  3%|▎         | 201/6252 [01:51<53:14,  1.89it/s]  3%|▎         | 202/6252 [01:51<53:17,  1.89it/s]  3%|▎         | 203/6252 [01:52<53:15,  1.89it/s]  3%|▎         | 204/6252 [01:53<53:14,  1.89it/s]  3%|▎         | 205/6252 [01:53<53:10,  1.90it/s]  3%|▎         | 206/6252 [01:54<53:07,  1.90it/s]  3%|▎         | 207/6252 [01:54<53:09,  1.90it/s]  3%|▎         | 208/6252 [01:55<53:09,  1.89it/s]  3%|▎         | 209/6252 [01:55<53:06,  1.90it/s]  3%|▎         | 210/6252 [01:56<53:04,  1.90it/s]  3%|▎         | 211/6252 [01:56<53:06,  1.90it/s]  3%|▎         | 212/6252 [01:57<53:04,  1.90it/s]  3%|▎         | 213/6252 [01:57<53:05,  1.90it/s]  3%|▎         | 214/6252 [01:58<53:04,  1.90it/s]  3%|▎         | 215/6252 [01:58<53:02,  1.90it/s]  3%|▎         | 216/6252 [01:59<53:04,  1.90it/s]  3%|▎         | 217/6252 [01:59<53:02,  1.90it/s]  3%|▎         | 218/6252 [02:00<53:00,  1.90it/s]  4%|▎         | 219/6252 [02:00<52:59,  1.90it/s]  4%|▎         | 220/6252 [02:01<53:04,  1.89it/s]  4%|▎         | 221/6252 [02:01<53:03,  1.89it/s]  4%|▎         | 222/6252 [02:02<53:00,  1.90it/s]  4%|▎         | 223/6252 [02:03<53:04,  1.89it/s]  4%|▎         | 224/6252 [02:03<53:05,  1.89it/s]  4%|▎         | 225/6252 [02:04<53:02,  1.89it/s]  4%|▎         | 226/6252 [02:04<52:59,  1.90it/s]  4%|▎         | 227/6252 [02:05<52:58,  1.90it/s]  4%|▎         | 228/6252 [02:05<54:22,  1.85it/s]  4%|▎         | 229/6252 [02:06<54:06,  1.86it/s]  4%|▎         | 230/6252 [02:06<53:48,  1.87it/s]  4%|▎         | 231/6252 [02:07<53:31,  1.87it/s]  4%|▎         | 232/6252 [02:07<53:22,  1.88it/s]  4%|▎         | 233/6252 [02:08<53:12,  1.89it/s]  4%|▎         | 234/6252 [02:08<53:02,  1.89it/s]  4%|▍         | 235/6252 [02:09<52:55,  1.89it/s]  4%|▍         | 236/6252 [02:09<52:56,  1.89it/s]  4%|▍         | 237/6252 [02:10<52:54,  1.89it/s]  4%|▍         | 238/6252 [02:10<52:57,  1.89it/s]  4%|▍         | 239/6252 [02:11<52:56,  1.89it/s]  4%|▍         | 240/6252 [02:12<52:54,  1.89it/s]  4%|▍         | 241/6252 [02:12<52:58,  1.89it/s]  4%|▍         | 242/6252 [02:13<52:59,  1.89it/s]  4%|▍         | 243/6252 [02:13<52:56,  1.89it/s]  4%|▍         | 244/6252 [02:14<52:53,  1.89it/s]  4%|▍         | 245/6252 [02:14<52:53,  1.89it/s]  4%|▍         | 246/6252 [02:15<52:50,  1.89it/s]  4%|▍         | 247/6252 [02:15<52:51,  1.89it/s]  4%|▍         | 248/6252 [02:16<52:48,  1.89it/s]  4%|▍         | 249/6252 [02:16<52:52,  1.89it/s]  4%|▍         | 250/6252 [02:17<52:49,  1.89it/s]  4%|▍         | 251/6252 [02:17<52:49,  1.89it/s]  4%|▍         | 252/6252 [02:18<52:46,  1.89it/s]  4%|▍         | 253/6252 [02:18<52:47,  1.89it/s]  4%|▍         | 254/6252 [02:19<52:44,  1.90it/s]  4%|▍         | 255/6252 [02:19<52:42,  1.90it/s]  4%|▍         | 256/6252 [02:20<52:43,  1.90it/s]  4%|▍         | 257/6252 [02:21<52:35,  1.90it/s]  4%|▍         | 258/6252 [02:21<52:40,  1.90it/s]  4%|▍         | 259/6252 [02:22<52:44,  1.89it/s]  4%|▍         | 260/6252 [02:22<52:45,  1.89it/s]  4%|▍         | 261/6252 [02:23<52:47,  1.89it/s]  4%|▍         | 262/6252 [02:23<52:44,  1.89it/s]  4%|▍         | 263/6252 [02:24<52:44,  1.89it/s]  4%|▍         | 264/6252 [02:24<52:45,  1.89it/s]  4%|▍         | 265/6252 [02:25<52:42,  1.89it/s]  4%|▍         | 266/6252 [02:25<52:40,  1.89it/s]  4%|▍         | 267/6252 [02:26<52:38,  1.89it/s]  4%|▍         | 268/6252 [02:26<52:37,  1.90it/s]  4%|▍         | 269/6252 [02:27<52:40,  1.89it/s]  4%|▍         | 270/6252 [02:27<52:37,  1.89it/s]  4%|▍         | 271/6252 [02:28<52:35,  1.90it/s]  4%|▍         | 272/6252 [02:28<52:39,  1.89it/s]  4%|▍         | 273/6252 [02:29<52:43,  1.89it/s]  4%|▍         | 274/6252 [02:30<52:43,  1.89it/s]  4%|▍         | 275/6252 [02:30<52:51,  1.88it/s]  4%|▍         | 276/6252 [02:31<52:59,  1.88it/s]  4%|▍         | 277/6252 [02:31<52:55,  1.88it/s]  4%|▍         | 278/6252 [02:32<52:59,  1.88it/s]  4%|▍         | 279/6252 [02:32<52:58,  1.88it/s]  4%|▍         | 280/6252 [02:33<53:00,  1.88it/s]  4%|▍         | 281/6252 [02:33<52:57,  1.88it/s]  5%|▍         | 282/6252 [02:34<52:59,  1.88it/s]  5%|▍         | 283/6252 [02:34<52:52,  1.88it/s]  5%|▍         | 284/6252 [02:35<52:44,  1.89it/s]  5%|▍         | 285/6252 [02:35<52:43,  1.89it/s]  5%|▍         | 286/6252 [02:36<52:35,  1.89it/s]  5%|▍         | 287/6252 [02:36<52:32,  1.89it/s]  5%|▍         | 288/6252 [02:37<52:32,  1.89it/s]  5%|▍         | 289/6252 [02:37<52:35,  1.89it/s]  5%|▍         | 290/6252 [02:38<52:29,  1.89it/s]  5%|▍         | 291/6252 [02:39<52:26,  1.89it/s]  5%|▍         | 292/6252 [02:39<52:23,  1.90it/s]  5%|▍         | 293/6252 [02:40<52:25,  1.89it/s]  5%|▍         | 294/6252 [02:40<52:17,  1.90it/s]  5%|▍         | 295/6252 [02:41<52:18,  1.90it/s]  5%|▍         | 296/6252 [02:41<52:18,  1.90it/s]  5%|▍         | 297/6252 [02:42<52:17,  1.90it/s]  5%|▍         | 298/6252 [02:42<52:17,  1.90it/s]  5%|▍         | 299/6252 [02:43<52:20,  1.90it/s]  5%|▍         | 300/6252 [02:43<52:19,  1.90it/s]  5%|▍         | 301/6252 [02:44<52:23,  1.89it/s]  5%|▍         | 302/6252 [02:44<52:21,  1.89it/s]  5%|▍         | 303/6252 [02:45<52:20,  1.89it/s]  5%|▍         | 304/6252 [02:45<52:17,  1.90it/s]  5%|▍         | 305/6252 [02:46<52:21,  1.89it/s]  5%|▍         | 306/6252 [02:46<52:24,  1.89it/s]  5%|▍         | 307/6252 [02:47<52:21,  1.89it/s]  5%|▍         | 308/6252 [02:47<52:23,  1.89it/s]  5%|▍         | 309/6252 [02:48<52:19,  1.89it/s]  5%|▍         | 310/6252 [02:49<52:20,  1.89it/s]  5%|▍         | 311/6252 [02:49<52:23,  1.89it/s]  5%|▍         | 312/6252 [02:50<52:22,  1.89it/s]  5%|▌         | 313/6252 [02:50<52:17,  1.89it/s]  5%|▌         | 314/6252 [02:51<52:20,  1.89it/s]  5%|▌         | 315/6252 [02:51<52:20,  1.89it/s]  5%|▌         | 316/6252 [02:52<52:21,  1.89it/s]  5%|▌         | 317/6252 [02:52<52:16,  1.89it/s]  5%|▌         | 318/6252 [02:53<52:12,  1.89it/s]  5%|▌         | 319/6252 [02:53<52:03,  1.90it/s]  5%|▌         | 320/6252 [02:54<52:03,  1.90it/s]  5%|▌         | 321/6252 [02:54<52:07,  1.90it/s]  5%|▌         | 322/6252 [02:55<52:06,  1.90it/s]  5%|▌         | 323/6252 [02:55<52:10,  1.89it/s]  5%|▌         | 324/6252 [02:56<52:09,  1.89it/s]  5%|▌         | 325/6252 [02:56<52:15,  1.89it/s]  5%|▌         | 326/6252 [02:57<52:20,  1.89it/s]  5%|▌         | 327/6252 [02:58<52:19,  1.89it/s]  5%|▌         | 328/6252 [02:58<52:17,  1.89it/s]  5%|▌         | 329/6252 [02:59<52:11,  1.89it/s]  5%|▌         | 330/6252 [02:59<52:12,  1.89it/s]  5%|▌         | 331/6252 [03:00<52:09,  1.89it/s]  5%|▌         | 332/6252 [03:00<52:12,  1.89it/s]  5%|▌         | 333/6252 [03:01<52:11,  1.89it/s]  5%|▌         | 334/6252 [03:01<52:12,  1.89it/s]  5%|▌         | 335/6252 [03:02<52:07,  1.89it/s]  5%|▌         | 336/6252 [03:02<52:08,  1.89it/s]  5%|▌         | 337/6252 [03:03<52:10,  1.89it/s]  5%|▌         | 338/6252 [03:03<52:09,  1.89it/s]  5%|▌         | 339/6252 [03:04<52:02,  1.89it/s]  5%|▌         | 340/6252 [03:04<52:05,  1.89it/s]  5%|▌         | 341/6252 [03:05<52:09,  1.89it/s]  5%|▌         | 342/6252 [03:05<52:10,  1.89it/s]  5%|▌         | 343/6252 [03:06<52:04,  1.89it/s]  6%|▌         | 344/6252 [03:07<52:01,  1.89it/s]  6%|▌         | 345/6252 [03:07<51:59,  1.89it/s]  6%|▌         | 346/6252 [03:08<52:01,  1.89it/s]  6%|▌         | 347/6252 [03:08<52:02,  1.89it/s]  6%|▌         | 348/6252 [03:09<52:00,  1.89it/s]  6%|▌         | 349/6252 [03:09<52:01,  1.89it/s]  6%|▌         | 350/6252 [03:10<52:01,  1.89it/s]  6%|▌         | 351/6252 [03:10<51:56,  1.89it/s]  6%|▌         | 352/6252 [03:11<52:00,  1.89it/s]  6%|▌         | 353/6252 [03:11<51:56,  1.89it/s]  6%|▌         | 354/6252 [03:12<51:54,  1.89it/s]  6%|▌         | 355/6252 [03:12<51:51,  1.90it/s]  6%|▌         | 356/6252 [03:13<51:53,  1.89it/s]  6%|▌         | 357/6252 [03:13<51:51,  1.89it/s]  6%|▌         | 358/6252 [03:14<51:55,  1.89it/s]  6%|▌         | 359/6252 [03:14<51:55,  1.89it/s]  6%|▌         | 360/6252 [03:15<51:51,  1.89it/s]  6%|▌         | 361/6252 [03:16<51:48,  1.89it/s]  6%|▌         | 362/6252 [03:16<51:51,  1.89it/s]  6%|▌         | 363/6252 [03:17<51:57,  1.89it/s]  6%|▌         | 364/6252 [03:17<51:59,  1.89it/s]  6%|▌         | 365/6252 [03:18<52:01,  1.89it/s]  6%|▌         | 366/6252 [03:18<51:59,  1.89it/s]  6%|▌         | 367/6252 [03:19<51:57,  1.89it/s]  6%|▌         | 368/6252 [03:19<51:52,  1.89it/s]  6%|▌         | 369/6252 [03:20<58:54,  1.66it/s]  6%|▌         | 370/6252 [03:21<56:54,  1.72it/s]  6%|▌         | 371/6252 [03:21<55:23,  1.77it/s]  6%|▌         | 372/6252 [03:22<54:23,  1.80it/s]  6%|▌         | 373/6252 [03:22<53:40,  1.83it/s]  6%|▌         | 374/6252 [03:23<53:14,  1.84it/s]  6%|▌         | 375/6252 [03:23<52:52,  1.85it/s]  6%|▌         | 376/6252 [03:24<52:37,  1.86it/s]  6%|▌         | 377/6252 [03:24<52:26,  1.87it/s]  6%|▌         | 378/6252 [03:25<52:12,  1.88it/s]  6%|▌         | 379/6252 [03:25<52:01,  1.88it/s]  6%|▌         | 380/6252 [03:26<51:59,  1.88it/s]  6%|▌         | 381/6252 [03:26<52:00,  1.88it/s]  6%|▌         | 382/6252 [03:27<51:59,  1.88it/s]  6%|▌         | 383/6252 [03:27<52:00,  1.88it/s]  6%|▌         | 384/6252 [03:28<51:52,  1.89it/s]  6%|▌         | 385/6252 [03:28<51:56,  1.88it/s]  6%|▌         | 386/6252 [03:29<51:54,  1.88it/s]  6%|▌         | 387/6252 [03:30<51:49,  1.89it/s]  6%|▌         | 388/6252 [03:30<51:48,  1.89it/s]  6%|▌         | 389/6252 [03:31<51:45,  1.89it/s]  6%|▌         | 390/6252 [03:31<51:47,  1.89it/s]  6%|▋         | 391/6252 [03:32<51:47,  1.89it/s]  6%|▋         | 392/6252 [03:32<51:49,  1.88it/s]  6%|▋         | 393/6252 [03:33<51:51,  1.88it/s]  6%|▋         | 394/6252 [03:33<51:52,  1.88it/s]  6%|▋         | 395/6252 [03:34<51:47,  1.88it/s]  6%|▋         | 396/6252 [03:34<51:49,  1.88it/s]  6%|▋         | 397/6252 [03:35<51:44,  1.89it/s]  6%|▋         | 398/6252 [03:35<51:40,  1.89it/s]  6%|▋         | 399/6252 [03:36<51:42,  1.89it/s]  6%|▋         | 400/6252 [03:36<51:40,  1.89it/s]  6%|▋         | 401/6252 [03:37<51:37,  1.89it/s]  6%|▋         | 402/6252 [03:37<51:41,  1.89it/s]  6%|▋         | 403/6252 [03:38<51:39,  1.89it/s]  6%|▋         | 404/6252 [03:39<51:36,  1.89it/s]  6%|▋         | 405/6252 [03:39<51:38,  1.89it/s]  6%|▋         | 406/6252 [03:40<51:41,  1.88it/s]  7%|▋         | 407/6252 [03:40<51:38,  1.89it/s]  7%|▋         | 408/6252 [03:41<51:35,  1.89it/s]  7%|▋         | 409/6252 [03:41<51:36,  1.89it/s]  7%|▋         | 410/6252 [03:42<51:41,  1.88it/s]  7%|▋         | 411/6252 [03:42<51:35,  1.89it/s]  7%|▋         | 412/6252 [03:43<51:35,  1.89it/s]  7%|▋         | 413/6252 [03:43<51:37,  1.89it/s]  7%|▋         | 414/6252 [03:44<51:38,  1.88it/s]  7%|▋         | 415/6252 [03:44<51:40,  1.88it/s]  7%|▋         | 416/6252 [03:45<51:41,  1.88it/s]  7%|▋         | 417/6252 [03:45<51:36,  1.88it/s]  7%|▋         | 418/6252 [03:46<51:36,  1.88it/s]  7%|▋         | 419/6252 [03:47<51:37,  1.88it/s]  7%|▋         | 420/6252 [03:47<51:38,  1.88it/s]  7%|▋         | 421/6252 [03:48<51:28,  1.89it/s]  7%|▋         | 422/6252 [03:48<51:30,  1.89it/s]  7%|▋         | 423/6252 [03:49<51:31,  1.89it/s]  7%|▋         | 424/6252 [03:49<51:31,  1.89it/s]  7%|▋         | 425/6252 [03:50<51:28,  1.89it/s]  7%|▋         | 426/6252 [03:50<51:28,  1.89it/s]  7%|▋         | 427/6252 [03:51<51:24,  1.89it/s]  7%|▋         | 428/6252 [03:51<51:26,  1.89it/s]  7%|▋         | 429/6252 [03:52<51:25,  1.89it/s]  7%|▋         | 430/6252 [03:52<51:28,  1.89it/s]  7%|▋         | 431/6252 [03:53<51:29,  1.88it/s]  7%|▋         | 432/6252 [03:53<51:26,  1.89it/s]  7%|▋         | 433/6252 [03:54<51:26,  1.89it/s]  7%|▋         | 434/6252 [03:54<51:24,  1.89it/s]  7%|▋         | 435/6252 [03:55<51:25,  1.89it/s]  7%|▋         | 436/6252 [03:56<51:24,  1.89it/s]  7%|▋         | 437/6252 [03:56<51:23,  1.89it/s]  7%|▋         | 438/6252 [03:57<51:25,  1.88it/s]  7%|▋         | 439/6252 [03:57<51:22,  1.89it/s]  7%|▋         | 440/6252 [03:58<51:18,  1.89it/s]  7%|▋         | 441/6252 [03:58<51:21,  1.89it/s]  7%|▋         | 442/6252 [03:59<51:21,  1.89it/s]  7%|▋         | 443/6252 [03:59<51:17,  1.89it/s]  7%|▋         | 444/6252 [04:00<51:12,  1.89it/s]  7%|▋         | 445/6252 [04:00<51:15,  1.89it/s]  7%|▋         | 446/6252 [04:01<51:44,  1.87it/s]  7%|▋         | 447/6252 [04:01<52:39,  1.84it/s]  7%|▋         | 448/6252 [04:02<52:14,  1.85it/s]  7%|▋         | 449/6252 [04:02<51:51,  1.86it/s]  7%|▋         | 450/6252 [04:03<51:38,  1.87it/s]  7%|▋         | 451/6252 [04:04<51:30,  1.88it/s]  7%|▋         | 452/6252 [04:04<51:21,  1.88it/s]  7%|▋         | 453/6252 [04:05<51:12,  1.89it/s]  7%|▋         | 454/6252 [04:05<51:08,  1.89it/s]  7%|▋         | 455/6252 [04:06<51:04,  1.89it/s]  7%|▋         | 456/6252 [04:06<50:55,  1.90it/s]  7%|▋         | 457/6252 [04:07<50:58,  1.89it/s]  7%|▋         | 458/6252 [04:07<51:00,  1.89it/s]  7%|▋         | 459/6252 [04:08<51:01,  1.89it/s]  7%|▋         | 460/6252 [04:08<50:57,  1.89it/s]  7%|▋         | 461/6252 [04:09<50:56,  1.89it/s]  7%|▋         | 462/6252 [04:09<50:58,  1.89it/s]  7%|▋         | 463/6252 [04:10<50:49,  1.90it/s]  7%|▋         | 464/6252 [04:10<50:48,  1.90it/s]  7%|▋         | 465/6252 [04:11<50:53,  1.90it/s]  7%|▋         | 466/6252 [04:11<50:51,  1.90it/s]  7%|▋         | 467/6252 [04:12<50:55,  1.89it/s]  7%|▋         | 468/6252 [04:12<50:53,  1.89it/s]  8%|▊         | 469/6252 [04:13<50:50,  1.90it/s]  8%|▊         | 470/6252 [04:14<50:53,  1.89it/s]  8%|▊         | 471/6252 [04:14<50:50,  1.89it/s]  8%|▊         | 472/6252 [04:15<50:49,  1.90it/s]  8%|▊         | 473/6252 [04:15<50:49,  1.90it/s]  8%|▊         | 474/6252 [04:16<50:48,  1.90it/s]  8%|▊         | 475/6252 [04:16<50:51,  1.89it/s]  8%|▊         | 476/6252 [04:17<50:48,  1.89it/s]  8%|▊         | 477/6252 [04:17<50:51,  1.89it/s]  8%|▊         | 478/6252 [04:18<50:48,  1.89it/s]  8%|▊         | 479/6252 [04:18<50:47,  1.89it/s]  8%|▊         | 480/6252 [04:19<50:46,  1.89it/s]  8%|▊         | 481/6252 [04:19<50:37,  1.90it/s]  8%|▊         | 482/6252 [04:20<50:38,  1.90it/s]  8%|▊         | 483/6252 [04:20<50:39,  1.90it/s]  8%|▊         | 484/6252 [04:21<50:31,  1.90it/s]  8%|▊         | 485/6252 [04:21<50:33,  1.90it/s]  8%|▊         | 486/6252 [04:22<50:38,  1.90it/s]  8%|▊         | 487/6252 [04:23<50:38,  1.90it/s]  8%|▊         | 488/6252 [04:23<50:38,  1.90it/s]  8%|▊         | 489/6252 [04:24<50:38,  1.90it/s]  8%|▊         | 490/6252 [04:24<50:36,  1.90it/s]  8%|▊         | 491/6252 [04:25<50:39,  1.90it/s]  8%|▊         | 492/6252 [04:25<50:42,  1.89it/s]  8%|▊         | 493/6252 [04:26<50:39,  1.89it/s]  8%|▊         | 494/6252 [04:26<50:37,  1.90it/s]  8%|▊         | 495/6252 [04:27<50:37,  1.90it/s]  8%|▊         | 496/6252 [04:27<50:35,  1.90it/s]  8%|▊         | 497/6252 [04:28<50:43,  1.89it/s]  8%|▊         | 498/6252 [04:28<50:43,  1.89it/s]  8%|▊         | 499/6252 [04:29<50:44,  1.89it/s]  8%|▊         | 500/6252 [04:29<50:40,  1.89it/s]  8%|▊         | 501/6252 [04:30<50:36,  1.89it/s]  8%|▊         | 502/6252 [04:30<50:34,  1.89it/s]  8%|▊         | 503/6252 [04:31<50:33,  1.90it/s]  8%|▊         | 504/6252 [04:31<50:32,  1.90it/s]  8%|▊         | 505/6252 [04:32<50:35,  1.89it/s]  8%|▊         | 506/6252 [04:33<50:33,  1.89it/s]  8%|▊         | 507/6252 [04:33<50:35,  1.89it/s]  8%|▊         | 508/6252 [04:34<50:36,  1.89it/s]  8%|▊         | 509/6252 [04:34<54:45,  1.75it/s]  8%|▊         | 510/6252 [04:35<53:33,  1.79it/s]  8%|▊         | 511/6252 [04:35<52:32,  1.82it/s]  8%|▊         | 512/6252 [04:36<51:57,  1.84it/s]  8%|▊         | 513/6252 [04:36<51:29,  1.86it/s]  8%|▊         | 514/6252 [04:37<51:13,  1.87it/s]  8%|▊         | 515/6252 [04:37<50:59,  1.88it/s]  8%|▊         | 516/6252 [04:38<50:48,  1.88it/s]  8%|▊         | 517/6252 [04:38<50:39,  1.89it/s]  8%|▊         | 518/6252 [04:39<50:33,  1.89it/s]  8%|▊         | 519/6252 [04:40<50:33,  1.89it/s]  8%|▊         | 520/6252 [04:40<50:33,  1.89it/s]  8%|▊         | 521/6252 [04:41<50:28,  1.89it/s]  8%|▊         | 522/6252 [04:41<50:24,  1.89it/s]  8%|▊         | 523/6252 [04:42<50:20,  1.90it/s]  8%|▊         | 524/6252 [04:42<50:24,  1.89it/s]  8%|▊         | 525/6252 [04:43<50:25,  1.89it/s]  8%|▊         | 526/6252 [04:43<50:23,  1.89it/s]  8%|▊         | 527/6252 [04:44<50:21,  1.90it/s]  8%|▊         | 528/6252 [04:44<50:21,  1.89it/s]  8%|▊         | 529/6252 [04:45<50:06,  1.90it/s]  8%|▊         | 530/6252 [04:45<50:10,  1.90it/s]  8%|▊         | 531/6252 [04:46<50:11,  1.90it/s]  9%|▊         | 532/6252 [04:46<50:11,  1.90it/s]  9%|▊         | 533/6252 [04:47<50:11,  1.90it/s]  9%|▊         | 534/6252 [04:47<50:10,  1.90it/s]  9%|▊         | 535/6252 [04:48<50:11,  1.90it/s]  9%|▊         | 536/6252 [04:49<50:11,  1.90it/s]  9%|▊         | 537/6252 [04:49<50:15,  1.89it/s]  9%|▊         | 538/6252 [04:50<50:14,  1.90it/s]  9%|▊         | 539/6252 [04:50<50:16,  1.89it/s]  9%|▊         | 540/6252 [04:51<50:18,  1.89it/s]  9%|▊         | 541/6252 [04:51<50:15,  1.89it/s]  9%|▊         | 542/6252 [04:52<50:18,  1.89it/s]  9%|▊         | 543/6252 [04:52<50:15,  1.89it/s]  9%|▊         | 544/6252 [04:53<50:18,  1.89it/s]  9%|▊         | 545/6252 [04:53<50:19,  1.89it/s]  9%|▊         | 546/6252 [04:54<50:20,  1.89it/s]  9%|▊         | 547/6252 [04:54<50:17,  1.89it/s]  9%|▉         | 548/6252 [04:55<50:18,  1.89it/s]  9%|▉         | 549/6252 [04:55<50:14,  1.89it/s]  9%|▉         | 550/6252 [04:56<50:16,  1.89it/s]  9%|▉         | 551/6252 [04:56<50:15,  1.89it/s]  9%|▉         | 552/6252 [04:57<50:13,  1.89it/s]  9%|▉         | 553/6252 [04:57<50:09,  1.89it/s]  9%|▉         | 554/6252 [04:58<50:07,  1.89it/s]  9%|▉         | 555/6252 [04:59<50:09,  1.89it/s]  9%|▉         | 556/6252 [04:59<50:07,  1.89it/s]  9%|▉         | 557/6252 [05:00<50:03,  1.90it/s]  9%|▉         | 558/6252 [05:00<50:09,  1.89it/s]  9%|▉         | 559/6252 [05:01<50:09,  1.89it/s]  9%|▉         | 560/6252 [05:01<49:59,  1.90it/s]  9%|▉         | 561/6252 [05:02<49:58,  1.90it/s]  9%|▉         | 562/6252 [05:02<50:02,  1.90it/s]  9%|▉         | 563/6252 [05:03<50:00,  1.90it/s]  9%|▉         | 564/6252 [05:03<50:04,  1.89it/s]  9%|▉         | 565/6252 [05:04<50:02,  1.89it/s]  9%|▉         | 566/6252 [05:04<50:05,  1.89it/s]  9%|▉         | 567/6252 [05:05<50:07,  1.89it/s]

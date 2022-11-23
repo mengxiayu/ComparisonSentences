@@ -39,6 +39,22 @@ def _load_property2aliases(path):
             pid2aliases[pid].append(alias)
     return pid2aliases
 
+
+def _load_property2datatype(path):
+    # from the property_labels table
+    pid2type = {}
+    with open(path, 'r') as f:
+        header = f.readline()
+        assert header.strip().split('\t') == ["datatype", "label", "pid"]
+        while True:
+            line = f.readline()
+            if len(line) == 0:
+                break
+            datatype, label, pid = line.strip().split('\t')
+            pid2type[pid] = datatype
+    return pid2type
+
+
 def _load_qid2aliases(dir_entity_aliases):
     qid2alias = {}
     for batch_file in os.listdir(dir_entity_aliases):
@@ -49,7 +65,6 @@ def _load_qid2aliases(dir_entity_aliases):
                 qid2alias[qid] = aliases
     return qid2alias
 
-
 # entity list : same entity type
 def get_entity_by_etype(target_etype):
     entity_list = []
@@ -59,15 +74,6 @@ def get_entity_by_etype(target_etype):
             entity_list.append(e)
     return set(entity_list)
 
-def is_sublist(a, b): # if a is a sublist of b
-    if a is None or b is None:
-        return False
-    if len(a) > len(b):
-        return False
-    for i in range(0, len(b) - len(a) + 1):
-        if b[i:i+len(a)] == a:
-            return True
-    return False
 
 def match_sentence_eav(sentence: str, tokenized_sentence: list, alias: tuple):
     """
@@ -75,6 +81,17 @@ def match_sentence_eav(sentence: str, tokenized_sentence: list, alias: tuple):
     sentence: str
     alias: a tuple of aliases of q,p,v
     """
+
+    def is_sublist(a, b): # if a is a sublist of b
+        if a is None or b is None:
+            return False
+        if len(a) > len(b):
+            return False
+        for i in range(0, len(b) - len(a) + 1):
+            if b[i:i+len(a)] == a:
+                return True
+        return False
+
     q_alias_list, p_alias_list, v_alias_list = alias
     q_candidates = []
     p_candidates = []
@@ -124,42 +141,26 @@ def match_sentence_eav(sentence: str, tokenized_sentence: list, alias: tuple):
                     return q, p, v     
     return None
 
-def _load_property2datatype(path):
-    # from the property_labels table
-    pid2type = {}
-    with open(path, 'r') as f:
-        header = f.readline()
-        assert header.strip().split('\t') == ["datatype", "label", "pid"]
-        while True:
-            line = f.readline()
-            if len(line) == 0:
-                break
-            datatype, label, pid = line.strip().split('\t')
-            pid2type[pid] = datatype
-    return pid2type
-
-path_prop_datatype = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_processed/property_labels/0.tsv")
-pid2datatype = _load_property2datatype(path_prop_datatype)
-print("pid2datatype loaded. size:", len(pid2datatype))
-
-def _transform_quantity(value):
-    aliases = [value.lstrip('+')]
-    return aliases
-
-def _transform_time(value):
-    # only extract year now
-    # format : +%Y-%m-%dT%H:%M:%SZ
-    aliases = []
-    try:
-        date, time = value.rstrip('Z').lstrip('+').split('T')
-        year, month, day = date.split('-')
-        aliases.append(year)
-    except:
-        # print(value)
-        aliases.append(value)
-    return aliases
 
 def _reformat_value(pid, value) -> list:
+
+    def _transform_quantity(value):
+        aliases = [value.lstrip('+')]
+        return aliases
+
+    def _transform_time(value):
+        # only extract year now
+        # format : +%Y-%m-%dT%H:%M:%SZ
+        aliases = []
+        try:
+            date, time = value.rstrip('Z').lstrip('+').split('T')
+            year, month, day = date.split('-')
+            aliases.append(year)
+        except:
+            # print(value)
+            aliases.append(value)
+        return aliases
+
     datatype = pid2datatype[pid]
     if datatype == "quantity":
         vtext = _transform_quantity(value)
@@ -170,8 +171,16 @@ def _reformat_value(pid, value) -> list:
     return vtext
 
 
+path_prop_datatype = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_processed/property_labels/0.tsv")
+pid2datatype = _load_property2datatype(path_prop_datatype)
+print("pid2datatype loaded. size:", len(pid2datatype))
+
+
+
+
+
 def get_occurrence(target_etype):
-    dir_output = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news_v2")
+    dir_output = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news_v1")
     dir_output.mkdir(parents=True, exist_ok=True)
     path_news = Path("/afs/crc.nd.edu/group/dmsquare/vol1/data/EngGigV5/corpus/data_enggigv5.txt")
     num_lines_news = 9870506

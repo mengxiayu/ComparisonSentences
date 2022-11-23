@@ -1,0 +1,1075 @@
+11/22/2022 01:06:58 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+11/22/2022 01:06:58 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+bf16=False,
+bf16_full_eval=False,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_combined_cross2_1120/runs/Nov22_01-06-58_qa-2080ti-006.crc.nd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.EPOCH,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=accuracy,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=4.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_combined_cross2_1120,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=64,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_combined_cross2_1120,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=2,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+11/22/2022 01:06:58 - WARNING - datasets.builder - Using custom data configuration default-b6accaf03d6bd686
+11/22/2022 01:06:58 - INFO - datasets.builder - Generating dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b6accaf03d6bd686/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+Downloading and preparing dataset json/default to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b6accaf03d6bd686/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 6393.76it/s]11/22/2022 01:06:58 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+11/22/2022 01:06:58 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 1038.19it/s]11/22/2022 01:06:58 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+11/22/2022 01:06:58 - INFO - datasets.builder - Generating train split
+
+0 tables [00:00, ? tables/s]1 tables [00:00,  9.91 tables/s]3 tables [00:00, 10.74 tables/s]5 tables [00:00, 13.35 tables/s]                                11/22/2022 01:06:59 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset json downloaded and prepared to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b6accaf03d6bd686/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253. Subsequent calls will reuse this data.
+11/22/2022 01:06:59 - WARNING - datasets.builder - Using custom data configuration default-3947c2741de7155f
+11/22/2022 01:06:59 - INFO - datasets.builder - Generating dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-3947c2741de7155f/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+Downloading and preparing dataset json/default to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-3947c2741de7155f/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 6797.90it/s]11/22/2022 01:06:59 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+11/22/2022 01:06:59 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 1251.66it/s]11/22/2022 01:06:59 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+11/22/2022 01:06:59 - INFO - datasets.builder - Generating validation split
+
+0 tables [00:00, ? tables/s]                            11/22/2022 01:06:59 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset json downloaded and prepared to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-3947c2741de7155f/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253. Subsequent calls will reuse this data.
+11/22/2022 01:06:59 - WARNING - datasets.builder - Using custom data configuration default-360f2f19240a0461
+11/22/2022 01:06:59 - INFO - datasets.builder - Generating dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-360f2f19240a0461/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+Downloading and preparing dataset json/default to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-360f2f19240a0461/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 6831.11it/s]11/22/2022 01:06:59 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+11/22/2022 01:06:59 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 1199.06it/s]11/22/2022 01:06:59 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+11/22/2022 01:06:59 - INFO - datasets.builder - Generating test split
+
+0 tables [00:00, ? tables/s]                            11/22/2022 01:07:00 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+[INFO|configuration_utils.py:648] 2022-11-22 01:07:00,165 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
+[INFO|configuration_utils.py:684] 2022-11-22 01:07:00,166 >> Model config BertConfig {
+  "_name_or_path": "bert-base-cased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "finetuning_task": "xnli",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.17.0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+[INFO|configuration_utils.py:648] 2022-11-22 01:07:00,429 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
+[INFO|configuration_utils.py:684] 2022-11-22 01:07:00,430 >> Model config BertConfig {
+  "_name_or_path": "bert-base-cased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.17.0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+[INFO|tokenization_utils_base.py:1786] 2022-11-22 01:07:01,238 >> loading file https://huggingface.co/bert-base-cased/resolve/main/vocab.txt from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/6508e60ab3c1200bffa26c95f4b58ac6b6d95fba4db1f195f632fa3cd7bc64cc.437aa611e89f6fc6675a049d2b5545390adbc617e7d655286421c191d2be2791
+[INFO|tokenization_utils_base.py:1786] 2022-11-22 01:07:01,239 >> loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/226a307193a9f4344264cdc76a12988448a25345ba172f2c7421f3b6810fddad.3dab63143af66769bbb35e3811f75f7e16b2320e12b7935e216bd6159ce6d9a6
+[INFO|tokenization_utils_base.py:1786] 2022-11-22 01:07:01,239 >> loading file https://huggingface.co/bert-base-cased/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-11-22 01:07:01,239 >> loading file https://huggingface.co/bert-base-cased/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-11-22 01:07:01,239 >> loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer_config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/ec84e86ee39bfe112543192cf981deebf7e6cbe8c91b8f7f8f63c9be44366158.ec5c189f89475aac7d8cbd243960a0655cfadc3d0474da8ff2ed0bf1699c2a5f
+[INFO|configuration_utils.py:648] 2022-11-22 01:07:01,379 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
+[INFO|configuration_utils.py:684] 2022-11-22 01:07:01,380 >> Model config BertConfig {
+  "_name_or_path": "bert-base-cased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.17.0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+[INFO|modeling_utils.py:1431] 2022-11-22 01:07:01,570 >> loading weights file https://huggingface.co/bert-base-cased/resolve/main/pytorch_model.bin from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/092cc582560fc3833e556b3f833695c26343cb54b7e88cd02d40821462a74999.1f48cab6c959fc6c360d22bea39d06959e90f5b002e77e836d2da45464875cda
+[WARNING|modeling_utils.py:1694] 2022-11-22 01:07:03,301 >> Some weights of the model checkpoint at bert-base-cased were not used when initializing BertForSequenceClassification: ['cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:1705] 2022-11-22 01:07:03,301 >> Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-cased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Dataset json downloaded and prepared to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-360f2f19240a0461/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253. Subsequent calls will reuse this data.
+11/22/2022 01:07:03 - INFO - datasets.arrow_dataset - Caching indices mapping at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b6accaf03d6bd686/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253/cache-4b5010f6c726b062.arrow
+Running tokenizer on train dataset #0:   0%|          | 0/13 [00:00<?, ?ba/s]
+Running tokenizer on train dataset #1:   0%|          | 0/13 [00:00<?, ?ba/s][A
+
+Running tokenizer on train dataset #2:   0%|          | 0/13 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on train dataset #3:   0%|          | 0/13 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:   0%|          | 0/13 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:   0%|          | 0/13 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:   0%|          | 0/13 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:   0%|          | 0/13 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:   0%|          | 0/13 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:   0%|          | 0/13 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:   8%|▊         | 1/13 [00:00<00:03,  3.16ba/s]
+Running tokenizer on train dataset #1:   8%|▊         | 1/13 [00:00<00:03,  3.13ba/s][A
+
+Running tokenizer on train dataset #2:   8%|▊         | 1/13 [00:00<00:03,  3.13ba/s][A[A
+
+
+Running tokenizer on train dataset #3:   8%|▊         | 1/13 [00:00<00:03,  3.10ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:   8%|▊         | 1/13 [00:00<00:03,  3.16ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:   8%|▊         | 1/13 [00:00<00:03,  3.14ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:   8%|▊         | 1/13 [00:00<00:03,  3.15ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:   8%|▊         | 1/13 [00:00<00:03,  3.15ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:   8%|▊         | 1/13 [00:00<00:03,  3.13ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:   8%|▊         | 1/13 [00:00<00:03,  3.14ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  15%|█▌        | 2/13 [00:00<00:03,  3.22ba/s]
+Running tokenizer on train dataset #1:  15%|█▌        | 2/13 [00:00<00:03,  3.23ba/s][A
+
+Running tokenizer on train dataset #2:  15%|█▌        | 2/13 [00:00<00:03,  3.23ba/s][A[A
+
+
+Running tokenizer on train dataset #3:  15%|█▌        | 2/13 [00:00<00:03,  3.21ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  15%|█▌        | 2/13 [00:00<00:03,  3.24ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  15%|█▌        | 2/13 [00:00<00:03,  3.23ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  15%|█▌        | 2/13 [00:00<00:03,  3.26ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  15%|█▌        | 2/13 [00:00<00:03,  3.28ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  15%|█▌        | 2/13 [00:00<00:03,  3.24ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  15%|█▌        | 2/13 [00:00<00:03,  3.22ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  23%|██▎       | 3/13 [00:00<00:03,  3.21ba/s]
+Running tokenizer on train dataset #1:  23%|██▎       | 3/13 [00:00<00:03,  3.25ba/s][A
+
+Running tokenizer on train dataset #2:  23%|██▎       | 3/13 [00:00<00:03,  3.25ba/s][A[A
+
+
+Running tokenizer on train dataset #3:  23%|██▎       | 3/13 [00:00<00:03,  3.29ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  23%|██▎       | 3/13 [00:00<00:03,  3.31ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  23%|██▎       | 3/13 [00:00<00:03,  3.29ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  23%|██▎       | 3/13 [00:00<00:03,  3.30ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  23%|██▎       | 3/13 [00:00<00:03,  3.31ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  23%|██▎       | 3/13 [00:00<00:03,  3.31ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  23%|██▎       | 3/13 [00:00<00:03,  3.26ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  31%|███       | 4/13 [00:01<00:02,  3.21ba/s]
+Running tokenizer on train dataset #1:  31%|███       | 4/13 [00:01<00:02,  3.23ba/s][A
+
+
+Running tokenizer on train dataset #3:  31%|███       | 4/13 [00:01<00:02,  3.31ba/s][A[A[A
+
+Running tokenizer on train dataset #2:  31%|███       | 4/13 [00:01<00:02,  3.25ba/s][A[A
+
+
+
+Running tokenizer on train dataset #4:  31%|███       | 4/13 [00:01<00:02,  3.32ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  31%|███       | 4/13 [00:01<00:02,  3.33ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  31%|███       | 4/13 [00:01<00:02,  3.32ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  31%|███       | 4/13 [00:01<00:02,  3.33ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  31%|███       | 4/13 [00:01<00:02,  3.33ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  31%|███       | 4/13 [00:01<00:02,  3.26ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  38%|███▊      | 5/13 [00:01<00:02,  3.33ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  38%|███▊      | 5/13 [00:01<00:02,  3.36ba/s][A[A[A[A
+Running tokenizer on train dataset #1:  38%|███▊      | 5/13 [00:01<00:02,  3.24ba/s][ARunning tokenizer on train dataset #0:  38%|███▊      | 5/13 [00:01<00:02,  3.20ba/s]
+
+Running tokenizer on train dataset #2:  38%|███▊      | 5/13 [00:01<00:02,  3.25ba/s][A[A
+
+
+
+
+Running tokenizer on train dataset #5:  38%|███▊      | 5/13 [00:01<00:02,  3.32ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  38%|███▊      | 5/13 [00:01<00:02,  3.32ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  38%|███▊      | 5/13 [00:01<00:02,  3.35ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  38%|███▊      | 5/13 [00:01<00:02,  3.35ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  38%|███▊      | 5/13 [00:01<00:02,  3.25ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  46%|████▌     | 6/13 [00:01<00:02,  3.33ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  46%|████▌     | 6/13 [00:01<00:02,  3.35ba/s][A[A[A[A
+Running tokenizer on train dataset #1:  46%|████▌     | 6/13 [00:01<00:02,  3.25ba/s][ARunning tokenizer on train dataset #0:  46%|████▌     | 6/13 [00:01<00:02,  3.21ba/s]
+
+
+
+
+
+Running tokenizer on train dataset #6:  46%|████▌     | 6/13 [00:01<00:02,  3.33ba/s][A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  46%|████▌     | 6/13 [00:01<00:02,  3.19ba/s][A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  46%|████▌     | 6/13 [00:01<00:02,  3.35ba/s][A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  46%|████▌     | 6/13 [00:01<00:02,  3.24ba/s][A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  46%|████▌     | 6/13 [00:01<00:02,  3.33ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  46%|████▌     | 6/13 [00:01<00:02,  3.23ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  54%|█████▍    | 7/13 [00:02<00:01,  3.35ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  54%|█████▍    | 7/13 [00:02<00:01,  3.34ba/s][A[A[A[A
+Running tokenizer on train dataset #1:  54%|█████▍    | 7/13 [00:02<00:01,  3.21ba/s][A
+
+
+
+
+
+Running tokenizer on train dataset #6:  54%|█████▍    | 7/13 [00:02<00:01,  3.35ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  54%|█████▍    | 7/13 [00:02<00:01,  3.36ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  54%|█████▍    | 7/13 [00:02<00:01,  3.16ba/s]
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  54%|█████▍    | 7/13 [00:02<00:01,  3.34ba/s][A[A[A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  54%|█████▍    | 7/13 [00:02<00:01,  3.13ba/s][A[A
+
+
+
+
+Running tokenizer on train dataset #5:  54%|█████▍    | 7/13 [00:02<00:01,  3.17ba/s][A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  54%|█████▍    | 7/13 [00:02<00:01,  3.12ba/s][A[A[A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  62%|██████▏   | 8/13 [00:02<00:01,  2.83ba/s][A[A[A
+Running tokenizer on train dataset #1:  62%|██████▏   | 8/13 [00:02<00:01,  2.79ba/s][A
+
+
+
+
+
+Running tokenizer on train dataset #6:  62%|██████▏   | 8/13 [00:02<00:01,  2.85ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  62%|██████▏   | 8/13 [00:02<00:01,  2.87ba/s][A[A[A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  62%|██████▏   | 8/13 [00:02<00:01,  2.78ba/s][A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  62%|██████▏   | 8/13 [00:02<00:01,  2.92ba/s][A[A[A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  62%|██████▏   | 8/13 [00:02<00:01,  2.66ba/s][A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  62%|██████▏   | 8/13 [00:02<00:01,  2.76ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  62%|██████▏   | 8/13 [00:02<00:01,  2.59ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  62%|██████▏   | 8/13 [00:02<00:01,  2.51ba/s]
+
+
+Running tokenizer on train dataset #3:  69%|██████▉   | 9/13 [00:02<00:01,  2.95ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  69%|██████▉   | 9/13 [00:02<00:01,  2.95ba/s][A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  69%|██████▉   | 9/13 [00:02<00:01,  3.03ba/s][A[A[A[A[A[A[A[A
+Running tokenizer on train dataset #1:  69%|██████▉   | 9/13 [00:02<00:01,  2.90ba/s][A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  69%|██████▉   | 9/13 [00:02<00:01,  2.96ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  69%|██████▉   | 9/13 [00:02<00:01,  2.95ba/s][A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  69%|██████▉   | 9/13 [00:02<00:01,  2.84ba/s][A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  69%|██████▉   | 9/13 [00:02<00:01,  2.91ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  69%|██████▉   | 9/13 [00:03<00:01,  2.78ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  69%|██████▉   | 9/13 [00:03<00:01,  2.72ba/s]
+
+
+Running tokenizer on train dataset #3:  77%|███████▋  | 10/13 [00:03<00:00,  3.06ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  77%|███████▋  | 10/13 [00:03<00:00,  3.05ba/s][A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  77%|███████▋  | 10/13 [00:03<00:00,  3.13ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  77%|███████▋  | 10/13 [00:03<00:00,  3.07ba/s][A[A[A[A[A[A[A
+Running tokenizer on train dataset #1:  77%|███████▋  | 10/13 [00:03<00:01,  2.97ba/s][A
+
+
+
+
+
+Running tokenizer on train dataset #6:  77%|███████▋  | 10/13 [00:03<00:01,  2.99ba/s][A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  77%|███████▋  | 10/13 [00:03<00:01,  2.97ba/s][A[ARunning tokenizer on train dataset #0:  77%|███████▋  | 10/13 [00:03<00:01,  2.90ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  77%|███████▋  | 10/13 [00:03<00:00,  3.02ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  77%|███████▋  | 10/13 [00:03<00:01,  2.93ba/s][A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  85%|████████▍ | 11/13 [00:03<00:00,  3.13ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  85%|████████▍ | 11/13 [00:03<00:00,  3.14ba/s][A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  85%|████████▍ | 11/13 [00:03<00:00,  3.20ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  85%|████████▍ | 11/13 [00:03<00:00,  3.16ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  85%|████████▍ | 11/13 [00:03<00:00,  3.08ba/s][A[A[A[A[A[A
+Running tokenizer on train dataset #1:  85%|████████▍ | 11/13 [00:03<00:00,  3.02ba/s][A
+
+Running tokenizer on train dataset #2:  85%|████████▍ | 11/13 [00:03<00:00,  3.08ba/s][A[A
+
+
+
+
+Running tokenizer on train dataset #5:  85%|████████▍ | 11/13 [00:03<00:00,  3.05ba/s][A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  85%|████████▍ | 11/13 [00:03<00:00,  3.11ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  85%|████████▍ | 11/13 [00:03<00:00,  3.00ba/s]
+
+
+Running tokenizer on train dataset #3:  92%|█████████▏| 12/13 [00:03<00:00,  3.20ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  92%|█████████▏| 12/13 [00:03<00:00,  3.20ba/s][A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  92%|█████████▏| 12/13 [00:03<00:00,  3.25ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  92%|█████████▏| 12/13 [00:03<00:00,  3.22ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  92%|█████████▏| 12/13 [00:03<00:00,  3.15ba/s][A[A[A[A[A[A
+Running tokenizer on train dataset #1:  92%|█████████▏| 12/13 [00:03<00:00,  3.09ba/s][A
+
+Running tokenizer on train dataset #2:  92%|█████████▏| 12/13 [00:03<00:00,  3.15ba/s][A[A
+
+
+
+
+Running tokenizer on train dataset #5:  92%|█████████▏| 12/13 [00:03<00:00,  3.14ba/s][A[A[A[A[A
+
+
+Running tokenizer on train dataset #3: 100%|██████████| 13/13 [00:03<00:00,  3.85ba/s][A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  92%|█████████▏| 12/13 [00:03<00:00,  3.18ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4: 100%|██████████| 13/13 [00:03<00:00,  3.88ba/s][A[A[A[ARunning tokenizer on train dataset #3: 100%|██████████| 13/13 [00:03<00:00,  3.30ba/s]Running tokenizer on train dataset #0:  92%|█████████▏| 12/13 [00:03<00:00,  3.10ba/s]Running tokenizer on train dataset #4: 100%|██████████| 13/13 [00:03<00:00,  3.32ba/s]
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8: 100%|██████████| 13/13 [00:03<00:00,  3.90ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #8: 100%|██████████| 13/13 [00:03<00:00,  3.35ba/s]
+
+
+
+
+
+
+Running tokenizer on train dataset #7: 100%|██████████| 13/13 [00:03<00:00,  3.88ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #7: 100%|██████████| 13/13 [00:03<00:00,  3.34ba/s]
+Running tokenizer on train dataset #1: 100%|██████████| 13/13 [00:04<00:00,  3.73ba/s][ARunning tokenizer on train dataset #1: 100%|██████████| 13/13 [00:04<00:00,  3.23ba/s]
+
+
+
+
+
+Running tokenizer on train dataset #6: 100%|██████████| 13/13 [00:03<00:00,  3.72ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #6: 100%|██████████| 13/13 [00:03<00:00,  3.28ba/s]
+
+Running tokenizer on train dataset #2: 100%|██████████| 13/13 [00:04<00:00,  3.81ba/s][A[ARunning tokenizer on train dataset #2: 100%|██████████| 13/13 [00:04<00:00,  3.22ba/s]
+
+
+
+
+Running tokenizer on train dataset #5: 100%|██████████| 13/13 [00:04<00:00,  3.78ba/s][A[A[A[A[ARunning tokenizer on train dataset #5: 100%|██████████| 13/13 [00:04<00:00,  3.22ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9: 100%|██████████| 13/13 [00:03<00:00,  3.83ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0: 100%|██████████| 13/13 [00:04<00:00,  3.76ba/s]Running tokenizer on train dataset #9: 100%|██████████| 13/13 [00:03<00:00,  3.26ba/s]Running tokenizer on train dataset #0: 100%|██████████| 13/13 [00:04<00:00,  3.16ba/s]
+
+
+
+
+
+11/22/2022 01:07:08 - INFO - __main__ - Sample 83810 of the training set: {'id': 'neg_2744_12_12', 'text_e1': 'She also allows the waiter at her local coffee shop to flirt with her and begins to pick fights with her fiancé.', 'text_e2': 'Arriving in town, Blake notes the hostility of the townsfolk towards him.', 'label': 0, 'input_ids': [101, 1153, 1145, 3643, 1103, 17989, 1120, 1123, 1469, 3538, 4130, 1106, 22593, 25074, 1114, 1123, 1105, 3471, 1106, 3368, 9718, 1114, 1123, 20497, 1389, 27891, 119, 102, 138, 14791, 3970, 1107, 1411, 117, 5887, 3697, 1103, 19981, 1104, 1103, 4281, 14467, 10493, 2019, 1140, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/22/2022 01:07:08 - INFO - __main__ - Sample 14592 of the training set: {'id': 'pos_28309_168_305', 'text_e1': 'The Harvard Museum of Natural History, which now contains the Museum of Comparative Zoology, still possesses Nabokov\'s "genitalia cabinet", where the author stored his collection of male blue butterfly genitalia.', 'text_e2': 'In the course of a series of uprisings, Crown forces pursued scorched-earth tactics, burning the land and slaughtering man, woman and child.', 'label': 1, 'input_ids': [101, 1109, 5051, 2143, 1104, 6240, 2892, 117, 1134, 1208, 2515, 1103, 2143, 1104, 25741, 13899, 6360, 117, 1253, 15614, 11896, 4043, 7498, 112, 188, 107, 176, 21462, 6163, 1465, 6109, 107, 117, 1187, 1103, 2351, 7905, 1117, 2436, 1104, 2581, 2221, 11057, 176, 21462, 6163, 1465, 119, 102, 1130, 1103, 1736, 1104, 170, 1326, 1104, 13034, 1116, 117, 5373, 2088, 9281, 188, 19248, 6428, 118, 4033, 10524, 117, 4968, 1103, 1657, 1105, 20723, 1158, 1299, 117, 1590, 1105, 2027, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/22/2022 01:07:08 - INFO - __main__ - Sample 3278 of the training set: {'id': 'neg_20364_17_68', 'text_e1': 'He was not a member of the PGA Tour, but having reached the top twenty of the Official World Golf Rankings, he received a substantial number of invitations and sponsors exemptions for PGA Tour events.', 'text_e2': 'Casey remarked that he needed to play in another Ryder Cup, he missed the European Tour and being part of English golf.', 'label': 0, 'input_ids': [101, 1124, 1108, 1136, 170, 1420, 1104, 1103, 14743, 3124, 117, 1133, 1515, 1680, 1103, 1499, 2570, 1104, 1103, 9018, 1291, 8206, 22732, 117, 1119, 1460, 170, 6432, 1295, 1104, 8727, 1116, 1105, 13942, 22346, 1116, 1111, 14743, 3124, 1958, 119, 102, 8700, 10694, 1115, 1119, 1834, 1106, 1505, 1107, 1330, 11779, 1635, 117, 1119, 4007, 1103, 1735, 3124, 1105, 1217, 1226, 1104, 1483, 7135, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+Running tokenizer on validation dataset #0:   0%|          | 0/1 [00:00<?, ?ba/s]
+Running tokenizer on validation dataset #1:   0%|          | 0/1 [00:00<?, ?ba/s][A
+
+Running tokenizer on validation dataset #2:   0%|          | 0/1 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on validation dataset #3:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on validation dataset #4:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on validation dataset #5:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on validation dataset #6:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on validation dataset #7:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+Running tokenizer on validation dataset #1: 100%|██████████| 1/1 [00:00<00:00,  4.06ba/s][ARunning tokenizer on validation dataset #1: 100%|██████████| 1/1 [00:00<00:00,  4.06ba/s]Running tokenizer on validation dataset #0: 100%|██████████| 1/1 [00:00<00:00,  3.85ba/s]Running tokenizer on validation dataset #0: 100%|██████████| 1/1 [00:00<00:00,  3.84ba/s]
+
+Running tokenizer on validation dataset #2: 100%|██████████| 1/1 [00:00<00:00,  4.03ba/s][A[ARunning tokenizer on validation dataset #2: 100%|██████████| 1/1 [00:00<00:00,  4.03ba/s]
+
+
+Running tokenizer on validation dataset #3: 100%|██████████| 1/1 [00:00<00:00,  4.00ba/s][A[A[ARunning tokenizer on validation dataset #3: 100%|██████████| 1/1 [00:00<00:00,  3.99ba/s]
+
+
+
+Running tokenizer on validation dataset #4: 100%|██████████| 1/1 [00:00<00:00,  4.00ba/s][A[A[A[ARunning tokenizer on validation dataset #4: 100%|██████████| 1/1 [00:00<00:00,  4.00ba/s]
+
+
+
+
+Running tokenizer on validation dataset #5: 100%|██████████| 1/1 [00:00<00:00,  4.00ba/s][A[A[A[A[ARunning tokenizer on validation dataset #5: 100%|██████████| 1/1 [00:00<00:00,  4.00ba/s]
+
+
+
+
+
+Running tokenizer on validation dataset #6: 100%|██████████| 1/1 [00:00<00:00,  4.10ba/s][A[A[A[A[A[ARunning tokenizer on validation dataset #6: 100%|██████████| 1/1 [00:00<00:00,  4.10ba/s]
+
+
+
+
+
+
+Running tokenizer on validation dataset #7: 100%|██████████| 1/1 [00:00<00:00,  4.08ba/s][A[A[A[A[A[A[ARunning tokenizer on validation dataset #7: 100%|██████████| 1/1 [00:00<00:00,  4.08ba/s]
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8: 100%|██████████| 1/1 [00:00<00:00,  3.98ba/s][A[A[A[A[A[A[A[ARunning tokenizer on validation dataset #8: 100%|██████████| 1/1 [00:00<00:00,  3.97ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9: 100%|██████████| 1/1 [00:00<00:00,  3.69ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on validation dataset #9: 100%|██████████| 1/1 [00:00<00:00,  3.68ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #0:   0%|          | 0/1 [00:00<?, ?ba/s]
+Running tokenizer on prediction dataset #1:   0%|          | 0/1 [00:00<?, ?ba/s][A
+
+Running tokenizer on prediction dataset #2:   0%|          | 0/1 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on prediction dataset #3:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on prediction dataset #4:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on prediction dataset #5:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on prediction dataset #6:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on prediction dataset #0: 100%|██████████| 1/1 [00:00<00:00,  3.84ba/s]Running tokenizer on prediction dataset #0: 100%|██████████| 1/1 [00:00<00:00,  3.83ba/s]
+Running tokenizer on prediction dataset #1: 100%|██████████| 1/1 [00:00<00:00,  3.83ba/s][ARunning tokenizer on prediction dataset #1: 100%|██████████| 1/1 [00:00<00:00,  3.83ba/s]
+
+Running tokenizer on prediction dataset #2: 100%|██████████| 1/1 [00:00<00:00,  3.77ba/s][A[A
+
+
+Running tokenizer on prediction dataset #3: 100%|██████████| 1/1 [00:00<00:00,  3.96ba/s][A[A[ARunning tokenizer on prediction dataset #2: 100%|██████████| 1/1 [00:00<00:00,  3.76ba/s]Running tokenizer on prediction dataset #3: 100%|██████████| 1/1 [00:00<00:00,  3.95ba/s]
+
+
+
+Running tokenizer on prediction dataset #4: 100%|██████████| 1/1 [00:00<00:00,  3.92ba/s][A[A[A[ARunning tokenizer on prediction dataset #4: 100%|██████████| 1/1 [00:00<00:00,  3.92ba/s]
+
+
+
+
+Running tokenizer on prediction dataset #5: 100%|██████████| 1/1 [00:00<00:00,  3.83ba/s][A[A[A[A[ARunning tokenizer on prediction dataset #5: 100%|██████████| 1/1 [00:00<00:00,  3.82ba/s]
+
+
+
+
+
+Running tokenizer on prediction dataset #6: 100%|██████████| 1/1 [00:00<00:00,  3.94ba/s][A[A[A[A[A[ARunning tokenizer on prediction dataset #6: 100%|██████████| 1/1 [00:00<00:00,  3.93ba/s]
+
+
+
+
+
+
+Running tokenizer on prediction dataset #7: 100%|██████████| 1/1 [00:00<00:00,  3.64ba/s][A[A[A[A[A[A[ARunning tokenizer on prediction dataset #7: 100%|██████████| 1/1 [00:00<00:00,  3.64ba/s]
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #8: 100%|██████████| 1/1 [00:00<00:00,  3.73ba/s][A[A[A[A[A[A[A[ARunning tokenizer on prediction dataset #8: 100%|██████████| 1/1 [00:00<00:00,  3.73ba/s]
+
+
+
+
+
+
+
+
+Running tokenizer on prediction dataset #9: 100%|██████████| 1/1 [00:00<00:00,  3.83ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on prediction dataset #9: 100%|██████████| 1/1 [00:00<00:00,  3.83ba/s]
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "run_pairwise_cross.py", line 442, in <module>
+    main()
+  File "run_pairwise_cross.py", line 385, in main
+    data_collator=data_collator,
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/trainer.py", line 386, in __init__
+    self._move_model_to_device(model, args.device)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/trainer.py", line 552, in _move_model_to_device
+    model = model.to(device)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/nn/modules/module.py", line 612, in to
+    return self._apply(convert)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/nn/modules/module.py", line 359, in _apply
+    module._apply(fn)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/nn/modules/module.py", line 359, in _apply
+    module._apply(fn)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/nn/modules/module.py", line 359, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/nn/modules/module.py", line 381, in _apply
+    param_applied = fn(param)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/nn/modules/module.py", line 610, in convert
+    return t.to(device, dtype if t.is_floating_point() else None, non_blocking)
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 10.76 GiB total capacity; 339.33 MiB already allocated; 12.56 MiB free; 368.00 MiB reserved in total by PyTorch)

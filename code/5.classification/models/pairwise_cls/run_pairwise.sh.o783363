@@ -1,6681 +1,0 @@
-11/07/2022 23:14:32 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
-11/07/2022 23:14:32 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
-_n_gpu=1,
-adafactor=False,
-adam_beta1=0.9,
-adam_beta2=0.999,
-adam_epsilon=1e-08,
-bf16=False,
-bf16_full_eval=False,
-dataloader_drop_last=False,
-dataloader_num_workers=0,
-dataloader_pin_memory=True,
-ddp_bucket_cap_mb=None,
-ddp_find_unused_parameters=None,
-debug=[],
-deepspeed=None,
-disable_tqdm=False,
-do_eval=True,
-do_predict=True,
-do_train=True,
-eval_accumulation_steps=None,
-eval_steps=None,
-evaluation_strategy=IntervalStrategy.NO,
-fp16=False,
-fp16_backend=auto,
-fp16_full_eval=False,
-fp16_opt_level=O1,
-gradient_accumulation_steps=1,
-gradient_checkpointing=False,
-greater_is_better=None,
-group_by_length=False,
-half_precision_backend=auto,
-hub_model_id=None,
-hub_strategy=HubStrategy.EVERY_SAVE,
-hub_token=<HUB_TOKEN>,
-ignore_data_skip=False,
-label_names=None,
-label_smoothing_factor=0.0,
-learning_rate=5e-05,
-length_column_name=length,
-load_best_model_at_end=False,
-local_rank=-1,
-log_level=-1,
-log_level_replica=-1,
-log_on_each_node=True,
-logging_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_1107/runs/Nov07_23-14-32_qa-2080ti-007.crc.nd.edu,
-logging_first_step=False,
-logging_nan_inf_filter=True,
-logging_steps=500,
-logging_strategy=IntervalStrategy.STEPS,
-lr_scheduler_type=SchedulerType.LINEAR,
-max_grad_norm=1.0,
-max_steps=-1,
-metric_for_best_model=None,
-mp_parameters=,
-no_cuda=False,
-num_train_epochs=4.0,
-optim=OptimizerNames.ADAMW_HF,
-output_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_1107,
-overwrite_output_dir=True,
-past_index=-1,
-per_device_eval_batch_size=8,
-per_device_train_batch_size=16,
-prediction_loss_only=False,
-push_to_hub=False,
-push_to_hub_model_id=None,
-push_to_hub_organization=None,
-push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
-remove_unused_columns=True,
-report_to=[],
-resume_from_checkpoint=None,
-run_name=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pairwise_cls/cross_enc_1107,
-save_on_each_node=False,
-save_steps=500,
-save_strategy=IntervalStrategy.EPOCH,
-save_total_limit=2,
-seed=42,
-sharded_ddp=[],
-skip_memory_metrics=True,
-tf32=None,
-tpu_metrics_debug=False,
-tpu_num_cores=None,
-use_legacy_prediction_loop=False,
-warmup_ratio=0.0,
-warmup_steps=0,
-weight_decay=0.0,
-xpu_backend=None,
-)
-11/07/2022 23:14:32 - WARNING - datasets.builder - Using custom data configuration default-cf271586fdde3b4e
-11/07/2022 23:14:32 - INFO - datasets.builder - Overwrite dataset info from restored data version.
-11/07/2022 23:14:32 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-cf271586fdde3b4e/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
-11/07/2022 23:14:32 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-cf271586fdde3b4e/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
-11/07/2022 23:14:32 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-cf271586fdde3b4e/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
-11/07/2022 23:14:32 - WARNING - datasets.builder - Using custom data configuration default-96b84d8bca05d054
-11/07/2022 23:14:32 - INFO - datasets.builder - Overwrite dataset info from restored data version.
-11/07/2022 23:14:32 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-96b84d8bca05d054/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
-11/07/2022 23:14:32 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-96b84d8bca05d054/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
-11/07/2022 23:14:32 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-96b84d8bca05d054/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
-11/07/2022 23:14:33 - WARNING - datasets.builder - Using custom data configuration default-4663508d96eaf5eb
-11/07/2022 23:14:33 - INFO - datasets.builder - Overwrite dataset info from restored data version.
-11/07/2022 23:14:33 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-4663508d96eaf5eb/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
-11/07/2022 23:14:33 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-4663508d96eaf5eb/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
-11/07/2022 23:14:33 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-4663508d96eaf5eb/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
-[INFO|configuration_utils.py:648] 2022-11-07 23:14:33,220 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
-[INFO|configuration_utils.py:684] 2022-11-07 23:14:33,221 >> Model config BertConfig {
-  "_name_or_path": "bert-base-cased",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "finetuning_task": "xnli",
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.17.0",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 28996
-}
-
-[INFO|configuration_utils.py:648] 2022-11-07 23:14:33,483 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
-[INFO|configuration_utils.py:684] 2022-11-07 23:14:33,484 >> Model config BertConfig {
-  "_name_or_path": "bert-base-cased",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.17.0",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 28996
-}
-
-[INFO|tokenization_utils_base.py:1786] 2022-11-07 23:14:34,282 >> loading file https://huggingface.co/bert-base-cased/resolve/main/vocab.txt from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/6508e60ab3c1200bffa26c95f4b58ac6b6d95fba4db1f195f632fa3cd7bc64cc.437aa611e89f6fc6675a049d2b5545390adbc617e7d655286421c191d2be2791
-[INFO|tokenization_utils_base.py:1786] 2022-11-07 23:14:34,283 >> loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/226a307193a9f4344264cdc76a12988448a25345ba172f2c7421f3b6810fddad.3dab63143af66769bbb35e3811f75f7e16b2320e12b7935e216bd6159ce6d9a6
-[INFO|tokenization_utils_base.py:1786] 2022-11-07 23:14:34,283 >> loading file https://huggingface.co/bert-base-cased/resolve/main/added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:1786] 2022-11-07 23:14:34,283 >> loading file https://huggingface.co/bert-base-cased/resolve/main/special_tokens_map.json from cache at None
-[INFO|tokenization_utils_base.py:1786] 2022-11-07 23:14:34,283 >> loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer_config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/ec84e86ee39bfe112543192cf981deebf7e6cbe8c91b8f7f8f63c9be44366158.ec5c189f89475aac7d8cbd243960a0655cfadc3d0474da8ff2ed0bf1699c2a5f
-[INFO|configuration_utils.py:648] 2022-11-07 23:14:34,408 >> loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
-[INFO|configuration_utils.py:684] 2022-11-07 23:14:34,408 >> Model config BertConfig {
-  "_name_or_path": "bert-base-cased",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.17.0",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 28996
-}
-
-[INFO|modeling_utils.py:1431] 2022-11-07 23:14:34,610 >> loading weights file https://huggingface.co/bert-base-cased/resolve/main/pytorch_model.bin from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/092cc582560fc3833e556b3f833695c26343cb54b7e88cd02d40821462a74999.1f48cab6c959fc6c360d22bea39d06959e90f5b002e77e836d2da45464875cda
-[WARNING|modeling_utils.py:1694] 2022-11-07 23:14:36,305 >> Some weights of the model checkpoint at bert-base-cased were not used when initializing BertForSequenceClassification: ['cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight']
-- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-[WARNING|modeling_utils.py:1705] 2022-11-07 23:14:36,305 >> Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-cased and are newly initialized: ['classifier.weight', 'classifier.bias']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-11/07/2022 23:14:36 - WARNING - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-cf271586fdde3b4e/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253/cache-d9f75e8e9c7cc33f.arrow
-Running tokenizer on train dataset #0:   0%|          | 0/143 [00:00<?, ?ba/s]
-Running tokenizer on train dataset #1:   0%|          | 0/143 [00:00<?, ?ba/s][A
-
-Running tokenizer on train dataset #2:   0%|          | 0/143 [00:00<?, ?ba/s][A[A
-
-
-Running tokenizer on train dataset #3:   0%|          | 0/143 [00:00<?, ?ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:   0%|          | 0/143 [00:00<?, ?ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:   0%|          | 0/143 [00:00<?, ?ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   0%|          | 0/143 [00:00<?, ?ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   0%|          | 0/143 [00:00<?, ?ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   0%|          | 0/143 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   0%|          | 0/143 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:   1%|          | 1/143 [00:00<00:46,  3.03ba/s]
-Running tokenizer on train dataset #1:   1%|          | 1/143 [00:00<00:47,  3.01ba/s][A
-
-Running tokenizer on train dataset #2:   1%|          | 1/143 [00:00<00:48,  2.93ba/s][A[A
-
-
-Running tokenizer on train dataset #3:   1%|          | 1/143 [00:00<00:46,  3.04ba/s][A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:   1%|          | 1/143 [00:00<00:46,  3.08ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   1%|          | 1/143 [00:00<00:49,  2.87ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   1%|          | 1/143 [00:00<00:46,  3.06ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   1%|          | 1/143 [00:00<00:46,  3.05ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   1%|          | 1/143 [00:00<00:46,  3.09ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   1%|          | 1/143 [00:00<00:46,  3.07ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:   1%|▏         | 2/143 [00:00<00:45,  3.07ba/s]
-Running tokenizer on train dataset #1:   1%|▏         | 2/143 [00:00<00:45,  3.09ba/s][A
-
-
-Running tokenizer on train dataset #3:   1%|▏         | 2/143 [00:00<00:44,  3.16ba/s][A[A[A
-
-Running tokenizer on train dataset #2:   1%|▏         | 2/143 [00:00<00:46,  3.04ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:   1%|▏         | 2/143 [00:00<00:43,  3.22ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   1%|▏         | 2/143 [00:00<00:45,  3.08ba/s][A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   1%|▏         | 2/143 [00:00<00:44,  3.19ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   1%|▏         | 2/143 [00:00<00:44,  3.20ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   1%|▏         | 2/143 [00:00<00:46,  3.02ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   1%|▏         | 2/143 [00:00<00:43,  3.22ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:   2%|▏         | 3/143 [00:00<00:45,  3.06ba/s][A
-
-
-Running tokenizer on train dataset #3:   2%|▏         | 3/143 [00:00<00:44,  3.13ba/s][A[A[A
-
-Running tokenizer on train dataset #2:   2%|▏         | 3/143 [00:00<00:45,  3.07ba/s][A[ARunning tokenizer on train dataset #0:   2%|▏         | 3/143 [00:01<00:47,  2.93ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:   2%|▏         | 3/143 [00:00<00:44,  3.12ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   2%|▏         | 3/143 [00:00<00:45,  3.06ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   2%|▏         | 3/143 [00:00<00:43,  3.22ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   2%|▏         | 3/143 [00:00<00:42,  3.26ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   2%|▏         | 3/143 [00:00<00:45,  3.09ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   2%|▏         | 3/143 [00:00<00:45,  3.05ba/s][A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   3%|▎         | 4/143 [00:01<00:44,  3.12ba/s][A[A[ARunning tokenizer on train dataset #0:   3%|▎         | 4/143 [00:01<00:46,  3.00ba/s]
-Running tokenizer on train dataset #1:   3%|▎         | 4/143 [00:01<00:46,  2.97ba/s][A
-
-Running tokenizer on train dataset #2:   3%|▎         | 4/143 [00:01<00:46,  3.02ba/s][A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   3%|▎         | 4/143 [00:01<00:42,  3.24ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   3%|▎         | 4/143 [00:01<00:43,  3.20ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:   3%|▎         | 4/143 [00:01<00:45,  3.05ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   3%|▎         | 4/143 [00:01<00:45,  3.02ba/s][A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   3%|▎         | 4/143 [00:01<00:45,  3.05ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   3%|▎         | 4/143 [00:01<00:45,  3.03ba/s][A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   3%|▎         | 5/143 [00:01<00:49,  2.76ba/s][A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   3%|▎         | 5/143 [00:01<00:48,  2.82ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   3%|▎         | 5/143 [00:01<00:48,  2.83ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:   3%|▎         | 5/143 [00:01<00:51,  2.70ba/s][A[A
-Running tokenizer on train dataset #1:   3%|▎         | 5/143 [00:01<00:51,  2.66ba/s][ARunning tokenizer on train dataset #0:   3%|▎         | 5/143 [00:01<00:52,  2.62ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:   3%|▎         | 5/143 [00:01<00:51,  2.70ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   3%|▎         | 5/143 [00:01<00:51,  2.70ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   3%|▎         | 5/143 [00:01<00:51,  2.69ba/s][A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   4%|▍         | 6/143 [00:02<00:47,  2.87ba/s][A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   4%|▍         | 6/143 [00:02<00:47,  2.89ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   4%|▍         | 6/143 [00:01<00:47,  2.90ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:   4%|▍         | 6/143 [00:02<00:49,  2.79ba/s][A
-
-Running tokenizer on train dataset #2:   4%|▍         | 6/143 [00:02<00:48,  2.81ba/s][A[ARunning tokenizer on train dataset #0:   4%|▍         | 6/143 [00:02<00:49,  2.78ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:   4%|▍         | 6/143 [00:02<00:48,  2.85ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   4%|▍         | 6/143 [00:02<00:48,  2.84ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   4%|▍         | 6/143 [00:02<00:47,  2.86ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   3%|▎         | 5/143 [00:02<01:07,  2.04ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   5%|▍         | 7/143 [00:02<00:45,  2.98ba/s][A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   5%|▍         | 7/143 [00:02<00:45,  3.01ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   5%|▍         | 7/143 [00:02<00:45,  3.01ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:   5%|▍         | 7/143 [00:02<00:46,  2.93ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:   5%|▍         | 7/143 [00:02<00:45,  2.97ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:   5%|▍         | 7/143 [00:02<00:46,  2.93ba/s][A[ARunning tokenizer on train dataset #0:   5%|▍         | 7/143 [00:02<00:46,  2.91ba/s]
-
-
-
-Running tokenizer on train dataset #4:   5%|▍         | 7/143 [00:02<00:45,  2.97ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   5%|▍         | 7/143 [00:02<00:45,  2.98ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   4%|▍         | 6/143 [00:02<00:58,  2.35ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   6%|▌         | 8/143 [00:02<00:43,  3.09ba/s][A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   6%|▌         | 8/143 [00:02<00:43,  3.08ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   6%|▌         | 8/143 [00:02<00:43,  3.08ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:   6%|▌         | 8/143 [00:02<00:44,  3.02ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:   6%|▌         | 8/143 [00:02<00:43,  3.07ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:   6%|▌         | 8/143 [00:02<00:44,  3.03ba/s][A[ARunning tokenizer on train dataset #0:   6%|▌         | 8/143 [00:02<00:44,  3.02ba/s]
-
-
-
-Running tokenizer on train dataset #4:   6%|▌         | 8/143 [00:02<00:43,  3.07ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:   6%|▌         | 8/143 [00:02<00:43,  3.08ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   5%|▍         | 7/143 [00:02<00:52,  2.59ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   6%|▋         | 9/143 [00:02<00:42,  3.17ba/s][A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   6%|▋         | 9/143 [00:02<00:42,  3.15ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:   6%|▋         | 9/143 [00:03<00:42,  3.12ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:   6%|▋         | 9/143 [00:02<00:42,  3.14ba/s][A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   6%|▋         | 9/143 [00:02<00:42,  3.14ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:   6%|▋         | 9/143 [00:03<00:43,  3.11ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:   6%|▋         | 9/143 [00:02<00:42,  3.15ba/s][A[A[A[ARunning tokenizer on train dataset #0:   6%|▋         | 9/143 [00:03<00:43,  3.08ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:   6%|▋         | 9/143 [00:02<00:42,  3.14ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   6%|▌         | 8/143 [00:02<00:48,  2.78ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   7%|▋         | 10/143 [00:03<00:41,  3.21ba/s][A[A[A
-Running tokenizer on train dataset #1:   7%|▋         | 10/143 [00:03<00:41,  3.19ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   7%|▋         | 10/143 [00:03<00:41,  3.19ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:   7%|▋         | 10/143 [00:03<00:41,  3.19ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:   7%|▋         | 10/143 [00:03<00:41,  3.20ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:   7%|▋         | 10/143 [00:03<00:41,  3.17ba/s][A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   7%|▋         | 10/143 [00:03<00:41,  3.17ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:   7%|▋         | 10/143 [00:03<00:42,  3.15ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:   7%|▋         | 10/143 [00:03<00:41,  3.20ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   6%|▋         | 9/143 [00:03<00:45,  2.94ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   8%|▊         | 11/143 [00:03<00:40,  3.24ba/s][A[A[A
-Running tokenizer on train dataset #1:   8%|▊         | 11/143 [00:03<00:40,  3.24ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   8%|▊         | 11/143 [00:03<00:40,  3.23ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:   8%|▊         | 11/143 [00:03<00:40,  3.22ba/s][A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   8%|▊         | 11/143 [00:03<00:41,  3.22ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:   8%|▊         | 11/143 [00:03<00:41,  3.21ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   8%|▊         | 11/143 [00:03<00:40,  3.22ba/s][A[A[A[ARunning tokenizer on train dataset #0:   8%|▊         | 11/143 [00:03<00:41,  3.21ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:   8%|▊         | 11/143 [00:03<00:40,  3.24ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   7%|▋         | 10/143 [00:03<00:43,  3.03ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   8%|▊         | 12/143 [00:03<00:40,  3.27ba/s][A[A[A
-Running tokenizer on train dataset #1:   8%|▊         | 12/143 [00:03<00:39,  3.28ba/s][A
-
-Running tokenizer on train dataset #2:   8%|▊         | 12/143 [00:03<00:40,  3.27ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   8%|▊         | 12/143 [00:03<00:40,  3.25ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   8%|▊         | 12/143 [00:03<00:40,  3.24ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:   8%|▊         | 12/143 [00:03<00:40,  3.23ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   8%|▊         | 12/143 [00:03<00:40,  3.23ba/s][A[A[A[ARunning tokenizer on train dataset #0:   8%|▊         | 12/143 [00:03<00:40,  3.21ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:   8%|▊         | 12/143 [00:03<00:40,  3.25ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   8%|▊         | 11/143 [00:03<00:42,  3.11ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:   9%|▉         | 13/143 [00:04<00:39,  3.28ba/s][A[A[A
-Running tokenizer on train dataset #1:   9%|▉         | 13/143 [00:04<00:39,  3.31ba/s][A
-
-Running tokenizer on train dataset #2:   9%|▉         | 13/143 [00:04<00:39,  3.26ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:   9%|▉         | 13/143 [00:04<00:39,  3.26ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:   9%|▉         | 13/143 [00:04<00:39,  3.28ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:   9%|▉         | 13/143 [00:04<00:40,  3.24ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:   9%|▉         | 13/143 [00:04<00:40,  3.23ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:   9%|▉         | 13/143 [00:04<00:40,  3.24ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:   9%|▉         | 13/143 [00:04<00:39,  3.29ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   8%|▊         | 12/143 [00:04<00:41,  3.18ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  10%|▉         | 14/143 [00:04<00:39,  3.29ba/s][A[A[A
-Running tokenizer on train dataset #1:  10%|▉         | 14/143 [00:04<00:39,  3.30ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  10%|▉         | 14/143 [00:04<00:39,  3.30ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  10%|▉         | 14/143 [00:04<00:39,  3.28ba/s][A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  10%|▉         | 14/143 [00:04<00:39,  3.28ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  10%|▉         | 14/143 [00:04<00:39,  3.26ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  10%|▉         | 14/143 [00:04<00:39,  3.26ba/s][A[A[A[ARunning tokenizer on train dataset #0:  10%|▉         | 14/143 [00:04<00:39,  3.25ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  10%|▉         | 14/143 [00:04<00:39,  3.27ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:   9%|▉         | 13/143 [00:04<00:40,  3.21ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  10%|█         | 15/143 [00:04<00:38,  3.31ba/s][A[A[A
-Running tokenizer on train dataset #1:  10%|█         | 15/143 [00:04<00:38,  3.32ba/s][A
-
-Running tokenizer on train dataset #2:  10%|█         | 15/143 [00:04<00:38,  3.30ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  10%|█         | 15/143 [00:04<00:39,  3.28ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  10%|█         | 15/143 [00:04<00:38,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  10%|█         | 15/143 [00:04<00:38,  3.29ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  10%|█         | 15/143 [00:04<00:39,  3.27ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  10%|█         | 15/143 [00:04<00:38,  3.30ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  10%|█         | 15/143 [00:04<00:39,  3.27ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  10%|▉         | 14/143 [00:04<00:39,  3.26ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  11%|█         | 16/143 [00:05<00:38,  3.31ba/s][A[A[A
-Running tokenizer on train dataset #1:  11%|█         | 16/143 [00:05<00:38,  3.32ba/s][A
-
-Running tokenizer on train dataset #2:  11%|█         | 16/143 [00:05<00:38,  3.30ba/s][A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  11%|█         | 16/143 [00:05<00:38,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  11%|█         | 16/143 [00:05<00:38,  3.30ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  11%|█         | 16/143 [00:05<00:38,  3.32ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  11%|█         | 16/143 [00:05<00:38,  3.28ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  11%|█         | 16/143 [00:05<00:38,  3.28ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  11%|█         | 16/143 [00:05<00:38,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  10%|█         | 15/143 [00:05<00:39,  3.26ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  12%|█▏        | 17/143 [00:05<00:37,  3.32ba/s][A[A[A
-Running tokenizer on train dataset #1:  12%|█▏        | 17/143 [00:05<00:38,  3.31ba/s][A
-
-Running tokenizer on train dataset #2:  12%|█▏        | 17/143 [00:05<00:37,  3.32ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  12%|█▏        | 17/143 [00:05<00:38,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  12%|█▏        | 17/143 [00:05<00:37,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  12%|█▏        | 17/143 [00:05<00:37,  3.34ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  12%|█▏        | 17/143 [00:05<00:38,  3.30ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  12%|█▏        | 17/143 [00:05<00:38,  3.31ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  12%|█▏        | 17/143 [00:05<00:38,  3.30ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  11%|█         | 16/143 [00:05<00:38,  3.28ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  13%|█▎        | 18/143 [00:05<00:37,  3.32ba/s][A[A[A
-Running tokenizer on train dataset #1:  13%|█▎        | 18/143 [00:05<00:37,  3.32ba/s][A
-
-
-
-Running tokenizer on train dataset #4:  13%|█▎        | 18/143 [00:05<00:37,  3.36ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  13%|█▎        | 18/143 [00:05<00:37,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  13%|█▎        | 18/143 [00:05<00:37,  3.30ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  13%|█▎        | 18/143 [00:05<00:38,  3.28ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  13%|█▎        | 18/143 [00:05<00:37,  3.31ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  13%|█▎        | 18/143 [00:05<00:37,  3.31ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  13%|█▎        | 18/143 [00:05<00:37,  3.32ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  12%|█▏        | 17/143 [00:05<00:38,  3.29ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  13%|█▎        | 19/143 [00:05<00:37,  3.32ba/s][A[A[A
-Running tokenizer on train dataset #1:  13%|█▎        | 19/143 [00:06<00:37,  3.32ba/s][A
-
-
-
-Running tokenizer on train dataset #4:  13%|█▎        | 19/143 [00:05<00:37,  3.35ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  13%|█▎        | 19/143 [00:05<00:37,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  13%|█▎        | 19/143 [00:05<00:37,  3.30ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  13%|█▎        | 19/143 [00:06<00:37,  3.29ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  13%|█▎        | 19/143 [00:06<00:37,  3.32ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  13%|█▎        | 19/143 [00:06<00:37,  3.31ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  13%|█▎        | 19/143 [00:05<00:37,  3.31ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  13%|█▎        | 18/143 [00:06<00:38,  3.29ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  14%|█▍        | 20/143 [00:06<00:39,  3.09ba/s][A[A[A
-Running tokenizer on train dataset #1:  14%|█▍        | 20/143 [00:06<00:39,  3.11ba/s][A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  13%|█▎        | 19/143 [00:06<00:37,  3.30ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  14%|█▍        | 20/143 [00:06<00:39,  3.13ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  14%|█▍        | 20/143 [00:06<00:39,  3.11ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  14%|█▍        | 20/143 [00:06<00:39,  3.09ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  14%|█▍        | 20/143 [00:06<00:39,  3.09ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  14%|█▍        | 20/143 [00:06<00:39,  3.11ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  14%|█▍        | 20/143 [00:06<00:39,  3.10ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  14%|█▍        | 20/143 [00:06<00:39,  3.09ba/s]
-
-
-Running tokenizer on train dataset #3:  15%|█▍        | 21/143 [00:06<00:38,  3.18ba/s][A[A[A
-Running tokenizer on train dataset #1:  15%|█▍        | 21/143 [00:06<00:38,  3.15ba/s][A
-
-
-
-Running tokenizer on train dataset #4:  15%|█▍        | 21/143 [00:06<00:38,  3.18ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  15%|█▍        | 21/143 [00:06<00:38,  3.16ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  15%|█▍        | 21/143 [00:06<00:38,  3.17ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  15%|█▍        | 21/143 [00:06<00:38,  3.16ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  15%|█▍        | 21/143 [00:06<00:38,  3.18ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  15%|█▍        | 21/143 [00:06<00:38,  3.17ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  15%|█▍        | 21/143 [00:06<00:38,  3.16ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  14%|█▍        | 20/143 [00:06<00:39,  3.10ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  15%|█▌        | 22/143 [00:06<00:37,  3.23ba/s][A[A[A
-Running tokenizer on train dataset #1:  15%|█▌        | 22/143 [00:06<00:37,  3.22ba/s][A
-
-Running tokenizer on train dataset #2:  15%|█▌        | 22/143 [00:06<00:37,  3.24ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  15%|█▌        | 22/143 [00:06<00:37,  3.23ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  15%|█▌        | 22/143 [00:06<00:37,  3.22ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  15%|█▌        | 22/143 [00:06<00:37,  3.19ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  15%|█▌        | 22/143 [00:06<00:37,  3.23ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  15%|█▌        | 22/143 [00:06<00:37,  3.21ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  15%|█▌        | 22/143 [00:07<00:37,  3.20ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  15%|█▍        | 21/143 [00:06<00:38,  3.15ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  16%|█▌        | 23/143 [00:07<00:36,  3.27ba/s][A[A[A
-Running tokenizer on train dataset #1:  16%|█▌        | 23/143 [00:07<00:37,  3.24ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  16%|█▌        | 23/143 [00:07<00:36,  3.25ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  16%|█▌        | 23/143 [00:07<00:36,  3.25ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  16%|█▌        | 23/143 [00:07<00:37,  3.24ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  16%|█▌        | 23/143 [00:07<00:36,  3.24ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  16%|█▌        | 23/143 [00:07<00:37,  3.24ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  16%|█▌        | 23/143 [00:07<00:36,  3.25ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  16%|█▌        | 23/143 [00:07<00:37,  3.23ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  15%|█▌        | 22/143 [00:07<00:37,  3.20ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  17%|█▋        | 24/143 [00:07<00:36,  3.29ba/s][A[A[A
-Running tokenizer on train dataset #1:  17%|█▋        | 24/143 [00:07<00:36,  3.26ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  17%|█▋        | 24/143 [00:07<00:36,  3.25ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  17%|█▋        | 24/143 [00:07<00:36,  3.25ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  17%|█▋        | 24/143 [00:07<00:36,  3.27ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  17%|█▋        | 24/143 [00:07<00:36,  3.25ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  17%|█▋        | 24/143 [00:07<00:36,  3.26ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  17%|█▋        | 24/143 [00:07<00:36,  3.28ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  17%|█▋        | 24/143 [00:07<00:36,  3.27ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  16%|█▌        | 23/143 [00:07<00:37,  3.20ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  17%|█▋        | 25/143 [00:07<00:35,  3.28ba/s][A[A[A
-Running tokenizer on train dataset #1:  17%|█▋        | 25/143 [00:07<00:35,  3.28ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  17%|█▋        | 25/143 [00:07<00:36,  3.27ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  17%|█▋        | 25/143 [00:07<00:35,  3.28ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  17%|█▋        | 25/143 [00:07<00:36,  3.24ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  17%|█▋        | 25/143 [00:07<00:36,  3.24ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  17%|█▋        | 25/143 [00:07<00:35,  3.28ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  17%|█▋        | 25/143 [00:07<00:35,  3.30ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  17%|█▋        | 25/143 [00:07<00:35,  3.29ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  17%|█▋        | 24/143 [00:07<00:36,  3.23ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  18%|█▊        | 26/143 [00:08<00:35,  3.32ba/s][A[A[A
-Running tokenizer on train dataset #1:  18%|█▊        | 26/143 [00:08<00:35,  3.30ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  18%|█▊        | 26/143 [00:08<00:35,  3.29ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  18%|█▊        | 26/143 [00:08<00:35,  3.28ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  18%|█▊        | 26/143 [00:08<00:35,  3.28ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  18%|█▊        | 26/143 [00:08<00:36,  3.25ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  18%|█▊        | 26/143 [00:08<00:36,  3.24ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  18%|█▊        | 26/143 [00:08<00:35,  3.30ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  18%|█▊        | 26/143 [00:08<00:35,  3.30ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  17%|█▋        | 25/143 [00:08<00:36,  3.27ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  19%|█▉        | 27/143 [00:08<00:34,  3.33ba/s][A[A[A
-Running tokenizer on train dataset #1:  19%|█▉        | 27/143 [00:08<00:35,  3.30ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  19%|█▉        | 27/143 [00:08<00:35,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  19%|█▉        | 27/143 [00:08<00:35,  3.30ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  19%|█▉        | 27/143 [00:08<00:35,  3.30ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  19%|█▉        | 27/143 [00:08<00:35,  3.27ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  19%|█▉        | 27/143 [00:08<00:35,  3.27ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  19%|█▉        | 27/143 [00:08<00:35,  3.30ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  19%|█▉        | 27/143 [00:08<00:35,  3.29ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  18%|█▊        | 26/143 [00:08<00:35,  3.28ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  20%|█▉        | 28/143 [00:08<00:34,  3.31ba/s][A[A[A
-Running tokenizer on train dataset #1:  20%|█▉        | 28/143 [00:08<00:34,  3.32ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  20%|█▉        | 28/143 [00:08<00:34,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  20%|█▉        | 28/143 [00:08<00:34,  3.29ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  20%|█▉        | 28/143 [00:08<00:34,  3.29ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  20%|█▉        | 28/143 [00:08<00:35,  3.27ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  20%|█▉        | 28/143 [00:08<00:34,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  20%|█▉        | 28/143 [00:08<00:35,  3.28ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  20%|█▉        | 28/143 [00:08<00:34,  3.29ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  19%|█▉        | 27/143 [00:08<00:35,  3.30ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  20%|██        | 29/143 [00:09<00:34,  3.33ba/s][A[A[A
-Running tokenizer on train dataset #1:  20%|██        | 29/143 [00:09<00:34,  3.33ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  20%|██        | 29/143 [00:09<00:34,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  20%|██        | 29/143 [00:09<00:34,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  20%|██        | 29/143 [00:09<00:34,  3.31ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  20%|██        | 29/143 [00:09<00:34,  3.29ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  20%|██        | 29/143 [00:09<00:34,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  20%|██        | 29/143 [00:09<00:34,  3.29ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  20%|██        | 29/143 [00:09<00:34,  3.30ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  20%|█▉        | 28/143 [00:09<00:34,  3.30ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  21%|██        | 30/143 [00:09<00:33,  3.34ba/s][A[A[A
-Running tokenizer on train dataset #1:  21%|██        | 30/143 [00:09<00:34,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  21%|██        | 30/143 [00:09<00:34,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  21%|██        | 30/143 [00:09<00:34,  3.31ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  21%|██        | 30/143 [00:09<00:34,  3.31ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  21%|██        | 30/143 [00:09<00:34,  3.30ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  21%|██        | 30/143 [00:09<00:34,  3.31ba/s][A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  21%|██        | 30/143 [00:09<00:34,  3.29ba/s][A[A[A[ARunning tokenizer on train dataset #0:  21%|██        | 30/143 [00:09<00:34,  3.31ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  20%|██        | 29/143 [00:09<00:34,  3.32ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  22%|██▏       | 31/143 [00:09<00:33,  3.34ba/s][A[A[A
-Running tokenizer on train dataset #1:  22%|██▏       | 31/143 [00:09<00:33,  3.33ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  22%|██▏       | 31/143 [00:09<00:33,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  22%|██▏       | 31/143 [00:09<00:33,  3.31ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  22%|██▏       | 31/143 [00:09<00:33,  3.32ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  22%|██▏       | 31/143 [00:09<00:33,  3.32ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  22%|██▏       | 31/143 [00:09<00:33,  3.30ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  22%|██▏       | 31/143 [00:09<00:33,  3.30ba/s][A[A[A[ARunning tokenizer on train dataset #0:  22%|██▏       | 31/143 [00:09<00:33,  3.32ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  21%|██        | 30/143 [00:09<00:33,  3.33ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  22%|██▏       | 32/143 [00:09<00:33,  3.35ba/s][A[A[A
-Running tokenizer on train dataset #1:  22%|██▏       | 32/143 [00:09<00:33,  3.33ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  22%|██▏       | 32/143 [00:09<00:33,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  22%|██▏       | 32/143 [00:09<00:33,  3.31ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  22%|██▏       | 32/143 [00:10<00:33,  3.33ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  22%|██▏       | 32/143 [00:09<00:33,  3.32ba/s][A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  22%|██▏       | 32/143 [00:10<00:33,  3.31ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  22%|██▏       | 32/143 [00:09<00:33,  3.31ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  22%|██▏       | 32/143 [00:10<00:33,  3.32ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  22%|██▏       | 31/143 [00:09<00:33,  3.31ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  23%|██▎       | 33/143 [00:10<00:32,  3.34ba/s][A[A[A
-Running tokenizer on train dataset #1:  23%|██▎       | 33/143 [00:10<00:32,  3.34ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  23%|██▎       | 33/143 [00:10<00:33,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  23%|██▎       | 33/143 [00:10<00:33,  3.32ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  23%|██▎       | 33/143 [00:10<00:33,  3.32ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  23%|██▎       | 33/143 [00:10<00:33,  3.33ba/s][A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  23%|██▎       | 33/143 [00:10<00:33,  3.33ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  23%|██▎       | 33/143 [00:10<00:33,  3.32ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  23%|██▎       | 33/143 [00:10<00:33,  3.31ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  22%|██▏       | 32/143 [00:10<00:33,  3.33ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  24%|██▍       | 34/143 [00:10<00:32,  3.33ba/s][A[A[A
-Running tokenizer on train dataset #1:  24%|██▍       | 34/143 [00:10<00:32,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  24%|██▍       | 34/143 [00:10<00:32,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  24%|██▍       | 34/143 [00:10<00:32,  3.33ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  24%|██▍       | 34/143 [00:10<00:32,  3.32ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  24%|██▍       | 34/143 [00:10<00:32,  3.34ba/s][A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  24%|██▍       | 34/143 [00:10<00:32,  3.33ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  24%|██▍       | 34/143 [00:10<00:32,  3.31ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  24%|██▍       | 34/143 [00:10<00:32,  3.32ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  23%|██▎       | 33/143 [00:10<00:33,  3.32ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  24%|██▍       | 35/143 [00:10<00:34,  3.14ba/s][A[A[A
-Running tokenizer on train dataset #1:  24%|██▍       | 35/143 [00:10<00:34,  3.11ba/s][A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  24%|██▍       | 34/143 [00:10<00:32,  3.32ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  24%|██▍       | 35/143 [00:10<00:34,  3.14ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  24%|██▍       | 35/143 [00:10<00:34,  3.11ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  24%|██▍       | 35/143 [00:10<00:34,  3.13ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  24%|██▍       | 35/143 [00:10<00:34,  3.11ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  24%|██▍       | 35/143 [00:10<00:34,  3.09ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  24%|██▍       | 35/143 [00:10<00:34,  3.11ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  24%|██▍       | 35/143 [00:11<00:34,  3.12ba/s]
-
-
-Running tokenizer on train dataset #3:  25%|██▌       | 36/143 [00:11<00:33,  3.19ba/s][A[A[A
-Running tokenizer on train dataset #1:  25%|██▌       | 36/143 [00:11<00:33,  3.16ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  25%|██▌       | 36/143 [00:11<00:33,  3.18ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  25%|██▌       | 36/143 [00:11<00:33,  3.16ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  25%|██▌       | 36/143 [00:11<00:33,  3.18ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  25%|██▌       | 36/143 [00:11<00:33,  3.16ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  25%|██▌       | 36/143 [00:11<00:33,  3.17ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  25%|██▌       | 36/143 [00:11<00:33,  3.18ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  25%|██▌       | 36/143 [00:11<00:33,  3.18ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  24%|██▍       | 35/143 [00:11<00:34,  3.11ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  26%|██▌       | 37/143 [00:11<00:32,  3.25ba/s][A[A[A
-Running tokenizer on train dataset #1:  26%|██▌       | 37/143 [00:11<00:32,  3.22ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  26%|██▌       | 37/143 [00:11<00:32,  3.22ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  26%|██▌       | 37/143 [00:11<00:32,  3.22ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  26%|██▌       | 37/143 [00:11<00:32,  3.24ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  26%|██▌       | 37/143 [00:11<00:32,  3.22ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  26%|██▌       | 37/143 [00:11<00:33,  3.21ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  26%|██▌       | 37/143 [00:11<00:32,  3.23ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  26%|██▌       | 37/143 [00:11<00:33,  3.20ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  25%|██▌       | 36/143 [00:11<00:33,  3.16ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  27%|██▋       | 38/143 [00:11<00:32,  3.25ba/s][A[A[A
-Running tokenizer on train dataset #1:  27%|██▋       | 38/143 [00:11<00:32,  3.26ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  27%|██▋       | 38/143 [00:11<00:32,  3.25ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  27%|██▋       | 38/143 [00:11<00:32,  3.25ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  27%|██▋       | 38/143 [00:11<00:32,  3.27ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  27%|██▋       | 38/143 [00:11<00:32,  3.25ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  27%|██▋       | 38/143 [00:11<00:32,  3.25ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  27%|██▋       | 38/143 [00:11<00:32,  3.27ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  27%|██▋       | 38/143 [00:11<00:32,  3.25ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  26%|██▌       | 37/143 [00:11<00:32,  3.22ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  27%|██▋       | 39/143 [00:12<00:31,  3.28ba/s][A[A[A
-Running tokenizer on train dataset #1:  27%|██▋       | 39/143 [00:12<00:31,  3.28ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  27%|██▋       | 39/143 [00:12<00:31,  3.27ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  27%|██▋       | 39/143 [00:12<00:31,  3.28ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  27%|██▋       | 39/143 [00:12<00:31,  3.28ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  27%|██▋       | 39/143 [00:12<00:31,  3.28ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  27%|██▋       | 39/143 [00:12<00:31,  3.26ba/s][A[ARunning tokenizer on train dataset #0:  27%|██▋       | 39/143 [00:12<00:31,  3.27ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  27%|██▋       | 39/143 [00:12<00:31,  3.25ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  27%|██▋       | 38/143 [00:12<00:32,  3.24ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  28%|██▊       | 40/143 [00:12<00:31,  3.29ba/s][A[A[A
-Running tokenizer on train dataset #1:  28%|██▊       | 40/143 [00:12<00:31,  3.31ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  28%|██▊       | 40/143 [00:12<00:31,  3.30ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  28%|██▊       | 40/143 [00:12<00:31,  3.29ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  28%|██▊       | 40/143 [00:12<00:31,  3.30ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  28%|██▊       | 40/143 [00:12<00:31,  3.31ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  28%|██▊       | 40/143 [00:12<00:31,  3.29ba/s][A[ARunning tokenizer on train dataset #0:  28%|██▊       | 40/143 [00:12<00:31,  3.28ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  28%|██▊       | 40/143 [00:12<00:31,  3.29ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  27%|██▋       | 39/143 [00:12<00:31,  3.27ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  29%|██▊       | 41/143 [00:12<00:30,  3.31ba/s][A[A[A
-Running tokenizer on train dataset #1:  29%|██▊       | 41/143 [00:12<00:30,  3.31ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  29%|██▊       | 41/143 [00:12<00:30,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  29%|██▊       | 41/143 [00:12<00:30,  3.30ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  29%|██▊       | 41/143 [00:12<00:30,  3.30ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  29%|██▊       | 41/143 [00:12<00:30,  3.30ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  29%|██▊       | 41/143 [00:12<00:30,  3.30ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  29%|██▊       | 41/143 [00:12<00:31,  3.29ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  29%|██▊       | 41/143 [00:12<00:31,  3.29ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  28%|██▊       | 40/143 [00:12<00:31,  3.28ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  29%|██▉       | 42/143 [00:12<00:30,  3.33ba/s][A[A[A
-Running tokenizer on train dataset #1:  29%|██▉       | 42/143 [00:13<00:30,  3.31ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  29%|██▉       | 42/143 [00:12<00:30,  3.33ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  29%|██▉       | 42/143 [00:12<00:30,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  29%|██▉       | 42/143 [00:13<00:30,  3.30ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  29%|██▉       | 42/143 [00:13<00:30,  3.31ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  29%|██▉       | 42/143 [00:13<00:30,  3.31ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  29%|██▉       | 42/143 [00:13<00:30,  3.30ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  29%|██▉       | 42/143 [00:13<00:30,  3.29ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  29%|██▊       | 41/143 [00:13<00:30,  3.29ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  30%|███       | 43/143 [00:13<00:29,  3.34ba/s][A[A[A
-Running tokenizer on train dataset #1:  30%|███       | 43/143 [00:13<00:30,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  30%|███       | 43/143 [00:13<00:30,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  30%|███       | 43/143 [00:13<00:30,  3.29ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  30%|███       | 43/143 [00:13<00:30,  3.33ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  30%|███       | 43/143 [00:13<00:30,  3.30ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  30%|███       | 43/143 [00:13<00:30,  3.31ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  30%|███       | 43/143 [00:13<00:30,  3.32ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  30%|███       | 43/143 [00:13<00:30,  3.31ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  29%|██▉       | 42/143 [00:13<00:30,  3.28ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  31%|███       | 44/143 [00:13<00:29,  3.35ba/s][A[A[A
-Running tokenizer on train dataset #1:  31%|███       | 44/143 [00:13<00:29,  3.34ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  31%|███       | 44/143 [00:13<00:29,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  31%|███       | 44/143 [00:13<00:30,  3.29ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  31%|███       | 44/143 [00:13<00:29,  3.32ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  31%|███       | 44/143 [00:13<00:29,  3.30ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  31%|███       | 44/143 [00:13<00:29,  3.30ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  31%|███       | 44/143 [00:13<00:29,  3.32ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  31%|███       | 44/143 [00:13<00:29,  3.32ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  30%|███       | 43/143 [00:13<00:30,  3.31ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  31%|███▏      | 45/143 [00:13<00:29,  3.35ba/s][A[A[A
-Running tokenizer on train dataset #1:  31%|███▏      | 45/143 [00:13<00:29,  3.34ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  31%|███▏      | 45/143 [00:13<00:29,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  31%|███▏      | 45/143 [00:13<00:29,  3.33ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  31%|███▏      | 45/143 [00:13<00:29,  3.29ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  31%|███▏      | 45/143 [00:13<00:29,  3.32ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  31%|███▏      | 45/143 [00:13<00:29,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  31%|███▏      | 45/143 [00:13<00:29,  3.33ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  31%|███▏      | 45/143 [00:14<00:29,  3.31ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  31%|███       | 44/143 [00:13<00:29,  3.33ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  32%|███▏      | 46/143 [00:14<00:28,  3.38ba/s][A[A[A
-Running tokenizer on train dataset #1:  32%|███▏      | 46/143 [00:14<00:28,  3.35ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  32%|███▏      | 46/143 [00:14<00:29,  3.34ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  32%|███▏      | 46/143 [00:14<00:29,  3.32ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  32%|███▏      | 46/143 [00:14<00:29,  3.30ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  32%|███▏      | 46/143 [00:14<00:29,  3.31ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  32%|███▏      | 46/143 [00:14<00:29,  3.34ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  32%|███▏      | 46/143 [00:14<00:29,  3.31ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  32%|███▏      | 46/143 [00:14<00:29,  3.31ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  31%|███▏      | 45/143 [00:14<00:29,  3.33ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  33%|███▎      | 47/143 [00:14<00:28,  3.35ba/s][A[A[A
-Running tokenizer on train dataset #1:  33%|███▎      | 47/143 [00:14<00:28,  3.34ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  33%|███▎      | 47/143 [00:14<00:28,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  33%|███▎      | 47/143 [00:14<00:28,  3.31ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  33%|███▎      | 47/143 [00:14<00:28,  3.32ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  33%|███▎      | 47/143 [00:14<00:28,  3.32ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  33%|███▎      | 47/143 [00:14<00:28,  3.32ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  33%|███▎      | 47/143 [00:14<00:29,  3.30ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  33%|███▎      | 47/143 [00:14<00:28,  3.32ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  32%|███▏      | 46/143 [00:14<00:29,  3.32ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  34%|███▎      | 48/143 [00:14<00:28,  3.35ba/s][A[A[A
-Running tokenizer on train dataset #1:  34%|███▎      | 48/143 [00:14<00:28,  3.34ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  34%|███▎      | 48/143 [00:14<00:28,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  34%|███▎      | 48/143 [00:14<00:28,  3.34ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  34%|███▎      | 48/143 [00:14<00:28,  3.32ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  34%|███▎      | 48/143 [00:14<00:28,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  34%|███▎      | 48/143 [00:14<00:28,  3.32ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  34%|███▎      | 48/143 [00:14<00:28,  3.29ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  34%|███▎      | 48/143 [00:14<00:28,  3.31ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  33%|███▎      | 47/143 [00:14<00:28,  3.33ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  34%|███▍      | 49/143 [00:15<00:27,  3.36ba/s][A[A[A
-Running tokenizer on train dataset #1:  34%|███▍      | 49/143 [00:15<00:28,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  34%|███▍      | 49/143 [00:15<00:28,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  34%|███▍      | 49/143 [00:15<00:28,  3.33ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  34%|███▍      | 49/143 [00:15<00:28,  3.31ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  34%|███▍      | 49/143 [00:15<00:28,  3.30ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  34%|███▍      | 49/143 [00:15<00:28,  3.32ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  34%|███▍      | 49/143 [00:15<00:28,  3.31ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  34%|███▍      | 49/143 [00:15<00:28,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  34%|███▎      | 48/143 [00:15<00:28,  3.32ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  35%|███▍      | 50/143 [00:15<00:29,  3.17ba/s][A[A[A
-Running tokenizer on train dataset #1:  35%|███▍      | 50/143 [00:15<00:29,  3.12ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  35%|███▍      | 50/143 [00:15<00:29,  3.12ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  34%|███▍      | 49/143 [00:15<00:28,  3.32ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  35%|███▍      | 50/143 [00:15<00:29,  3.11ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  35%|███▍      | 50/143 [00:15<00:29,  3.12ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  35%|███▍      | 50/143 [00:15<00:29,  3.11ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  35%|███▍      | 50/143 [00:15<00:29,  3.12ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  35%|███▍      | 50/143 [00:15<00:29,  3.10ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  35%|███▍      | 50/143 [00:15<00:29,  3.11ba/s]
-
-
-Running tokenizer on train dataset #3:  36%|███▌      | 51/143 [00:15<00:28,  3.20ba/s][A[A[A
-Running tokenizer on train dataset #1:  36%|███▌      | 51/143 [00:15<00:28,  3.18ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  36%|███▌      | 51/143 [00:15<00:28,  3.20ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  36%|███▌      | 51/143 [00:15<00:29,  3.17ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  36%|███▌      | 51/143 [00:15<00:28,  3.17ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  36%|███▌      | 51/143 [00:15<00:29,  3.17ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  36%|███▌      | 51/143 [00:15<00:28,  3.18ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  36%|███▌      | 51/143 [00:15<00:29,  3.16ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  36%|███▌      | 51/143 [00:15<00:29,  3.17ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  35%|███▍      | 50/143 [00:15<00:29,  3.11ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  36%|███▋      | 52/143 [00:16<00:27,  3.26ba/s][A[A[A
-Running tokenizer on train dataset #1:  36%|███▋      | 52/143 [00:16<00:28,  3.23ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  36%|███▋      | 52/143 [00:16<00:27,  3.26ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  36%|███▋      | 52/143 [00:16<00:28,  3.22ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  36%|███▋      | 52/143 [00:16<00:28,  3.21ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  36%|███▋      | 52/143 [00:16<00:28,  3.21ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  36%|███▋      | 52/143 [00:16<00:28,  3.22ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  36%|███▋      | 52/143 [00:16<00:28,  3.20ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  36%|███▋      | 52/143 [00:16<00:28,  3.21ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  36%|███▌      | 51/143 [00:16<00:28,  3.18ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  37%|███▋      | 53/143 [00:16<00:27,  3.29ba/s][A[A[A
-Running tokenizer on train dataset #1:  37%|███▋      | 53/143 [00:16<00:27,  3.24ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  37%|███▋      | 53/143 [00:16<00:27,  3.29ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  37%|███▋      | 53/143 [00:16<00:27,  3.26ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  37%|███▋      | 53/143 [00:16<00:27,  3.25ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  37%|███▋      | 53/143 [00:16<00:27,  3.25ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  37%|███▋      | 53/143 [00:16<00:27,  3.25ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  37%|███▋      | 53/143 [00:16<00:27,  3.24ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  37%|███▋      | 53/143 [00:16<00:27,  3.23ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  36%|███▋      | 52/143 [00:16<00:28,  3.22ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  38%|███▊      | 54/143 [00:16<00:26,  3.32ba/s][A[A[A
-Running tokenizer on train dataset #1:  38%|███▊      | 54/143 [00:16<00:27,  3.27ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  38%|███▊      | 54/143 [00:16<00:26,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  38%|███▊      | 54/143 [00:16<00:27,  3.28ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  38%|███▊      | 54/143 [00:16<00:27,  3.28ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  38%|███▊      | 54/143 [00:16<00:27,  3.27ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  38%|███▊      | 54/143 [00:16<00:27,  3.27ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  38%|███▊      | 54/143 [00:16<00:27,  3.26ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  38%|███▊      | 54/143 [00:16<00:27,  3.24ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  37%|███▋      | 53/143 [00:16<00:27,  3.26ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  38%|███▊      | 55/143 [00:16<00:26,  3.34ba/s][A[A[A
-Running tokenizer on train dataset #1:  38%|███▊      | 55/143 [00:17<00:26,  3.29ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  38%|███▊      | 55/143 [00:16<00:26,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  38%|███▊      | 55/143 [00:17<00:26,  3.31ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  38%|███▊      | 55/143 [00:17<00:26,  3.31ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  38%|███▊      | 55/143 [00:16<00:26,  3.29ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  38%|███▊      | 55/143 [00:17<00:26,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  38%|███▊      | 55/143 [00:17<00:26,  3.27ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  38%|███▊      | 55/143 [00:17<00:26,  3.28ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  38%|███▊      | 54/143 [00:17<00:27,  3.28ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  39%|███▉      | 56/143 [00:17<00:25,  3.36ba/s][A[A[A
-Running tokenizer on train dataset #1:  39%|███▉      | 56/143 [00:17<00:26,  3.34ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  39%|███▉      | 56/143 [00:17<00:26,  3.34ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  39%|███▉      | 56/143 [00:17<00:26,  3.31ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  39%|███▉      | 56/143 [00:17<00:26,  3.30ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  39%|███▉      | 56/143 [00:17<00:26,  3.30ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  39%|███▉      | 56/143 [00:17<00:26,  3.32ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  39%|███▉      | 56/143 [00:17<00:26,  3.31ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  39%|███▉      | 56/143 [00:17<00:26,  3.28ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  38%|███▊      | 55/143 [00:17<00:26,  3.30ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  40%|███▉      | 57/143 [00:17<00:25,  3.36ba/s][A[A[A
-Running tokenizer on train dataset #1:  40%|███▉      | 57/143 [00:17<00:25,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  40%|███▉      | 57/143 [00:17<00:25,  3.35ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  40%|███▉      | 57/143 [00:17<00:26,  3.30ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  40%|███▉      | 57/143 [00:17<00:25,  3.31ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  40%|███▉      | 57/143 [00:17<00:25,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  40%|███▉      | 57/143 [00:17<00:25,  3.32ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  40%|███▉      | 57/143 [00:17<00:26,  3.30ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  40%|███▉      | 57/143 [00:17<00:26,  3.29ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  39%|███▉      | 56/143 [00:17<00:26,  3.30ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  41%|████      | 58/143 [00:17<00:25,  3.36ba/s][A[A[A
-Running tokenizer on train dataset #1:  41%|████      | 58/143 [00:17<00:25,  3.33ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  41%|████      | 58/143 [00:17<00:25,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  41%|████      | 58/143 [00:17<00:25,  3.31ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  41%|████      | 58/143 [00:17<00:25,  3.32ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  41%|████      | 58/143 [00:17<00:25,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  41%|████      | 58/143 [00:17<00:25,  3.32ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  41%|████      | 58/143 [00:17<00:25,  3.30ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  41%|████      | 58/143 [00:18<00:25,  3.29ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  40%|███▉      | 57/143 [00:17<00:25,  3.33ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  41%|████▏     | 59/143 [00:18<00:25,  3.36ba/s][A[A[A
-Running tokenizer on train dataset #1:  41%|████▏     | 59/143 [00:18<00:25,  3.33ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  41%|████▏     | 59/143 [00:18<00:25,  3.34ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  41%|████▏     | 59/143 [00:18<00:25,  3.32ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  41%|████▏     | 59/143 [00:18<00:25,  3.31ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  41%|████▏     | 59/143 [00:18<00:25,  3.32ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  41%|████▏     | 59/143 [00:18<00:25,  3.33ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  41%|████▏     | 59/143 [00:18<00:25,  3.31ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  41%|████▏     | 59/143 [00:18<00:25,  3.30ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  41%|████      | 58/143 [00:18<00:25,  3.31ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  42%|████▏     | 60/143 [00:18<00:24,  3.38ba/s][A[A[A
-Running tokenizer on train dataset #1:  42%|████▏     | 60/143 [00:18<00:25,  3.31ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  42%|████▏     | 60/143 [00:18<00:24,  3.35ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  42%|████▏     | 60/143 [00:18<00:24,  3.34ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  42%|████▏     | 60/143 [00:18<00:24,  3.33ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  42%|████▏     | 60/143 [00:18<00:24,  3.32ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  42%|████▏     | 60/143 [00:18<00:24,  3.32ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  42%|████▏     | 60/143 [00:18<00:24,  3.32ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  42%|████▏     | 60/143 [00:18<00:25,  3.31ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  41%|████▏     | 59/143 [00:18<00:25,  3.31ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  43%|████▎     | 61/143 [00:18<00:24,  3.36ba/s][A[A[A
-Running tokenizer on train dataset #1:  43%|████▎     | 61/143 [00:18<00:24,  3.33ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  43%|████▎     | 61/143 [00:18<00:24,  3.36ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  43%|████▎     | 61/143 [00:18<00:24,  3.34ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  43%|████▎     | 61/143 [00:18<00:24,  3.32ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  43%|████▎     | 61/143 [00:18<00:24,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  43%|████▎     | 61/143 [00:18<00:24,  3.33ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  43%|████▎     | 61/143 [00:18<00:24,  3.33ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  43%|████▎     | 61/143 [00:18<00:24,  3.31ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  42%|████▏     | 60/143 [00:18<00:25,  3.32ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  43%|████▎     | 62/143 [00:18<00:24,  3.36ba/s][A[A[A
-Running tokenizer on train dataset #1:  43%|████▎     | 62/143 [00:19<00:24,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  43%|████▎     | 62/143 [00:19<00:24,  3.34ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  43%|████▎     | 62/143 [00:19<00:24,  3.33ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  43%|████▎     | 62/143 [00:19<00:24,  3.33ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  43%|████▎     | 62/143 [00:19<00:24,  3.33ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  43%|████▎     | 62/143 [00:19<00:24,  3.33ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  43%|████▎     | 62/143 [00:19<00:24,  3.32ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  43%|████▎     | 62/143 [00:19<00:24,  3.31ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  43%|████▎     | 61/143 [00:19<00:24,  3.31ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  44%|████▍     | 63/143 [00:19<00:23,  3.37ba/s][A[A[A
-Running tokenizer on train dataset #1:  44%|████▍     | 63/143 [00:19<00:24,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  44%|████▍     | 63/143 [00:19<00:23,  3.34ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  44%|████▍     | 63/143 [00:19<00:23,  3.34ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  44%|████▍     | 63/143 [00:19<00:24,  3.33ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  44%|████▍     | 63/143 [00:19<00:24,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  44%|████▍     | 63/143 [00:19<00:24,  3.33ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  44%|████▍     | 63/143 [00:19<00:24,  3.32ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  44%|████▍     | 63/143 [00:19<00:24,  3.30ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  43%|████▎     | 62/143 [00:19<00:24,  3.30ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  45%|████▍     | 64/143 [00:19<00:23,  3.36ba/s][A[A[A
-Running tokenizer on train dataset #1:  45%|████▍     | 64/143 [00:19<00:23,  3.36ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  45%|████▍     | 64/143 [00:19<00:23,  3.35ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  45%|████▍     | 64/143 [00:19<00:23,  3.35ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  45%|████▍     | 64/143 [00:19<00:23,  3.32ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  45%|████▍     | 64/143 [00:19<00:23,  3.33ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  45%|████▍     | 64/143 [00:19<00:23,  3.33ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  45%|████▍     | 64/143 [00:19<00:23,  3.34ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  45%|████▍     | 64/143 [00:19<00:24,  3.29ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  44%|████▍     | 63/143 [00:19<00:24,  3.31ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  45%|████▌     | 65/143 [00:19<00:24,  3.18ba/s][A[A[A
-Running tokenizer on train dataset #1:  45%|████▌     | 65/143 [00:20<00:24,  3.13ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  45%|████▌     | 65/143 [00:19<00:24,  3.14ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  45%|████▍     | 64/143 [00:20<00:23,  3.32ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  45%|████▌     | 65/143 [00:20<00:24,  3.13ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  45%|████▌     | 65/143 [00:20<00:24,  3.13ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  45%|████▌     | 65/143 [00:20<00:24,  3.13ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  45%|████▌     | 65/143 [00:20<00:25,  3.12ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  45%|████▌     | 65/143 [00:20<00:24,  3.14ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  45%|████▌     | 65/143 [00:20<00:25,  3.11ba/s][A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  46%|████▌     | 66/143 [00:20<00:23,  3.22ba/s][A[A[A
-Running tokenizer on train dataset #1:  46%|████▌     | 66/143 [00:20<00:24,  3.20ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  46%|████▌     | 66/143 [00:20<00:24,  3.20ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  45%|████▌     | 65/143 [00:20<00:30,  2.52ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  46%|████▌     | 66/143 [00:20<00:30,  2.51ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  46%|████▌     | 66/143 [00:20<00:30,  2.48ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  46%|████▌     | 66/143 [00:20<00:30,  2.53ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  47%|████▋     | 67/143 [00:20<00:25,  3.00ba/s][A
-
-
-Running tokenizer on train dataset #3:  47%|████▋     | 67/143 [00:20<00:28,  2.71ba/s][A[A[A
-
-Running tokenizer on train dataset #2:  46%|████▌     | 66/143 [00:20<00:31,  2.45ba/s][A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  47%|████▋     | 67/143 [00:20<00:25,  3.03ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  46%|████▌     | 66/143 [00:20<00:31,  2.45ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  46%|████▌     | 66/143 [00:20<00:31,  2.47ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  48%|████▊     | 68/143 [00:20<00:23,  3.13ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  48%|████▊     | 68/143 [00:21<00:26,  2.87ba/s][A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  46%|████▌     | 66/143 [00:20<00:28,  2.71ba/s][A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  48%|████▊     | 68/143 [00:21<00:24,  3.07ba/s][ARunning tokenizer on train dataset #0:  47%|████▋     | 67/143 [00:21<00:28,  2.69ba/s]
-
-
-
-Running tokenizer on train dataset #4:  47%|████▋     | 67/143 [00:21<00:28,  2.64ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  47%|████▋     | 67/143 [00:21<00:28,  2.69ba/s][A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  47%|████▋     | 67/143 [00:20<00:28,  2.65ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  47%|████▋     | 67/143 [00:21<00:28,  2.66ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  47%|████▋     | 67/143 [00:21<00:28,  2.63ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  48%|████▊     | 69/143 [00:21<00:24,  2.99ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  48%|████▊     | 69/143 [00:21<00:23,  3.16ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  48%|████▊     | 69/143 [00:21<00:23,  3.15ba/s][A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  47%|████▋     | 67/143 [00:21<00:26,  2.86ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  48%|████▊     | 68/143 [00:21<00:26,  2.85ba/s]
-
-
-
-Running tokenizer on train dataset #4:  48%|████▊     | 68/143 [00:21<00:26,  2.81ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  48%|████▊     | 68/143 [00:21<00:26,  2.80ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  48%|████▊     | 68/143 [00:21<00:26,  2.81ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  48%|████▊     | 68/143 [00:21<00:26,  2.83ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  48%|████▊     | 68/143 [00:21<00:26,  2.78ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  49%|████▉     | 70/143 [00:21<00:23,  3.09ba/s][A[A[A
-Running tokenizer on train dataset #1:  49%|████▉     | 70/143 [00:21<00:22,  3.21ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  49%|████▉     | 70/143 [00:21<00:22,  3.20ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  48%|████▊     | 68/143 [00:21<00:25,  2.97ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  48%|████▊     | 69/143 [00:21<00:24,  2.98ba/s]
-
-
-
-Running tokenizer on train dataset #4:  48%|████▊     | 69/143 [00:21<00:25,  2.95ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  48%|████▊     | 69/143 [00:21<00:25,  2.93ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  48%|████▊     | 69/143 [00:21<00:25,  2.94ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  48%|████▊     | 69/143 [00:21<00:25,  2.96ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  48%|████▊     | 69/143 [00:21<00:25,  2.92ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  50%|████▉     | 71/143 [00:21<00:22,  3.16ba/s][A[A[A
-Running tokenizer on train dataset #1:  50%|████▉     | 71/143 [00:21<00:22,  3.24ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  50%|████▉     | 71/143 [00:21<00:22,  3.25ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  49%|████▉     | 70/143 [00:21<00:23,  3.07ba/s]
-
-
-
-Running tokenizer on train dataset #4:  49%|████▉     | 70/143 [00:21<00:23,  3.05ba/s][A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  48%|████▊     | 69/143 [00:21<00:24,  3.05ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  49%|████▉     | 70/143 [00:21<00:23,  3.05ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  49%|████▉     | 70/143 [00:21<00:23,  3.06ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  49%|████▉     | 70/143 [00:21<00:24,  3.02ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  49%|████▉     | 70/143 [00:21<00:24,  3.03ba/s][A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  50%|█████     | 72/143 [00:22<00:22,  3.22ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  50%|█████     | 72/143 [00:22<00:21,  3.28ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  50%|█████     | 72/143 [00:22<00:21,  3.26ba/s][ARunning tokenizer on train dataset #0:  50%|████▉     | 71/143 [00:22<00:22,  3.14ba/s]
-
-
-
-Running tokenizer on train dataset #4:  50%|████▉     | 71/143 [00:22<00:23,  3.13ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  50%|████▉     | 71/143 [00:22<00:22,  3.13ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  49%|████▉     | 70/143 [00:22<00:23,  3.12ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  50%|████▉     | 71/143 [00:22<00:23,  3.12ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  50%|████▉     | 71/143 [00:22<00:23,  3.11ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  50%|████▉     | 71/143 [00:22<00:23,  3.10ba/s][A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  51%|█████     | 73/143 [00:22<00:21,  3.25ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  51%|█████     | 73/143 [00:22<00:21,  3.29ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  51%|█████     | 73/143 [00:22<00:21,  3.28ba/s][A
-
-
-
-Running tokenizer on train dataset #4:  50%|█████     | 72/143 [00:22<00:22,  3.20ba/s][A[A[A[ARunning tokenizer on train dataset #0:  50%|█████     | 72/143 [00:22<00:22,  3.20ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  50%|████▉     | 71/143 [00:22<00:22,  3.20ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  50%|█████     | 72/143 [00:22<00:22,  3.20ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  50%|█████     | 72/143 [00:22<00:22,  3.15ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  50%|█████     | 72/143 [00:22<00:22,  3.16ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  50%|█████     | 72/143 [00:22<00:22,  3.17ba/s][A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  52%|█████▏    | 74/143 [00:22<00:21,  3.28ba/s][A[A[A
-Running tokenizer on train dataset #1:  52%|█████▏    | 74/143 [00:22<00:20,  3.29ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  52%|█████▏    | 74/143 [00:22<00:20,  3.29ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  51%|█████     | 73/143 [00:22<00:21,  3.25ba/s]
-
-
-
-Running tokenizer on train dataset #4:  51%|█████     | 73/143 [00:22<00:21,  3.24ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  51%|█████     | 73/143 [00:22<00:21,  3.24ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  50%|█████     | 72/143 [00:22<00:21,  3.23ba/s][A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  51%|█████     | 73/143 [00:22<00:21,  3.22ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  51%|█████     | 73/143 [00:22<00:21,  3.20ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  51%|█████     | 73/143 [00:22<00:21,  3.19ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  52%|█████▏    | 75/143 [00:23<00:20,  3.32ba/s][A[A[A
-Running tokenizer on train dataset #1:  52%|█████▏    | 75/143 [00:23<00:20,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  52%|█████▏    | 75/143 [00:23<00:20,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  52%|█████▏    | 74/143 [00:23<00:21,  3.24ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  52%|█████▏    | 74/143 [00:23<00:21,  3.26ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  51%|█████     | 73/143 [00:23<00:21,  3.26ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  52%|█████▏    | 74/143 [00:23<00:21,  3.24ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  52%|█████▏    | 74/143 [00:23<00:21,  3.25ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  52%|█████▏    | 74/143 [00:23<00:21,  3.24ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  52%|█████▏    | 74/143 [00:23<00:21,  3.23ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  53%|█████▎    | 76/143 [00:23<00:20,  3.30ba/s][A[A[A
-Running tokenizer on train dataset #1:  53%|█████▎    | 76/143 [00:23<00:20,  3.33ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  53%|█████▎    | 76/143 [00:23<00:20,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  52%|█████▏    | 75/143 [00:23<00:20,  3.29ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  52%|█████▏    | 74/143 [00:23<00:21,  3.28ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  52%|█████▏    | 75/143 [00:23<00:20,  3.26ba/s]
-
-
-
-Running tokenizer on train dataset #4:  52%|█████▏    | 75/143 [00:23<00:20,  3.25ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  52%|█████▏    | 75/143 [00:23<00:20,  3.27ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  52%|█████▏    | 75/143 [00:23<00:20,  3.26ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  52%|█████▏    | 75/143 [00:23<00:20,  3.25ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  54%|█████▍    | 77/143 [00:23<00:19,  3.31ba/s][A[A[A
-Running tokenizer on train dataset #1:  54%|█████▍    | 77/143 [00:23<00:19,  3.34ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  54%|█████▍    | 77/143 [00:23<00:19,  3.34ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  52%|█████▏    | 75/143 [00:23<00:20,  3.30ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  53%|█████▎    | 76/143 [00:23<00:20,  3.29ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  53%|█████▎    | 76/143 [00:23<00:20,  3.28ba/s][A[A[A[ARunning tokenizer on train dataset #0:  53%|█████▎    | 76/143 [00:23<00:20,  3.27ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  53%|█████▎    | 76/143 [00:23<00:20,  3.27ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  53%|█████▎    | 76/143 [00:23<00:20,  3.27ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  53%|█████▎    | 76/143 [00:23<00:20,  3.27ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  55%|█████▍    | 78/143 [00:24<00:19,  3.36ba/s][A
-
-
-Running tokenizer on train dataset #3:  55%|█████▍    | 78/143 [00:24<00:19,  3.32ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  55%|█████▍    | 78/143 [00:23<00:19,  3.35ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  54%|█████▍    | 77/143 [00:24<00:19,  3.30ba/s][A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  53%|█████▎    | 76/143 [00:24<00:20,  3.30ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  54%|█████▍    | 77/143 [00:23<00:20,  3.30ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  54%|█████▍    | 77/143 [00:24<00:20,  3.28ba/s]
-
-Running tokenizer on train dataset #2:  54%|█████▍    | 77/143 [00:24<00:20,  3.29ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  54%|█████▍    | 77/143 [00:24<00:20,  3.28ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  54%|█████▍    | 77/143 [00:24<00:20,  3.26ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  55%|█████▌    | 79/143 [00:24<00:19,  3.33ba/s][A
-
-
-Running tokenizer on train dataset #3:  55%|█████▌    | 79/143 [00:24<00:19,  3.28ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  55%|█████▌    | 79/143 [00:24<00:19,  3.29ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  55%|█████▍    | 78/143 [00:24<00:19,  3.31ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  55%|█████▍    | 78/143 [00:24<00:19,  3.30ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  54%|█████▍    | 77/143 [00:24<00:20,  3.30ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  55%|█████▍    | 78/143 [00:24<00:19,  3.30ba/s]
-
-Running tokenizer on train dataset #2:  55%|█████▍    | 78/143 [00:24<00:19,  3.30ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  55%|█████▍    | 78/143 [00:24<00:19,  3.29ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  55%|█████▍    | 78/143 [00:24<00:19,  3.27ba/s][A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  55%|█████▌    | 79/143 [00:24<00:19,  3.33ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  55%|█████▌    | 79/143 [00:24<00:19,  3.30ba/s][A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  55%|█████▍    | 78/143 [00:24<00:19,  3.31ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  55%|█████▌    | 79/143 [00:24<00:19,  3.30ba/s]
-
-Running tokenizer on train dataset #2:  55%|█████▌    | 79/143 [00:24<00:19,  3.30ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  55%|█████▌    | 79/143 [00:24<00:19,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  55%|█████▌    | 79/143 [00:24<00:19,  3.30ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  56%|█████▌    | 80/143 [00:24<00:20,  3.13ba/s][A
-
-
-Running tokenizer on train dataset #3:  56%|█████▌    | 80/143 [00:24<00:20,  3.08ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  56%|█████▌    | 80/143 [00:24<00:20,  3.10ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  55%|█████▌    | 79/143 [00:24<00:19,  3.30ba/s][A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  57%|█████▋    | 81/143 [00:25<00:19,  3.18ba/s][A
-
-
-Running tokenizer on train dataset #3:  57%|█████▋    | 81/143 [00:25<00:19,  3.16ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  57%|█████▋    | 81/143 [00:24<00:19,  3.15ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  56%|█████▌    | 80/143 [00:25<00:20,  3.11ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  56%|█████▌    | 80/143 [00:24<00:20,  3.09ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  56%|█████▌    | 80/143 [00:25<00:20,  3.10ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  56%|█████▌    | 80/143 [00:25<00:20,  3.12ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  56%|█████▌    | 80/143 [00:25<00:20,  3.10ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  56%|█████▌    | 80/143 [00:25<00:20,  3.11ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  57%|█████▋    | 82/143 [00:25<00:18,  3.24ba/s][A
-
-
-Running tokenizer on train dataset #3:  57%|█████▋    | 82/143 [00:25<00:19,  3.20ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  57%|█████▋    | 82/143 [00:25<00:19,  3.21ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  56%|█████▌    | 80/143 [00:25<00:20,  3.11ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  57%|█████▋    | 81/143 [00:25<00:19,  3.16ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  57%|█████▋    | 81/143 [00:25<00:19,  3.16ba/s][A[A[A[ARunning tokenizer on train dataset #0:  57%|█████▋    | 81/143 [00:25<00:19,  3.16ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  57%|█████▋    | 81/143 [00:25<00:19,  3.17ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  57%|█████▋    | 81/143 [00:25<00:19,  3.17ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  57%|█████▋    | 81/143 [00:25<00:19,  3.17ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  58%|█████▊    | 83/143 [00:25<00:18,  3.29ba/s][A
-
-
-Running tokenizer on train dataset #3:  58%|█████▊    | 83/143 [00:25<00:18,  3.25ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  58%|█████▊    | 83/143 [00:25<00:18,  3.24ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  57%|█████▋    | 81/143 [00:25<00:19,  3.17ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  57%|█████▋    | 82/143 [00:25<00:19,  3.21ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  57%|█████▋    | 82/143 [00:25<00:19,  3.21ba/s][A[A[A[ARunning tokenizer on train dataset #0:  57%|█████▋    | 82/143 [00:25<00:18,  3.22ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  57%|█████▋    | 82/143 [00:25<00:18,  3.22ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  57%|█████▋    | 82/143 [00:25<00:19,  3.20ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  57%|█████▋    | 82/143 [00:25<00:19,  3.20ba/s][A[A
-Running tokenizer on train dataset #1:  59%|█████▊    | 84/143 [00:25<00:17,  3.29ba/s][A
-
-
-Running tokenizer on train dataset #3:  59%|█████▊    | 84/143 [00:25<00:18,  3.27ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  59%|█████▊    | 84/143 [00:25<00:18,  3.28ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  57%|█████▋    | 82/143 [00:25<00:19,  3.20ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  58%|█████▊    | 83/143 [00:25<00:18,  3.22ba/s][A[A[A[ARunning tokenizer on train dataset #0:  58%|█████▊    | 83/143 [00:25<00:18,  3.23ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  58%|█████▊    | 83/143 [00:25<00:18,  3.21ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  58%|█████▊    | 83/143 [00:25<00:18,  3.24ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  58%|█████▊    | 83/143 [00:25<00:18,  3.24ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  58%|█████▊    | 83/143 [00:25<00:18,  3.24ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  59%|█████▉    | 85/143 [00:26<00:17,  3.29ba/s][A
-
-
-Running tokenizer on train dataset #3:  59%|█████▉    | 85/143 [00:26<00:17,  3.28ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  59%|█████▉    | 85/143 [00:26<00:17,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  59%|█████▊    | 84/143 [00:26<00:18,  3.26ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  59%|█████▊    | 84/143 [00:26<00:18,  3.24ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  59%|█████▊    | 84/143 [00:26<00:18,  3.25ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  58%|█████▊    | 83/143 [00:26<00:18,  3.22ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  59%|█████▊    | 84/143 [00:26<00:18,  3.27ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  59%|█████▊    | 84/143 [00:26<00:18,  3.27ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  59%|█████▊    | 84/143 [00:26<00:18,  3.26ba/s][A[A
-Running tokenizer on train dataset #1:  60%|██████    | 86/143 [00:26<00:17,  3.32ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  60%|██████    | 86/143 [00:26<00:17,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  60%|██████    | 86/143 [00:26<00:17,  3.29ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  59%|█████▉    | 85/143 [00:26<00:17,  3.29ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  59%|█████▉    | 85/143 [00:26<00:17,  3.28ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  59%|█████▊    | 84/143 [00:26<00:18,  3.25ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  59%|█████▉    | 85/143 [00:26<00:17,  3.27ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  59%|█████▉    | 85/143 [00:26<00:17,  3.28ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  59%|█████▉    | 85/143 [00:26<00:17,  3.28ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  59%|█████▉    | 85/143 [00:26<00:17,  3.27ba/s][A[ARunning tokenizer on train dataset #0:  60%|██████    | 86/143 [00:26<00:18,  3.00ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  59%|█████▉    | 85/143 [00:26<00:19,  2.99ba/s][A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  60%|██████    | 86/143 [00:26<00:18,  3.05ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  60%|██████    | 86/143 [00:26<00:18,  3.04ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  61%|██████    | 87/143 [00:26<00:19,  2.94ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  61%|██████    | 87/143 [00:26<00:19,  2.93ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  60%|██████    | 86/143 [00:26<00:19,  2.98ba/s][A[A[A[A
-
-Running tokenizer on train dataset #2:  60%|██████    | 86/143 [00:26<00:18,  3.04ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  60%|██████    | 86/143 [00:26<00:19,  2.99ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  61%|██████    | 87/143 [00:26<00:19,  2.88ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  62%|██████▏   | 88/143 [00:27<00:18,  3.05ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  62%|██████▏   | 88/143 [00:27<00:18,  3.03ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  61%|██████    | 87/143 [00:27<00:18,  3.05ba/s][A[A[A[ARunning tokenizer on train dataset #0:  61%|██████    | 87/143 [00:27<00:18,  3.05ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  61%|██████    | 87/143 [00:27<00:18,  3.08ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  61%|██████    | 87/143 [00:27<00:18,  3.09ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  62%|██████▏   | 88/143 [00:27<00:18,  2.97ba/s][A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  60%|██████    | 86/143 [00:27<00:18,  3.04ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  61%|██████    | 87/143 [00:27<00:18,  3.08ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  61%|██████    | 87/143 [00:27<00:18,  3.04ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  62%|██████▏   | 89/143 [00:27<00:17,  3.14ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  62%|██████▏   | 89/143 [00:27<00:17,  3.10ba/s][A[A[ARunning tokenizer on train dataset #0:  62%|██████▏   | 88/143 [00:27<00:17,  3.13ba/s]
-
-
-
-Running tokenizer on train dataset #4:  62%|██████▏   | 88/143 [00:27<00:17,  3.11ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  62%|██████▏   | 88/143 [00:27<00:17,  3.14ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  62%|██████▏   | 88/143 [00:27<00:17,  3.13ba/s][A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  61%|██████    | 87/143 [00:27<00:18,  3.09ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  62%|██████▏   | 88/143 [00:27<00:17,  3.10ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  62%|██████▏   | 89/143 [00:27<00:17,  3.03ba/s][A
-
-
-
-
-
-Running tokenizer on train dataset #6:  62%|██████▏   | 88/143 [00:27<00:17,  3.12ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  63%|██████▎   | 90/143 [00:27<00:16,  3.18ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  63%|██████▎   | 90/143 [00:27<00:16,  3.17ba/s][A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  62%|██████▏   | 89/143 [00:27<00:17,  3.17ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  62%|██████▏   | 89/143 [00:27<00:16,  3.18ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  62%|██████▏   | 89/143 [00:27<00:17,  3.14ba/s][A[A[A[ARunning tokenizer on train dataset #0:  62%|██████▏   | 89/143 [00:27<00:17,  3.14ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  62%|██████▏   | 88/143 [00:27<00:17,  3.14ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  62%|██████▏   | 89/143 [00:27<00:17,  3.16ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  62%|██████▏   | 89/143 [00:27<00:17,  3.16ba/s][A[A
-Running tokenizer on train dataset #1:  63%|██████▎   | 90/143 [00:27<00:17,  3.10ba/s][A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  64%|██████▎   | 91/143 [00:28<00:16,  3.23ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  64%|██████▎   | 91/143 [00:28<00:16,  3.22ba/s][A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  63%|██████▎   | 90/143 [00:28<00:16,  3.25ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  63%|██████▎   | 90/143 [00:28<00:16,  3.21ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  63%|██████▎   | 90/143 [00:28<00:16,  3.20ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  63%|██████▎   | 90/143 [00:28<00:16,  3.19ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  63%|██████▎   | 90/143 [00:28<00:16,  3.21ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  62%|██████▏   | 89/143 [00:28<00:16,  3.19ba/s][A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  64%|██████▎   | 91/143 [00:28<00:16,  3.15ba/s][A
-
-Running tokenizer on train dataset #2:  63%|██████▎   | 90/143 [00:28<00:16,  3.20ba/s][A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  64%|██████▍   | 92/143 [00:28<00:15,  3.25ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  64%|██████▍   | 92/143 [00:28<00:15,  3.24ba/s][A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  64%|██████▎   | 91/143 [00:28<00:15,  3.27ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  64%|██████▎   | 91/143 [00:28<00:16,  3.23ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  63%|██████▎   | 90/143 [00:28<00:16,  3.20ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  64%|██████▎   | 91/143 [00:28<00:16,  3.18ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  64%|██████▎   | 91/143 [00:28<00:16,  3.20ba/s][A[A[A[A[A[A
-Running tokenizer on train dataset #1:  64%|██████▍   | 92/143 [00:28<00:16,  3.18ba/s][A
-
-Running tokenizer on train dataset #2:  64%|██████▎   | 91/143 [00:28<00:16,  3.20ba/s][A[A
-
-
-
-Running tokenizer on train dataset #4:  64%|██████▎   | 91/143 [00:28<00:16,  3.17ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  65%|██████▌   | 93/143 [00:28<00:15,  3.28ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  65%|██████▌   | 93/143 [00:28<00:15,  3.28ba/s][A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  64%|██████▍   | 92/143 [00:28<00:15,  3.29ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  64%|██████▍   | 92/143 [00:28<00:15,  3.25ba/s]
-Running tokenizer on train dataset #1:  65%|██████▌   | 93/143 [00:28<00:15,  3.24ba/s][A
-
-
-
-
-
-Running tokenizer on train dataset #6:  64%|██████▍   | 92/143 [00:28<00:15,  3.26ba/s][A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  64%|██████▍   | 92/143 [00:28<00:15,  3.23ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  64%|██████▍   | 92/143 [00:28<00:15,  3.21ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  64%|██████▎   | 91/143 [00:28<00:16,  3.21ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  64%|██████▍   | 92/143 [00:28<00:15,  3.23ba/s][A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  66%|██████▌   | 94/143 [00:28<00:14,  3.29ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  66%|██████▌   | 94/143 [00:29<00:14,  3.29ba/s][A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  65%|██████▌   | 93/143 [00:29<00:15,  3.30ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  65%|██████▌   | 93/143 [00:29<00:15,  3.26ba/s]
-Running tokenizer on train dataset #1:  66%|██████▌   | 94/143 [00:29<00:14,  3.27ba/s][A
-
-
-
-
-
-Running tokenizer on train dataset #6:  65%|██████▌   | 93/143 [00:29<00:15,  3.26ba/s][A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  65%|██████▌   | 93/143 [00:29<00:15,  3.25ba/s][A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  64%|██████▍   | 92/143 [00:29<00:15,  3.25ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  65%|██████▌   | 93/143 [00:29<00:15,  3.24ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  65%|██████▌   | 93/143 [00:29<00:15,  3.24ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  66%|██████▌   | 94/143 [00:29<00:14,  3.30ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  66%|██████▌   | 94/143 [00:29<00:14,  3.27ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  66%|██████▌   | 94/143 [00:29<00:14,  3.29ba/s][A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  66%|██████▌   | 94/143 [00:29<00:14,  3.28ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  66%|██████▌   | 94/143 [00:29<00:14,  3.27ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  65%|██████▌   | 93/143 [00:29<00:15,  3.28ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  66%|██████▌   | 94/143 [00:29<00:15,  3.26ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  66%|██████▋   | 95/143 [00:29<00:15,  3.11ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  66%|██████▋   | 95/143 [00:29<00:15,  3.09ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  66%|██████▋   | 95/143 [00:29<00:15,  3.07ba/s][A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  66%|██████▌   | 94/143 [00:29<00:14,  3.28ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  67%|██████▋   | 96/143 [00:29<00:14,  3.16ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  67%|██████▋   | 96/143 [00:29<00:14,  3.17ba/s][A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  66%|██████▋   | 95/143 [00:29<00:15,  3.10ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  66%|██████▋   | 95/143 [00:29<00:15,  3.09ba/s]
-Running tokenizer on train dataset #1:  67%|██████▋   | 96/143 [00:29<00:14,  3.14ba/s][A
-
-
-
-Running tokenizer on train dataset #4:  66%|██████▋   | 95/143 [00:29<00:15,  3.07ba/s][A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  66%|██████▋   | 95/143 [00:29<00:15,  3.07ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  66%|██████▋   | 95/143 [00:29<00:15,  3.07ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  66%|██████▋   | 95/143 [00:29<00:15,  3.07ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  68%|██████▊   | 97/143 [00:30<00:14,  3.22ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  68%|██████▊   | 97/143 [00:29<00:14,  3.21ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  67%|██████▋   | 96/143 [00:30<00:14,  3.16ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  67%|██████▋   | 96/143 [00:30<00:14,  3.16ba/s]
-Running tokenizer on train dataset #1:  68%|██████▊   | 97/143 [00:30<00:14,  3.20ba/s][A
-
-
-
-Running tokenizer on train dataset #4:  67%|██████▋   | 96/143 [00:30<00:14,  3.16ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  67%|██████▋   | 96/143 [00:30<00:14,  3.14ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  66%|██████▋   | 95/143 [00:30<00:15,  3.08ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  67%|██████▋   | 96/143 [00:30<00:14,  3.14ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  67%|██████▋   | 96/143 [00:30<00:15,  3.12ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  69%|██████▊   | 98/143 [00:30<00:13,  3.24ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  69%|██████▊   | 98/143 [00:30<00:13,  3.23ba/s][A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  68%|██████▊   | 97/143 [00:30<00:14,  3.21ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  68%|██████▊   | 97/143 [00:30<00:14,  3.21ba/s]
-
-
-
-Running tokenizer on train dataset #4:  68%|██████▊   | 97/143 [00:30<00:14,  3.22ba/s][A[A[A[A
-Running tokenizer on train dataset #1:  69%|██████▊   | 98/143 [00:30<00:13,  3.22ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  68%|██████▊   | 97/143 [00:30<00:14,  3.21ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  67%|██████▋   | 96/143 [00:30<00:14,  3.15ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  68%|██████▊   | 97/143 [00:30<00:14,  3.18ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  68%|██████▊   | 97/143 [00:30<00:14,  3.19ba/s][A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  69%|██████▉   | 99/143 [00:30<00:13,  3.26ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  69%|██████▉   | 99/143 [00:30<00:13,  3.27ba/s][A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  69%|██████▊   | 98/143 [00:30<00:13,  3.23ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  69%|██████▊   | 98/143 [00:30<00:13,  3.26ba/s]
-Running tokenizer on train dataset #1:  69%|██████▉   | 99/143 [00:30<00:13,  3.26ba/s][A
-
-
-
-Running tokenizer on train dataset #4:  69%|██████▊   | 98/143 [00:30<00:13,  3.24ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  69%|██████▊   | 98/143 [00:30<00:13,  3.22ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  68%|██████▊   | 97/143 [00:30<00:14,  3.19ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  69%|██████▊   | 98/143 [00:30<00:13,  3.22ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  69%|██████▊   | 98/143 [00:30<00:13,  3.22ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  70%|██████▉   | 100/143 [00:30<00:13,  3.28ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  70%|██████▉   | 100/143 [00:30<00:13,  3.27ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  69%|██████▉   | 99/143 [00:30<00:13,  3.25ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  69%|██████▉   | 99/143 [00:30<00:13,  3.28ba/s]
-Running tokenizer on train dataset #1:  70%|██████▉   | 100/143 [00:30<00:13,  3.28ba/s][A
-
-
-
-Running tokenizer on train dataset #4:  69%|██████▉   | 99/143 [00:30<00:13,  3.26ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  69%|██████▉   | 99/143 [00:30<00:13,  3.26ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  69%|██████▊   | 98/143 [00:30<00:13,  3.23ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  69%|██████▉   | 99/143 [00:30<00:13,  3.26ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  69%|██████▉   | 99/143 [00:30<00:13,  3.25ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  71%|███████   | 101/143 [00:31<00:12,  3.28ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  71%|███████   | 101/143 [00:31<00:12,  3.28ba/s][A[A[ARunning tokenizer on train dataset #0:  70%|██████▉   | 100/143 [00:31<00:13,  3.28ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  70%|██████▉   | 100/143 [00:31<00:13,  3.25ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  70%|██████▉   | 100/143 [00:31<00:13,  3.30ba/s][A[A[A[A
-Running tokenizer on train dataset #1:  71%|███████   | 101/143 [00:31<00:12,  3.29ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  70%|██████▉   | 100/143 [00:31<00:13,  3.27ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  69%|██████▉   | 99/143 [00:31<00:13,  3.25ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  70%|██████▉   | 100/143 [00:31<00:13,  3.27ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  70%|██████▉   | 100/143 [00:31<00:13,  3.25ba/s][A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  71%|███████▏  | 102/143 [00:31<00:12,  3.30ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  71%|███████▏  | 102/143 [00:31<00:12,  3.29ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  71%|███████   | 101/143 [00:31<00:12,  3.30ba/s]
-
-
-
-Running tokenizer on train dataset #4:  71%|███████   | 101/143 [00:31<00:12,  3.32ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  71%|███████   | 101/143 [00:31<00:12,  3.26ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  71%|███████▏  | 102/143 [00:31<00:12,  3.29ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  71%|███████   | 101/143 [00:31<00:12,  3.29ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  71%|███████   | 101/143 [00:31<00:12,  3.29ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  70%|██████▉   | 100/143 [00:31<00:13,  3.26ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  71%|███████   | 101/143 [00:31<00:12,  3.26ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  72%|███████▏  | 103/143 [00:31<00:12,  3.31ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  72%|███████▏  | 103/143 [00:31<00:12,  3.30ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  71%|███████▏  | 102/143 [00:31<00:12,  3.32ba/s]
-
-
-
-Running tokenizer on train dataset #4:  71%|███████▏  | 102/143 [00:31<00:12,  3.33ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  71%|███████▏  | 102/143 [00:31<00:12,  3.28ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  72%|███████▏  | 103/143 [00:31<00:12,  3.30ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  71%|███████▏  | 102/143 [00:31<00:12,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  71%|███████▏  | 102/143 [00:31<00:12,  3.28ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  71%|███████   | 101/143 [00:31<00:12,  3.27ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  71%|███████▏  | 102/143 [00:31<00:12,  3.29ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  73%|███████▎  | 104/143 [00:32<00:11,  3.32ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  73%|███████▎  | 104/143 [00:32<00:11,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  72%|███████▏  | 103/143 [00:32<00:12,  3.32ba/s][A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  72%|███████▏  | 103/143 [00:32<00:12,  3.33ba/s][A[A[A[ARunning tokenizer on train dataset #0:  72%|███████▏  | 103/143 [00:32<00:12,  3.30ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  72%|███████▏  | 103/143 [00:32<00:12,  3.31ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  73%|███████▎  | 104/143 [00:32<00:11,  3.28ba/s][A
-
-
-
-
-
-Running tokenizer on train dataset #6:  72%|███████▏  | 103/143 [00:32<00:12,  3.30ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  72%|███████▏  | 103/143 [00:32<00:12,  3.30ba/s][A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  71%|███████▏  | 102/143 [00:32<00:12,  3.28ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  73%|███████▎  | 105/143 [00:32<00:11,  3.34ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  73%|███████▎  | 105/143 [00:32<00:11,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  73%|███████▎  | 104/143 [00:32<00:11,  3.34ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  73%|███████▎  | 104/143 [00:32<00:11,  3.31ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  73%|███████▎  | 104/143 [00:32<00:11,  3.30ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  73%|███████▎  | 104/143 [00:32<00:11,  3.32ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  73%|███████▎  | 105/143 [00:32<00:11,  3.30ba/s][A
-
-Running tokenizer on train dataset #2:  73%|███████▎  | 104/143 [00:32<00:11,  3.29ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  73%|███████▎  | 104/143 [00:32<00:11,  3.28ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  72%|███████▏  | 103/143 [00:32<00:12,  3.28ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  74%|███████▍  | 106/143 [00:32<00:11,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  74%|███████▍  | 106/143 [00:32<00:11,  3.31ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  73%|███████▎  | 105/143 [00:32<00:11,  3.33ba/s][A[A[A[ARunning tokenizer on train dataset #0:  73%|███████▎  | 105/143 [00:32<00:11,  3.30ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  73%|███████▎  | 105/143 [00:32<00:11,  3.29ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  74%|███████▍  | 106/143 [00:32<00:11,  3.30ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  73%|███████▎  | 105/143 [00:32<00:11,  3.30ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  73%|███████▎  | 105/143 [00:32<00:11,  3.29ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  73%|███████▎  | 105/143 [00:32<00:11,  3.29ba/s][A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  73%|███████▎  | 104/143 [00:32<00:11,  3.28ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  75%|███████▍  | 107/143 [00:33<00:10,  3.32ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  75%|███████▍  | 107/143 [00:32<00:10,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  74%|███████▍  | 106/143 [00:33<00:11,  3.34ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  74%|███████▍  | 106/143 [00:33<00:11,  3.30ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  74%|███████▍  | 106/143 [00:33<00:11,  3.29ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  74%|███████▍  | 106/143 [00:33<00:11,  3.32ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  75%|███████▍  | 107/143 [00:33<00:10,  3.29ba/s][A
-
-
-
-
-
-Running tokenizer on train dataset #6:  74%|███████▍  | 106/143 [00:33<00:11,  3.31ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  73%|███████▎  | 105/143 [00:33<00:11,  3.30ba/s][A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  74%|███████▍  | 106/143 [00:33<00:11,  3.29ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  76%|███████▌  | 108/143 [00:33<00:10,  3.34ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  76%|███████▌  | 108/143 [00:33<00:10,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  75%|███████▍  | 107/143 [00:33<00:10,  3.34ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  75%|███████▍  | 107/143 [00:33<00:10,  3.30ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  75%|███████▍  | 107/143 [00:33<00:10,  3.30ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  75%|███████▍  | 107/143 [00:33<00:10,  3.32ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  76%|███████▌  | 108/143 [00:33<00:10,  3.30ba/s][A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  74%|███████▍  | 106/143 [00:33<00:11,  3.29ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  75%|███████▍  | 107/143 [00:33<00:10,  3.28ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  75%|███████▍  | 107/143 [00:33<00:10,  3.29ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  76%|███████▌  | 109/143 [00:33<00:10,  3.33ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  76%|███████▌  | 109/143 [00:33<00:10,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  76%|███████▌  | 108/143 [00:33<00:10,  3.34ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  76%|███████▌  | 108/143 [00:33<00:10,  3.32ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  76%|███████▌  | 108/143 [00:33<00:10,  3.31ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  76%|███████▌  | 108/143 [00:33<00:10,  3.32ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  76%|███████▌  | 109/143 [00:33<00:10,  3.32ba/s][A
-
-Running tokenizer on train dataset #2:  76%|███████▌  | 108/143 [00:33<00:10,  3.31ba/s][A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  75%|███████▍  | 107/143 [00:33<00:10,  3.30ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  76%|███████▌  | 108/143 [00:33<00:10,  3.29ba/s][A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  76%|███████▌  | 109/143 [00:33<00:10,  3.32ba/s][A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  76%|███████▌  | 109/143 [00:33<00:10,  3.31ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  76%|███████▌  | 109/143 [00:34<00:10,  3.31ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  76%|███████▌  | 109/143 [00:33<00:10,  3.32ba/s][A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  77%|███████▋  | 110/143 [00:33<00:10,  3.12ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  77%|███████▋  | 110/143 [00:33<00:10,  3.11ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  76%|███████▌  | 109/143 [00:33<00:10,  3.32ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  76%|███████▌  | 109/143 [00:34<00:10,  3.31ba/s][A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  76%|███████▌  | 108/143 [00:33<00:10,  3.29ba/s][A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  77%|███████▋  | 110/143 [00:34<00:10,  3.12ba/s][A
-
-
-Running tokenizer on train dataset #3:  78%|███████▊  | 111/143 [00:34<00:10,  3.17ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  78%|███████▊  | 111/143 [00:34<00:10,  3.18ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  77%|███████▋  | 110/143 [00:34<00:10,  3.12ba/s][A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  76%|███████▌  | 109/143 [00:34<00:10,  3.27ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  77%|███████▋  | 110/143 [00:34<00:10,  3.12ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  77%|███████▋  | 110/143 [00:34<00:10,  3.11ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  78%|███████▊  | 111/143 [00:34<00:10,  3.19ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  77%|███████▋  | 110/143 [00:34<00:10,  3.12ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  77%|███████▋  | 110/143 [00:34<00:10,  3.12ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  77%|███████▋  | 110/143 [00:34<00:10,  3.12ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  78%|███████▊  | 112/143 [00:34<00:09,  3.21ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  78%|███████▊  | 112/143 [00:34<00:09,  3.21ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  78%|███████▊  | 111/143 [00:34<00:10,  3.18ba/s][A[A[A[ARunning tokenizer on train dataset #0:  78%|███████▊  | 111/143 [00:34<00:10,  3.19ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  78%|███████▊  | 111/143 [00:34<00:10,  3.16ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  78%|███████▊  | 112/143 [00:34<00:09,  3.24ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  78%|███████▊  | 111/143 [00:34<00:10,  3.19ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  78%|███████▊  | 111/143 [00:34<00:10,  3.19ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  78%|███████▊  | 111/143 [00:34<00:10,  3.18ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  77%|███████▋  | 110/143 [00:34<00:10,  3.08ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  79%|███████▉  | 113/143 [00:34<00:09,  3.23ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  79%|███████▉  | 113/143 [00:34<00:09,  3.23ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  78%|███████▊  | 112/143 [00:34<00:09,  3.22ba/s][A[A[A[ARunning tokenizer on train dataset #0:  78%|███████▊  | 112/143 [00:34<00:09,  3.24ba/s]
-Running tokenizer on train dataset #1:  79%|███████▉  | 113/143 [00:34<00:09,  3.27ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:  78%|███████▊  | 112/143 [00:34<00:09,  3.20ba/s][A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  78%|███████▊  | 112/143 [00:34<00:09,  3.21ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  78%|███████▊  | 112/143 [00:34<00:09,  3.25ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  78%|███████▊  | 112/143 [00:34<00:09,  3.22ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  78%|███████▊  | 111/143 [00:34<00:10,  3.14ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  80%|███████▉  | 114/143 [00:35<00:08,  3.25ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  80%|███████▉  | 114/143 [00:35<00:08,  3.25ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  79%|███████▉  | 113/143 [00:35<00:09,  3.25ba/s][A[A[A[ARunning tokenizer on train dataset #0:  79%|███████▉  | 113/143 [00:35<00:09,  3.25ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  79%|███████▉  | 113/143 [00:35<00:09,  3.26ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  80%|███████▉  | 114/143 [00:35<00:08,  3.29ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  79%|███████▉  | 113/143 [00:35<00:09,  3.25ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  79%|███████▉  | 113/143 [00:35<00:09,  3.28ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  79%|███████▉  | 113/143 [00:35<00:09,  3.27ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  78%|███████▊  | 112/143 [00:35<00:09,  3.19ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  80%|████████  | 115/143 [00:35<00:08,  3.27ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  80%|████████  | 115/143 [00:35<00:08,  3.27ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  80%|███████▉  | 114/143 [00:35<00:08,  3.28ba/s][A[A[A[ARunning tokenizer on train dataset #0:  80%|███████▉  | 114/143 [00:35<00:08,  3.26ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  80%|███████▉  | 114/143 [00:35<00:08,  3.27ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  80%|████████  | 115/143 [00:35<00:08,  3.30ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  80%|███████▉  | 114/143 [00:35<00:08,  3.28ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  80%|███████▉  | 114/143 [00:35<00:08,  3.30ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  80%|███████▉  | 114/143 [00:35<00:08,  3.29ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  79%|███████▉  | 113/143 [00:35<00:09,  3.23ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  81%|████████  | 116/143 [00:35<00:08,  3.29ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  81%|████████  | 116/143 [00:35<00:08,  3.28ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  80%|████████  | 115/143 [00:35<00:08,  3.28ba/s][A[A[A[ARunning tokenizer on train dataset #0:  80%|████████  | 115/143 [00:35<00:08,  3.29ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  80%|████████  | 115/143 [00:35<00:08,  3.28ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  81%|████████  | 116/143 [00:35<00:08,  3.30ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  80%|████████  | 115/143 [00:35<00:08,  3.30ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  80%|████████  | 115/143 [00:35<00:08,  3.33ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  80%|████████  | 115/143 [00:35<00:08,  3.31ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  80%|███████▉  | 114/143 [00:35<00:08,  3.27ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  82%|████████▏ | 117/143 [00:36<00:07,  3.29ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  82%|████████▏ | 117/143 [00:36<00:07,  3.28ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  81%|████████  | 116/143 [00:36<00:08,  3.29ba/s][A[A[A[ARunning tokenizer on train dataset #0:  81%|████████  | 116/143 [00:36<00:08,  3.29ba/s]
-Running tokenizer on train dataset #1:  82%|████████▏ | 117/143 [00:36<00:07,  3.31ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  81%|████████  | 116/143 [00:36<00:08,  3.31ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  81%|████████  | 116/143 [00:36<00:08,  3.28ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  81%|████████  | 116/143 [00:36<00:08,  3.32ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  81%|████████  | 116/143 [00:36<00:08,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  80%|████████  | 115/143 [00:36<00:08,  3.28ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  83%|████████▎ | 118/143 [00:36<00:07,  3.30ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  83%|████████▎ | 118/143 [00:36<00:07,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  82%|████████▏ | 117/143 [00:36<00:07,  3.31ba/s][A[A[A[A
-Running tokenizer on train dataset #1:  83%|████████▎ | 118/143 [00:36<00:07,  3.32ba/s][ARunning tokenizer on train dataset #0:  82%|████████▏ | 117/143 [00:36<00:07,  3.30ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  82%|████████▏ | 117/143 [00:36<00:07,  3.32ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  82%|████████▏ | 117/143 [00:36<00:07,  3.29ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  82%|████████▏ | 117/143 [00:36<00:07,  3.34ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  82%|████████▏ | 117/143 [00:36<00:07,  3.33ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  81%|████████  | 116/143 [00:36<00:08,  3.31ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  83%|████████▎ | 119/143 [00:36<00:07,  3.31ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  83%|████████▎ | 118/143 [00:36<00:07,  3.33ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  83%|████████▎ | 119/143 [00:36<00:07,  3.29ba/s][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  83%|████████▎ | 118/143 [00:36<00:07,  3.30ba/s]
-Running tokenizer on train dataset #1:  83%|████████▎ | 119/143 [00:36<00:07,  3.31ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  83%|████████▎ | 118/143 [00:36<00:07,  3.32ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  83%|████████▎ | 118/143 [00:36<00:07,  3.29ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  83%|████████▎ | 118/143 [00:36<00:07,  3.33ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  83%|████████▎ | 118/143 [00:36<00:07,  3.33ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  82%|████████▏ | 117/143 [00:36<00:07,  3.29ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  84%|████████▍ | 120/143 [00:37<00:06,  3.32ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  84%|████████▍ | 120/143 [00:36<00:06,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  83%|████████▎ | 119/143 [00:37<00:07,  3.31ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  83%|████████▎ | 119/143 [00:36<00:07,  3.32ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  83%|████████▎ | 119/143 [00:37<00:07,  3.30ba/s]
-Running tokenizer on train dataset #1:  84%|████████▍ | 120/143 [00:37<00:06,  3.30ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:  83%|████████▎ | 119/143 [00:37<00:07,  3.30ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  83%|████████▎ | 119/143 [00:37<00:07,  3.33ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  83%|████████▎ | 119/143 [00:37<00:07,  3.31ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  83%|████████▎ | 118/143 [00:37<00:07,  3.30ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  85%|████████▍ | 121/143 [00:37<00:06,  3.32ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  85%|████████▍ | 121/143 [00:37<00:06,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  84%|████████▍ | 120/143 [00:37<00:06,  3.31ba/s][A[A[A[ARunning tokenizer on train dataset #0:  84%|████████▍ | 120/143 [00:37<00:06,  3.31ba/s]
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  84%|████████▍ | 120/143 [00:37<00:06,  3.31ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  84%|████████▍ | 120/143 [00:37<00:06,  3.33ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  84%|████████▍ | 120/143 [00:37<00:06,  3.30ba/s][A[A[A[A[A
-Running tokenizer on train dataset #1:  85%|████████▍ | 121/143 [00:37<00:06,  3.29ba/s][A
-
-
-
-
-
-Running tokenizer on train dataset #6:  84%|████████▍ | 120/143 [00:37<00:06,  3.33ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  83%|████████▎ | 119/143 [00:37<00:07,  3.32ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  85%|████████▌ | 122/143 [00:37<00:06,  3.32ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  85%|████████▍ | 121/143 [00:37<00:06,  3.32ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  85%|████████▌ | 122/143 [00:37<00:06,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  85%|████████▍ | 121/143 [00:37<00:06,  3.33ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  85%|████████▍ | 121/143 [00:37<00:06,  3.31ba/s]
-
-Running tokenizer on train dataset #2:  85%|████████▍ | 121/143 [00:37<00:06,  3.34ba/s][A[A
-Running tokenizer on train dataset #1:  85%|████████▌ | 122/143 [00:37<00:06,  3.31ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:  85%|████████▍ | 121/143 [00:37<00:06,  3.30ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  85%|████████▍ | 121/143 [00:37<00:06,  3.34ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  84%|████████▍ | 120/143 [00:37<00:06,  3.32ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  86%|████████▌ | 123/143 [00:37<00:06,  3.32ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  85%|████████▌ | 122/143 [00:37<00:06,  3.32ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  86%|████████▌ | 123/143 [00:37<00:06,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  85%|████████▌ | 122/143 [00:37<00:06,  3.33ba/s][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  85%|████████▌ | 122/143 [00:37<00:06,  3.30ba/s]
-Running tokenizer on train dataset #1:  86%|████████▌ | 123/143 [00:37<00:06,  3.31ba/s][A
-
-Running tokenizer on train dataset #2:  85%|████████▌ | 122/143 [00:37<00:06,  3.32ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  85%|████████▌ | 122/143 [00:37<00:06,  3.31ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  85%|████████▌ | 122/143 [00:37<00:06,  3.34ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  85%|████████▍ | 121/143 [00:37<00:06,  3.32ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  87%|████████▋ | 124/143 [00:38<00:05,  3.34ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  86%|████████▌ | 123/143 [00:38<00:06,  3.32ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  87%|████████▋ | 124/143 [00:38<00:05,  3.31ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  86%|████████▌ | 123/143 [00:38<00:05,  3.34ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  87%|████████▋ | 124/143 [00:38<00:05,  3.32ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:  86%|████████▌ | 123/143 [00:38<00:06,  3.32ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  86%|████████▌ | 123/143 [00:38<00:06,  3.31ba/s][A[ARunning tokenizer on train dataset #0:  86%|████████▌ | 123/143 [00:38<00:06,  3.29ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  86%|████████▌ | 123/143 [00:38<00:06,  3.33ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  85%|████████▌ | 122/143 [00:38<00:06,  3.33ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  87%|████████▋ | 124/143 [00:38<00:05,  3.31ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  87%|████████▋ | 124/143 [00:38<00:05,  3.33ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  87%|████████▋ | 124/143 [00:38<00:05,  3.33ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  87%|████████▋ | 124/143 [00:38<00:05,  3.31ba/s]
-
-Running tokenizer on train dataset #2:  87%|████████▋ | 124/143 [00:38<00:05,  3.32ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  87%|████████▋ | 124/143 [00:38<00:05,  3.32ba/s][A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  87%|████████▋ | 125/143 [00:38<00:05,  3.13ba/s][A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  86%|████████▌ | 123/143 [00:38<00:06,  3.33ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  87%|████████▋ | 125/143 [00:38<00:05,  3.10ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  87%|████████▋ | 125/143 [00:38<00:05,  3.12ba/s][A
-
-
-Running tokenizer on train dataset #3:  88%|████████▊ | 126/143 [00:38<00:05,  3.18ba/s][A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  87%|████████▋ | 124/143 [00:38<00:05,  3.32ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  87%|████████▋ | 125/143 [00:38<00:05,  3.11ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  88%|████████▊ | 126/143 [00:38<00:05,  3.17ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  87%|████████▋ | 125/143 [00:38<00:05,  3.12ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  88%|████████▊ | 126/143 [00:38<00:05,  3.18ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:  87%|████████▋ | 125/143 [00:38<00:05,  3.12ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  87%|████████▋ | 125/143 [00:38<00:05,  3.14ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  87%|████████▋ | 125/143 [00:38<00:05,  3.09ba/s]
-
-Running tokenizer on train dataset #2:  87%|████████▋ | 125/143 [00:38<00:05,  3.10ba/s][A[A
-
-
-Running tokenizer on train dataset #3:  89%|████████▉ | 127/143 [00:39<00:04,  3.23ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  88%|████████▊ | 126/143 [00:39<00:05,  3.19ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  89%|████████▉ | 127/143 [00:39<00:04,  3.22ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  89%|████████▉ | 127/143 [00:39<00:04,  3.23ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  88%|████████▊ | 126/143 [00:39<00:05,  3.16ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  88%|████████▊ | 126/143 [00:39<00:05,  3.18ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  88%|████████▊ | 126/143 [00:39<00:05,  3.19ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  88%|████████▊ | 126/143 [00:39<00:05,  3.16ba/s]
-
-Running tokenizer on train dataset #2:  88%|████████▊ | 126/143 [00:39<00:05,  3.16ba/s][A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  87%|████████▋ | 125/143 [00:39<00:05,  3.14ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  90%|████████▉ | 128/143 [00:39<00:04,  3.25ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  89%|████████▉ | 127/143 [00:39<00:04,  3.24ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  90%|████████▉ | 128/143 [00:39<00:04,  3.27ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  90%|████████▉ | 128/143 [00:39<00:04,  3.27ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  89%|████████▉ | 127/143 [00:39<00:04,  3.20ba/s][A[A[A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  89%|████████▉ | 127/143 [00:39<00:04,  3.22ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  89%|████████▉ | 127/143 [00:39<00:04,  3.23ba/s][A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  89%|████████▉ | 127/143 [00:39<00:04,  3.22ba/s][A[ARunning tokenizer on train dataset #0:  89%|████████▉ | 127/143 [00:39<00:04,  3.21ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  88%|████████▊ | 126/143 [00:39<00:05,  3.17ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  90%|█████████ | 129/143 [00:39<00:04,  3.26ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  90%|████████▉ | 128/143 [00:39<00:04,  3.28ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  90%|█████████ | 129/143 [00:39<00:04,  3.28ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  90%|████████▉ | 128/143 [00:39<00:04,  3.24ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  90%|█████████ | 129/143 [00:39<00:04,  3.27ba/s][A
-
-
-
-
-Running tokenizer on train dataset #5:  90%|████████▉ | 128/143 [00:39<00:04,  3.25ba/s][A[A[A[A[A
-
-Running tokenizer on train dataset #2:  90%|████████▉ | 128/143 [00:39<00:04,  3.26ba/s][A[ARunning tokenizer on train dataset #0:  90%|████████▉ | 128/143 [00:39<00:04,  3.25ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  90%|████████▉ | 128/143 [00:39<00:04,  3.24ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  89%|████████▉ | 127/143 [00:39<00:04,  3.22ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  90%|█████████ | 129/143 [00:40<00:04,  3.30ba/s][A[A[A[A
-
-
-Running tokenizer on train dataset #3:  91%|█████████ | 130/143 [00:40<00:03,  3.26ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  91%|█████████ | 130/143 [00:40<00:03,  3.29ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  91%|█████████ | 130/143 [00:40<00:03,  3.29ba/s][A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  90%|█████████ | 129/143 [00:40<00:04,  3.27ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  90%|█████████ | 129/143 [00:40<00:04,  3.29ba/s][A[A
-
-
-
-
-Running tokenizer on train dataset #5:  90%|█████████ | 129/143 [00:40<00:04,  3.26ba/s][A[A[A[A[ARunning tokenizer on train dataset #0:  90%|█████████ | 129/143 [00:40<00:04,  3.27ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  90%|█████████ | 129/143 [00:40<00:04,  3.26ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  90%|████████▉ | 128/143 [00:40<00:04,  3.25ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  91%|█████████ | 130/143 [00:40<00:03,  3.31ba/s][A[A[A[A
-
-
-Running tokenizer on train dataset #3:  92%|█████████▏| 131/143 [00:40<00:03,  3.28ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  92%|█████████▏| 131/143 [00:40<00:03,  3.30ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  91%|█████████ | 130/143 [00:40<00:03,  3.29ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  92%|█████████▏| 131/143 [00:40<00:03,  3.29ba/s][A
-
-Running tokenizer on train dataset #2:  91%|█████████ | 130/143 [00:40<00:03,  3.29ba/s][A[ARunning tokenizer on train dataset #0:  91%|█████████ | 130/143 [00:40<00:03,  3.30ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  91%|█████████ | 130/143 [00:40<00:03,  3.28ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  91%|█████████ | 130/143 [00:40<00:03,  3.28ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  90%|█████████ | 129/143 [00:40<00:04,  3.26ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  92%|█████████▏| 132/143 [00:40<00:03,  3.31ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  92%|█████████▏| 131/143 [00:40<00:03,  3.32ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  92%|█████████▏| 132/143 [00:40<00:03,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  92%|█████████▏| 131/143 [00:40<00:03,  3.30ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  92%|█████████▏| 132/143 [00:40<00:03,  3.30ba/s][A
-
-Running tokenizer on train dataset #2:  92%|█████████▏| 131/143 [00:40<00:03,  3.31ba/s][A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  92%|█████████▏| 131/143 [00:40<00:03,  3.30ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  92%|█████████▏| 131/143 [00:40<00:03,  3.28ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  92%|█████████▏| 131/143 [00:40<00:03,  3.27ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  91%|█████████ | 130/143 [00:40<00:03,  3.26ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  93%|█████████▎| 133/143 [00:40<00:03,  3.30ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  92%|█████████▏| 132/143 [00:40<00:03,  3.30ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  93%|█████████▎| 133/143 [00:40<00:03,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  92%|█████████▏| 132/143 [00:41<00:03,  3.33ba/s][A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  92%|█████████▏| 132/143 [00:40<00:03,  3.30ba/s][A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  93%|█████████▎| 133/143 [00:41<00:03,  3.30ba/s][ARunning tokenizer on train dataset #0:  92%|█████████▏| 132/143 [00:41<00:03,  3.31ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  92%|█████████▏| 132/143 [00:41<00:03,  3.29ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  92%|█████████▏| 132/143 [00:41<00:03,  3.27ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  92%|█████████▏| 131/143 [00:41<00:03,  3.24ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  94%|█████████▎| 134/143 [00:41<00:02,  3.33ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  93%|█████████▎| 133/143 [00:41<00:03,  3.30ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  94%|█████████▎| 134/143 [00:41<00:02,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  93%|█████████▎| 133/143 [00:41<00:03,  3.31ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  93%|█████████▎| 133/143 [00:41<00:03,  3.31ba/s][A[A
-Running tokenizer on train dataset #1:  94%|█████████▎| 134/143 [00:41<00:02,  3.29ba/s][ARunning tokenizer on train dataset #0:  93%|█████████▎| 133/143 [00:41<00:03,  3.30ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  93%|█████████▎| 133/143 [00:41<00:03,  3.30ba/s][A[A[A[A[A
-
-
-
-
-
-Running tokenizer on train dataset #6:  93%|█████████▎| 133/143 [00:41<00:03,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  92%|█████████▏| 132/143 [00:41<00:03,  3.26ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  94%|█████████▍| 135/143 [00:41<00:02,  3.33ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  94%|█████████▎| 134/143 [00:41<00:02,  3.31ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  94%|█████████▍| 135/143 [00:41<00:02,  3.32ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  94%|█████████▎| 134/143 [00:41<00:02,  3.31ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  94%|█████████▎| 134/143 [00:41<00:02,  3.31ba/s][A[A
-Running tokenizer on train dataset #1:  94%|█████████▍| 135/143 [00:41<00:02,  3.30ba/s][ARunning tokenizer on train dataset #0:  94%|█████████▎| 134/143 [00:41<00:02,  3.31ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  94%|█████████▎| 134/143 [00:41<00:02,  3.31ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  94%|█████████▎| 134/143 [00:41<00:02,  3.30ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  93%|█████████▎| 133/143 [00:41<00:03,  3.27ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  95%|█████████▌| 136/143 [00:41<00:02,  3.31ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  94%|█████████▍| 135/143 [00:41<00:02,  3.32ba/s][A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  95%|█████████▌| 136/143 [00:41<00:02,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  94%|█████████▍| 135/143 [00:41<00:02,  3.33ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  94%|█████████▍| 135/143 [00:41<00:02,  3.32ba/s][A[A
-Running tokenizer on train dataset #1:  95%|█████████▌| 136/143 [00:41<00:02,  3.32ba/s][ARunning tokenizer on train dataset #0:  94%|█████████▍| 135/143 [00:41<00:02,  3.32ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  94%|█████████▍| 135/143 [00:41<00:02,  3.33ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  94%|█████████▍| 135/143 [00:41<00:02,  3.31ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  94%|█████████▎| 134/143 [00:41<00:02,  3.29ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  96%|█████████▌| 137/143 [00:42<00:01,  3.32ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  96%|█████████▌| 137/143 [00:42<00:01,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  95%|█████████▌| 136/143 [00:42<00:02,  3.31ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  95%|█████████▌| 136/143 [00:42<00:02,  3.33ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  95%|█████████▌| 136/143 [00:42<00:02,  3.32ba/s][A[A
-Running tokenizer on train dataset #1:  96%|█████████▌| 137/143 [00:42<00:01,  3.31ba/s][ARunning tokenizer on train dataset #0:  95%|█████████▌| 136/143 [00:42<00:02,  3.31ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  95%|█████████▌| 136/143 [00:42<00:02,  3.30ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  95%|█████████▌| 136/143 [00:42<00:02,  3.29ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  94%|█████████▍| 135/143 [00:42<00:02,  3.30ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  97%|█████████▋| 138/143 [00:42<00:01,  3.32ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  97%|█████████▋| 138/143 [00:42<00:01,  3.34ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  96%|█████████▌| 137/143 [00:42<00:01,  3.32ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  96%|█████████▌| 137/143 [00:42<00:01,  3.33ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  96%|█████████▌| 137/143 [00:42<00:01,  3.32ba/s][A[A
-Running tokenizer on train dataset #1:  97%|█████████▋| 138/143 [00:42<00:01,  3.31ba/s][ARunning tokenizer on train dataset #0:  96%|█████████▌| 137/143 [00:42<00:01,  3.33ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  96%|█████████▌| 137/143 [00:42<00:01,  3.33ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  96%|█████████▌| 137/143 [00:42<00:01,  3.31ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  95%|█████████▌| 136/143 [00:42<00:02,  3.31ba/s][A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  97%|█████████▋| 139/143 [00:42<00:01,  3.33ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  97%|█████████▋| 139/143 [00:42<00:01,  3.33ba/s][A[A[A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  97%|█████████▋| 138/143 [00:42<00:01,  3.30ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  97%|█████████▋| 138/143 [00:42<00:01,  3.33ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  97%|█████████▋| 138/143 [00:42<00:01,  3.33ba/s][A[A
-Running tokenizer on train dataset #1:  97%|█████████▋| 139/143 [00:42<00:01,  3.33ba/s][ARunning tokenizer on train dataset #0:  97%|█████████▋| 138/143 [00:42<00:01,  3.32ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  97%|█████████▋| 138/143 [00:42<00:01,  3.33ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  97%|█████████▋| 138/143 [00:42<00:01,  3.30ba/s][A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  96%|█████████▌| 137/143 [00:42<00:01,  3.32ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  97%|█████████▋| 139/143 [00:43<00:01,  3.31ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  97%|█████████▋| 139/143 [00:43<00:01,  3.34ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  97%|█████████▋| 139/143 [00:43<00:01,  3.34ba/s][A[ARunning tokenizer on train dataset #0:  97%|█████████▋| 139/143 [00:43<00:01,  3.31ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  97%|█████████▋| 139/143 [00:43<00:01,  3.31ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  97%|█████████▋| 139/143 [00:43<00:01,  3.30ba/s][A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  98%|█████████▊| 140/143 [00:43<00:00,  3.12ba/s][A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  98%|█████████▊| 140/143 [00:43<00:00,  3.13ba/s][A[A[A[A[A[A[A[A[A
-Running tokenizer on train dataset #1:  98%|█████████▊| 140/143 [00:43<00:00,  3.14ba/s][A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  97%|█████████▋| 138/143 [00:43<00:01,  3.33ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  99%|█████████▊| 141/143 [00:43<00:00,  3.19ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  99%|█████████▊| 141/143 [00:43<00:00,  3.17ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  98%|█████████▊| 140/143 [00:43<00:00,  3.11ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  98%|█████████▊| 140/143 [00:43<00:00,  3.13ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  98%|█████████▊| 140/143 [00:43<00:00,  3.15ba/s][A[A
-Running tokenizer on train dataset #1:  99%|█████████▊| 141/143 [00:43<00:00,  3.18ba/s][A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  97%|█████████▋| 139/143 [00:43<00:01,  3.30ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  98%|█████████▊| 140/143 [00:43<00:00,  3.12ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  98%|█████████▊| 140/143 [00:43<00:00,  3.12ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  98%|█████████▊| 140/143 [00:43<00:00,  3.12ba/s][A[A[A[A[A
-
-
-
-
-
-
-
-
-Running tokenizer on train dataset #9:  99%|█████████▉| 142/143 [00:43<00:00,  3.22ba/s][A[A[A[A[A[A[A[A[A
-
-
-Running tokenizer on train dataset #3:  99%|█████████▉| 142/143 [00:43<00:00,  3.20ba/s][A[A[A
-
-
-
-Running tokenizer on train dataset #4:  99%|█████████▊| 141/143 [00:43<00:00,  3.19ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  99%|█████████▊| 141/143 [00:43<00:00,  3.20ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  99%|█████████▊| 141/143 [00:43<00:00,  3.20ba/s][A[A
-Running tokenizer on train dataset #1:  99%|█████████▉| 142/143 [00:43<00:00,  3.23ba/s][ARunning tokenizer on train dataset #9: 100%|██████████| 143/143 [00:43<00:00,  3.27ba/s]Running tokenizer on train dataset #3: 100%|██████████| 143/143 [00:43<00:00,  3.26ba/s]Running tokenizer on train dataset #0:  99%|█████████▊| 141/143 [00:43<00:00,  3.17ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  99%|█████████▊| 141/143 [00:43<00:00,  3.16ba/s][A[A[A[A[A[A
-
-
-
-
-Running tokenizer on train dataset #5:  99%|█████████▊| 141/143 [00:43<00:00,  3.15ba/s][A[A[A[A[ARunning tokenizer on train dataset #1: 100%|██████████| 143/143 [00:43<00:00,  3.26ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  98%|█████████▊| 140/143 [00:43<00:00,  3.10ba/s][A[A[A[A[A[A[A
-
-
-
-Running tokenizer on train dataset #4:  99%|█████████▉| 142/143 [00:44<00:00,  3.23ba/s][A[A[A[A
-
-
-
-
-
-
-
-Running tokenizer on train dataset #8:  99%|█████████▉| 142/143 [00:44<00:00,  3.25ba/s][A[A[A[A[A[A[A[A
-
-Running tokenizer on train dataset #2:  99%|█████████▉| 142/143 [00:44<00:00,  3.25ba/s][A[ARunning tokenizer on train dataset #4: 100%|██████████| 143/143 [00:44<00:00,  3.24ba/s]
-
-
-
-
-
-Running tokenizer on train dataset #6:  99%|█████████▉| 142/143 [00:44<00:00,  3.21ba/s][A[A[A[A[A[ARunning tokenizer on train dataset #0:  99%|█████████▉| 142/143 [00:44<00:00,  3.19ba/s]Running tokenizer on train dataset #8: 100%|██████████| 143/143 [00:44<00:00,  3.25ba/s]
-
-
-
-
-Running tokenizer on train dataset #5:  99%|█████████▉| 142/143 [00:44<00:00,  3.21ba/s][A[A[A[A[ARunning tokenizer on train dataset #2: 100%|██████████| 143/143 [00:44<00:00,  3.24ba/s]Running tokenizer on train dataset #6: 100%|██████████| 143/143 [00:44<00:00,  3.24ba/s]Running tokenizer on train dataset #0: 100%|██████████| 143/143 [00:44<00:00,  3.23ba/s]Running tokenizer on train dataset #5: 100%|██████████| 143/143 [00:44<00:00,  3.24ba/s]
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  99%|█████████▊| 141/143 [00:44<00:00,  3.18ba/s][A[A[A[A[A[A[A
-
-
-
-
-
-
-Running tokenizer on train dataset #7:  99%|█████████▉| 142/143 [00:44<00:00,  3.25ba/s][A[A[A[A[A[A[ARunning tokenizer on train dataset #7: 100%|██████████| 143/143 [00:44<00:00,  3.22ba/s]
-
-
-
-
-
-multiprocess.pool.RemoteTraceback: 
-"""
-Traceback (most recent call last):
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/datasets/arrow_dataset.py", line 2794, in _map_single
-    writer.finalize()  # close_stream=bool(buf_writer is None))  # We only close if we are writing in a file
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/datasets/arrow_writer.py", line 546, in finalize
-    self.stream.close()
-  File "pyarrow/io.pxi", line 173, in pyarrow.lib.NativeFile.close
-  File "pyarrow/error.pxi", line 114, in pyarrow.lib.check_status
-OSError: error closing file
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/multiprocess/pool.py", line 121, in worker
-    result = (True, func(*args, **kwds))
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/datasets/arrow_dataset.py", line 557, in wrapper
-    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/datasets/arrow_dataset.py", line 524, in wrapper
-    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/datasets/fingerprint.py", line 480, in wrapper
-    out = func(self, *args, **kwargs)
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/datasets/arrow_dataset.py", line 2798, in _map_single
-    writer.finalize()
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/datasets/arrow_writer.py", line 544, in finalize
-    self.pa_writer.close()
-  File "pyarrow/ipc.pxi", line 466, in pyarrow.lib._CRecordBatchWriter.close
-  File "pyarrow/error.pxi", line 99, in pyarrow.lib.check_status
-pyarrow.lib.ArrowInvalid: Invalid operation on closed file
-"""
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "run_pairwise_cross.py", line 443, in <module>
-    main()
-  File "run_pairwise_cross.py", line 324, in main
-    desc="Running tokenizer on train dataset",
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/datasets/arrow_dataset.py", line 2500, in map
-    transformed_shards[index] = async_result.get()
-  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/multiprocess/pool.py", line 657, in get
-    raise self._value
-pyarrow.lib.ArrowInvalid: Invalid operation on closed file
