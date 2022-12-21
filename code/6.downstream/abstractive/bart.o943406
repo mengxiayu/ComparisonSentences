@@ -1,0 +1,735 @@
+12/19/2022 23:31:00 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1distributed training: True, 16-bits training: False
+12/19/2022 23:31:00 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+12/19/2022 23:31:00 - INFO - __main__ - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+bf16=False,
+bf16_full_eval=False,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+generation_max_length=256,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/multinews_abstractive/compbart12114_01/runs/Dec19_23-30-55_qa-2080ti-007.crc.nd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=5.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/multinews_abstractive/compbart12114_01,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=4,
+predict_with_generate=True,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/multinews_abstractive/compbart12114_01,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=2,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+sortish_sampler=False,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+12/19/2022 23:31:01 - WARNING - datasets.builder - Using custom data configuration default-00cd43ebba0a2f1d
+12/19/2022 23:31:01 - WARNING - datasets.builder - Using custom data configuration default-00cd43ebba0a2f1d
+12/19/2022 23:31:01 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-00cd43ebba0a2f1d/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+12/19/2022 23:31:01 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+12/19/2022 23:31:01 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-00cd43ebba0a2f1d/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+12/19/2022 23:31:01 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-00cd43ebba0a2f1d/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+12/19/2022 23:31:01 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-00cd43ebba0a2f1d/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+12/19/2022 23:31:04 - WARNING - datasets.builder - Using custom data configuration default-b04715d0fcf24e6d
+12/19/2022 23:31:04 - WARNING - datasets.builder - Using custom data configuration default-b04715d0fcf24e6d
+12/19/2022 23:31:04 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+12/19/2022 23:31:04 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b04715d0fcf24e6d/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+12/19/2022 23:31:04 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b04715d0fcf24e6d/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+12/19/2022 23:31:04 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b04715d0fcf24e6d/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+12/19/2022 23:31:04 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b04715d0fcf24e6d/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+12/19/2022 23:31:05 - WARNING - datasets.builder - Using custom data configuration default-4e05394053c39697
+12/19/2022 23:31:05 - WARNING - datasets.builder - Using custom data configuration default-4e05394053c39697
+12/19/2022 23:31:05 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+12/19/2022 23:31:05 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-4e05394053c39697/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+12/19/2022 23:31:05 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-4e05394053c39697/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+12/19/2022 23:31:05 - INFO - datasets.info - Loading Dataset info from /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-4e05394053c39697/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253
+12/19/2022 23:31:05 - WARNING - datasets.builder - Reusing dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-4e05394053c39697/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+[INFO|configuration_utils.py:648] 2022-12-19 23:31:06,051 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-12-19 23:31:06,055 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_auto.py:344] 2022-12-19 23:31:06,190 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:648] 2022-12-19 23:31:06,326 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-12-19 23:31:06,327 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:1786] 2022-12-19 23:31:07,282 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/vocab.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/43978bdeaa326572886b44fcfed82f932f76571095ce31973e51c3da8ccade7f.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+[INFO|tokenization_utils_base.py:1786] 2022-12-19 23:31:07,282 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/merges.txt from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/3c167ed8af56e6605eeb794b63a79d65d85e6708c9b04408d41946337030f5cd.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+[INFO|tokenization_utils_base.py:1786] 2022-12-19 23:31:07,282 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/tokenizer.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a878fcd69bba037c9b1b227f4213579ae43d0aaa9374e167bc6c5f41b1cfeb30.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730
+[INFO|tokenization_utils_base.py:1786] 2022-12-19 23:31:07,282 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-12-19 23:31:07,282 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-12-19 23:31:07,282 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:648] 2022-12-19 23:31:07,418 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-12-19 23:31:07,419 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|modeling_utils.py:1431] 2022-12-19 23:31:07,667 >> loading weights file https://huggingface.co/facebook/bart-base/resolve/main/pytorch_model.bin from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/486355ec722ef05fd480e999d4c763be56549ae930f6a3742ee721a5d2a05647.f2f355ad2775769afc60592b43a46d72ca548375e3a1d65f381a751e711cbadd
+[INFO|modeling_utils.py:1702] 2022-12-19 23:31:15,921 >> All model checkpoint weights were used when initializing BartForConditionalGeneration.
+
+[INFO|modeling_utils.py:1711] 2022-12-19 23:31:15,922 >> All the weights of BartForConditionalGeneration were initialized from the model checkpoint at facebook/bart-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BartForConditionalGeneration for predictions without further training.
+Running tokenizer on train dataset #0:   0%|          | 0/5 [00:00<?, ?ba/s]
+Running tokenizer on train dataset #1:   0%|          | 0/5 [00:00<?, ?ba/s][A
+
+Running tokenizer on train dataset #2:   0%|          | 0/5 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on train dataset #3:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  20%|██        | 1/5 [00:10<00:41, 10.43s/ba][A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  20%|██        | 1/5 [00:11<00:44, 11.00s/ba][A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  20%|██        | 1/5 [00:11<00:44, 11.15s/ba][A[A[A[A[ARunning tokenizer on train dataset #0:  20%|██        | 1/5 [00:11<00:45, 11.39s/ba]
+
+
+Running tokenizer on train dataset #3:  20%|██        | 1/5 [00:11<00:45, 11.39s/ba][A[A[A
+Running tokenizer on train dataset #1:  20%|██        | 1/5 [00:11<00:45, 11.49s/ba][A
+
+Running tokenizer on train dataset #2:  20%|██        | 1/5 [00:11<00:46, 11.53s/ba][A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  20%|██        | 1/5 [00:11<00:45, 11.30s/ba][A[A[A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  20%|██        | 1/5 [00:11<00:46, 11.54s/ba][A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  20%|██        | 1/5 [00:11<00:45, 11.40s/ba][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  40%|████      | 2/5 [00:20<00:31, 10.37s/ba][A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  40%|████      | 2/5 [00:21<00:32, 10.82s/ba][A[A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  40%|████      | 2/5 [00:22<00:32, 10.93s/ba][A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  40%|████      | 2/5 [00:21<00:32, 10.93s/ba][A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  40%|████      | 2/5 [00:22<00:32, 10.96s/ba][A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  40%|████      | 2/5 [00:22<00:32, 10.98s/ba][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  40%|████      | 2/5 [00:22<00:33, 11.02s/ba][A[A[A[A[A[A[A
+Running tokenizer on train dataset #1:  40%|████      | 2/5 [00:22<00:33, 11.18s/ba][ARunning tokenizer on train dataset #0:  40%|████      | 2/5 [00:22<00:33, 11.30s/ba]
+
+Running tokenizer on train dataset #2:  40%|████      | 2/5 [00:22<00:34, 11.43s/ba][A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  60%|██████    | 3/5 [00:31<00:21, 10.57s/ba][A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  60%|██████    | 3/5 [00:32<00:21, 10.76s/ba][A[A[A[A[A
+
+
+
+Running tokenizer on train dataset #4:  60%|██████    | 3/5 [00:32<00:21, 10.87s/ba][A[A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  60%|██████    | 3/5 [00:32<00:21, 10.84s/ba][A[A[A[A[A[A[A
+
+
+Running tokenizer on train dataset #3:  60%|██████    | 3/5 [00:32<00:21, 10.96s/ba][A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  60%|██████    | 3/5 [00:32<00:21, 10.89s/ba][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #0:  60%|██████    | 3/5 [00:33<00:22, 11.05s/ba]
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  60%|██████    | 3/5 [00:33<00:22, 11.15s/ba][A[A[A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  60%|██████    | 3/5 [00:33<00:22, 11.28s/ba][A[A
+Running tokenizer on train dataset #1:  60%|██████    | 3/5 [00:34<00:22, 11.49s/ba][A
+
+
+
+
+
+Running tokenizer on train dataset #6:  80%|████████  | 4/5 [00:42<00:10, 10.82s/ba][A[A[A[A[A[A
+
+
+
+
+Running tokenizer on train dataset #5:  80%|████████  | 4/5 [00:43<00:10, 10.75s/ba][A[A[A[A[ARunning tokenizer on train dataset #0:  80%|████████  | 4/5 [00:43<00:10, 10.75s/ba]
+
+
+Running tokenizer on train dataset #3:  80%|████████  | 4/5 [00:43<00:10, 10.92s/ba][A[A[A
+
+
+
+Running tokenizer on train dataset #4:  80%|████████  | 4/5 [00:43<00:10, 10.91s/ba][A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:  80%|████████  | 4/5 [00:43<00:10, 10.94s/ba][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:  80%|████████  | 4/5 [00:43<00:10, 10.97s/ba][A[A[A[A[A[A[A[A
+Running tokenizer on train dataset #1:  80%|████████  | 4/5 [00:44<00:11, 11.07s/ba][A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:  80%|████████  | 4/5 [00:44<00:11, 11.27s/ba][A[A[A[A[A[A[A
+
+Running tokenizer on train dataset #2:  80%|████████  | 4/5 [00:45<00:11, 11.30s/ba][A[A
+
+
+
+
+
+Running tokenizer on train dataset #6: 100%|██████████| 5/5 [00:48<00:00,  9.10s/ba][A[A[A[A[A[ARunning tokenizer on train dataset #6: 100%|██████████| 5/5 [00:48<00:00,  9.76s/ba]
+
+
+
+Running tokenizer on train dataset #3: 100%|██████████| 5/5 [00:49<00:00,  8.91s/ba][A[A[ARunning tokenizer on train dataset #3: 100%|██████████| 5/5 [00:49<00:00,  9.84s/ba]
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8: 100%|██████████| 5/5 [00:49<00:00,  8.91s/ba][A[A[A[A[A[A[A[ARunning tokenizer on train dataset #8: 100%|██████████| 5/5 [00:49<00:00,  9.84s/ba]
+
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9: 100%|██████████| 5/5 [00:49<00:00,  8.99s/ba][A[A[A[A[A[A[A[A[ARunning tokenizer on train dataset #9: 100%|██████████| 5/5 [00:49<00:00,  9.88s/ba]
+Running tokenizer on train dataset #0: 100%|██████████| 5/5 [00:50<00:00,  9.21s/ba]Running tokenizer on train dataset #0: 100%|██████████| 5/5 [00:50<00:00, 10.03s/ba]
+
+
+
+
+
+
+
+Running tokenizer on train dataset #7: 100%|██████████| 5/5 [00:49<00:00,  9.10s/ba][A[A[A[A[A[A[ARunning tokenizer on train dataset #7: 100%|██████████| 5/5 [00:49<00:00,  9.99s/ba]
+
+Running tokenizer on train dataset #1: 100%|██████████| 5/5 [00:50<00:00,  9.08s/ba][ARunning tokenizer on train dataset #1: 100%|██████████| 5/5 [00:50<00:00, 10.06s/ba]
+
+
+
+
+
+Running tokenizer on train dataset #5: 100%|██████████| 5/5 [00:50<00:00,  9.65s/ba][A[A[A[A[ARunning tokenizer on train dataset #5: 100%|██████████| 5/5 [00:50<00:00, 10.18s/ba]
+
+
+Running tokenizer on train dataset #2: 100%|██████████| 5/5 [00:51<00:00,  9.31s/ba][A[ARunning tokenizer on train dataset #2: 100%|██████████| 5/5 [00:51<00:00, 10.22s/ba]
+
+
+
+
+Running tokenizer on train dataset #4: 100%|██████████| 5/5 [00:53<00:00, 10.52s/ba][A[A[A[ARunning tokenizer on train dataset #4: 100%|██████████| 5/5 [00:53<00:00, 10.73s/ba]
+12/19/2022 23:32:11 - INFO - __main__ - Sample 41905 of the training set: {'input_ids': [0, 1437, 1437, 1437, 166, 17, 27, 548, 70, 57, 174, 7, 3529, 84, 8942, 6, 8, 190, 114, 52, 218, 17, 27, 90, 101, 24, 6, 52, 216, 51, 17, 27, 241, 205, 13, 201, 4, 125, 10, 92, 892, 924, 95, 141, 205, 13, 84, 23610, 51, 189, 28, 4, 1437, 1437, 7732, 50, 55, 14566, 9, 6231, 8, 8942, 10, 183, 64, 795, 110, 810, 9, 8180, 30, 41, 19720, 3330, 4234, 309, 7, 10, 92, 892, 1027, 11, 5, 3642, 9, 42443, 17129, 359, 2573, 1309, 4, 20, 55, 12849, 8, 8942, 5, 3597, 14964, 6, 5, 540, 533, 51, 58, 7, 1597, 23, 143, 1046, 6, 8, 5, 11775, 1796, 1130, 19, 4850, 4, 20, 121, 4, 104, 4, 641, 9, 8004, 10827, 4558, 227, 65, 7, 80, 12988, 9, 6231, 1230, 8, 65, 7, 130, 12988, 9, 8942, 1230, 6, 6122, 15, 1046, 8, 3959, 4, 2667, 16760, 3905, 6, 44, 48, 597, 26491, 8, 32065, 93, 55, 3510, 4, 17, 46, 1221, 18192, 4441, 80, 14566, 9, 6231, 8, 292, 9, 8942, 6, 8, 11, 5, 121, 4, 530, 482, 5, 16760, 16, 35, 44, 48, 245, 10, 183, 4, 17, 46, 1437, 1437, 1437, 1437, 520, 1118, 19, 16997, 540, 87, 65, 4745, 9, 6231, 8, 8942, 10, 183, 6, 5, 810, 9, 744, 30, 143, 1303, 21, 2906, 30, 501, 207, 30, 4441, 65, 7, 130, 14566, 131, 1132, 207, 13, 130, 7, 292, 14566, 131, 2491, 207, 13, 292, 7, 707, 14566, 131, 8, 3330, 207, 13, 707, 50, 55, 4, 30437, 707, 50, 55, 14566, 67, 4010, 2906, 5, 810, 9, 8180, 31, 1668, 30, 564, 4234, 8, 1144, 2199, 30, 1105, 2153, 1437, 1437, 44, 48, 133, 699, 1579, 259, 16, 14, 5, 55, 6231, 8, 8942, 47, 3529, 6, 5, 540, 533, 47, 32, 7, 1597, 23, 143, 1046, 6, 17, 46, 483, 892, 2730, 17311, 179, 462, 3019, 17311, 3209, 4636, 6, 9, 589, 1821, 928, 17, 27, 29, 641, 9, 42443, 17129, 8, 1909, 1309, 6, 26, 11, 10, 445, 4, 44, 48, 30660, 6460, 6058, 33, 10, 2514, 1683, 87, 6231, 6, 53, 6231, 202, 817, 10, 588, 2249, 4, 318, 47, 17, 27, 241, 1372, 7, 17687, 15, 28488, 50, 97, 8942, 6, 172, 14, 16, 10, 372, 2031, 6, 53, 114, 47, 13185, 402, 24043, 5906, 6, 10, 23611, 50, 143, 6231, 40, 67, 109, 47, 205, 4, 17, 46, 1437, 1437, 20, 892, 16, 5, 78, 7, 6754, 4441, 12849, 8, 8942, 19, 70, 12, 27037, 6, 1668, 8, 1144, 12, 417, 1496, 3175, 3257, 11, 10, 9852, 4915, 1956, 6, 8, 7, 30127, 5, 1795, 30, 14566, 4, 11161, 1415, 23, 775, 31, 5, 1309, 11624, 13, 1156, 227, 5155, 8, 1014, 6, 61, 4271, 5, 4441, 10095, 9, 3620, 6, 29190, 82, 4, 1437, 1437, 4934, 14566, 9, 6231, 8, 8942, 10, 183, 126, 10, 2950, 23157, 13, 167, 2273, 59, 49, 308, 8, 49, 408, 18, 474, 126, 189, 45, 6, 71, 70, 6, 28, 615, 6, 309, 7, 10, 92, 266, 30, 4211, 6, 54, 3608, 52, 197, 1386, 28, 9998, 13, 707, 10, 183, 6, 8, 2260, 8942, 23, 14, 4, 726, 4526, 7790, 13, 103, 54, 802, 51, 58, 608, 5, 235, 631, 6, 12899, 7456, 8, 9214, 6231, 189, 45, 28, 7163, 23, 70, 4, 1437, 1437, 20, 665, 12320, 126, 8045, 7, 1693, 10, 11491, 260, 31, 167, 416, 33708, 196, 81, 1652, 9, 1985, 34625, 8, 25744, 4740, 26425, 126, 28125, 31, 10, 892, 2584, 66, 30, 2320, 23, 589, 1821, 928, 6, 54, 24305, 5, 4441, 10095, 9, 3620, 6, 151, 82, 6, 1487, 149, 799, 107, 9, 5, 1309, 11624, 13, 1156, 6, 8, 9184, 106, 19, 4685, 9, 744, 4, 1437, 1437, 20, 699, 2609, 21, 14, 4441, 55, 2310, 6231, 8, 8942, 6, 217, 26924, 6, 21, 3307, 7, 1207, 10, 1181, 301, 3489, 8, 11, 1989, 6, 7, 10, 795, 778, 9, 744, 31, 1144, 2199, 6, 8579, 8, 1668, 4, 1437, 1437, 30437, 23, 513, 707, 14566, 9, 2310, 6231, 8, 8942, 10, 183, 21, 3307, 7, 10, 3330, 207, 795, 810, 9, 744, 31, 70, 4685, 4, 85, 21, 67, 3059, 19, 10, 564, 207, 795, 810, 9, 1668, 8, 1105, 207, 795, 810, 9, 1144, 2199, 50, 8579, 4, 32912, 6058, 2551, 7, 28, 3625, 55, 2591, 136, 2199, 87, 4441, 6231, 6, 51, 224, 4, 1437, 1437, 345, 21, 10, 2755, 2609, 126, 82, 54, 14964, 24623, 50, 9214, 6231, 888, 56, 10, 723, 810, 9, 1144, 2199, 6, 8579, 8, 1668, 4, 1437, 1437, 20, 7601, 6, 925, 17311, 179, 462, 3019, 17311, 3209, 4636, 8, 4025, 31, 5, 1494, 9, 29027, 17129, 8, 285, 474, 23, 121, 7454, 6, 26, 51, 58, 17118, 141, 7, 18107, 5, 4139, 15, 24623, 50, 9214, 6231, 479, 85, 115, 28, 14, 82, 4441, 24623, 6231, 189, 45, 697, 11, 911, 147, 89, 16, 2310, 6231, 11, 5, 6464, 6, 61, 115, 6364, 10, 22555, 5626, 4, 1437, 1437, 28013, 6, 51, 115, 28, 82, 54, 32, 416, 11, 4812, 12, 14388, 50, 51, 115, 483, 37, 20069, 28182, 4, 345, 16, 67, 277, 3302, 35, 9214, 8, 12899, 7456, 6231, 58, 38015, 561, 11, 5, 1142, 6, 53, 150, 9214, 6231, 16, 1687, 7, 28, 17145, 338, 18579, 5, 276, 25, 2310, 6, 12899, 7456, 6231, 16, 10696, 11, 21580, 8200, 1823, 4696, 4, 901, 173, 782, 7, 28, 626, 7, 192, 549, 4045, 4490, 6, 12899, 7456, 6231, 16, 11, 754, 5, 696, 6, 5, 2634, 224, 4, 1437, 1437, 17311, 3209, 4636, 8, 4025, 362, 88, 1316, 5, 20182, 12, 12063, 3618, 6, 7893, 10095, 8, 97, 6339, 2433, 14, 3327, 82, 18, 474, 4, 653, 51, 33, 303, 6, 51, 224, 6, 16, 10, 670, 5259, 227, 239, 1389, 9, 6231, 8, 16090, 4850, 8, 795, 16374, 744, 1162, 126, 45, 10, 41214, 1291, 4, 1437, 1437, 125, 5, 2707, 9, 5, 892, 6, 1027, 11, 5, 3642, 9, 42443, 17129, 8, 2573, 1309, 6, 16, 11, 5, 380, 1530, 8, 5, 754, 14, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [0, 2383, 1648, 114, 47, 214, 10, 2602, 2267, 9, 292, 37116, 9, 12849, 8, 8942, 1230, 6, 47, 214, 45, 562, 615, 6, 41, 4935, 1089, 892, 3649, 4, 178, 16452, 699, 9, 5, 24623, 2682, 4, 589, 1821, 928, 2634, 7123, 5, 22669, 9, 3620, 6, 151, 82, 131, 51, 303, 14, 167, 54, 14964, 55, 2310, 12849, 8, 8942, 21131, 7, 697, 1181, 6, 8, 5, 8375, 11543, 2551, 7, 28, 707, 12, 7269, 37116, 358, 183, 4, 2246, 54, 478, 14, 672, 2906, 49, 810, 9, 744, 22, 7761, 70, 4685, 113, 30, 3330, 207, 25, 1118, 7, 167, 54, 14964, 540, 87, 65, 4745, 1230, 6, 5, 8137, 690, 4, 901, 4010, 6, 167, 380, 15, 12849, 8, 32065, 794, 10, 1105, 207, 795, 810, 9, 1144, 2199, 8, 10, 564, 207, 795, 810, 9, 1668, 4, 289, 9451, 292, 16, 6, 9, 768, 6, 202, 10142, 35, 21213, 130, 7, 292, 14566, 6, 8, 1374, 810, 9305, 1132, 4234, 150, 292, 7, 707, 839, 10, 2491, 207, 795, 810, 6, 3421, 690, 4, 96, 5, 382, 6, 5, 2526, 16760, 77, 24, 606, 7, 12849, 8, 8942, 16, 22, 4321, 3510, 60, 53, 5, 275, 2949, 16, 1221, 18, 6, 161, 10, 9338, 131, 11, 14, 247, 6, 5, 2949, 16, 22, 2977, 13, 132, 2744, 245, 60, 50, 80, 37116, 9, 12849, 8, 292, 9, 8942, 4, 22, 7605, 84, 892, 24, 1326, 101, 8942, 32, 357, 87, 6231, 60, 79, 161, 4, 1456, 2449, 35, 230, 12788, 2]}.
+Running tokenizer on train dataset #0:   0%|          | 0/5 [00:00<?, ?ba/s]
+Running tokenizer on train dataset #1:   0%|          | 0/5 [00:00<?, ?ba/s][A
+
+Running tokenizer on train dataset #2:   0%|          | 0/5 [00:00<?, ?ba/s][A[A
+
+
+Running tokenizer on train dataset #3:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A
+
+
+
+Running tokenizer on train dataset #4:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[ARunning tokenizer on validation dataset #0:   0%|          | 0/1 [00:00<?, ?ba/s]
+
+
+
+
+Running tokenizer on train dataset #5:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A
+Running tokenizer on validation dataset #1:   0%|          | 0/1 [00:00<?, ?ba/s][A
+
+Running tokenizer on validation dataset #2:   0%|          | 0/1 [00:00<?, ?ba/s][A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+Running tokenizer on validation dataset #3:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A
+
+
+
+
+
+
+Running tokenizer on train dataset #7:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+Running tokenizer on validation dataset #4:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on train dataset #8:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+Running tokenizer on validation dataset #5:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on train dataset #9:   0%|          | 0/5 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on validation dataset #6:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A
+
+
+
+
+
+
+Running tokenizer on validation dataset #7:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #8:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+Running tokenizer on validation dataset #9:   0%|          | 0/1 [00:00<?, ?ba/s][A[A[A[A[A[A[A[A[A
+
+
+
+
+
+Running tokenizer on train dataset #6:  20%|██        | 1/5 [00:10<00:42, 10.67s/ba][A[A[A[A[A[A

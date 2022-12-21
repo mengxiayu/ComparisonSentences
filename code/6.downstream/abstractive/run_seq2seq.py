@@ -413,56 +413,12 @@ def main():
     def preprocess_batch_train(
         examples,
     ):
-        def truncate_text(text, length):
-            word_list = text.split(' ')
-            rlt = " ".join(word_list[:length]) if len(word_list) > length else text
-            return rlt
-
-        contexts_e1 = examples["context_e1"]
-        contexts_e2 = examples["context_e2"]
-        evidences = examples["evidences"]
-
+        
+        targets = examples["summary"]
         inputs = []
-        targets = []
-        for idx, evi_list in enumerate(evidences):
-            ctx_e1 = truncate_text(contexts_e1[idx], int(data_args.max_seq_length / 2) - 1)
-            ctx_e2 = truncate_text(contexts_e2[idx], int(data_args.max_seq_length / 2) - 1)
-            evi_list = evi_list[:3] if len(evi_list) > 3 else evi_list
-            for sent1, sent2 in evi_list:
-                sent1 = truncate_text(sent1, int(training_args.generation_max_length) - 1)
-                sent2 = truncate_text(sent2, int(training_args.generation_max_length) - 1)
-                if sent1 == sent2:
-                    targets.append(f"news: {sent1}")
-                else:
-                    targets.append(f"news: {sent1} {sent2}")
-                inputs.append(f"wiki: {ctx_e1} {ctx_e2}")
-    
-        return inputs, targets
+        for text in examples["document"]:
+            inputs.append(text.replace('|||||', ' ').replace('\n \n', ' '))
 
-
-    def preprocess_batch_val(
-        examples,
-    ):
-        def truncate_text(text, length):
-            word_list = text.split(' ')
-            rlt = " ".join(word_list[:length]) if len(word_list) > length else text
-            return rlt
-
-        contexts_e1 = examples["context_e1"]
-        contexts_e2 = examples["context_e2"]
-        evidences = examples["evidences"]
-
-        inputs = []
-        targets = []
-        for idx, evi_list in enumerate(evidences):
-            ctx_e1 = truncate_text(contexts_e1[idx], int(data_args.max_seq_length / 2) - 1)
-            ctx_e2 = truncate_text(contexts_e2[idx], int(data_args.max_seq_length / 2) - 1)
-            sent1, sent2 = evi_list[0] # avoid duplicate
-            sent1 = truncate_text(sent1, int(training_args.generation_max_length) - 1)
-            sent2 = truncate_text(sent2, int(training_args.generation_max_length) - 1)
-            targets.append(f"{sent1} [SEP] {sent2}")
-            inputs.append(f"{ctx_e1} [SEP] {ctx_e2}")
-    
         return inputs, targets
 
 
@@ -486,7 +442,7 @@ def main():
 
     # Validation preprocessing
     def preprocess_validation_function(examples):
-        inputs, targets = preprocess_batch_val(examples)
+        inputs, targets = preprocess_batch_train(examples)
 
         model_inputs = tokenizer(
             inputs,
@@ -506,7 +462,7 @@ def main():
         # corresponding example_id and we will store the offset mappings.
         model_inputs["example_id"] = []
         for i in range(len(model_inputs["input_ids"])):
-            model_inputs["example_id"].append(examples["id"])
+            model_inputs["example_id"].append(examples["ex_id"])
 
         # If we are padding here, replace all tokenizer.pad_token_id in the labels by -100 when we want to ignore
         # padding in the loss.
@@ -596,18 +552,18 @@ def main():
     # # https://github.com/huggingface/datasets/blob/2.3.2/metrics/rouge/rouge.py
     def compute_metrics(p: EvalPrediction):
         scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
-        predictions = [x["prediction_text"].lstrip("news: ") for x in p.predictions]
+        predictions = [x["prediction_text"] for x in p.predictions]
         # references = [x["question"] for x in p.label_ids]
         references = []
         for obj in p.label_ids:
-            references.append([f"{x[0]} {x[1]}" for x in obj["evidences"]])
+            references.append(obj["reference"])
         
         total_count = 0
         rouge1 = 0
         rouge2 = 0
         rougeL = 0
         for idx, pred in enumerate(predictions):
-            metrics = scorer.score_multi(targets=references[idx], prediction=pred) # return AggregateScore.
+            metrics = scorer.score(target=references[idx], prediction=pred) # return AggregateScore.
             rouge1 += metrics['rouge1'][2] # fmeasure
             rouge2 += metrics['rouge2'][2]
             rougeL += metrics['rougeL'][2]
@@ -636,10 +592,10 @@ def main():
         # Let's loop over all the examples!
         for example_index, example in enumerate(examples):
             # This is the index of the feature associated to the current example.
-            pred_item = {"id": example["id"], "prediction_text": decoded_preds[example_index]}
+            pred_item = {"id": example["ex_id"], "prediction_text": decoded_preds[example_index]}
             formatted_predictions.append(pred_item)
 
-        references = [{"id": ex["id"], "evidences": ex["evidences"]} for ex in examples]
+        references = [{"id": ex["ex_id"], "reference": ex["summary"]} for ex in examples]
         return EvalPrediction(predictions=formatted_predictions, label_ids=references)
 
     # Initialize our Trainer

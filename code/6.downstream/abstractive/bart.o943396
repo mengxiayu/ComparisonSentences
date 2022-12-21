@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "run_seq2seq.py", line 685, in <module>
+  File "run_seq2seq.py", line 685, in <module>
+        main()main()
+
+  File "run_seq2seq.py", line 256, in main
+  File "run_seq2seq.py", line 256, in main
+        model_args, data_args, training_args = parser.parse_args_into_dataclasses()model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/hf_argparser.py", line 206, in parse_args_into_dataclasses
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/hf_argparser.py", line 206, in parse_args_into_dataclasses
+        obj = dtype(**inputs)obj = dtype(**inputs)
+
+  File "<string>", line 93, in __init__
+  File "<string>", line 93, in __init__
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/training_args.py", line 851, in __post_init__
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/training_args.py", line 851, in __post_init__
+        and (self.device.type != "cuda")and (self.device.type != "cuda")
+
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/file_utils.py", line 2477, in wrapper
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/file_utils.py", line 2477, in wrapper
+    return func(*args, **kwargs)
+      File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/training_args.py", line 1079, in device
+return func(*args, **kwargs)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/training_args.py", line 1079, in device
+    return self._setup_devices
+      File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/file_utils.py", line 2467, in __get__
+return self._setup_devices
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/file_utils.py", line 2467, in __get__
+    cached = self.fget(obj)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/file_utils.py", line 2477, in wrapper
+    cached = self.fget(obj)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/file_utils.py", line 2477, in wrapper
+    return func(*args, **kwargs)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/training_args.py", line 1064, in _setup_devices
+    return func(*args, **kwargs)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/transformers/training_args.py", line 1064, in _setup_devices
+    torch.distributed.init_process_group(backend="nccl")
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/distributed/distributed_c10d.py", line 455, in init_process_group
+    torch.distributed.init_process_group(backend="nccl")
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/distributed/distributed_c10d.py", line 455, in init_process_group
+        barrier()barrier()
+
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/distributed/distributed_c10d.py", line 1960, in barrier
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/distributed/distributed_c10d.py", line 1960, in barrier
+    work = _default_pg.barrier()
+    work = _default_pg.barrier()RuntimeError
+: NCCL error in: /pytorch/torch/lib/c10d/ProcessGroupNCCL.cpp:31, unhandled cuda error, NCCL version 2.7.8
+RuntimeError: NCCL error in: /pytorch/torch/lib/c10d/ProcessGroupNCCL.cpp:31, unhandled cuda error, NCCL version 2.7.8
+Traceback (most recent call last):
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/lib/python3.7/site-packages/torch/distributed/launch.py", line 256, in main
+    cmd=cmd)
+subprocess.CalledProcessError: Command '['/afs/crc.nd.edu/user/m/myu2/anaconda2/envs/bert/bin/python3.7', '-u', 'run_seq2seq.py', '--local_rank=1', '--model_name_or_path', 'facebook/bart-base', '--train_file', '/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/downloaded/multi_doc_summ/multinews_abstractive/train.json', '--validation_file', '/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/downloaded/multi_doc_summ/multinews_abstractive/validation.json', '--test_file', '/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/downloaded/multi_doc_summ/multinews_abstractive/test.json', '--do_train', '--do_eval', '--do_predict', '--evaluation_strategy', 'epoch', '--per_device_train_batch_size', '4', '--per_device_eval_batch_size', '8', '--gradient_accumulation_steps', '4', '--learning_rate', '3e-5', '--num_train_epochs', '5', '--max_seq_length', '1024', '--max_answer_length', '256', '--generation_max_length', '256', '--output_dir', '/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/multinews_abstractive/compbart12114_01', '--overwrite_output_dir', '--overwrite_cache', '--save_strategy', 'epoch', '--save_total_limit', '2', '--predict_with_generate', '--preprocessing_num_workers', '10']' returned non-zero exit status 1.

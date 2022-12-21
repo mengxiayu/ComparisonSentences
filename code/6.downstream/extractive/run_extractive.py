@@ -23,6 +23,7 @@ import random
 import sys
 from dataclasses import dataclass, field
 from typing import Optional
+import torch
 
 import datasets
 import numpy as np
@@ -31,7 +32,6 @@ from datasets import load_dataset, load_metric
 import transformers
 from transformers import (
     AutoConfig,
-    AutoModelForSequenceClassification,
     AutoTokenizer,
     DataCollatorWithPadding,
     EvalPrediction,
@@ -41,6 +41,7 @@ from transformers import (
     default_data_collator,
     set_seed,
 )
+from models import BertForMultiMaskClassification
 from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version
 from transformers.utils.versions import require_version
@@ -119,7 +120,12 @@ class DataTrainingArguments:
         default=None,
         metadata={"help": "The number of processes to use for the preprocessing."},
     )
-
+    num_extractive: Optional[int] = field(
+        default=None,
+        metadata={
+            "help": "number of extractive sentences"
+        },
+    )
 @dataclass
 class ModelArguments:
     """
@@ -280,7 +286,7 @@ def main():
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
     )
-    model = AutoModelForSequenceClassification.from_pretrained(
+    model = BertForMultiMaskClassification.from_pretrained(
         model_args.model_name_or_path,
         from_tf=bool(".ckpt" in model_args.model_name_or_path),
         config=config,
@@ -297,15 +303,93 @@ def main():
         # We will pad later, dynamically at batch creation, to the max sequence length in each batch
         padding = False
 
-    def preprocess_function(examples): # TODO customize this for different input settings.
+
+    def preprocess_batch_train(examples):
+        inputs = []
+        targets = []
+
+        # downloaded matchsum
+        for j, sentences in enumerate(examples["text"]):
+            labels = examples["label"][j]
+            target_sent_ids = []
+            cnt = 0
+            for idx, score in enumerate(labels):
+                if score == 0:
+                    continue
+                if cnt >= data_args.num_extractive:
+                    break
+                cnt += 1
+                target_sent_ids.append(int(idx))
+            # print("target sent ids", target_sent_ids)
+            _input = ""
+            _label = []  
+            for idx, sent in enumerate(sentences):
+                if sent.count(" ") < 2:
+                    continue
+                if _input.count(" ") > data_args.max_seq_length - 50: # input lengh limit
+                    continue
+                _input += f" [CLS] {sent}"
+                if idx in target_sent_ids:
+                    _label.append(1)
+                else:
+                    _label.append(0)
+                assert _input.count('[CLS]') == len(_label)       
+            inputs.append(_input)
+            targets.append(_label)
+        # preprocessed myself
+        # for j, sentences in enumerate(examples["source"]):
+        #     scores = examples["scores"][j]
+        #     target_sent_ids = []
+        #     cnt = 0
+        #     for idx, score in scores:
+        #         if cnt >= data_args.num_extractive:
+        #             break
+        #         cnt += 1
+        #         target_sent_ids.append(int(idx))
+            
+        #     _input = ""
+        #     _label = []
+        #     for idx, sent in enumerate(sentences):
+        #         if sent.count(" ") < 2:
+        #             continue
+        #         if _input.count(" ") > data_args.max_seq_length - 100: # input lengh limit
+        #             continue
+        #         _input += f" [CLS] {sent}"
+        #         if idx in target_sent_ids:
+        #             _label.append(1)
+        #         else:
+        #             _label.append(0)
+        #         assert _input.count('[CLS]') == len(_label)
+            
+        return inputs, targets
+
+    def preprocess_function(examples):
         # Tokenize the texts
-        return tokenizer(
-            examples["t1"],
-            examples["t2"],
-            padding=padding,
-            max_length=data_args.max_seq_length,
-            truncation=True,
-        )
+        inputs, targets = preprocess_batch_train(examples)
+        model_inputs = tokenizer(inputs, max_length=data_args.max_seq_length, padding=padding, truncation=True)
+        # max_len = max([len(t) for t in targets])
+        max_len = 100
+        labels = []
+        for idx, input_ids in enumerate(model_inputs["input_ids"]):
+            _token_ids = torch.tensor(input_ids)
+            cnt_cls = len(_token_ids[_token_ids==tokenizer.cls_token_id])
+            # print("cnt cls", cnt_cls)
+            if len(targets[idx]) > max_len:
+                print("max len exceed", len(targets[idx]))
+            target = targets[idx][:cnt_cls-1] # truncate
+            # _tmp = torch.tensor(target)
+            # print("target before truncate", len(targets[idx]))
+            # print("target", len(_tmp[_tmp!=-1]))
+            target = target + [-1] * (max_len - len(target))
+            labels.append(target)
+
+        # # labels = [x + [-1] * (max_len - len(x)) for x in targets]
+        # _input_ids = torch.tensor(model_inputs["input_ids"])
+        # _labels = torch.Tensor(labels)
+        # assert len(input_ids[input_ids==tokenizer.cls_token_id]) == len(labels[labels!=-1]) + len(targets)
+        model_inputs["label"] = labels
+        # print("labels:", labels)
+        return model_inputs 
 
     if training_args.do_train:
         if "train" not in raw_datasets:
@@ -363,8 +447,23 @@ def main():
     # predictions and label_ids field) and has to return a dictionary string to float.
     def compute_metrics(p: EvalPrediction):
         preds = p.predictions[0] if isinstance(p.predictions, tuple) else p.predictions
-        preds = np.argmax(preds, axis=1)
-        return metric.compute(predictions=preds, references=p.label_ids)
+        # print("pred",preds.shape)
+        # print(preds)
+        preds = np.argmax(preds, axis=-1)
+        
+        valid_preds = []
+        labels = torch.tensor(p.label_ids)
+        for idx,row in enumerate(labels):
+            label_indices = torch.nonzero(row!=-1)
+            row_preds = preds[idx][np.array(label_indices)]
+            valid_preds.extend(row_preds)
+            
+        valid_preds = [int(x) for x in valid_preds]
+        labels = labels[labels!=-1].tolist()
+        # print(len(valid_preds), len(labels))
+        # print("labels",labels[:100])
+        # print("predictions", valid_preds[:100])
+        return metric.compute(predictions=valid_preds, references=labels)
 
     # Data collator will default to DataCollatorWithPadding, so we change it if we already did the padding.
     if data_args.pad_to_max_length:
@@ -420,7 +519,7 @@ def main():
     if training_args.do_predict:
         logger.info("*** Predict ***")
         predictions, labels, metrics = trainer.predict(predict_dataset, metric_key_prefix="predict")
-        example_ids = [ex["id"] for ex in predict_dataset]
+        example_ids = [idx for idx,ex in enumerate(predict_dataset)]
         max_predict_samples = (
             data_args.max_predict_samples if data_args.max_predict_samples is not None else len(predict_dataset)
         )
@@ -428,15 +527,17 @@ def main():
 
         trainer.log_metrics("predict", metrics)
         trainer.save_metrics("predict", metrics)
+        # predictions = np.argmax(predictions, axis=-1)
+        output_predict_file = os.path.join(training_args.output_dir, "predictions.pt")
+        torch.save(predictions, output_predict_file)
+        # output_predict_file = os.path.join(training_args.output_dir, "predictions.txt")
+        # if trainer.is_world_process_zero():
+        #     with open(output_predict_file, "w") as writer:
+        #         writer.write("index\tprediction\n")
+        #         for index, item in enumerate(predictions):
+        #             pred = ' '.join([str(p) for p in item])
 
-        # predictions = np.argmax(predictions, axis=1)
-        output_predict_file = os.path.join(training_args.output_dir, "predictions.txt")
-        if trainer.is_world_process_zero():
-            with open(output_predict_file, "w") as writer:
-                writer.write("index\tprediction\n")
-                for index, item in enumerate(predictions):
-                    # print(item)
-                    writer.write(f"{example_ids[index]}\t{item[0]}\t{item[1]}\n")
+        #             writer.write(f"{example_ids[index]}\t{pred}\n")
 
 
 if __name__ == "__main__":

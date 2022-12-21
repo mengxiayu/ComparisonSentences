@@ -1,0 +1,386 @@
+12/09/2022 01:22:41 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+12/09/2022 01:22:41 - INFO - __main__ - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+bf16=False,
+bf16_full_eval=False,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+generation_max_length=128,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pretrain_news_gen/combined_1208/runs/Dec09_01-22-41_qa-2080ti-007.crc.nd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pretrain_news_gen/combined_1208,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=4,
+predict_with_generate=True,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/experiments/pretrain_news_gen/combined_1208,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=2,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+sortish_sampler=False,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+12/09/2022 01:22:41 - WARNING - datasets.builder - Using custom data configuration default-83df6a149fa7f840
+12/09/2022 01:22:41 - INFO - datasets.builder - Generating dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-83df6a149fa7f840/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+Downloading and preparing dataset json/default to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-83df6a149fa7f840/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 6864.65it/s]12/09/2022 01:22:41 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+12/09/2022 01:22:42 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 559.99it/s]12/09/2022 01:22:42 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+12/09/2022 01:22:42 - INFO - datasets.builder - Generating train split
+
+0 tables [00:00, ? tables/s]2 tables [00:00, 11.56 tables/s]4 tables [00:00, 12.63 tables/s]6 tables [00:00, 13.30 tables/s]8 tables [00:00, 13.56 tables/s]                                12/09/2022 01:22:44 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset json downloaded and prepared to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-83df6a149fa7f840/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253. Subsequent calls will reuse this data.
+12/09/2022 01:22:44 - WARNING - datasets.builder - Using custom data configuration default-b4e5649d17da5c73
+12/09/2022 01:22:44 - INFO - datasets.builder - Generating dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b4e5649d17da5c73/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+Downloading and preparing dataset json/default to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b4e5649d17da5c73/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 6743.25it/s]12/09/2022 01:22:44 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+12/09/2022 01:22:44 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 1156.09it/s]12/09/2022 01:22:44 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+12/09/2022 01:22:44 - INFO - datasets.builder - Generating validation split
+
+0 tables [00:00, ? tables/s]2 tables [00:00, 12.51 tables/s]                                12/09/2022 01:22:45 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset json downloaded and prepared to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-b4e5649d17da5c73/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253. Subsequent calls will reuse this data.
+12/09/2022 01:22:45 - WARNING - datasets.builder - Using custom data configuration default-6915875381b30a57
+12/09/2022 01:22:45 - INFO - datasets.builder - Generating dataset json (/afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-6915875381b30a57/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253)
+Downloading and preparing dataset json/default to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-6915875381b30a57/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 6543.38it/s]12/09/2022 01:22:45 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+12/09/2022 01:22:45 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 1167.35it/s]12/09/2022 01:22:45 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+12/09/2022 01:22:45 - INFO - datasets.builder - Generating test split
+
+0 tables [00:00, ? tables/s]2 tables [00:00,  4.64 tables/s]                                12/09/2022 01:22:46 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+[INFO|configuration_utils.py:648] 2022-12-09 01:22:46,350 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-12-09 01:22:46,353 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_auto.py:344] 2022-12-09 01:22:46,489 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:648] 2022-12-09 01:22:46,620 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-12-09 01:22:46,621 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:1786] 2022-12-09 01:22:47,562 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/vocab.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/43978bdeaa326572886b44fcfed82f932f76571095ce31973e51c3da8ccade7f.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+[INFO|tokenization_utils_base.py:1786] 2022-12-09 01:22:47,562 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/merges.txt from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/3c167ed8af56e6605eeb794b63a79d65d85e6708c9b04408d41946337030f5cd.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+[INFO|tokenization_utils_base.py:1786] 2022-12-09 01:22:47,562 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/tokenizer.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/a878fcd69bba037c9b1b227f4213579ae43d0aaa9374e167bc6c5f41b1cfeb30.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730
+[INFO|tokenization_utils_base.py:1786] 2022-12-09 01:22:47,562 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-12-09 01:22:47,562 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1786] 2022-12-09 01:22:47,562 >> loading file https://huggingface.co/facebook/bart-base/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:648] 2022-12-09 01:22:47,696 >> loading configuration file https://huggingface.co/facebook/bart-base/resolve/main/config.json from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/f5310d276a6d1648d00c32fadc8bf7b4607e0fbd5b404fc4a0045960aa2bdfdb.a243ed957122436adb0b8d8e9d20f896f45c174b6324d625ca0a20a84f72a910
+[INFO|configuration_utils.py:684] 2022-12-09 01:22:47,697 >> Model config BartConfig {
+  "_name_or_path": "facebook/bart-base",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartModel"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 768,
+  "decoder_attention_heads": 12,
+  "decoder_ffn_dim": 3072,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 6,
+  "decoder_start_token_id": 2,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 12,
+  "encoder_ffn_dim": 3072,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 6,
+  "eos_token_id": 2,
+  "forced_bos_token_id": 0,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "torch_dtype": "float32",
+  "transformers_version": "4.17.0",
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|modeling_utils.py:1431] 2022-12-09 01:22:47,968 >> loading weights file https://huggingface.co/facebook/bart-base/resolve/main/pytorch_model.bin from cache at /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/transformers/486355ec722ef05fd480e999d4c763be56549ae930f6a3742ee721a5d2a05647.f2f355ad2775769afc60592b43a46d72ca548375e3a1d65f381a751e711cbadd
+[INFO|modeling_utils.py:1702] 2022-12-09 01:22:50,677 >> All model checkpoint weights were used when initializing BartForConditionalGeneration.
+
+[INFO|modeling_utils.py:1711] 2022-12-09 01:22:50,677 >> All the weights of BartForConditionalGeneration were initialized from the model checkpoint at facebook/bart-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BartForConditionalGeneration for predictions without further training.
+Dataset json downloaded and prepared to /afs/crc.nd.edu/user/m/myu2/.cache/huggingface/datasets/json/default-6915875381b30a57/0.0.0/a3e658c4731e59120d44081ac10bf85dc7e1388126b92338344ce9661907f253. Subsequent calls will reuse this data.
+Running tokenizer on train dataset #0:   0%|          | 0/8 [00:00<?, ?ba/s]
+Running tokenizer on train dataset #1:   0%|          | 0/8 [00:00<?, ?ba/s][ARunning tokenizer on train dataset #0:  12%|█▎        | 1/8 [00:06<00:45,  6.48s/ba]
+Running tokenizer on train dataset #1:  12%|█▎        | 1/8 [00:06<00:45,  6.55s/ba][A
+Running tokenizer on train dataset #1:  25%|██▌       | 2/8 [00:12<00:37,  6.21s/ba][ARunning tokenizer on train dataset #0:  25%|██▌       | 2/8 [00:12<00:38,  6.38s/ba]
+Running tokenizer on train dataset #1:  38%|███▊      | 3/8 [00:18<00:30,  6.04s/ba][ARunning tokenizer on train dataset #0:  38%|███▊      | 3/8 [00:18<00:30,  6.18s/ba]
+Running tokenizer on train dataset #1:  50%|█████     | 4/8 [00:24<00:24,  6.02s/ba][ARunning tokenizer on train dataset #0:  50%|█████     | 4/8 [00:24<00:24,  6.06s/ba]
+Running tokenizer on train dataset #1:  62%|██████▎   | 5/8 [00:30<00:17,  5.97s/ba][ARunning tokenizer on train dataset #0:  62%|██████▎   | 5/8 [00:30<00:17,  5.99s/ba]
+Running tokenizer on train dataset #1:  75%|███████▌  | 6/8 [00:36<00:11,  5.90s/ba][ARunning tokenizer on train dataset #0:  75%|███████▌  | 6/8 [00:36<00:11,  5.95s/ba]
+Running tokenizer on train dataset #1:  88%|████████▊ | 7/8 [00:42<00:05,  5.94s/ba][ARunning tokenizer on train dataset #0:  88%|████████▊ | 7/8 [00:42<00:05,  5.94s/ba]
+Running tokenizer on train dataset #1: 100%|██████████| 8/8 [00:46<00:00,  5.52s/ba][ARunning tokenizer on train dataset #1: 100%|██████████| 8/8 [00:46<00:00,  5.83s/ba]Running tokenizer on train dataset #0: 100%|██████████| 8/8 [00:46<00:00,  5.54s/ba]Running tokenizer on train dataset #0: 100%|██████████| 8/8 [00:46<00:00,  5.87s/ba]
+12/09/2022 01:23:39 - INFO - __main__ - Sample 3648 of the training set: {'input_ids': [0, 2926, 35, 1437, 6139, 4369, 879, 2739, 4573, 260, 1352, 36, 5400, 830, 564, 6, 6200, 43, 16, 41, 470, 320, 2038, 3403, 17937, 54, 702, 11, 5454, 815, 10243, 36, 10537, 387, 43, 13, 5, 3378, 14890, 6, 1568, 7604, 6, 8, 1184, 5706, 4, 91, 16, 67, 10, 2308, 3195, 2066, 13, 3403, 6, 855, 447, 19, 3890, 1847, 1568, 8, 4944, 6, 8, 10, 12390, 7, 22, 133, 8899, 845, 96, 2156, 4573, 260, 1352, 21622, 479, 24133, 6, 8, 2325, 200, 11, 5, 496, 815, 36, 27027, 43, 7, 7866, 9670, 11, 2323, 6, 19, 28325, 4, 91, 21, 67, 684, 13, 39, 9297, 1443, 6, 519, 32069, 1457, 12, 10289, 21088, 3481, 15, 130, 7657, 4, 4573, 260, 1352, 67, 1249, 39, 756, 164, 38485, 3396, 426, 396, 10, 22762, 5849, 4, 96, 5, 365, 212, 3715, 9, 2436, 155, 9, 5, 4999, 12817, 3261, 3265, 6, 37, 478, 5, 177, 12, 5189, 6436, 13, 5, 7604, 4, 96, 2156, 19, 117, 3169, 5108, 9, 3736, 41, 9536, 4459, 6, 4573, 260, 1352, 1419, 10, 65, 12, 1208, 3694, 1267, 1355, 19, 5, 14890, 6, 172, 3562, 6, 519, 4786, 2230, 112, 6, 1866, 756, 2323, 4, 91, 2305, 37, 770, 7, 989, 3403, 2498, 5, 8284, 9, 5, 165, 14, 37, 2307, 62, 25, 10, 2378, 9, 6, 8, 7, 61, 37, 851, 144, 9, 39, 816, 756, 4, 4573, 260, 1352, 16, 67, 10, 8298, 19, 10243, 16810, 6, 10, 239, 12, 8813, 869, 709, 586, 6, 8, 5789, 4910, 18315, 13, 22, 133, 188, 469, 1513, 113, 8, 4944, 4, 175, 15, 3403, 8, 1612, 11, 937, 4, 374, 587, 112, 6, 1824, 6, 37, 1770, 4944, 25, 10, 3403, 3195, 2066, 4, 616, 23, 4944, 6, 4573, 260, 1352, 1382, 15, 22, 26152, 4172, 10243, 113, 8, 3162, 7, 22, 34164, 3512, 11765, 1297, 4944, 4611, 6, 4944, 4, 175, 6, 8, 22, 31253, 20, 10202, 845, 374, 587, 974, 6, 193, 6, 24, 21, 1487, 14, 37, 21, 7, 28, 566, 5, 171, 22788, 4944, 56, 156, 4, 91, 21, 4547, 30, 3890, 1847, 1568, 5, 511, 76, 4, 4944, 769, 12, 298, 7651, 4573, 260, 1352, 15, 494, 971, 6, 954, 4, 4573, 260, 1352, 16, 855, 5307, 23, 5, 589, 9, 6520, 3864, 1073, 835, 9, 3061, 4, 32070, 4, 4573, 260, 1352, 2307, 62, 11, 2941, 1728, 2420, 6, 188, 3123, 6, 147, 37, 2922, 2941, 1728, 2420, 755, 835, 6, 15128, 11, 11151, 4, 832, 985, 21, 10, 10638, 3254, 8, 39, 1150, 10, 27321, 4, 91, 21, 10, 6585, 1441, 9, 499, 2613, 704, 6226, 3848, 4, 4573, 260, 1352, 2922, 5, 589, 9, 4367, 6, 147, 37, 22878, 3995, 11, 1743, 4675, 4, 91, 16, 65, 9, 129, 292, 5953, 16132, 7, 310, 11, 5454, 815, 10243, 187, 28270, 6, 8, 5, 78, 1704, 12, 4310, 19647, 815, 5318, 7, 310, 11, 5, 11466, 4, 96, 4525, 6, 37, 702, 25161, 1035, 3403, 19, 5, 24539, 1908, 12635, 15035, 9, 5, 6268, 22912, 10243, 815, 6, 8, 829, 5, 1267, 18, 2548, 8190, 1698, 15556, 2354, 4, 91, 16, 41, 20137, 24537, 10207, 36, 20999, 6608, 30295, 804, 177, 43, 869, 552, 19, 320, 8351, 24822, 1811, 7491, 4, 646, 3388, 510, 742, 1437, 988, 1699, 22, 45743, 1409, 113, 17974, 1943, 27534, 36, 5400, 644, 504, 6, 15002, 43, 16, 41, 470, 320, 5454, 815, 10243, 14078, 4, 91, 21622, 8, 4021, 235, 12, 9267, 4, 96, 10, 501, 12, 180, 756, 6, 17974, 1943, 27534, 702, 13, 5, 3378, 14890, 36, 2383, 43, 8, 5, 1287, 1422, 7002, 48989, 91, 11603, 10, 756, 8032, 674, 9, 479, 30930, 6, 19, 3982, 184, 1237, 8, 33253, 1237, 21622, 11, 4, 1590, 39, 756, 37, 351, 5, 2610, 4573, 7067, 3683, 6, 8, 21, 2330, 41, 404, 2141, 4, 832, 6193, 191, 21509, 2965, 6, 1105, 184, 1237, 6, 8971, 4515, 29, 6, 2610, 4573, 7067, 3683, 43, 21, 10522, 5, 275, 655, 9, 143, 14890, 14078, 6, 8, 17974, 1943, 27534, 2037, 55, 426, 11, 39, 756, 87, 143, 97, 14890, 14078, 36, 134, 6, 25488, 322, 832, 756, 24621, 184, 1237, 23, 14078, 58, 5, 144, 11, 165, 750, 4, 17974, 1943, 27534, 56, 10, 479, 23417, 8032, 674, 6, 10, 479, 35155, 15, 12, 11070, 3164, 6, 8, 479, 32380, 17744, 3923, 3164, 7370, 136, 314, 12, 9267, 9218, 4, 17974, 1943, 27534, 21, 14663, 196, 88, 5, 3378, 10243, 2298, 9, 7392, 15, 830, 158, 6, 1125, 4, 8451, 301, 4, 17974, 1943, 27534, 21, 2421, 11, 4573, 19725, 6, 886, 6, 8, 16, 4586, 4, 832, 1150, 16, 8093, 17974, 1943, 27534, 6, 54, 21, 10, 5454, 815, 10243, 24056, 13, 5, 2921, 5098, 8, 764, 2659, 4608, 36, 31636, 643, 6, 37, 1419, 29757, 7916, 30779, 322, 6278, 1824, 6, 17974, 1943, 27534, 56, 478, 5, 195, 212, 12, 7877, 756, 184, 1237, 9, 143, 4586, 538, 1267, 3403, 869, 6, 639, 22216, 30087, 6, 11325, 1628, 6, 13417, 5613, 6, 8, 726, 11998, 6, 8, 21, 262, 212, 15, 5, 70, 12, 958, 889, 11, 2323, 36, 32424, 5613, 43, 8, 4515, 29, 36, 32424, 11998, 322, 17974, 1943, 27534, 18, 1150, 16, 4586, 6, 8, 37, 16, 1687, 4586, 30, 12287, 34345, 6, 8, 16, 67, 3147, 25, 215, 30, 5, 470, 4586, 14549, 3930, 8, 643, 4, 20, 220, 4586, 869, 13, 5, 14890, 21, 988, 14376, 15677, 6, 54, 13658, 11, 1466, 4, 520, 24, 21, 3273, 66, 7, 17974, 1943, 27534, 14, 37, 6, 4770, 16675, 13792, 6, 8, 10716, 1063, 9578, 6, 58, 70, 4758, 7873, 6, 8, 14, 4586, 1159, 58, 802, 7, 28, 18369, 87, 7, 2087, 1235, 7, 5, 10727, 994, 9, 14, 737, 6, 37, 2334, 19, 10, 6675, 35, 22, 170, 32, 2793, 4, 370, 218, 75, 33, 7, 478, 7, 2916, 4, 166, 218, 75, 33, 7, 478, 843, 12141, 4, 166, 218, 75, 33, 7, 422, 4, 166, 218, 75, 33, 7, 8052, 7531, 4, 404, 47, 33, 7, 109, 16, 2916, 6, 8, 47, 581, 28, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [0, 47214, 35, 2276, 2156, 14890, 5323, 2344, 8914, 2156, 54, 1381, 7, 146, 10, 432, 53, 115, 295, 75, 465, 10, 914, 37, 6640, 2156, 16, 546, 251, 12, 1279, 8, 2053, 9, 1319, 7, 3318, 62, 5, 5918, 38531, 9, 10, 165, 14, 115, 28, 10, 1924, 13, 103, 86, 7, 283, 4832, 371, 10895, 1699, 248, 22370, 2156, 235, 16297, 9014, 2060, 241, 257, 2156, 14078, 1483, 17974, 1943, 27534, 2156, 8, 1312, 16297, 6289, 4573, 260, 1352, 479, 646, 3388, 510, 742, 2276, 2156, 14890, 5323, 2344, 8914, 2156, 54, 1381, 7, 146, 10, 432, 53, 115, 295, 75, 465, 10, 914, 37, 6640, 2156, 16, 546, 251, 12, 1279, 8, 2053, 9, 1319, 7, 3318, 62, 5, 5918, 38531, 9, 10, 165, 2]}.
+Running tokenizer on validation dataset #0:   0%|          | 0/2 [00:00<?, ?ba/s]
+Running tokenizer on validation dataset #1:   0%|          | 0/2 [00:00<?, ?ba/s][A
+Running tokenizer on validation dataset #1:  50%|█████     | 1/2 [00:21<00:21, 21.10s/ba][ARunning tokenizer on validation dataset #0:  50%|█████     | 1/2 [00:21<00:21, 21.49s/ba]
+Running tokenizer on validation dataset #1: 100%|██████████| 2/2 [00:36<00:00, 17.90s/ba][ARunning tokenizer on validation dataset #1: 100%|██████████| 2/2 [00:36<00:00, 18.38s/ba]Running tokenizer on validation dataset #0: 100%|██████████| 2/2 [00:37<00:00, 18.17s/ba]Running tokenizer on validation dataset #0: 100%|██████████| 2/2 [00:37<00:00, 18.67s/ba]
+Running tokenizer on prediction dataset #0:   0%|          | 0/2 [00:00<?, ?ba/s]
+Running tokenizer on prediction dataset #1:   0%|          | 0/2 [00:00<?, ?ba/s][ARunning tokenizer on prediction dataset #0:  50%|█████     | 1/2 [00:21<00:21, 21.01s/ba]
+Running tokenizer on prediction dataset #1:  50%|█████     | 1/2 [00:21<00:21, 21.17s/ba][A
