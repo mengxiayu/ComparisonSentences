@@ -17,6 +17,10 @@ stop -= set(['he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'hers
 
 """
 Match comparable statement pairs from news and generate "Qx_matched.json" file
+requirements:
+- linked data
+- news data
+- alias table
 """
 
 
@@ -69,8 +73,8 @@ def _load_qid2aliases(dir_entity_aliases):
 def get_entity_by_etype(target_etype):
     entity_list = []
     entity2type_data = pickle.load(open("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_analysis/entity_rels/entity2type_textdata.pkl", 'rb'))
-    for e,t in entity2type_data.items():
-        if t == target_etype:
+    for e, types in entity2type_data.items():
+        if target_etype in types:
             entity_list.append(e)
     return set(entity_list)
 
@@ -138,7 +142,7 @@ def match_sentence_eav(sentence: str, tokenized_sentence: list, alias: tuple):
         for p in p_text:
             for v in v_text:
                 if (q != p) and (q != v) and (p != v) and (v not in q) and (q not in stop) and (v not in stop):
-                    return q, p, v     
+                    return q, p, v  # triple text
     return None
 
 
@@ -179,8 +183,9 @@ print("pid2datatype loaded. size:", len(pid2datatype))
 
 
 
-def get_occurrence(target_etype):
-    dir_output = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news_v1")
+def get_occurrence(target_etype, dir_output):
+    dir_output = Path(dir_output)
+    print(dir_output)
     dir_output.mkdir(parents=True, exist_ok=True)
     path_news = Path("/afs/crc.nd.edu/group/dmsquare/vol1/data/EngGigV5/corpus/data_enggigv5.txt")
     num_lines_news = 9870506
@@ -283,6 +288,21 @@ def get_occurrence(target_etype):
                 for p in common_properties:
                     s1 = matched_qid2pid2triples[e1][p]
                     s2 = matched_qid2pid2triples[e2][p]
+                    surface_e1 = set([triple[0] for triple in evidence[1] for evidence in s1])
+                    surface_e2 = set([triple[0] for triple in evidence[1] for evidence in s2])
+                    flag_keep = False # 
+                    for _sf1 in surface_e1:
+                        if flag_keep:
+                            break
+                        for _sf2 in surface_e2:
+                            if flag_keep:
+                                break
+                            if _sf1 not in _sf1 and _sf2 not in _sf1:
+                                flag_keep = True # v3: To avoid false positive, if both surfaces are not substrings of the other, then we can safely keep it.
+                    if not flag_keep:
+                        continue
+                                
+
                     matched_statement = {
                         "entity_pair": (e1, e2),
                         "property": p,
@@ -297,13 +317,14 @@ def get_occurrence(target_etype):
 def get_arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--target_etype', type=str, default=None, help='etype')
+    parser.add_argument('--dir_output', type=str, default="/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news_v1")
 
     return parser
 
 if __name__ == "__main__":
     args = get_arg_parser().parse_args()
     print(args)
-    get_occurrence(args.target_etype)
+    get_occurrence(args.target_etype, args.dir_output)
 
                     
                     
