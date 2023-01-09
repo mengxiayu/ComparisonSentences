@@ -97,9 +97,13 @@ class DataLoader:
             print("sampled 50%", len(negative_pairs))
 
         # Negative type two: with frequently compared properties.
+        _cnt = 0
         while len(negative_pairs) < num_sample:
             # sample 
+            if _cnt > len(statement_pool)*len(statement_pool) / 2:
+                break
             _s1, _s2 = random.sample(statement_pool, 2)
+            _cnt += 1
             e1, p1, v1 = _s1
             e2, p2, v2 = _s2
 
@@ -354,7 +358,7 @@ class DataLoader:
             etype2positive_pairs_freq[etype] = self.load_positive_pairs(path_matched)
         print("loaded positive pairs for types", len(etype2positive_pairs_freq))
         global_positive_pairs, global_negative_pairs, etype2size = self.create_training_data(etype2positive_pairs_freq, num_positive, sampling_method)
-
+        print("positive_pairs", len(global_negative_pairs), len(global_negative_pairs))
         # write training data
         self.write_data(global_positive_pairs, global_negative_pairs, dir_output, num_positive, fname_output)
         print("positive", len(global_positive_pairs), "negative", len(global_negative_pairs), "data points written!")
@@ -371,6 +375,7 @@ class DataLoader:
             print(len(positive_pairs))
             f.write(json.dumps(list(positive_pairs)))
         print("positive pairs written!")
+
 
 
 
