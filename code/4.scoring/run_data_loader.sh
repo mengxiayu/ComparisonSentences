@@ -1,0 +1,1 @@
+python data_loader.py --target_etype Q5 --file_output data.tsv --num_positive 5000 --sampling_method random
