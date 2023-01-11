@@ -9,7 +9,7 @@ import pandas as pd
 from collections import Counter
 from statistics import mean
 import argparse
-
+from itertools import combinations, product
 
 """
 construct dataset (item, features, labels) for statment pair scoring.
@@ -377,7 +377,99 @@ class DataLoader:
         print("positive pairs written!")
 
 
+    def load_inference_data(self, dir_linked, dir_output):
+        # 1. load entities and linked statements of a same etype, and then generate pairs. and then get features.
+        entity2type_data = pickle.load(open("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_analysis/entity_rels/entity2type_textdata.pkl", 'rb'))
+        print("# entity2type_data", len(entity2type_data))
+        etype2entities = {}
+        for e, types in entity2type_data.items():
+            for etype in types:
+                if etype not in etype2entities:
+                    etype2entities[etype] = set()
+                etype2entities[etype].add(etype)
+        print("# etype", len(etype2entities))
 
+        def load_linked_triples(dir_linked):
+            entity2triples = {} # linked triples
+            cnt_triples = 0
+            for split in ["AA", "AB"]:
+                for batch_file in (dir_linked / split).glob("wiki_"):
+                    with open(batch_file) as f:
+                        for line in f:
+                            obj = json.loads(line)
+                            qid = obj["qid"]
+                            if qid in entity2triples:
+                                continue
+                            entity2triples[qid] = set()
+                            for s_type in ["linked_entity_rels", "linked_entity_values"]:
+                                for _sent in obj[s_type]:
+                                    for _triple in _sent[2]:
+                                        _, pid, vid = _triple[0]
+                                        entity2triples[qid].add((pid, vid))
+                                        cnt_triples += 1
+            print("# linked triples", cnt_triples)
+            print("# linked entities", len(entity2triples))
+            return entity2triples
+        entity2triples = load_linked_triples(dir_linked) # linked triples
+        
+        # 2. filter by etype, and make pairs
+        def _build_entity_profile_linked(triples):
+            # property to values set
+            profile = {}
+            for p,v in triples:
+                if p not in profile:
+                    profile[p] = set()
+                profile[p].add(v)
+            return profile
+        cnt = 0
+        batch = 0
+        dir_output.mkdir(exists_ok=True, parents=True)
+        fw = open(dir_output / f"pairs_{batch}.json")
+        print("batch", batch)
+        for etype, entities in etype2entities.items():
+            for e1, e2 in combinations(entities, 2): # entity pairs
+                triples_e1 = entity2triples[e1]
+                triples_e2 = entity2triples[e2]
+
+                profile_e1 = _build_entity_profile_linked(triples_e1)
+                profile_e2 = _build_entity_profile_linked(triples_e2)
+                
+                common_props = set(profile_e1.keys()) & set(profile_e2.keys())
+                # if no property overlap, then skip
+                if not common_props :
+                    continue
+                for p in common_props:
+                    for v1, v2 in product(profile_e1[p], profile_e2[p]):
+                        pair = (e1, e2, p, v1, v2)
+                        pair_id = cnt
+                        output = f"{pair_id}\t{etype}\t{pair}"
+                        fw.write(output + '\n')
+                        cnt += 1
+                        if cnt > 100000:
+                            fw.close()
+                            cnt = 0
+                            batch += 1
+                            print("batch", batch)
+                            fw = open(dir_output / f"pairs_{batch}.json")
+
+                            
+                        
+
+        
+
+
+            
+
+
+        
+
+        
+
+                        
+                        
+
+                        
+        return
 
 def get_arg_parser():
     parser = argparse.ArgumentParser()
@@ -385,6 +477,7 @@ def get_arg_parser():
     parser.add_argument('--file_output', type=str, default=None, help='output file name')
     parser.add_argument('--num_positive', type=int, default=None, help='number of positive examples')
     parser.add_argument('--sampling_method', type=str, default=None, help='random or hard_negative')
+    parser.add_argument('--dir_linked', type=str, default='/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/linked_v1/combined', help='data of linked Wikipedia and Wikidata')
 
     return parser
 
