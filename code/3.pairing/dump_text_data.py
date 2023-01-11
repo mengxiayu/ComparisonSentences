@@ -3,6 +3,13 @@ from pathlib import Path
 import pickle
 from collections import Counter
 
+'''
+output: text_data orgainized by etype, only linked entities are kept
+text_data: contains full wikipedia text and all statements of an entity
+
+'''
+
+
 entity2type_data = pickle.load(open("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_analysis/entity_rels/entity2type_textdata.pkl", 'rb'))
 print("entity2type_data", len(entity2type_data))
 
