@@ -21,6 +21,11 @@ requirements:
 - linked data
 - news data
 - alias table
+
+criteria:
+- q cannot be substring of v
+- no stop words
+- q1 cannot be substring of q2
 """
 
 
@@ -184,6 +189,8 @@ print("pid2datatype loaded. size:", len(pid2datatype))
 
 
 def get_occurrence(target_etype, dir_output):
+    assert target_etype is not None
+    print(target_etype)
     dir_output = Path(dir_output)
     print(dir_output)
     dir_output.mkdir(parents=True, exist_ok=True)
@@ -202,6 +209,7 @@ def get_occurrence(target_etype, dir_output):
     print("pid2alias loaded. size:", len(pid2alias))
     
     # load qid2alias
+    print("loading qid2alias ...")
     dir_entity_aliases = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_processed/aliases_sorted")
     qid2alias = _load_qid2aliases(dir_entity_aliases)
     print("qid2alias loaded. size:", len(qid2alias))
@@ -246,7 +254,7 @@ def get_occurrence(target_etype, dir_output):
     with open (path_news) as f, open(dir_output / f"{target_etype}_matched.json", 'w') as fw:
         # for line in tqdm(f, total=num_lines_news):
         for linenum,line in enumerate(f):
-            if linenum % 10000 == 0:
+            if linenum % 100000 == 0:
                 print(linenum)
             line = line.split('\t')[-1]
             matched_labels = set() # record all matched entities
@@ -288,8 +296,10 @@ def get_occurrence(target_etype, dir_output):
                 for p in common_properties:
                     s1 = matched_qid2pid2triples[e1][p]
                     s2 = matched_qid2pid2triples[e2][p]
-                    surface_e1 = set([triple[0] for triple in evidence[1] for evidence in s1])
-                    surface_e2 = set([triple[0] for triple in evidence[1] for evidence in s2])
+                    
+                    surface_e1 = set([evidence[1][0] for evidence in s1])
+                    surface_e2 = set([evidence[1][0] for evidence in s2])
+                    
                     flag_keep = False # 
                     for _sf1 in surface_e1:
                         if flag_keep:
@@ -297,11 +307,12 @@ def get_occurrence(target_etype, dir_output):
                         for _sf2 in surface_e2:
                             if flag_keep:
                                 break
-                            if _sf1 not in _sf1 and _sf2 not in _sf1:
+                            if _sf1 not in _sf2 and _sf2 not in _sf1:
                                 flag_keep = True # v3: To avoid false positive, if both surfaces are not substrings of the other, then we can safely keep it.
+                    # print (flag_keep, surface_e1, surface_e2)
                     if not flag_keep:
                         continue
-                                
+                    
 
                     matched_statement = {
                         "entity_pair": (e1, e2),
@@ -324,7 +335,17 @@ def get_arg_parser():
 if __name__ == "__main__":
     args = get_arg_parser().parse_args()
     print(args)
-    get_occurrence(args.target_etype, args.dir_output)
+    # get_occurrence(args.target_etype, args.dir_output)
+
+    etypes = []
+    with open("etype_list_1230.txt") as f:
+        for line in f:
+            etype, freq = line.strip().split()
+            etypes.append(etype)
+    print("types", len(etypes))
+    for etype in etypes:
+        get_occurrence(etype, args.dir_output)
+
 
                     
                     

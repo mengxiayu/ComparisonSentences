@@ -16,7 +16,7 @@ print("target etype", target_etype)
 dir_data = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data_by_type/text_data_{target_etype}")
 dir_linked = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/linked_v1/combined")
 path_matched = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/wiki/{target_etype}_matched.json")
-dir_output = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/sentence_scoring/v2/{target_etype}/")
+dir_output = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/sentence_scoring/wiki/{target_etype}/")
 dir_output.mkdir(parents=True, exist_ok=True)
 properties_to_remove = ["P735", "P31"] # human-defined unwanted properties
 

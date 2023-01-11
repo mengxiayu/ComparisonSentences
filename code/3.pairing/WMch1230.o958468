@@ -1,0 +1,1905 @@
+pid2datatype loaded. size: 9516
+pid2datatype loaded. size: 9516
+pid2alias loaded. size: 9516
+qid2alias loaded. size: 81878516
+Namespace(dir_etype='/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data_by_type', dir_output='/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/wiki_v1', target_etype=None)
+types 633
+entity set etype size: 479
+entity2label size 391
+0
+entity set etype size: 417
+entity2label size 391
+0
+entity set etype size: 398
+entity2label size 391
+0
+entity set etype size: 426
+entity2label size 390
+0
+entity set etype size: 390
+entity2label size 390
+0
+entity set etype size: 438
+entity2label size 389
+0
+entity set etype size: 389
+entity2label size 389
+0
+entity set etype size: 440
+entity2label size 389
+0
+entity set etype size: 414
+entity2label size 389
+0
+entity set etype size: 457
+entity2label size 388
+0
+entity set etype size: 416
+entity2label size 388
+0
+entity set etype size: 411
+entity2label size 387
+0
+entity set etype size: 408
+entity2label size 387
+0
+entity set etype size: 398
+entity2label size 387
+0
+entity set etype size: 415
+entity2label size 386
+0
+entity set etype size: 525
+entity2label size 385
+0
+entity set etype size: 386
+entity2label size 384
+0
+entity set etype size: 567
+entity2label size 384
+0
+entity set etype size: 1935
+entity2label size 384
+0
+entity set etype size: 407
+entity2label size 383
+0
+entity set etype size: 392
+entity2label size 383
+0
+entity set etype size: 391
+entity2label size 382
+0
+entity set etype size: 417
+entity2label size 382
+0
+entity set etype size: 526
+entity2label size 382
+0
+entity set etype size: 1049
+entity2label size 382
+0
+entity set etype size: 420
+entity2label size 381
+0
+entity set etype size: 390
+entity2label size 381
+0
+entity set etype size: 419
+entity2label size 380
+0
+entity set etype size: 403
+entity2label size 380
+0
+entity set etype size: 396
+entity2label size 379
+0
+entity set etype size: 559
+entity2label size 378
+0
+entity set etype size: 467
+entity2label size 377
+0
+entity set etype size: 544
+entity2label size 377
+0
+entity set etype size: 376
+entity2label size 374
+0
+entity set etype size: 384
+entity2label size 374
+0
+entity set etype size: 439
+entity2label size 373
+0
+entity set etype size: 453
+entity2label size 373
+0
+entity set etype size: 400
+entity2label size 372
+0
+entity set etype size: 369
+entity2label size 369
+0
+entity set etype size: 370
+entity2label size 369
+0
+entity set etype size: 378
+entity2label size 368
+0
+entity set etype size: 390
+entity2label size 367
+0
+entity set etype size: 389
+entity2label size 366
+0
+entity set etype size: 369
+entity2label size 366
+0
+entity set etype size: 387
+entity2label size 366
+0
+entity set etype size: 467
+entity2label size 365
+0
+entity set etype size: 372
+entity2label size 365
+0
+entity set etype size: 524
+entity2label size 365
+0
+entity set etype size: 394
+entity2label size 365
+0
+entity set etype size: 366
+entity2label size 364
+0
+entity set etype size: 386
+entity2label size 364
+0
+entity set etype size: 365
+entity2label size 364
+0
+entity set etype size: 372
+entity2label size 363
+0
+entity set etype size: 379
+entity2label size 363
+0
+entity set etype size: 384
+entity2label size 363
+0
+entity set etype size: 426
+entity2label size 363
+0
+entity set etype size: 365
+entity2label size 363
+0
+entity set etype size: 363
+entity2label size 362
+0
+entity set etype size: 411
+entity2label size 360
+0
+entity set etype size: 360
+entity2label size 360
+0
+entity set etype size: 376
+entity2label size 359
+0
+entity set etype size: 363
+entity2label size 359
+0
+entity set etype size: 376
+entity2label size 359
+0
+entity set etype size: 362
+entity2label size 358
+0
+entity set etype size: 374
+entity2label size 358
+0
+entity set etype size: 380
+entity2label size 357
+0
+entity set etype size: 376
+entity2label size 356
+0
+entity set etype size: 380
+entity2label size 355
+0
+entity set etype size: 356
+entity2label size 354
+0
+entity set etype size: 453
+entity2label size 353
+0
+entity set etype size: 354
+entity2label size 353
+0
+entity set etype size: 358
+entity2label size 352
+0
+entity set etype size: 364
+entity2label size 351
+0
+entity set etype size: 351
+entity2label size 351
+0
+entity set etype size: 351
+entity2label size 351
+0
+entity set etype size: 392
+entity2label size 350
+0
+entity set etype size: 351
+entity2label size 350
+0
+entity set etype size: 460
+entity2label size 349
+0
+entity set etype size: 375
+entity2label size 349
+0
+entity set etype size: 362
+entity2label size 349
+0
+entity set etype size: 356
+entity2label size 348
+0
+entity set etype size: 348
+entity2label size 348
+0
+entity set etype size: 386
+entity2label size 348
+0
+entity set etype size: 347
+entity2label size 347
+0
+entity set etype size: 380
+entity2label size 346
+0
+entity set etype size: 374
+entity2label size 346
+0
+entity set etype size: 729
+entity2label size 346
+0
+entity set etype size: 371
+entity2label size 345
+0
+entity set etype size: 371
+entity2label size 345
+0
+entity set etype size: 350
+entity2label size 344
+0
+entity set etype size: 362
+entity2label size 344
+0
+entity set etype size: 345
+entity2label size 344
+0
+entity set etype size: 351
+entity2label size 342
+0
+entity set etype size: 342
+entity2label size 342
+0
+entity set etype size: 471
+entity2label size 340
+0
+entity set etype size: 343
+entity2label size 340
+0
+entity set etype size: 372
+entity2label size 340
+0
+entity set etype size: 562
+entity2label size 339
+0
+entity set etype size: 405
+entity2label size 338
+0
+entity set etype size: 401
+entity2label size 337
+0
+entity set etype size: 353
+entity2label size 336
+0
+entity set etype size: 352
+entity2label size 336
+0
+entity set etype size: 364
+entity2label size 333
+0
+entity set etype size: 345
+entity2label size 331
+0
+entity set etype size: 341
+entity2label size 331
+0
+entity set etype size: 344
+entity2label size 330
+0
+entity set etype size: 334
+entity2label size 330
+0
+entity set etype size: 355
+entity2label size 330
+0
+entity set etype size: 526
+entity2label size 330
+0
+entity set etype size: 335
+entity2label size 328
+0
+entity set etype size: 345
+entity2label size 328
+0
+entity set etype size: 559
+entity2label size 328
+0
+entity set etype size: 433
+entity2label size 325
+0
+entity set etype size: 332
+entity2label size 324
+0
+entity set etype size: 331
+entity2label size 324
+0
+entity set etype size: 511
+entity2label size 322
+0
+entity set etype size: 339
+entity2label size 322
+0
+entity set etype size: 398
+entity2label size 321
+0
+entity set etype size: 443
+entity2label size 321
+0
+entity set etype size: 331
+entity2label size 321
+0
+entity set etype size: 325
+entity2label size 320
+0
+entity set etype size: 393
+entity2label size 319
+0
+entity set etype size: 340
+entity2label size 319
+0
+entity set etype size: 362
+entity2label size 319
+0
+entity set etype size: 377
+entity2label size 317
+0
+entity set etype size: 356
+entity2label size 317
+0
+entity set etype size: 709
+entity2label size 317
+0
+entity set etype size: 461
+entity2label size 316
+0
+entity set etype size: 331
+entity2label size 316
+0
+entity set etype size: 319
+entity2label size 316
+0
+entity set etype size: 319
+entity2label size 315
+0
+entity set etype size: 315
+entity2label size 315
+0
+entity set etype size: 314
+entity2label size 314
+0
+entity set etype size: 423
+entity2label size 313
+0
+entity set etype size: 361
+entity2label size 313
+0
+entity set etype size: 380
+entity2label size 313
+0
+entity set etype size: 332
+entity2label size 313
+0
+entity set etype size: 341
+entity2label size 313
+0
+entity set etype size: 344
+entity2label size 312
+0
+entity set etype size: 332
+entity2label size 312
+0
+entity set etype size: 386
+entity2label size 312
+0
+entity set etype size: 862
+entity2label size 312
+0
+entity set etype size: 360
+entity2label size 311
+0
+entity set etype size: 326
+entity2label size 311
+0
+entity set etype size: 343
+entity2label size 311
+0
+entity set etype size: 424
+entity2label size 310
+0
+entity set etype size: 337
+entity2label size 310
+0
+entity set etype size: 309
+entity2label size 309
+0
+entity set etype size: 310
+entity2label size 309
+0
+entity set etype size: 310
+entity2label size 309
+0
+entity set etype size: 328
+entity2label size 309
+0
+entity set etype size: 315
+entity2label size 309
+0
+entity set etype size: 342
+entity2label size 308
+0
+entity set etype size: 337
+entity2label size 307
+0
+entity set etype size: 310
+entity2label size 307
+0
+entity set etype size: 466
+entity2label size 306
+0
+entity set etype size: 311
+entity2label size 306
+0
+entity set etype size: 360
+entity2label size 306
+0
+entity set etype size: 324
+entity2label size 305
+0
+entity set etype size: 308
+entity2label size 304
+0
+entity set etype size: 337
+entity2label size 304
+0
+entity set etype size: 323
+entity2label size 304
+0
+entity set etype size: 563
+entity2label size 303
+0
+entity set etype size: 408
+entity2label size 303
+0
+entity set etype size: 329
+entity2label size 301
+0
+entity set etype size: 301
+entity2label size 301
+0
+entity set etype size: 331
+entity2label size 299
+0
+entity set etype size: 308
+entity2label size 299
+0
+entity set etype size: 404
+entity2label size 298
+0
+entity set etype size: 335
+entity2label size 298
+0
+entity set etype size: 317
+entity2label size 298
+0
+entity set etype size: 308
+entity2label size 298
+0
+entity set etype size: 369
+entity2label size 298
+0
+entity set etype size: 321
+entity2label size 298
+0
+entity set etype size: 302
+entity2label size 298
+0
+entity set etype size: 337
+entity2label size 298
+0
+entity set etype size: 304
+entity2label size 298
+0
+entity set etype size: 462
+entity2label size 297
+0
+entity set etype size: 324
+entity2label size 297
+0
+entity set etype size: 350
+entity2label size 297
+0
+entity set etype size: 389
+entity2label size 297
+0
+entity set etype size: 298
+entity2label size 297
+0
+entity set etype size: 306
+entity2label size 296
+0
+entity set etype size: 295
+entity2label size 295
+0
+entity set etype size: 376
+entity2label size 295
+0
+entity set etype size: 298
+entity2label size 295
+0
+entity set etype size: 332
+entity2label size 295
+0
+entity set etype size: 294
+entity2label size 294
+0
+entity set etype size: 295
+entity2label size 293
+0
+entity set etype size: 319
+entity2label size 293
+0
+entity set etype size: 298
+entity2label size 293
+0
+entity set etype size: 366
+entity2label size 292
+0
+entity set etype size: 327
+entity2label size 292
+0
+entity set etype size: 323
+entity2label size 291
+0
+entity set etype size: 313
+entity2label size 291
+0
+entity set etype size: 321
+entity2label size 291
+0
+entity set etype size: 303
+entity2label size 291
+0
+entity set etype size: 290
+entity2label size 290
+0
+entity set etype size: 317
+entity2label size 290
+0
+entity set etype size: 367
+entity2label size 290
+0
+entity set etype size: 295
+entity2label size 290
+0
+entity set etype size: 299
+entity2label size 290
+0
+entity set etype size: 339
+entity2label size 289
+0
+entity set etype size: 291
+entity2label size 289
+0
+entity set etype size: 377
+entity2label size 289
+0
+entity set etype size: 337
+entity2label size 287
+0
+entity set etype size: 509
+entity2label size 287
+0
+entity set etype size: 297
+entity2label size 286
+0
+entity set etype size: 290
+entity2label size 285
+0
+entity set etype size: 292
+entity2label size 284
+0
+entity set etype size: 287
+entity2label size 284
+0
+entity set etype size: 296
+entity2label size 284
+0
+entity set etype size: 299
+entity2label size 283
+0
+entity set etype size: 315
+entity2label size 283
+0
+entity set etype size: 293
+entity2label size 283
+0
+entity set etype size: 601
+entity2label size 283
+0
+entity set etype size: 472
+entity2label size 282
+0
+entity set etype size: 289
+entity2label size 282
+0
+entity set etype size: 371
+entity2label size 282
+0
+entity set etype size: 281
+entity2label size 281
+0
+entity set etype size: 307
+entity2label size 279
+0
+entity set etype size: 303
+entity2label size 279
+0
+entity set etype size: 287
+entity2label size 279
+0
+entity set etype size: 294
+entity2label size 279
+0
+entity set etype size: 292
+entity2label size 279
+0
+entity set etype size: 755
+entity2label size 278
+0
+entity set etype size: 294
+entity2label size 278
+0
+entity set etype size: 611
+entity2label size 277
+0
+entity set etype size: 322
+entity2label size 277
+0
+entity set etype size: 344
+entity2label size 276
+0
+entity set etype size: 293
+entity2label size 276
+0
+entity set etype size: 284
+entity2label size 276
+0
+entity set etype size: 277
+entity2label size 276
+0
+entity set etype size: 325
+entity2label size 275
+0
+entity set etype size: 289
+entity2label size 275
+0
+entity set etype size: 281
+entity2label size 275
+0
+entity set etype size: 372
+entity2label size 275
+0
+entity set etype size: 282
+entity2label size 275
+0
+entity set etype size: 291
+entity2label size 275
+0
+entity set etype size: 277
+entity2label size 275
+0
+entity set etype size: 361
+entity2label size 275
+0
+entity set etype size: 276
+entity2label size 275
+0
+entity set etype size: 395
+entity2label size 275
+0
+entity set etype size: 280
+entity2label size 274
+0
+entity set etype size: 280
+entity2label size 274
+0
+entity set etype size: 323
+entity2label size 274
+0
+entity set etype size: 288
+entity2label size 274
+0
+entity set etype size: 288
+entity2label size 274
+0
+entity set etype size: 406
+entity2label size 272
+0
+entity set etype size: 352
+entity2label size 271
+0
+entity set etype size: 336
+entity2label size 271
+0
+entity set etype size: 282
+entity2label size 270
+0
+entity set etype size: 274
+entity2label size 269
+0
+entity set etype size: 282
+entity2label size 269
+0
+entity set etype size: 273
+entity2label size 269
+0
+entity set etype size: 294
+entity2label size 268
+0
+entity set etype size: 336
+entity2label size 267
+0
+entity set etype size: 282
+entity2label size 267
+0
+entity set etype size: 267
+entity2label size 267
+0
+entity set etype size: 338
+entity2label size 266
+0
+entity set etype size: 449
+entity2label size 266
+0
+entity set etype size: 266
+entity2label size 266
+0
+entity set etype size: 267
+entity2label size 266
+0
+entity set etype size: 314
+entity2label size 266
+0
+entity set etype size: 266
+entity2label size 266
+0
+entity set etype size: 364
+entity2label size 265
+0
+entity set etype size: 266
+entity2label size 265
+0
+entity set etype size: 275
+entity2label size 265
+0
+entity set etype size: 277
+entity2label size 264
+0
+entity set etype size: 269
+entity2label size 264
+0
+entity set etype size: 381
+entity2label size 264
+0
+entity set etype size: 274
+entity2label size 263
+0
+entity set etype size: 263
+entity2label size 263
+0
+entity set etype size: 269
+entity2label size 262
+0
+entity set etype size: 267
+entity2label size 261
+0
+entity set etype size: 295
+entity2label size 261
+0
+entity set etype size: 266
+entity2label size 261
+0
+entity set etype size: 271
+entity2label size 260
+0
+entity set etype size: 263
+entity2label size 259
+0
+entity set etype size: 343
+entity2label size 259
+0
+entity set etype size: 266
+entity2label size 259
+0
+entity set etype size: 259
+entity2label size 259
+0
+entity set etype size: 416
+entity2label size 259
+0
+entity set etype size: 264
+entity2label size 258
+0
+entity set etype size: 296
+entity2label size 258
+0
+entity set etype size: 447
+entity2label size 258
+0
+entity set etype size: 311
+entity2label size 257
+0
+entity set etype size: 347
+entity2label size 257
+0
+entity set etype size: 281
+entity2label size 257
+0
+entity set etype size: 428
+entity2label size 257
+0
+entity set etype size: 264
+entity2label size 257
+0
+entity set etype size: 271
+entity2label size 256
+0
+entity set etype size: 297
+entity2label size 256
+0
+entity set etype size: 267
+entity2label size 256
+0
+entity set etype size: 328
+entity2label size 255
+0
+entity set etype size: 261
+entity2label size 255
+0
+entity set etype size: 295
+entity2label size 255
+0
+entity set etype size: 265
+entity2label size 254
+0
+entity set etype size: 263
+entity2label size 254
+0
+entity set etype size: 269
+entity2label size 253
+0
+entity set etype size: 255
+entity2label size 253
+0
+entity set etype size: 294
+entity2label size 252
+0
+entity set etype size: 274
+entity2label size 252
+0
+entity set etype size: 264
+entity2label size 252
+0
+entity set etype size: 315
+entity2label size 252
+0
+entity set etype size: 272
+entity2label size 252
+0
+entity set etype size: 260
+entity2label size 251
+0
+entity set etype size: 265
+entity2label size 251
+0
+entity set etype size: 267
+entity2label size 251
+0
+entity set etype size: 255
+entity2label size 249
+0
+entity set etype size: 276
+entity2label size 249
+0
+entity set etype size: 250
+entity2label size 248
+0
+entity set etype size: 250
+entity2label size 248
+0
+entity set etype size: 259
+entity2label size 248
+0
+entity set etype size: 256
+entity2label size 248
+0
+entity set etype size: 254
+entity2label size 247
+0
+entity set etype size: 250
+entity2label size 247
+0
+entity set etype size: 281
+entity2label size 247
+0
+entity set etype size: 292
+entity2label size 246
+0
+entity set etype size: 255
+entity2label size 246
+0
+entity set etype size: 246
+entity2label size 245
+0
+entity set etype size: 248
+entity2label size 245
+0
+entity set etype size: 256
+entity2label size 245
+0
+entity set etype size: 265
+entity2label size 245
+0
+entity set etype size: 249
+entity2label size 244
+0
+entity set etype size: 249
+entity2label size 244
+0
+entity set etype size: 379
+entity2label size 244
+0
+entity set etype size: 253
+entity2label size 244
+0
+entity set etype size: 246
+entity2label size 244
+0
+entity set etype size: 252
+entity2label size 243
+0
+entity set etype size: 258
+entity2label size 243
+0
+entity set etype size: 410
+entity2label size 243
+0
+entity set etype size: 243
+entity2label size 243
+0
+entity set etype size: 244
+entity2label size 243
+0
+entity set etype size: 250
+entity2label size 243
+0
+entity set etype size: 254
+entity2label size 243
+0
+entity set etype size: 243
+entity2label size 243
+0
+entity set etype size: 242
+entity2label size 242
+0
+entity set etype size: 245
+entity2label size 242
+0
+entity set etype size: 256
+entity2label size 242
+0
+entity set etype size: 250
+entity2label size 242
+0
+entity set etype size: 242
+entity2label size 242
+0
+entity set etype size: 257
+entity2label size 241
+0
+entity set etype size: 251
+entity2label size 241
+0
+entity set etype size: 262
+entity2label size 241
+0
+entity set etype size: 255
+entity2label size 241
+0
+entity set etype size: 255
+entity2label size 241
+0
+entity set etype size: 240
+entity2label size 240
+0
+entity set etype size: 273
+entity2label size 240
+0
+entity set etype size: 247
+entity2label size 240
+0
+entity set etype size: 251
+entity2label size 240
+0
+entity set etype size: 249
+entity2label size 240
+0
+entity set etype size: 250
+entity2label size 240
+0
+entity set etype size: 248
+entity2label size 239
+0
+entity set etype size: 604
+entity2label size 239
+0
+entity set etype size: 250
+entity2label size 238
+0
+entity set etype size: 239
+entity2label size 238
+0
+entity set etype size: 252
+entity2label size 238
+0
+entity set etype size: 248
+entity2label size 238
+0
+entity set etype size: 242
+entity2label size 237
+0
+entity set etype size: 247
+entity2label size 237
+0
+entity set etype size: 264
+entity2label size 236
+0
+entity set etype size: 237
+entity2label size 236
+0
+entity set etype size: 236
+entity2label size 236
+0
+entity set etype size: 269
+entity2label size 235
+0
+entity set etype size: 343
+entity2label size 234
+0
+entity set etype size: 313
+entity2label size 234
+0
+entity set etype size: 239
+entity2label size 234
+0
+entity set etype size: 302
+entity2label size 233
+0
+entity set etype size: 321
+entity2label size 233
+0
+entity set etype size: 271
+entity2label size 233
+0
+entity set etype size: 233
+entity2label size 232
+0
+entity set etype size: 392
+entity2label size 232
+0
+entity set etype size: 260
+entity2label size 232
+0
+entity set etype size: 257
+entity2label size 231
+0
+entity set etype size: 306
+entity2label size 231
+0
+entity set etype size: 239
+entity2label size 231
+0
+entity set etype size: 231
+entity2label size 231
+0
+entity set etype size: 236
+entity2label size 231
+0
+entity set etype size: 253
+entity2label size 231
+0
+entity set etype size: 304
+entity2label size 230
+0
+entity set etype size: 244
+entity2label size 230
+0
+entity set etype size: 237
+entity2label size 230
+0
+entity set etype size: 237
+entity2label size 230
+0
+entity set etype size: 330
+entity2label size 229
+0
+entity set etype size: 229
+entity2label size 229
+0
+entity set etype size: 250
+entity2label size 229
+0
+entity set etype size: 231
+entity2label size 229
+0
+entity set etype size: 245
+entity2label size 229
+0
+entity set etype size: 229
+entity2label size 229
+0
+entity set etype size: 325
+entity2label size 228
+0
+entity set etype size: 233
+entity2label size 228
+0
+entity set etype size: 248
+entity2label size 227
+0
+entity set etype size: 231
+entity2label size 227
+0
+entity set etype size: 234
+entity2label size 227
+0
+entity set etype size: 274
+entity2label size 227
+0
+entity set etype size: 226
+entity2label size 226
+0
+entity set etype size: 502
+entity2label size 226
+0
+entity set etype size: 225
+entity2label size 225
+0
+entity set etype size: 225
+entity2label size 224
+0
+entity set etype size: 352
+entity2label size 224
+0
+entity set etype size: 241
+entity2label size 223
+0
+entity set etype size: 241
+entity2label size 223
+0
+entity set etype size: 246
+entity2label size 223
+0
+entity set etype size: 229
+entity2label size 223
+0
+entity set etype size: 259
+entity2label size 222
+0
+entity set etype size: 257
+entity2label size 222
+0
+entity set etype size: 227
+entity2label size 222
+0
+entity set etype size: 225
+entity2label size 221
+0
+entity set etype size: 246
+entity2label size 221
+0
+entity set etype size: 237
+entity2label size 221
+0
+entity set etype size: 273
+entity2label size 221
+0
+entity set etype size: 235
+entity2label size 220
+0
+entity set etype size: 222
+entity2label size 220
+0
+entity set etype size: 243
+entity2label size 220
+0
+entity set etype size: 531
+entity2label size 219
+0
+entity set etype size: 228
+entity2label size 219
+0
+entity set etype size: 246
+entity2label size 218
+0
+entity set etype size: 236
+entity2label size 218
+0
+entity set etype size: 218
+entity2label size 218
+0
+entity set etype size: 261
+entity2label size 218
+0
+entity set etype size: 221
+entity2label size 218
+0
+entity set etype size: 284
+entity2label size 218
+0
+entity set etype size: 226
+entity2label size 218
+0
+entity set etype size: 242
+entity2label size 217
+0
+entity set etype size: 219
+entity2label size 217
+0
+entity set etype size: 217
+entity2label size 217
+0
+entity set etype size: 217
+entity2label size 217
+0
+entity set etype size: 245
+entity2label size 216
+0
+entity set etype size: 231
+entity2label size 216
+0
+entity set etype size: 219
+entity2label size 216
+0
+entity set etype size: 247
+entity2label size 216
+0
+entity set etype size: 220
+entity2label size 216
+0
+entity set etype size: 333
+entity2label size 216
+0
+entity set etype size: 255
+entity2label size 216
+0
+entity set etype size: 322
+entity2label size 215
+0
+entity set etype size: 216
+entity2label size 215
+0
+entity set etype size: 222
+entity2label size 214
+0
+entity set etype size: 214
+entity2label size 214
+0
+entity set etype size: 217
+entity2label size 214
+0
+entity set etype size: 259
+entity2label size 213
+0
+entity set etype size: 213
+entity2label size 213
+0
+entity set etype size: 226
+entity2label size 212
+0
+entity set etype size: 495
+entity2label size 212
+0
+entity set etype size: 450
+entity2label size 211
+0
+entity set etype size: 220
+entity2label size 211
+0
+entity set etype size: 229
+entity2label size 211
+0
+entity set etype size: 219
+entity2label size 211
+0
+entity set etype size: 223
+entity2label size 209
+0
+entity set etype size: 499
+entity2label size 209
+0
+entity set etype size: 214
+entity2label size 208
+0
+entity set etype size: 219
+entity2label size 208
+0
+entity set etype size: 426
+entity2label size 207
+0
+entity set etype size: 239
+entity2label size 207
+0
+entity set etype size: 363
+entity2label size 207
+0
+entity set etype size: 230
+entity2label size 207
+0
+entity set etype size: 220
+entity2label size 207
+0
+entity set etype size: 220
+entity2label size 207
+0
+entity set etype size: 211
+entity2label size 207
+0
+entity set etype size: 259
+entity2label size 207
+0
+entity set etype size: 229
+entity2label size 207
+0
+entity set etype size: 228
+entity2label size 206
+0
+entity set etype size: 450
+entity2label size 206
+0
+entity set etype size: 211
+entity2label size 206
+0
+entity set etype size: 238
+entity2label size 206
+0
+entity set etype size: 210
+entity2label size 206
+0
+entity set etype size: 226
+entity2label size 206
+0
+entity set etype size: 206
+entity2label size 205
+0
+entity set etype size: 205
+entity2label size 205
+0
+entity set etype size: 250
+entity2label size 205
+0
+entity set etype size: 206
+entity2label size 205
+0
+entity set etype size: 221
+entity2label size 205
+0
+entity set etype size: 250
+entity2label size 204
+0
+entity set etype size: 216
+entity2label size 204
+0
+entity set etype size: 206
+entity2label size 204
+0
+entity set etype size: 217
+entity2label size 204
+0
+entity set etype size: 221
+entity2label size 204
+0
+entity set etype size: 214
+entity2label size 204
+0
+entity set etype size: 211
+entity2label size 204
+0
+entity set etype size: 203
+entity2label size 203
+0
+entity set etype size: 253
+entity2label size 203
+0
+entity set etype size: 204
+entity2label size 203
+0
+entity set etype size: 213
+entity2label size 203
+0
+entity set etype size: 205
+entity2label size 203
+0
+entity set etype size: 241
+entity2label size 202
+0
+entity set etype size: 222
+entity2label size 202
+0
+entity set etype size: 225
+entity2label size 202
+0
+entity set etype size: 204
+entity2label size 202
+0
+entity set etype size: 215
+entity2label size 202
+0
+entity set etype size: 204
+entity2label size 202
+0
+entity set etype size: 307
+entity2label size 201
+0
+entity set etype size: 202
+entity2label size 200
+0
+entity set etype size: 214
+entity2label size 200
+0
+entity set etype size: 282
+entity2label size 199
+0
+entity set etype size: 199
+entity2label size 199
+0
+entity set etype size: 214
+entity2label size 199
+0
+entity set etype size: 199
+entity2label size 198
+0
+entity set etype size: 205
+entity2label size 198
+0
+entity set etype size: 218
+entity2label size 198
+0
+entity set etype size: 200
+entity2label size 198
+0
+entity set etype size: 207
+entity2label size 198
+0
+entity set etype size: 234
+entity2label size 198
+0
+entity set etype size: 208
+entity2label size 197
+0
+entity set etype size: 206
+entity2label size 197
+0
+entity set etype size: 199
+entity2label size 197
+0
+entity set etype size: 202
+entity2label size 197
+0
+entity set etype size: 199
+entity2label size 197
+0
+entity set etype size: 197
+entity2label size 197
+0
+entity set etype size: 211
+entity2label size 197
+0
+entity set etype size: 210
+entity2label size 196
+0
+entity set etype size: 197
+entity2label size 196
+0
+entity set etype size: 220
+entity2label size 196
+0
+entity set etype size: 209
+entity2label size 196
+0
+entity set etype size: 198
+entity2label size 195
+0
+entity set etype size: 293
+entity2label size 195
+0
+entity set etype size: 354
+entity2label size 195
+0
+entity set etype size: 248
+entity2label size 195
+0
+entity set etype size: 205
+entity2label size 194
+0
+entity set etype size: 215
+entity2label size 194
+0
+entity set etype size: 196
+entity2label size 194
+0
+entity set etype size: 209
+entity2label size 194
+0
+entity set etype size: 197
+entity2label size 194
+0
+entity set etype size: 214
+entity2label size 194
+0
+entity set etype size: 215
+entity2label size 194
+0
+entity set etype size: 213
+entity2label size 193
+0
+entity set etype size: 255
+entity2label size 193
+0
+entity set etype size: 208
+entity2label size 193
+0
+entity set etype size: 223
+entity2label size 192
+0
+entity set etype size: 208
+entity2label size 192
+0
+entity set etype size: 203
+entity2label size 192
+0
+entity set etype size: 198
+entity2label size 192
+0
+entity set etype size: 195
+entity2label size 192
+0
+entity set etype size: 247
+entity2label size 192
+0
+entity set etype size: 221
+entity2label size 192
+0
+entity set etype size: 195
+entity2label size 192
+0
+entity set etype size: 198
+entity2label size 191
+0
+entity set etype size: 198
+entity2label size 191
+0
+entity set etype size: 201
+entity2label size 191
+0
+entity set etype size: 201
+entity2label size 191
+0
+entity set etype size: 192
+entity2label size 191
+0
+entity set etype size: 190
+entity2label size 190
+0
+entity set etype size: 200
+entity2label size 190
+0
+entity set etype size: 206
+entity2label size 190
+0
+entity set etype size: 194
+entity2label size 189
+0
+entity set etype size: 224
+entity2label size 189
+0
+entity set etype size: 208
+entity2label size 189
+0
+entity set etype size: 208
+entity2label size 188
+0
+entity set etype size: 194
+entity2label size 188
+0
+entity set etype size: 203
+entity2label size 188
+0
+entity set etype size: 299
+entity2label size 187
+0
+entity set etype size: 221
+entity2label size 187
+0
+entity set etype size: 214
+entity2label size 187
+0
+entity set etype size: 198
+entity2label size 187
+0
+entity set etype size: 188
+entity2label size 187
+0
+entity set etype size: 206
+entity2label size 186
+0
+entity set etype size: 189
+entity2label size 186
+0
+entity set etype size: 192
+entity2label size 186
+0
+entity set etype size: 193
+entity2label size 186
+0
+entity set etype size: 387
+entity2label size 185
+0
+entity set etype size: 192
+entity2label size 185
+0
+entity set etype size: 194
+entity2label size 185
+0
+entity set etype size: 208
+entity2label size 185
+0
+entity set etype size: 185
+entity2label size 185
+0
+entity set etype size: 216
+entity2label size 185
+0
+entity set etype size: 188
+entity2label size 185
+0
+entity set etype size: 283
+entity2label size 184
+0
+entity set etype size: 242
+entity2label size 184
+0
+entity set etype size: 199
+entity2label size 184
+0
+entity set etype size: 210
+entity2label size 184
+0
+entity set etype size: 271
+entity2label size 184
+0
+entity set etype size: 186
+entity2label size 183
+0
+entity set etype size: 193
+entity2label size 183
+0
+entity set etype size: 188
+entity2label size 182
+0
+entity set etype size: 60660
+entity2label size 182
+0
+entity set etype size: 203
+entity2label size 182
+0
+entity set etype size: 182
+entity2label size 182
+0
+entity set etype size: 186
+entity2label size 181
+0
+entity set etype size: 240
+entity2label size 181
+0
+entity set etype size: 203
+entity2label size 181
+0
+entity set etype size: 213
+entity2label size 181
+0
+entity set etype size: 191
+entity2label size 181
+0
+entity set etype size: 200
+entity2label size 181
+0
+entity set etype size: 181
+entity2label size 181
+0
+entity set etype size: 192
+entity2label size 180
+0
+entity set etype size: 499
+entity2label size 180
+0
+entity set etype size: 220
+entity2label size 180
+0
+entity set etype size: 193
+entity2label size 180
+0
+entity set etype size: 213
+entity2label size 180
+0
+entity set etype size: 187
+entity2label size 180
+0
+entity set etype size: 181
+entity2label size 180
+0
+entity set etype size: 188
+entity2label size 180
+0
+entity set etype size: 188
+entity2label size 180
+0
+entity set etype size: 181
+entity2label size 180
+0
+entity set etype size: 183
+entity2label size 179
+0
+entity set etype size: 280
+entity2label size 179
+0
+entity set etype size: 234
+entity2label size 179
+0
+entity set etype size: 206
+entity2label size 178
+0
+entity set etype size: 334
+entity2label size 178
+0
+entity set etype size: 204
+entity2label size 178
+0
+entity set etype size: 219
+entity2label size 178
+0
+entity set etype size: 332
+entity2label size 177
+0
+entity set etype size: 180
+entity2label size 177
+0
+entity set etype size: 184
+entity2label size 177
+0
+entity set etype size: 181
+entity2label size 177
+0
+entity set etype size: 181
+entity2label size 177
+0
+entity set etype size: 186
+entity2label size 176
+0
+entity set etype size: 221
+entity2label size 176
+0
+entity set etype size: 213
+entity2label size 176
+0
+entity set etype size: 185
+entity2label size 176
+0
+entity set etype size: 204
+entity2label size 176
+0
+entity set etype size: 256
+entity2label size 176
+0
+entity set etype size: 260
+entity2label size 175
+0
+entity set etype size: 183
+entity2label size 175
+0
+entity set etype size: 176
+entity2label size 175
+0
+entity set etype size: 181
+entity2label size 175
+0
+entity set etype size: 188
+entity2label size 175
+0
+entity set etype size: 179
+entity2label size 175
+0
+entity set etype size: 183
+entity2label size 175
+0
+entity set etype size: 198
+entity2label size 175
+0
+entity set etype size: 246
+entity2label size 174
+0
+entity set etype size: 174
+entity2label size 174
+0
+entity set etype size: 182
+entity2label size 174
+0
+entity set etype size: 186
+entity2label size 174
+0
+entity set etype size: 175
+entity2label size 174
+0
+entity set etype size: 180
+entity2label size 174
+0
+entity set etype size: 430
+entity2label size 174
+0
+entity set etype size: 190
+entity2label size 174
+0
+entity set etype size: 174
+entity2label size 174
+0
+entity set etype size: 218
+entity2label size 173
+0
+entity set etype size: 181
+entity2label size 173
+0
+entity set etype size: 177
+entity2label size 173
+0
+entity set etype size: 177
+entity2label size 173
+0
+entity set etype size: 198
+entity2label size 173
+0

@@ -35,7 +35,7 @@ def dump_textdata_etype(target_etype):
                     qid = obj["qid"]
                     if qid not in entity2type_linked:
                         continue
-                    if entity2type_linked[qid] != target_etype:
+                    if target_etype not in entity2type_linked[qid]:
                         continue
                     fw.write(line)
 
@@ -54,7 +54,7 @@ def dump_textdata_etype_small(target_etype):
                     qid = obj["qid"]
                     if qid not in entity2type_linked:
                         continue
-                    if entity2type_linked[qid] != target_etype:
+                    if target_etype not in entity2type_linked[qid]:
                         continue
                     fw.write(line)
     fw.close()
@@ -63,35 +63,21 @@ def dump_textdata_etype_small(target_etype):
 
 
 def dump_textdata_all():
-    entity2type_data = pickle.load(open("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikidata_analysis/entity_rels/entity2type_textdata.pkl", 'rb'))
-    print("entity2type_data", len(entity2type_data))
-    def load_linked_entities():
-        entity2type_linked = {}
-        dir_linked = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/linked_v1/combined")
-        for split in ["AA", "AB"]:
-            for batch_file in (dir_linked / split).glob("wiki*"):
-                with open(batch_file) as f:
-                    for line in f:
-                        obj = json.loads(line)
-                        qid = obj["qid"]
-                        if qid in entity2type_data:
-                            entity2type_linked[qid] = entity2type_data[qid]
-        return entity2type_linked
-    entity2type_linked = load_linked_entities()
-    print("entity2type_linked", len(entity2type_linked))
-
-    
 
     etype_cnt = Counter()
-    for k,v in entity2type_linked.items():
-        etype_cnt[v] += 1
-
+    for k, types in entity2type_linked.items():
+        for t in types:
+            etype_cnt[t] += 1
+    print("Number of etype:", len(etype_cnt))
     for qid,freq in etype_cnt.most_common():
-        freq = int(freq)
-        if freq > 10000:
+        if freq > 391: # continue from etype_list_1228.txt
+            continue
+        print(qid, freq)
+        if freq > 500000:
             dump_textdata_etype(qid)
-        elif freq > 2:
+        elif freq >= 2:
             dump_textdata_etype_small(qid)
+
 
 
 dump_textdata_all()

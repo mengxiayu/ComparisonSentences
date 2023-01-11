@@ -1,0 +1,11 @@
+pid2datatype loaded. size: 9516
+pid2datatype loaded. size: 9516
+pid2alias loaded. size: 9516
+qid2alias loaded. size: 81878516
+Namespace(dir_etype='/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data_by_type', dir_output='/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/wiki_v1', target_etype=None)
+Traceback (most recent call last):
+  File "wiki_matching.py", line 196, in <module>
+    get_occurrence(args.target_etype, args.dir_output)
+  File "wiki_matching.py", line 43, in get_occurrence
+    assert target_etype is not None
+AssertionError
