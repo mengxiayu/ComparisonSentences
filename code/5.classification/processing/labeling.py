@@ -43,8 +43,8 @@ def load_positive_pairs(path):
 def label_etype(target_etype):
     dir_data = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/text_data_by_type/text_data_{target_etype}")
     dir_linked = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/wikipedia/linked_v1/combined")
-    path_matched = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news_v1/{target_etype}_matched.json")
-    dir_output = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/sentence_scoring/news_v1/{target_etype}/")
+    path_matched = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/wiki_v1/{target_etype}_matched.json")
+    dir_output = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/sentence_scoring/wiki_v1/{target_etype}/")
     
 
 
@@ -190,12 +190,12 @@ def label_etype(target_etype):
     print("labels written")
 
 def label_all():
-    dir_out = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/sentence_scoring/news_v1")
+    dir_out = Path("/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/sentence_scoring/wiki_v1")
     existing = set()
     for x in dir_out.glob("Q*"):
         existing.add(x.stem)
 
-    dir_matched = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/news_v1")
+    dir_matched = Path(f"/afs/crc.nd.edu/group/dmsquare/vol2/myu2/ComparisonSentences/data/statement_scoring/wiki_v1")
     for fn in dir_matched.glob("*matched.json"):
         etype = fn.stem.rstrip("_matched.json")
         print(etype)

@@ -48,13 +48,22 @@ for x in dir_data.glob("Q*"):
             # set two sliding windows
             texts_e1 = texts[e1]
             texts_e2 = texts[e2]
+            real_min_sent_e1 = obj["positive_labels"][0][0]
+            real_min_sent_e2 = obj["positive_labels"][0][1]
+            real_max_sent_e1 = obj["positive_labels"][-1][0]
+            real_min_sent_e2 = obj["positive_labels"][0][1]
             for i in range(int(len(texts_e1) / 10) + 1):
+                min_sent_e1 = i * 10
+                max_sent_e1 = min(min_sent_e1 + 10, len(texts_e1))
+                if max_sent_e1 < real_min_sent_e1 or min_sent_e1 > real_max_sent_e1:
+                    continue
                 for j in range(int(len(texts_e2) / 10) + 1):
-                    positive_labels = []
-                    min_sent_e1 = i * 10
-                    max_sent_e1 = min(min_sent_e1 + 10, len(texts_e1))
                     min_sent_e2 = j * 10
                     max_sent_e2 = min(min_sent_e2 + 10, len(texts_e2))
+                    if max_sent_e2 < real_min_sent_e2 or min_sent_e2 > real_max_sent_e2:
+                        continue
+                    positive_labels = []
+
                     
                     for sent_id1, sent_id2, statement_info in obj["positive_labels"]:
                         # if outside the text window, skip
